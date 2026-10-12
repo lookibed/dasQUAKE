@@ -17,8 +17,9 @@ def D_ViewChanged() {
     if (d_pix_min < 1) {
         d_pix_min = 1
     }
-    d_pix_max = int(double(float(int(uint(c2da_mem[5208]) | uint(c2da_mem[5209]) << 0x8 | uint(c2da_mem[5210]) << 0x10 | uint(c2da_mem[5211]) << 0x18))) / (320.0lf / 4.0lf) + 0.5lf)
-    d_pix_shift = 8 - int(double(float(int(uint(c2da_mem[5208]) | uint(c2da_mem[5209]) << 0x8 | uint(c2da_mem[5210]) << 0x10 | uint(c2da_mem[5211]) << 0x18))) / 320.0lf + 0.5lf)
+    let c2da_fresh0 : int = int(uint(c2da_mem[5208]) | uint(c2da_mem[5209]) << 0x8 | uint(c2da_mem[5210]) << 0x10 | uint(c2da_mem[5211]) << 0x18)
+    d_pix_max = int(double(float(c2da_fresh0)) / (320.0lf / 4.0lf) + 0.5lf)
+    d_pix_shift = 8 - int(double(float(c2da_fresh0)) / 320.0lf + 0.5lf)
     if (d_pix_max < 1) {
         d_pix_max = 1
     }

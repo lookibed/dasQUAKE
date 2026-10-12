@@ -21,7 +21,9 @@ def D_DrawNonSubdiv() {
         index0 = pfv + int(uint(c2da_mem[ptri + 4 + 0 * 4]) | uint(c2da_mem[ptri + 4 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[ptri + 4 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[ptri + 4 + 0 * 4 + 3]) << 0x18) * 32
         index1 = pfv + int(uint(c2da_mem[ptri + 4 + 1 * 4]) | uint(c2da_mem[ptri + 4 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[ptri + 4 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[ptri + 4 + 1 * 4 + 3]) << 0x18) * 32
         index2 = pfv + int(uint(c2da_mem[ptri + 4 + 2 * 4]) | uint(c2da_mem[ptri + 4 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[ptri + 4 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[ptri + 4 + 2 * 4 + 3]) << 0x18) * 32
-        d_xdenom = (int(uint(c2da_mem[index0 + 1 * 4]) | uint(c2da_mem[index0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index0 + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[index1 + 1 * 4]) | uint(c2da_mem[index1 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index1 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index1 + 1 * 4 + 3]) << 0x18)) * (int(uint(c2da_mem[index0 + 0 * 4]) | uint(c2da_mem[index0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index0 + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[index2 + 0 * 4]) | uint(c2da_mem[index2 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index2 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index2 + 0 * 4 + 3]) << 0x18)) - (int(uint(c2da_mem[index0 + 0 * 4]) | uint(c2da_mem[index0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index0 + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[index1 + 0 * 4]) | uint(c2da_mem[index1 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index1 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index1 + 0 * 4 + 3]) << 0x18)) * (int(uint(c2da_mem[index0 + 1 * 4]) | uint(c2da_mem[index0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index0 + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[index2 + 1 * 4]) | uint(c2da_mem[index2 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index2 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index2 + 1 * 4 + 3]) << 0x18))
+        let c2da_fresh42 : int = int(uint(c2da_mem[index0 + 1 * 4]) | uint(c2da_mem[index0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index0 + 1 * 4 + 3]) << 0x18)
+        let c2da_fresh43 : int = int(uint(c2da_mem[index0 + 0 * 4]) | uint(c2da_mem[index0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index0 + 0 * 4 + 3]) << 0x18)
+        d_xdenom = (c2da_fresh42 - int(uint(c2da_mem[index1 + 1 * 4]) | uint(c2da_mem[index1 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index1 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index1 + 1 * 4 + 3]) << 0x18)) * (c2da_fresh43 - int(uint(c2da_mem[index2 + 0 * 4]) | uint(c2da_mem[index2 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index2 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index2 + 0 * 4 + 3]) << 0x18)) - (c2da_fresh43 - int(uint(c2da_mem[index1 + 0 * 4]) | uint(c2da_mem[index1 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index1 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index1 + 0 * 4 + 3]) << 0x18)) * (c2da_fresh42 - int(uint(c2da_mem[index2 + 1 * 4]) | uint(c2da_mem[index2 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index2 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index2 + 1 * 4 + 3]) << 0x18))
         if (d_xdenom >= 0) {
             i++
             ptri += 16
@@ -189,86 +191,92 @@ def D_RasterizeAliasPolySmooth() {
     initialrightheight = int(uint(c2da_mem[prightbottom + 1 * 4]) | uint(c2da_mem[prightbottom + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[prightbottom + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[prightbottom + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[prighttop + 1 * 4]) | uint(c2da_mem[prighttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 1 * 4 + 3]) << 0x18)
     D_PolysetCalcGradients(r_affinetridesc.skinwidth)
     d_pedgespanpackage = int(a_spans)  // nolint:PERF020
-    ystart = int(uint(c2da_mem[plefttop + 1 * 4]) | uint(c2da_mem[plefttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 1 * 4 + 3]) << 0x18)
-    d_aspancount = int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[prighttop + 0 * 4]) | uint(c2da_mem[prighttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 0 * 4 + 3]) << 0x18)
-    d_ptex = r_affinetridesc.pskin + (int(uint(c2da_mem[plefttop + 2 * 4]) | uint(c2da_mem[plefttop + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 2 * 4 + 3]) << 0x18) >> 16) + (int(uint(c2da_mem[plefttop + 3 * 4]) | uint(c2da_mem[plefttop + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 3 * 4 + 3]) << 0x18) >> 16) * r_affinetridesc.skinwidth
-    d_sfrac = int(uint(c2da_mem[plefttop + 2 * 4]) | uint(c2da_mem[plefttop + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 2 * 4 + 3]) << 0x18) & 65535
-    d_tfrac = int(uint(c2da_mem[plefttop + 3 * 4]) | uint(c2da_mem[plefttop + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 3 * 4 + 3]) << 0x18) & 65535
+    let c2da_fresh65 : int = int(uint(c2da_mem[plefttop + 1 * 4]) | uint(c2da_mem[plefttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 1 * 4 + 3]) << 0x18)
+    ystart = c2da_fresh65
+    let c2da_fresh66 : int = int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18)
+    d_aspancount = c2da_fresh66 - int(uint(c2da_mem[prighttop + 0 * 4]) | uint(c2da_mem[prighttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 0 * 4 + 3]) << 0x18)
+    let c2da_fresh67 : int = int(uint(c2da_mem[plefttop + 2 * 4]) | uint(c2da_mem[plefttop + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 2 * 4 + 3]) << 0x18)
+    let c2da_fresh68 : int = int(uint(c2da_mem[plefttop + 3 * 4]) | uint(c2da_mem[plefttop + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 3 * 4 + 3]) << 0x18)
+    d_ptex = r_affinetridesc.pskin + (c2da_fresh67 >> 16) + (c2da_fresh68 >> 16) * r_affinetridesc.skinwidth
+    d_sfrac = c2da_fresh67 & 65535
+    d_tfrac = c2da_fresh68 & 65535
     d_light = int(uint(c2da_mem[plefttop + 4 * 4]) | uint(c2da_mem[plefttop + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 4 * 4 + 3]) << 0x18)
     d_zi = int(uint(c2da_mem[plefttop + 5 * 4]) | uint(c2da_mem[plefttop + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 5 * 4 + 3]) << 0x18)
-    d_pdest = d_viewbuffer + int(ystart * screenwidth) + int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18)
-    d_pz = d_pzbuffer + int(uint(ystart) * d_zwidth) * 2 + int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18) * 2
+    d_pdest = d_viewbuffer + int(ystart * screenwidth) + c2da_fresh66
+    d_pz = d_pzbuffer + int(uint(ystart) * d_zwidth) * 2 + c2da_fresh66 * 2
     if (initialleftheight == 1) {
-        let c2da_fresh42 : uint = uint(d_pdest)
-        c2da_mem[d_pedgespanpackage] = uint8(c2da_fresh42)
-        c2da_mem[d_pedgespanpackage + 1] = uint8(c2da_fresh42 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 2] = uint8(c2da_fresh42 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 3] = uint8(c2da_fresh42 >> 0x18)
+        let c2da_fresh44 : uint = uint(d_pdest)
+        c2da_mem[d_pedgespanpackage] = uint8(c2da_fresh44)
+        c2da_mem[d_pedgespanpackage + 1] = uint8(c2da_fresh44 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 2] = uint8(c2da_fresh44 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 3] = uint8(c2da_fresh44 >> 0x18)
         c2da_mem[d_pedgespanpackage + 4] = 0u8
         c2da_mem[d_pedgespanpackage + 5] = 0u8
         c2da_mem[d_pedgespanpackage + 6] = 0u8
         c2da_mem[d_pedgespanpackage + 7] = 0u8
-        let c2da_fresh43 : uint = uint(d_pz)
-        c2da_mem[d_pedgespanpackage + 8] = uint8(c2da_fresh43)
-        c2da_mem[d_pedgespanpackage + 9] = uint8(c2da_fresh43 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 10] = uint8(c2da_fresh43 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 11] = uint8(c2da_fresh43 >> 0x18)
+        let c2da_fresh45 : uint = uint(d_pz)
+        c2da_mem[d_pedgespanpackage + 8] = uint8(c2da_fresh45)
+        c2da_mem[d_pedgespanpackage + 9] = uint8(c2da_fresh45 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 10] = uint8(c2da_fresh45 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 11] = uint8(c2da_fresh45 >> 0x18)
         c2da_mem[d_pedgespanpackage + 12] = 0u8
         c2da_mem[d_pedgespanpackage + 13] = 0u8
         c2da_mem[d_pedgespanpackage + 14] = 0u8
         c2da_mem[d_pedgespanpackage + 15] = 0u8
-        let c2da_fresh44 : uint = uint(d_aspancount)
-        c2da_mem[d_pedgespanpackage + 16] = uint8(c2da_fresh44)
-        c2da_mem[d_pedgespanpackage + 17] = uint8(c2da_fresh44 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 18] = uint8(c2da_fresh44 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 19] = uint8(c2da_fresh44 >> 0x18)
-        let c2da_fresh45 : uint = uint(d_ptex)
-        c2da_mem[d_pedgespanpackage + 24] = uint8(c2da_fresh45)
-        c2da_mem[d_pedgespanpackage + 25] = uint8(c2da_fresh45 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 26] = uint8(c2da_fresh45 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 27] = uint8(c2da_fresh45 >> 0x18)
+        let c2da_fresh46 : uint = uint(d_aspancount)
+        c2da_mem[d_pedgespanpackage + 16] = uint8(c2da_fresh46)
+        c2da_mem[d_pedgespanpackage + 17] = uint8(c2da_fresh46 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 18] = uint8(c2da_fresh46 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 19] = uint8(c2da_fresh46 >> 0x18)
+        let c2da_fresh47 : uint = uint(d_ptex)
+        c2da_mem[d_pedgespanpackage + 24] = uint8(c2da_fresh47)
+        c2da_mem[d_pedgespanpackage + 25] = uint8(c2da_fresh47 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 26] = uint8(c2da_fresh47 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 27] = uint8(c2da_fresh47 >> 0x18)
         c2da_mem[d_pedgespanpackage + 28] = 0u8
         c2da_mem[d_pedgespanpackage + 29] = 0u8
         c2da_mem[d_pedgespanpackage + 30] = 0u8
         c2da_mem[d_pedgespanpackage + 31] = 0u8
-        let c2da_fresh46 : uint = uint(d_sfrac)
-        c2da_mem[d_pedgespanpackage + 32] = uint8(c2da_fresh46)
-        c2da_mem[d_pedgespanpackage + 33] = uint8(c2da_fresh46 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 34] = uint8(c2da_fresh46 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 35] = uint8(c2da_fresh46 >> 0x18)
-        let c2da_fresh47 : uint = uint(d_tfrac)
-        c2da_mem[d_pedgespanpackage + 36] = uint8(c2da_fresh47)
-        c2da_mem[d_pedgespanpackage + 37] = uint8(c2da_fresh47 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 38] = uint8(c2da_fresh47 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 39] = uint8(c2da_fresh47 >> 0x18)
-        let c2da_fresh48 : uint = uint(d_light)
-        c2da_mem[d_pedgespanpackage + 40] = uint8(c2da_fresh48)
-        c2da_mem[d_pedgespanpackage + 41] = uint8(c2da_fresh48 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 42] = uint8(c2da_fresh48 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 43] = uint8(c2da_fresh48 >> 0x18)
-        let c2da_fresh49 : uint = uint(d_zi)
-        c2da_mem[d_pedgespanpackage + 44] = uint8(c2da_fresh49)
-        c2da_mem[d_pedgespanpackage + 45] = uint8(c2da_fresh49 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 46] = uint8(c2da_fresh49 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 47] = uint8(c2da_fresh49 >> 0x18)
+        let c2da_fresh48 : uint = uint(d_sfrac)
+        c2da_mem[d_pedgespanpackage + 32] = uint8(c2da_fresh48)
+        c2da_mem[d_pedgespanpackage + 33] = uint8(c2da_fresh48 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 34] = uint8(c2da_fresh48 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 35] = uint8(c2da_fresh48 >> 0x18)
+        let c2da_fresh49 : uint = uint(d_tfrac)
+        c2da_mem[d_pedgespanpackage + 36] = uint8(c2da_fresh49)
+        c2da_mem[d_pedgespanpackage + 37] = uint8(c2da_fresh49 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 38] = uint8(c2da_fresh49 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 39] = uint8(c2da_fresh49 >> 0x18)
+        let c2da_fresh50 : uint = uint(d_light)
+        c2da_mem[d_pedgespanpackage + 40] = uint8(c2da_fresh50)
+        c2da_mem[d_pedgespanpackage + 41] = uint8(c2da_fresh50 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 42] = uint8(c2da_fresh50 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 43] = uint8(c2da_fresh50 >> 0x18)
+        let c2da_fresh51 : uint = uint(d_zi)
+        c2da_mem[d_pedgespanpackage + 44] = uint8(c2da_fresh51)
+        c2da_mem[d_pedgespanpackage + 45] = uint8(c2da_fresh51 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 46] = uint8(c2da_fresh51 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 47] = uint8(c2da_fresh51 >> 0x18)
         d_pedgespanpackage += 48
     } else {
         D_PolysetSetUpForLineScan(int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18), int(uint(c2da_mem[plefttop + 1 * 4]) | uint(c2da_mem[plefttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 1 * 4 + 3]) << 0x18), int(uint(c2da_mem[pleftbottom + 0 * 4]) | uint(c2da_mem[pleftbottom + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[pleftbottom + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[pleftbottom + 0 * 4 + 3]) << 0x18), int(uint(c2da_mem[pleftbottom + 1 * 4]) | uint(c2da_mem[pleftbottom + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[pleftbottom + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[pleftbottom + 1 * 4 + 3]) << 0x18))
-        d_pzbasestep = int(d_zwidth + uint(int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)))
+        let c2da_fresh69 : int = int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
+        d_pzbasestep = int(d_zwidth + uint(c2da_fresh69))
         d_pzextrastep = d_pzbasestep + 1
-        d_pdestbasestep = screenwidth + int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
+        d_pdestbasestep = screenwidth + c2da_fresh69
         d_pdestextrastep = d_pdestbasestep + 1
-        if (int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) < 0) {
+        if (c2da_fresh69 < 0) {
             working_lstepx = r_lstepx - 1
         } else {
             working_lstepx = r_lstepx
         }
-        d_countextrastep = int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) + 1
-        d_ptexbasestep = (r_sstepy + r_sstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) >> 16) + (r_tstepy + r_tstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) >> 16) * r_affinetridesc.skinwidth
-        d_sfracbasestep = r_sstepy + r_sstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) & 65535
-        d_tfracbasestep = r_tstepy + r_tstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) & 65535
-        d_lightbasestep = r_lstepy + working_lstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
-        d_zibasestep = r_zistepy + r_zistepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
+        let c2da_fresh70 : int = int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
+        d_countextrastep = c2da_fresh70 + 1
+        d_ptexbasestep = (r_sstepy + r_sstepx * c2da_fresh70 >> 16) + (r_tstepy + r_tstepx * c2da_fresh70 >> 16) * r_affinetridesc.skinwidth
+        d_sfracbasestep = r_sstepy + r_sstepx * c2da_fresh70 & 65535
+        d_tfracbasestep = r_tstepy + r_tstepx * c2da_fresh70 & 65535
+        d_lightbasestep = r_lstepy + working_lstepx * c2da_fresh70
+        d_zibasestep = r_zistepy + r_zistepx * c2da_fresh70
         d_ptexextrastep = (r_sstepy + r_sstepx * d_countextrastep >> 16) + (r_tstepy + r_tstepx * d_countextrastep >> 16) * r_affinetridesc.skinwidth
         d_sfracextrastep = r_sstepy + r_sstepx * d_countextrastep & 65535
         d_tfracextrastep = r_tstepy + r_tstepx * d_countextrastep & 65535
@@ -279,87 +287,92 @@ def D_RasterizeAliasPolySmooth() {
     if (int(uint(c2da_mem[pedgetable + 4]) | uint(c2da_mem[pedgetable + 5]) << 0x8 | uint(c2da_mem[pedgetable + 6]) << 0x10 | uint(c2da_mem[pedgetable + 7]) << 0x18) == 2) {
         plefttop = pleftbottom
         pleftbottom = int(uint(c2da_mem[pedgetable + 24]) | uint(c2da_mem[pedgetable + 25]) << 0x8 | uint(c2da_mem[pedgetable + 26]) << 0x10 | uint(c2da_mem[pedgetable + 27]) << 0x18)
-        height = int(uint(c2da_mem[pleftbottom + 1 * 4]) | uint(c2da_mem[pleftbottom + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[pleftbottom + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[pleftbottom + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[plefttop + 1 * 4]) | uint(c2da_mem[plefttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 1 * 4 + 3]) << 0x18)
-        ystart = int(uint(c2da_mem[plefttop + 1 * 4]) | uint(c2da_mem[plefttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 1 * 4 + 3]) << 0x18)
-        d_aspancount = int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[prighttop + 0 * 4]) | uint(c2da_mem[prighttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 0 * 4 + 3]) << 0x18)
+        let c2da_fresh71 : int = int(uint(c2da_mem[pleftbottom + 1 * 4]) | uint(c2da_mem[pleftbottom + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[pleftbottom + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[pleftbottom + 1 * 4 + 3]) << 0x18)
+        let c2da_fresh72 : int = int(uint(c2da_mem[plefttop + 1 * 4]) | uint(c2da_mem[plefttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 1 * 4 + 3]) << 0x18)
+        height = c2da_fresh71 - c2da_fresh72
+        ystart = c2da_fresh72
+        let c2da_fresh73 : int = int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18)
+        d_aspancount = c2da_fresh73 - int(uint(c2da_mem[prighttop + 0 * 4]) | uint(c2da_mem[prighttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 0 * 4 + 3]) << 0x18)
         d_ptex = r_affinetridesc.pskin + (int(uint(c2da_mem[plefttop + 2 * 4]) | uint(c2da_mem[plefttop + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 2 * 4 + 3]) << 0x18) >> 16) + (int(uint(c2da_mem[plefttop + 3 * 4]) | uint(c2da_mem[plefttop + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 3 * 4 + 3]) << 0x18) >> 16) * r_affinetridesc.skinwidth
         d_sfrac = 0
         d_tfrac = 0
         d_light = int(uint(c2da_mem[plefttop + 4 * 4]) | uint(c2da_mem[plefttop + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 4 * 4 + 3]) << 0x18)
         d_zi = int(uint(c2da_mem[plefttop + 5 * 4]) | uint(c2da_mem[plefttop + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 5 * 4 + 3]) << 0x18)
-        d_pdest = d_viewbuffer + int(ystart * screenwidth) + int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18)
-        d_pz = d_pzbuffer + int(uint(ystart) * d_zwidth) * 2 + int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18) * 2
+        d_pdest = d_viewbuffer + int(ystart * screenwidth) + c2da_fresh73
+        d_pz = d_pzbuffer + int(uint(ystart) * d_zwidth) * 2 + c2da_fresh73 * 2
         if (height == 1) {
-            let c2da_fresh50 : uint = uint(d_pdest)
-            c2da_mem[d_pedgespanpackage] = uint8(c2da_fresh50)
-            c2da_mem[d_pedgespanpackage + 1] = uint8(c2da_fresh50 >> 0x8)
-            c2da_mem[d_pedgespanpackage + 2] = uint8(c2da_fresh50 >> 0x10)
-            c2da_mem[d_pedgespanpackage + 3] = uint8(c2da_fresh50 >> 0x18)
+            let c2da_fresh52 : uint = uint(d_pdest)
+            c2da_mem[d_pedgespanpackage] = uint8(c2da_fresh52)
+            c2da_mem[d_pedgespanpackage + 1] = uint8(c2da_fresh52 >> 0x8)
+            c2da_mem[d_pedgespanpackage + 2] = uint8(c2da_fresh52 >> 0x10)
+            c2da_mem[d_pedgespanpackage + 3] = uint8(c2da_fresh52 >> 0x18)
             c2da_mem[d_pedgespanpackage + 4] = 0u8
             c2da_mem[d_pedgespanpackage + 5] = 0u8
             c2da_mem[d_pedgespanpackage + 6] = 0u8
             c2da_mem[d_pedgespanpackage + 7] = 0u8
-            let c2da_fresh51 : uint = uint(d_pz)
-            c2da_mem[d_pedgespanpackage + 8] = uint8(c2da_fresh51)
-            c2da_mem[d_pedgespanpackage + 9] = uint8(c2da_fresh51 >> 0x8)
-            c2da_mem[d_pedgespanpackage + 10] = uint8(c2da_fresh51 >> 0x10)
-            c2da_mem[d_pedgespanpackage + 11] = uint8(c2da_fresh51 >> 0x18)
+            let c2da_fresh53 : uint = uint(d_pz)
+            c2da_mem[d_pedgespanpackage + 8] = uint8(c2da_fresh53)
+            c2da_mem[d_pedgespanpackage + 9] = uint8(c2da_fresh53 >> 0x8)
+            c2da_mem[d_pedgespanpackage + 10] = uint8(c2da_fresh53 >> 0x10)
+            c2da_mem[d_pedgespanpackage + 11] = uint8(c2da_fresh53 >> 0x18)
             c2da_mem[d_pedgespanpackage + 12] = 0u8
             c2da_mem[d_pedgespanpackage + 13] = 0u8
             c2da_mem[d_pedgespanpackage + 14] = 0u8
             c2da_mem[d_pedgespanpackage + 15] = 0u8
-            let c2da_fresh52 : uint = uint(d_aspancount)
-            c2da_mem[d_pedgespanpackage + 16] = uint8(c2da_fresh52)
-            c2da_mem[d_pedgespanpackage + 17] = uint8(c2da_fresh52 >> 0x8)
-            c2da_mem[d_pedgespanpackage + 18] = uint8(c2da_fresh52 >> 0x10)
-            c2da_mem[d_pedgespanpackage + 19] = uint8(c2da_fresh52 >> 0x18)
-            let c2da_fresh53 : uint = uint(d_ptex)
-            c2da_mem[d_pedgespanpackage + 24] = uint8(c2da_fresh53)
-            c2da_mem[d_pedgespanpackage + 25] = uint8(c2da_fresh53 >> 0x8)
-            c2da_mem[d_pedgespanpackage + 26] = uint8(c2da_fresh53 >> 0x10)
-            c2da_mem[d_pedgespanpackage + 27] = uint8(c2da_fresh53 >> 0x18)
+            let c2da_fresh54 : uint = uint(d_aspancount)
+            c2da_mem[d_pedgespanpackage + 16] = uint8(c2da_fresh54)
+            c2da_mem[d_pedgespanpackage + 17] = uint8(c2da_fresh54 >> 0x8)
+            c2da_mem[d_pedgespanpackage + 18] = uint8(c2da_fresh54 >> 0x10)
+            c2da_mem[d_pedgespanpackage + 19] = uint8(c2da_fresh54 >> 0x18)
+            let c2da_fresh55 : uint = uint(d_ptex)
+            c2da_mem[d_pedgespanpackage + 24] = uint8(c2da_fresh55)
+            c2da_mem[d_pedgespanpackage + 25] = uint8(c2da_fresh55 >> 0x8)
+            c2da_mem[d_pedgespanpackage + 26] = uint8(c2da_fresh55 >> 0x10)
+            c2da_mem[d_pedgespanpackage + 27] = uint8(c2da_fresh55 >> 0x18)
             c2da_mem[d_pedgespanpackage + 28] = 0u8
             c2da_mem[d_pedgespanpackage + 29] = 0u8
             c2da_mem[d_pedgespanpackage + 30] = 0u8
             c2da_mem[d_pedgespanpackage + 31] = 0u8
-            let c2da_fresh54 : uint = uint(d_sfrac)
-            c2da_mem[d_pedgespanpackage + 32] = uint8(c2da_fresh54)
-            c2da_mem[d_pedgespanpackage + 33] = uint8(c2da_fresh54 >> 0x8)
-            c2da_mem[d_pedgespanpackage + 34] = uint8(c2da_fresh54 >> 0x10)
-            c2da_mem[d_pedgespanpackage + 35] = uint8(c2da_fresh54 >> 0x18)
-            let c2da_fresh55 : uint = uint(d_tfrac)
-            c2da_mem[d_pedgespanpackage + 36] = uint8(c2da_fresh55)
-            c2da_mem[d_pedgespanpackage + 37] = uint8(c2da_fresh55 >> 0x8)
-            c2da_mem[d_pedgespanpackage + 38] = uint8(c2da_fresh55 >> 0x10)
-            c2da_mem[d_pedgespanpackage + 39] = uint8(c2da_fresh55 >> 0x18)
-            let c2da_fresh56 : uint = uint(d_light)
-            c2da_mem[d_pedgespanpackage + 40] = uint8(c2da_fresh56)
-            c2da_mem[d_pedgespanpackage + 41] = uint8(c2da_fresh56 >> 0x8)
-            c2da_mem[d_pedgespanpackage + 42] = uint8(c2da_fresh56 >> 0x10)
-            c2da_mem[d_pedgespanpackage + 43] = uint8(c2da_fresh56 >> 0x18)
-            let c2da_fresh57 : uint = uint(d_zi)
-            c2da_mem[d_pedgespanpackage + 44] = uint8(c2da_fresh57)
-            c2da_mem[d_pedgespanpackage + 45] = uint8(c2da_fresh57 >> 0x8)
-            c2da_mem[d_pedgespanpackage + 46] = uint8(c2da_fresh57 >> 0x10)
-            c2da_mem[d_pedgespanpackage + 47] = uint8(c2da_fresh57 >> 0x18)
+            let c2da_fresh56 : uint = uint(d_sfrac)
+            c2da_mem[d_pedgespanpackage + 32] = uint8(c2da_fresh56)
+            c2da_mem[d_pedgespanpackage + 33] = uint8(c2da_fresh56 >> 0x8)
+            c2da_mem[d_pedgespanpackage + 34] = uint8(c2da_fresh56 >> 0x10)
+            c2da_mem[d_pedgespanpackage + 35] = uint8(c2da_fresh56 >> 0x18)
+            let c2da_fresh57 : uint = uint(d_tfrac)
+            c2da_mem[d_pedgespanpackage + 36] = uint8(c2da_fresh57)
+            c2da_mem[d_pedgespanpackage + 37] = uint8(c2da_fresh57 >> 0x8)
+            c2da_mem[d_pedgespanpackage + 38] = uint8(c2da_fresh57 >> 0x10)
+            c2da_mem[d_pedgespanpackage + 39] = uint8(c2da_fresh57 >> 0x18)
+            let c2da_fresh58 : uint = uint(d_light)
+            c2da_mem[d_pedgespanpackage + 40] = uint8(c2da_fresh58)
+            c2da_mem[d_pedgespanpackage + 41] = uint8(c2da_fresh58 >> 0x8)
+            c2da_mem[d_pedgespanpackage + 42] = uint8(c2da_fresh58 >> 0x10)
+            c2da_mem[d_pedgespanpackage + 43] = uint8(c2da_fresh58 >> 0x18)
+            let c2da_fresh59 : uint = uint(d_zi)
+            c2da_mem[d_pedgespanpackage + 44] = uint8(c2da_fresh59)
+            c2da_mem[d_pedgespanpackage + 45] = uint8(c2da_fresh59 >> 0x8)
+            c2da_mem[d_pedgespanpackage + 46] = uint8(c2da_fresh59 >> 0x10)
+            c2da_mem[d_pedgespanpackage + 47] = uint8(c2da_fresh59 >> 0x18)
             d_pedgespanpackage += 48
         } else {
             D_PolysetSetUpForLineScan(int(uint(c2da_mem[plefttop + 0 * 4]) | uint(c2da_mem[plefttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 0 * 4 + 3]) << 0x18), int(uint(c2da_mem[plefttop + 1 * 4]) | uint(c2da_mem[plefttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plefttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plefttop + 1 * 4 + 3]) << 0x18), int(uint(c2da_mem[pleftbottom + 0 * 4]) | uint(c2da_mem[pleftbottom + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[pleftbottom + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[pleftbottom + 0 * 4 + 3]) << 0x18), int(uint(c2da_mem[pleftbottom + 1 * 4]) | uint(c2da_mem[pleftbottom + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[pleftbottom + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[pleftbottom + 1 * 4 + 3]) << 0x18))
-            d_pdestbasestep = screenwidth + int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
+            let c2da_fresh74 : int = int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
+            d_pdestbasestep = screenwidth + c2da_fresh74
             d_pdestextrastep = d_pdestbasestep + 1
-            d_pzbasestep = int(d_zwidth + uint(int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)))
+            d_pzbasestep = int(d_zwidth + uint(c2da_fresh74))
             d_pzextrastep = d_pzbasestep + 1
-            if (int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) < 0) {
+            if (c2da_fresh74 < 0) {
                 working_lstepx = r_lstepx - 1
             } else {
                 working_lstepx = r_lstepx
             }
-            d_countextrastep = int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) + 1
-            d_ptexbasestep = (r_sstepy + r_sstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) >> 16) + (r_tstepy + r_tstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) >> 16) * r_affinetridesc.skinwidth
-            d_sfracbasestep = r_sstepy + r_sstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) & 65535
-            d_tfracbasestep = r_tstepy + r_tstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) & 65535
-            d_lightbasestep = r_lstepy + working_lstepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
-            d_zibasestep = r_zistepy + r_zistepx * int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
+            let c2da_fresh75 : int = int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18)
+            d_countextrastep = c2da_fresh75 + 1
+            d_ptexbasestep = (r_sstepy + r_sstepx * c2da_fresh75 >> 16) + (r_tstepy + r_tstepx * c2da_fresh75 >> 16) * r_affinetridesc.skinwidth
+            d_sfracbasestep = r_sstepy + r_sstepx * c2da_fresh75 & 65535
+            d_tfracbasestep = r_tstepy + r_tstepx * c2da_fresh75 & 65535
+            d_lightbasestep = r_lstepy + working_lstepx * c2da_fresh75
+            d_zibasestep = r_zistepy + r_zistepx * c2da_fresh75
             d_ptexextrastep = (r_sstepy + r_sstepx * d_countextrastep >> 16) + (r_tstepy + r_tstepx * d_countextrastep >> 16) * r_affinetridesc.skinwidth
             d_sfracextrastep = r_sstepy + r_sstepx * d_countextrastep & 65535
             d_tfracextrastep = r_tstepy + r_tstepx * d_countextrastep & 65535
@@ -373,32 +386,32 @@ def D_RasterizeAliasPolySmooth() {
     d_aspancount = 0
     d_countextrastep = int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) + 1
     originalcount = int(uint(c2da_mem[a_spans + initialrightheight * 48 + 16]) | uint(c2da_mem[a_spans + initialrightheight * 48 + 17]) << 0x8 | uint(c2da_mem[a_spans + initialrightheight * 48 + 18]) << 0x10 | uint(c2da_mem[a_spans + initialrightheight * 48 + 19]) << 0x18)
-    let c2da_fresh58 : int = -999999
-    let c2da_fresh59 : uint = uint(c2da_fresh58)
-    c2da_mem[a_spans + initialrightheight * 48 + 16] = uint8(c2da_fresh59)
-    c2da_mem[a_spans + initialrightheight * 48 + 17] = uint8(c2da_fresh59 >> 0x8)
-    c2da_mem[a_spans + initialrightheight * 48 + 18] = uint8(c2da_fresh59 >> 0x10)
-    c2da_mem[a_spans + initialrightheight * 48 + 19] = uint8(c2da_fresh59 >> 0x18)
+    let c2da_fresh60 : int = -999999
+    let c2da_fresh61 : uint = uint(c2da_fresh60)
+    c2da_mem[a_spans + initialrightheight * 48 + 16] = uint8(c2da_fresh61)
+    c2da_mem[a_spans + initialrightheight * 48 + 17] = uint8(c2da_fresh61 >> 0x8)
+    c2da_mem[a_spans + initialrightheight * 48 + 18] = uint8(c2da_fresh61 >> 0x10)
+    c2da_mem[a_spans + initialrightheight * 48 + 19] = uint8(c2da_fresh61 >> 0x18)
     D_PolysetDrawSpans8(a_spans)
     if (int(uint(c2da_mem[pedgetable + 32]) | uint(c2da_mem[pedgetable + 33]) << 0x8 | uint(c2da_mem[pedgetable + 34]) << 0x10 | uint(c2da_mem[pedgetable + 35]) << 0x18) == 2) {
         pstart = a_spans + initialrightheight * 48
-        let c2da_fresh60 : uint = uint(originalcount)
-        c2da_mem[pstart + 16] = uint8(c2da_fresh60)
-        c2da_mem[pstart + 17] = uint8(c2da_fresh60 >> 0x8)
-        c2da_mem[pstart + 18] = uint8(c2da_fresh60 >> 0x10)
-        c2da_mem[pstart + 19] = uint8(c2da_fresh60 >> 0x18)
+        let c2da_fresh62 : uint = uint(originalcount)
+        c2da_mem[pstart + 16] = uint8(c2da_fresh62)
+        c2da_mem[pstart + 17] = uint8(c2da_fresh62 >> 0x8)
+        c2da_mem[pstart + 18] = uint8(c2da_fresh62 >> 0x10)
+        c2da_mem[pstart + 19] = uint8(c2da_fresh62 >> 0x18)
         d_aspancount = int(uint(c2da_mem[prightbottom + 0 * 4]) | uint(c2da_mem[prightbottom + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[prightbottom + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[prightbottom + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[prighttop + 0 * 4]) | uint(c2da_mem[prighttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 0 * 4 + 3]) << 0x18)
         prighttop = prightbottom
         prightbottom = int(uint(c2da_mem[pedgetable + 56]) | uint(c2da_mem[pedgetable + 57]) << 0x8 | uint(c2da_mem[pedgetable + 58]) << 0x10 | uint(c2da_mem[pedgetable + 59]) << 0x18)
         height_0 = int(uint(c2da_mem[prightbottom + 1 * 4]) | uint(c2da_mem[prightbottom + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[prightbottom + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[prightbottom + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[prighttop + 1 * 4]) | uint(c2da_mem[prighttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 1 * 4 + 3]) << 0x18)
         D_PolysetSetUpForLineScan(int(uint(c2da_mem[prighttop + 0 * 4]) | uint(c2da_mem[prighttop + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 0 * 4 + 3]) << 0x18), int(uint(c2da_mem[prighttop + 1 * 4]) | uint(c2da_mem[prighttop + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[prighttop + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[prighttop + 1 * 4 + 3]) << 0x18), int(uint(c2da_mem[prightbottom + 0 * 4]) | uint(c2da_mem[prightbottom + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[prightbottom + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[prightbottom + 0 * 4 + 3]) << 0x18), int(uint(c2da_mem[prightbottom + 1 * 4]) | uint(c2da_mem[prightbottom + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[prightbottom + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[prightbottom + 1 * 4 + 3]) << 0x18))
         d_countextrastep = int(uint(c2da_mem[204416]) | uint(c2da_mem[204417]) << 0x8 | uint(c2da_mem[204418]) << 0x10 | uint(c2da_mem[204419]) << 0x18) + 1
-        let c2da_fresh61 : int = -999999
-        let c2da_fresh62 : uint = uint(c2da_fresh61)
-        c2da_mem[a_spans + (initialrightheight + height_0) * 48 + 16] = uint8(c2da_fresh62)
-        c2da_mem[a_spans + (initialrightheight + height_0) * 48 + 17] = uint8(c2da_fresh62 >> 0x8)
-        c2da_mem[a_spans + (initialrightheight + height_0) * 48 + 18] = uint8(c2da_fresh62 >> 0x10)
-        c2da_mem[a_spans + (initialrightheight + height_0) * 48 + 19] = uint8(c2da_fresh62 >> 0x18)
+        let c2da_fresh63 : int = -999999
+        let c2da_fresh64 : uint = uint(c2da_fresh63)
+        c2da_mem[a_spans + (initialrightheight + height_0) * 48 + 16] = uint8(c2da_fresh64)
+        c2da_mem[a_spans + (initialrightheight + height_0) * 48 + 17] = uint8(c2da_fresh64 >> 0x8)
+        c2da_mem[a_spans + (initialrightheight + height_0) * 48 + 18] = uint8(c2da_fresh64 >> 0x10)
+        c2da_mem[a_spans + (initialrightheight + height_0) * 48 + 19] = uint8(c2da_fresh64 >> 0x18)
         D_PolysetDrawSpans8(pstart)
     }
     return
@@ -432,13 +445,13 @@ def D_PolysetDrawSpans8(var pspanpackage : int) {
             lzi = int(uint(c2da_mem[pspanpackage + 44]) | uint(c2da_mem[pspanpackage + 45]) << 0x8 | uint(c2da_mem[pspanpackage + 46]) << 0x10 | uint(c2da_mem[pspanpackage + 47]) << 0x18)
             while (true) {
                 if (lzi >> 16 >= int(int16(uint(c2da_mem[lpz]) | uint(c2da_mem[lpz + 1]) << 0x8))) {
-                    let c2da_fresh63 : int = acolormap + (int(c2da_mem[lptex]) + (llight & 65280))
-                    let c2da_fresh64 : uint8 = c2da_mem[c2da_fresh63]
-                    c2da_mem[lpdest] = c2da_fresh64
-                    let c2da_fresh65 : int16 = int16(lzi >> 16)
-                    let c2da_fresh66 : uint = uint(c2da_fresh65)
-                    c2da_mem[lpz] = uint8(c2da_fresh66)
-                    c2da_mem[lpz + 1] = uint8(c2da_fresh66 >> 0x8)
+                    let c2da_fresh76 : int = acolormap + (int(c2da_mem[lptex]) + (llight & 65280))
+                    let c2da_fresh77 : uint8 = c2da_mem[c2da_fresh76]
+                    c2da_mem[lpdest] = c2da_fresh77
+                    let c2da_fresh78 : int16 = int16(lzi >> 16)
+                    let c2da_fresh79 : uint = uint(c2da_fresh78)
+                    c2da_mem[lpz] = uint8(c2da_fresh79)
+                    c2da_mem[lpz + 1] = uint8(c2da_fresh79 >> 0x8)
                 }
                 lpdest++
                 lzi += r_zistepx
@@ -493,18 +506,18 @@ def D_PolysetSetUpForLineScan(var startvertu : int; var startvertv : int; var en
     tn = endvertv - startvertv
     if (tm <= 16 && tm >= -15 && (tn <= 16 && tn >= -15)) {
         ptemp = 707024 + ((tm + 15 << 5) + (tn + 15)) * 8
-        let c2da_fresh67 : int = int(uint(c2da_mem[ptemp]) | uint(c2da_mem[ptemp + 1]) << 0x8 | uint(c2da_mem[ptemp + 2]) << 0x10 | uint(c2da_mem[ptemp + 3]) << 0x18)
-        let c2da_fresh68 : uint = uint(c2da_fresh67)
-        c2da_mem[204416] = uint8(c2da_fresh68)
-        c2da_mem[204417] = uint8(c2da_fresh68 >> 0x8)
-        c2da_mem[204418] = uint8(c2da_fresh68 >> 0x10)
-        c2da_mem[204419] = uint8(c2da_fresh68 >> 0x18)
-        let c2da_fresh69 : int = int(uint(c2da_mem[ptemp + 4]) | uint(c2da_mem[ptemp + 5]) << 0x8 | uint(c2da_mem[ptemp + 6]) << 0x10 | uint(c2da_mem[ptemp + 7]) << 0x18)
-        let c2da_fresh70 : uint = uint(c2da_fresh69)
-        c2da_mem[204432] = uint8(c2da_fresh70)
-        c2da_mem[204433] = uint8(c2da_fresh70 >> 0x8)
-        c2da_mem[204434] = uint8(c2da_fresh70 >> 0x10)
-        c2da_mem[204435] = uint8(c2da_fresh70 >> 0x18)
+        let c2da_fresh80 : int = int(uint(c2da_mem[ptemp]) | uint(c2da_mem[ptemp + 1]) << 0x8 | uint(c2da_mem[ptemp + 2]) << 0x10 | uint(c2da_mem[ptemp + 3]) << 0x18)
+        let c2da_fresh81 : uint = uint(c2da_fresh80)
+        c2da_mem[204416] = uint8(c2da_fresh81)
+        c2da_mem[204417] = uint8(c2da_fresh81 >> 0x8)
+        c2da_mem[204418] = uint8(c2da_fresh81 >> 0x10)
+        c2da_mem[204419] = uint8(c2da_fresh81 >> 0x18)
+        let c2da_fresh82 : int = int(uint(c2da_mem[ptemp + 4]) | uint(c2da_mem[ptemp + 5]) << 0x8 | uint(c2da_mem[ptemp + 6]) << 0x10 | uint(c2da_mem[ptemp + 7]) << 0x18)
+        let c2da_fresh83 : uint = uint(c2da_fresh82)
+        c2da_mem[204432] = uint8(c2da_fresh83)
+        c2da_mem[204433] = uint8(c2da_fresh83 >> 0x8)
+        c2da_mem[204434] = uint8(c2da_fresh83 >> 0x10)
+        c2da_mem[204435] = uint8(c2da_fresh83 >> 0x18)
         erroradjustdown = tn
     } else {
         dn = double(tn)
@@ -520,58 +533,58 @@ var d_pedgespanpackage : int = default<int>
 [export, sideeffects]
 def D_PolysetScanLeftEdge(var height_1 : int) {
     while (true) {
-        let c2da_fresh71 : uint = uint(d_pdest)
-        c2da_mem[d_pedgespanpackage] = uint8(c2da_fresh71)
-        c2da_mem[d_pedgespanpackage + 1] = uint8(c2da_fresh71 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 2] = uint8(c2da_fresh71 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 3] = uint8(c2da_fresh71 >> 0x18)
+        let c2da_fresh84 : uint = uint(d_pdest)
+        c2da_mem[d_pedgespanpackage] = uint8(c2da_fresh84)
+        c2da_mem[d_pedgespanpackage + 1] = uint8(c2da_fresh84 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 2] = uint8(c2da_fresh84 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 3] = uint8(c2da_fresh84 >> 0x18)
         c2da_mem[d_pedgespanpackage + 4] = 0u8
         c2da_mem[d_pedgespanpackage + 5] = 0u8
         c2da_mem[d_pedgespanpackage + 6] = 0u8
         c2da_mem[d_pedgespanpackage + 7] = 0u8
-        let c2da_fresh72 : uint = uint(d_pz)
-        c2da_mem[d_pedgespanpackage + 8] = uint8(c2da_fresh72)
-        c2da_mem[d_pedgespanpackage + 9] = uint8(c2da_fresh72 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 10] = uint8(c2da_fresh72 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 11] = uint8(c2da_fresh72 >> 0x18)
+        let c2da_fresh85 : uint = uint(d_pz)
+        c2da_mem[d_pedgespanpackage + 8] = uint8(c2da_fresh85)
+        c2da_mem[d_pedgespanpackage + 9] = uint8(c2da_fresh85 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 10] = uint8(c2da_fresh85 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 11] = uint8(c2da_fresh85 >> 0x18)
         c2da_mem[d_pedgespanpackage + 12] = 0u8
         c2da_mem[d_pedgespanpackage + 13] = 0u8
         c2da_mem[d_pedgespanpackage + 14] = 0u8
         c2da_mem[d_pedgespanpackage + 15] = 0u8
-        let c2da_fresh73 : uint = uint(d_aspancount)
-        c2da_mem[d_pedgespanpackage + 16] = uint8(c2da_fresh73)
-        c2da_mem[d_pedgespanpackage + 17] = uint8(c2da_fresh73 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 18] = uint8(c2da_fresh73 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 19] = uint8(c2da_fresh73 >> 0x18)
-        let c2da_fresh74 : uint = uint(d_ptex)
-        c2da_mem[d_pedgespanpackage + 24] = uint8(c2da_fresh74)
-        c2da_mem[d_pedgespanpackage + 25] = uint8(c2da_fresh74 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 26] = uint8(c2da_fresh74 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 27] = uint8(c2da_fresh74 >> 0x18)
+        let c2da_fresh86 : uint = uint(d_aspancount)
+        c2da_mem[d_pedgespanpackage + 16] = uint8(c2da_fresh86)
+        c2da_mem[d_pedgespanpackage + 17] = uint8(c2da_fresh86 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 18] = uint8(c2da_fresh86 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 19] = uint8(c2da_fresh86 >> 0x18)
+        let c2da_fresh87 : uint = uint(d_ptex)
+        c2da_mem[d_pedgespanpackage + 24] = uint8(c2da_fresh87)
+        c2da_mem[d_pedgespanpackage + 25] = uint8(c2da_fresh87 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 26] = uint8(c2da_fresh87 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 27] = uint8(c2da_fresh87 >> 0x18)
         c2da_mem[d_pedgespanpackage + 28] = 0u8
         c2da_mem[d_pedgespanpackage + 29] = 0u8
         c2da_mem[d_pedgespanpackage + 30] = 0u8
         c2da_mem[d_pedgespanpackage + 31] = 0u8
-        let c2da_fresh75 : uint = uint(d_sfrac)
-        c2da_mem[d_pedgespanpackage + 32] = uint8(c2da_fresh75)
-        c2da_mem[d_pedgespanpackage + 33] = uint8(c2da_fresh75 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 34] = uint8(c2da_fresh75 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 35] = uint8(c2da_fresh75 >> 0x18)
-        let c2da_fresh76 : uint = uint(d_tfrac)
-        c2da_mem[d_pedgespanpackage + 36] = uint8(c2da_fresh76)
-        c2da_mem[d_pedgespanpackage + 37] = uint8(c2da_fresh76 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 38] = uint8(c2da_fresh76 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 39] = uint8(c2da_fresh76 >> 0x18)
-        let c2da_fresh77 : uint = uint(d_light)
-        c2da_mem[d_pedgespanpackage + 40] = uint8(c2da_fresh77)
-        c2da_mem[d_pedgespanpackage + 41] = uint8(c2da_fresh77 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 42] = uint8(c2da_fresh77 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 43] = uint8(c2da_fresh77 >> 0x18)
-        let c2da_fresh78 : uint = uint(d_zi)
-        c2da_mem[d_pedgespanpackage + 44] = uint8(c2da_fresh78)
-        c2da_mem[d_pedgespanpackage + 45] = uint8(c2da_fresh78 >> 0x8)
-        c2da_mem[d_pedgespanpackage + 46] = uint8(c2da_fresh78 >> 0x10)
-        c2da_mem[d_pedgespanpackage + 47] = uint8(c2da_fresh78 >> 0x18)
+        let c2da_fresh88 : uint = uint(d_sfrac)
+        c2da_mem[d_pedgespanpackage + 32] = uint8(c2da_fresh88)
+        c2da_mem[d_pedgespanpackage + 33] = uint8(c2da_fresh88 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 34] = uint8(c2da_fresh88 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 35] = uint8(c2da_fresh88 >> 0x18)
+        let c2da_fresh89 : uint = uint(d_tfrac)
+        c2da_mem[d_pedgespanpackage + 36] = uint8(c2da_fresh89)
+        c2da_mem[d_pedgespanpackage + 37] = uint8(c2da_fresh89 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 38] = uint8(c2da_fresh89 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 39] = uint8(c2da_fresh89 >> 0x18)
+        let c2da_fresh90 : uint = uint(d_light)
+        c2da_mem[d_pedgespanpackage + 40] = uint8(c2da_fresh90)
+        c2da_mem[d_pedgespanpackage + 41] = uint8(c2da_fresh90 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 42] = uint8(c2da_fresh90 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 43] = uint8(c2da_fresh90 >> 0x18)
+        let c2da_fresh91 : uint = uint(d_zi)
+        c2da_mem[d_pedgespanpackage + 44] = uint8(c2da_fresh91)
+        c2da_mem[d_pedgespanpackage + 45] = uint8(c2da_fresh91 >> 0x8)
+        c2da_mem[d_pedgespanpackage + 46] = uint8(c2da_fresh91 >> 0x10)
+        c2da_mem[d_pedgespanpackage + 47] = uint8(c2da_fresh91 >> 0x18)
         d_pedgespanpackage += 48
         errorterm = errorterm + int(uint(c2da_mem[204432]) | uint(c2da_mem[204433]) << 0x8 | uint(c2da_mem[204434]) << 0x10 | uint(c2da_mem[204435]) << 0x18)
         if (errorterm >= 0) {
@@ -679,26 +692,32 @@ def D_PolysetCalcGradients(var skinwidth_0 : int) {
     var p11_minus_p21 : float
     var p00_minus_p20 : float
     var p10_minus_p20 : float
-    p00_minus_p20 = float(int(uint(c2da_mem[205216 + 0 * 4]) | uint(c2da_mem[205216 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 0 * 4]) | uint(c2da_mem[205248 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 0 * 4 + 3]) << 0x18))
-    p01_minus_p21 = float(int(uint(c2da_mem[205216 + 1 * 4]) | uint(c2da_mem[205216 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 1 * 4]) | uint(c2da_mem[205248 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 1 * 4 + 3]) << 0x18))
-    p10_minus_p20 = float(int(uint(c2da_mem[205280 + 0 * 4]) | uint(c2da_mem[205280 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 0 * 4]) | uint(c2da_mem[205248 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 0 * 4 + 3]) << 0x18))
-    p11_minus_p21 = float(int(uint(c2da_mem[205280 + 1 * 4]) | uint(c2da_mem[205280 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 1 * 4]) | uint(c2da_mem[205248 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 1 * 4 + 3]) << 0x18))
+    let c2da_fresh92 : int = int(uint(c2da_mem[205248 + 0 * 4]) | uint(c2da_mem[205248 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 0 * 4 + 3]) << 0x18)
+    p00_minus_p20 = float(int(uint(c2da_mem[205216 + 0 * 4]) | uint(c2da_mem[205216 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 0 * 4 + 3]) << 0x18) - c2da_fresh92)
+    let c2da_fresh93 : int = int(uint(c2da_mem[205248 + 1 * 4]) | uint(c2da_mem[205248 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 1 * 4 + 3]) << 0x18)
+    p01_minus_p21 = float(int(uint(c2da_mem[205216 + 1 * 4]) | uint(c2da_mem[205216 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 1 * 4 + 3]) << 0x18) - c2da_fresh93)
+    p10_minus_p20 = float(int(uint(c2da_mem[205280 + 0 * 4]) | uint(c2da_mem[205280 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 0 * 4 + 3]) << 0x18) - c2da_fresh92)
+    p11_minus_p21 = float(int(uint(c2da_mem[205280 + 1 * 4]) | uint(c2da_mem[205280 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 1 * 4 + 3]) << 0x18) - c2da_fresh93)
     xstepdenominv = float(1.0lf / double(float(d_xdenom)))
     ystepdenominv = -xstepdenominv
-    t0 = float(int(uint(c2da_mem[205216 + 4 * 4]) | uint(c2da_mem[205216 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 4 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 4 * 4]) | uint(c2da_mem[205248 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 4 * 4 + 3]) << 0x18))
-    t1 = float(int(uint(c2da_mem[205280 + 4 * 4]) | uint(c2da_mem[205280 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 4 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 4 * 4]) | uint(c2da_mem[205248 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 4 * 4 + 3]) << 0x18))
+    let c2da_fresh94 : int = int(uint(c2da_mem[205248 + 4 * 4]) | uint(c2da_mem[205248 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 4 * 4 + 3]) << 0x18)
+    t0 = float(int(uint(c2da_mem[205216 + 4 * 4]) | uint(c2da_mem[205216 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 4 * 4 + 3]) << 0x18) - c2da_fresh94)
+    t1 = float(int(uint(c2da_mem[205280 + 4 * 4]) | uint(c2da_mem[205280 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 4 * 4 + 3]) << 0x18) - c2da_fresh94)
     r_lstepx = int(ceil(double((t1 * p01_minus_p21 - t0 * p11_minus_p21) * xstepdenominv)))
     r_lstepy = int(ceil(double((t1 * p00_minus_p20 - t0 * p10_minus_p20) * ystepdenominv)))
-    t0 = float(int(uint(c2da_mem[205216 + 2 * 4]) | uint(c2da_mem[205216 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 2 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 2 * 4]) | uint(c2da_mem[205248 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 2 * 4 + 3]) << 0x18))
-    t1 = float(int(uint(c2da_mem[205280 + 2 * 4]) | uint(c2da_mem[205280 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 2 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 2 * 4]) | uint(c2da_mem[205248 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 2 * 4 + 3]) << 0x18))
+    let c2da_fresh95 : int = int(uint(c2da_mem[205248 + 2 * 4]) | uint(c2da_mem[205248 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 2 * 4 + 3]) << 0x18)
+    t0 = float(int(uint(c2da_mem[205216 + 2 * 4]) | uint(c2da_mem[205216 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 2 * 4 + 3]) << 0x18) - c2da_fresh95)
+    t1 = float(int(uint(c2da_mem[205280 + 2 * 4]) | uint(c2da_mem[205280 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 2 * 4 + 3]) << 0x18) - c2da_fresh95)
     r_sstepx = int((t1 * p01_minus_p21 - t0 * p11_minus_p21) * xstepdenominv)
     r_sstepy = int((t1 * p00_minus_p20 - t0 * p10_minus_p20) * ystepdenominv)
-    t0 = float(int(uint(c2da_mem[205216 + 3 * 4]) | uint(c2da_mem[205216 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 3 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 3 * 4]) | uint(c2da_mem[205248 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 3 * 4 + 3]) << 0x18))
-    t1 = float(int(uint(c2da_mem[205280 + 3 * 4]) | uint(c2da_mem[205280 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 3 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 3 * 4]) | uint(c2da_mem[205248 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 3 * 4 + 3]) << 0x18))
+    let c2da_fresh96 : int = int(uint(c2da_mem[205248 + 3 * 4]) | uint(c2da_mem[205248 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 3 * 4 + 3]) << 0x18)
+    t0 = float(int(uint(c2da_mem[205216 + 3 * 4]) | uint(c2da_mem[205216 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 3 * 4 + 3]) << 0x18) - c2da_fresh96)
+    t1 = float(int(uint(c2da_mem[205280 + 3 * 4]) | uint(c2da_mem[205280 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 3 * 4 + 3]) << 0x18) - c2da_fresh96)
     r_tstepx = int((t1 * p01_minus_p21 - t0 * p11_minus_p21) * xstepdenominv)
     r_tstepy = int((t1 * p00_minus_p20 - t0 * p10_minus_p20) * ystepdenominv)
-    t0 = float(int(uint(c2da_mem[205216 + 5 * 4]) | uint(c2da_mem[205216 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 5 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 5 * 4]) | uint(c2da_mem[205248 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 5 * 4 + 3]) << 0x18))
-    t1 = float(int(uint(c2da_mem[205280 + 5 * 4]) | uint(c2da_mem[205280 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 5 * 4 + 3]) << 0x18) - int(uint(c2da_mem[205248 + 5 * 4]) | uint(c2da_mem[205248 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 5 * 4 + 3]) << 0x18))
+    let c2da_fresh97 : int = int(uint(c2da_mem[205248 + 5 * 4]) | uint(c2da_mem[205248 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 5 * 4 + 3]) << 0x18)
+    t0 = float(int(uint(c2da_mem[205216 + 5 * 4]) | uint(c2da_mem[205216 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 5 * 4 + 3]) << 0x18) - c2da_fresh97)
+    t1 = float(int(uint(c2da_mem[205280 + 5 * 4]) | uint(c2da_mem[205280 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 5 * 4 + 3]) << 0x18) - c2da_fresh97)
     r_zistepx = int((t1 * p01_minus_p21 - t0 * p11_minus_p21) * xstepdenominv)
     r_zistepy = int((t1 * p00_minus_p20 - t0 * p10_minus_p20) * ystepdenominv)
     a_sstepxfrac = r_sstepx & 65535
@@ -711,9 +730,11 @@ var d_xdenom : int = default<int>
 [export, sideeffects]
 def D_PolysetSetEdgeTable() {
     var edgetableindex : int = 0
-    if (int(uint(c2da_mem[205216 + 1 * 4]) | uint(c2da_mem[205216 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 1 * 4 + 3]) << 0x18) >= int(uint(c2da_mem[205280 + 1 * 4]) | uint(c2da_mem[205280 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 1 * 4 + 3]) << 0x18)) {
-        if (int(uint(c2da_mem[205216 + 1 * 4]) | uint(c2da_mem[205216 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 1 * 4 + 3]) << 0x18) == int(uint(c2da_mem[205280 + 1 * 4]) | uint(c2da_mem[205280 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 1 * 4 + 3]) << 0x18)) {
-            if (int(uint(c2da_mem[205216 + 1 * 4]) | uint(c2da_mem[205216 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 1 * 4 + 3]) << 0x18) < int(uint(c2da_mem[205248 + 1 * 4]) | uint(c2da_mem[205248 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 1 * 4 + 3]) << 0x18)) {
+    let c2da_fresh98 : int = int(uint(c2da_mem[205216 + 1 * 4]) | uint(c2da_mem[205216 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205216 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205216 + 1 * 4 + 3]) << 0x18)
+    let c2da_fresh99 : int = int(uint(c2da_mem[205280 + 1 * 4]) | uint(c2da_mem[205280 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205280 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205280 + 1 * 4 + 3]) << 0x18)
+    if (c2da_fresh98 >= c2da_fresh99) {
+        if (c2da_fresh98 == c2da_fresh99) {
+            if (c2da_fresh98 < int(uint(c2da_mem[205248 + 1 * 4]) | uint(c2da_mem[205248 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[205248 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[205248 + 1 * 4 + 3]) << 0x18)) {
                 pedgetable = 204448 + 2 * 64
             } else {
                 pedgetable = 204448 + 5 * 64
@@ -765,56 +786,59 @@ def D_DrawSubdiv() {
         index0_0 = pfv_0 + int(uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 0 * 4]) | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 0 * 4 + 3]) << 0x18) * 32
         index1_0 = pfv_0 + int(uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 1 * 4]) | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 1 * 4 + 3]) << 0x18) * 32
         index2_0 = pfv_0 + int(uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 2 * 4]) | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[ptri_0 + i_0 * 16 + 4 + 2 * 4 + 3]) << 0x18) * 32
-        if ((int(uint(c2da_mem[index0_0 + 1 * 4]) | uint(c2da_mem[index0_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[index1_0 + 1 * 4]) | uint(c2da_mem[index1_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index1_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index1_0 + 1 * 4 + 3]) << 0x18)) * (int(uint(c2da_mem[index0_0 + 0 * 4]) | uint(c2da_mem[index0_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[index2_0 + 0 * 4]) | uint(c2da_mem[index2_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index2_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index2_0 + 0 * 4 + 3]) << 0x18)) - (int(uint(c2da_mem[index0_0 + 0 * 4]) | uint(c2da_mem[index0_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 0 * 4 + 3]) << 0x18) - int(uint(c2da_mem[index1_0 + 0 * 4]) | uint(c2da_mem[index1_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index1_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index1_0 + 0 * 4 + 3]) << 0x18)) * (int(uint(c2da_mem[index0_0 + 1 * 4]) | uint(c2da_mem[index0_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 1 * 4 + 3]) << 0x18) - int(uint(c2da_mem[index2_0 + 1 * 4]) | uint(c2da_mem[index2_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index2_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index2_0 + 1 * 4 + 3]) << 0x18)) >= 0) {
+        let c2da_fresh109 : int = int(uint(c2da_mem[index0_0 + 1 * 4]) | uint(c2da_mem[index0_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 1 * 4 + 3]) << 0x18)
+        let c2da_fresh110 : int = int(uint(c2da_mem[index0_0 + 0 * 4]) | uint(c2da_mem[index0_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 0 * 4 + 3]) << 0x18)
+        if ((c2da_fresh109 - int(uint(c2da_mem[index1_0 + 1 * 4]) | uint(c2da_mem[index1_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index1_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index1_0 + 1 * 4 + 3]) << 0x18)) * (c2da_fresh110 - int(uint(c2da_mem[index2_0 + 0 * 4]) | uint(c2da_mem[index2_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index2_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index2_0 + 0 * 4 + 3]) << 0x18)) - (c2da_fresh110 - int(uint(c2da_mem[index1_0 + 0 * 4]) | uint(c2da_mem[index1_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[index1_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[index1_0 + 0 * 4 + 3]) << 0x18)) * (c2da_fresh109 - int(uint(c2da_mem[index2_0 + 1 * 4]) | uint(c2da_mem[index2_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[index2_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[index2_0 + 1 * 4 + 3]) << 0x18)) >= 0) {
             continue
         }
         d_pcolormap = acolormap + (int(uint(c2da_mem[index0_0 + 4 * 4]) | uint(c2da_mem[index0_0 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 4 * 4 + 3]) << 0x18) & 65280)
         if (int(uint(c2da_mem[ptri_0 + i_0 * 16]) | uint(c2da_mem[ptri_0 + i_0 * 16 + 1]) << 0x8 | uint(c2da_mem[ptri_0 + i_0 * 16 + 2]) << 0x10 | uint(c2da_mem[ptri_0 + i_0 * 16 + 3]) << 0x18) != 0) {
             D_PolysetRecursiveTriangle(index0_0, index1_0, index2_0)
         } else {
-            s0 = int(uint(c2da_mem[index0_0 + 2 * 4]) | uint(c2da_mem[index0_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 2 * 4 + 3]) << 0x18)
+            let c2da_fresh111 : int = int(uint(c2da_mem[index0_0 + 2 * 4]) | uint(c2da_mem[index0_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 2 * 4 + 3]) << 0x18)
+            s0 = c2da_fresh111
             s1 = int(uint(c2da_mem[index1_0 + 2 * 4]) | uint(c2da_mem[index1_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index1_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index1_0 + 2 * 4 + 3]) << 0x18)
             s2 = int(uint(c2da_mem[index2_0 + 2 * 4]) | uint(c2da_mem[index2_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index2_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index2_0 + 2 * 4 + 3]) << 0x18)
             if ((int(uint(c2da_mem[index0_0 + 24]) | uint(c2da_mem[index0_0 + 25]) << 0x8 | uint(c2da_mem[index0_0 + 26]) << 0x10 | uint(c2da_mem[index0_0 + 27]) << 0x18) & 32) != 0) {
-                let c2da_fresh79 : int = int(uint(c2da_mem[index0_0 + 2 * 4]) | uint(c2da_mem[index0_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index0_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index0_0 + 2 * 4 + 3]) << 0x18) + int(r_affinetridesc.seamfixupX16)
-                let c2da_fresh80 : uint = uint(c2da_fresh79)
-                c2da_mem[index0_0 + 2 * 4] = uint8(c2da_fresh80)
-                c2da_mem[index0_0 + 2 * 4 + 1] = uint8(c2da_fresh80 >> 0x8)
-                c2da_mem[index0_0 + 2 * 4 + 2] = uint8(c2da_fresh80 >> 0x10)
-                c2da_mem[index0_0 + 2 * 4 + 3] = uint8(c2da_fresh80 >> 0x18)
+                let c2da_fresh100 : int = c2da_fresh111 + int(r_affinetridesc.seamfixupX16)
+                let c2da_fresh101 : uint = uint(c2da_fresh100)
+                c2da_mem[index0_0 + 2 * 4] = uint8(c2da_fresh101)
+                c2da_mem[index0_0 + 2 * 4 + 1] = uint8(c2da_fresh101 >> 0x8)
+                c2da_mem[index0_0 + 2 * 4 + 2] = uint8(c2da_fresh101 >> 0x10)
+                c2da_mem[index0_0 + 2 * 4 + 3] = uint8(c2da_fresh101 >> 0x18)
             }
             if ((int(uint(c2da_mem[index1_0 + 24]) | uint(c2da_mem[index1_0 + 25]) << 0x8 | uint(c2da_mem[index1_0 + 26]) << 0x10 | uint(c2da_mem[index1_0 + 27]) << 0x18) & 32) != 0) {
-                let c2da_fresh81 : int = int(uint(c2da_mem[index1_0 + 2 * 4]) | uint(c2da_mem[index1_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index1_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index1_0 + 2 * 4 + 3]) << 0x18) + int(r_affinetridesc.seamfixupX16)
-                let c2da_fresh82 : uint = uint(c2da_fresh81)
-                c2da_mem[index1_0 + 2 * 4] = uint8(c2da_fresh82)
-                c2da_mem[index1_0 + 2 * 4 + 1] = uint8(c2da_fresh82 >> 0x8)
-                c2da_mem[index1_0 + 2 * 4 + 2] = uint8(c2da_fresh82 >> 0x10)
-                c2da_mem[index1_0 + 2 * 4 + 3] = uint8(c2da_fresh82 >> 0x18)
+                let c2da_fresh102 : int = int(uint(c2da_mem[index1_0 + 2 * 4]) | uint(c2da_mem[index1_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index1_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index1_0 + 2 * 4 + 3]) << 0x18) + int(r_affinetridesc.seamfixupX16)
+                let c2da_fresh103 : uint = uint(c2da_fresh102)
+                c2da_mem[index1_0 + 2 * 4] = uint8(c2da_fresh103)
+                c2da_mem[index1_0 + 2 * 4 + 1] = uint8(c2da_fresh103 >> 0x8)
+                c2da_mem[index1_0 + 2 * 4 + 2] = uint8(c2da_fresh103 >> 0x10)
+                c2da_mem[index1_0 + 2 * 4 + 3] = uint8(c2da_fresh103 >> 0x18)
             }
             if ((int(uint(c2da_mem[index2_0 + 24]) | uint(c2da_mem[index2_0 + 25]) << 0x8 | uint(c2da_mem[index2_0 + 26]) << 0x10 | uint(c2da_mem[index2_0 + 27]) << 0x18) & 32) != 0) {
-                let c2da_fresh83 : int = int(uint(c2da_mem[index2_0 + 2 * 4]) | uint(c2da_mem[index2_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index2_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index2_0 + 2 * 4 + 3]) << 0x18) + int(r_affinetridesc.seamfixupX16)
-                let c2da_fresh84 : uint = uint(c2da_fresh83)
-                c2da_mem[index2_0 + 2 * 4] = uint8(c2da_fresh84)
-                c2da_mem[index2_0 + 2 * 4 + 1] = uint8(c2da_fresh84 >> 0x8)
-                c2da_mem[index2_0 + 2 * 4 + 2] = uint8(c2da_fresh84 >> 0x10)
-                c2da_mem[index2_0 + 2 * 4 + 3] = uint8(c2da_fresh84 >> 0x18)
+                let c2da_fresh104 : int = int(uint(c2da_mem[index2_0 + 2 * 4]) | uint(c2da_mem[index2_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[index2_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[index2_0 + 2 * 4 + 3]) << 0x18) + int(r_affinetridesc.seamfixupX16)
+                let c2da_fresh105 : uint = uint(c2da_fresh104)
+                c2da_mem[index2_0 + 2 * 4] = uint8(c2da_fresh105)
+                c2da_mem[index2_0 + 2 * 4 + 1] = uint8(c2da_fresh105 >> 0x8)
+                c2da_mem[index2_0 + 2 * 4 + 2] = uint8(c2da_fresh105 >> 0x10)
+                c2da_mem[index2_0 + 2 * 4 + 3] = uint8(c2da_fresh105 >> 0x18)
             }
             D_PolysetRecursiveTriangle(index0_0, index1_0, index2_0)
-            let c2da_fresh85 : uint = uint(s0)
-            c2da_mem[index0_0 + 2 * 4] = uint8(c2da_fresh85)
-            c2da_mem[index0_0 + 2 * 4 + 1] = uint8(c2da_fresh85 >> 0x8)
-            c2da_mem[index0_0 + 2 * 4 + 2] = uint8(c2da_fresh85 >> 0x10)
-            c2da_mem[index0_0 + 2 * 4 + 3] = uint8(c2da_fresh85 >> 0x18)
-            let c2da_fresh86 : uint = uint(s1)
-            c2da_mem[index1_0 + 2 * 4] = uint8(c2da_fresh86)
-            c2da_mem[index1_0 + 2 * 4 + 1] = uint8(c2da_fresh86 >> 0x8)
-            c2da_mem[index1_0 + 2 * 4 + 2] = uint8(c2da_fresh86 >> 0x10)
-            c2da_mem[index1_0 + 2 * 4 + 3] = uint8(c2da_fresh86 >> 0x18)
-            let c2da_fresh87 : uint = uint(s2)
-            c2da_mem[index2_0 + 2 * 4] = uint8(c2da_fresh87)
-            c2da_mem[index2_0 + 2 * 4 + 1] = uint8(c2da_fresh87 >> 0x8)
-            c2da_mem[index2_0 + 2 * 4 + 2] = uint8(c2da_fresh87 >> 0x10)
-            c2da_mem[index2_0 + 2 * 4 + 3] = uint8(c2da_fresh87 >> 0x18)
+            let c2da_fresh106 : uint = uint(s0)
+            c2da_mem[index0_0 + 2 * 4] = uint8(c2da_fresh106)
+            c2da_mem[index0_0 + 2 * 4 + 1] = uint8(c2da_fresh106 >> 0x8)
+            c2da_mem[index0_0 + 2 * 4 + 2] = uint8(c2da_fresh106 >> 0x10)
+            c2da_mem[index0_0 + 2 * 4 + 3] = uint8(c2da_fresh106 >> 0x18)
+            let c2da_fresh107 : uint = uint(s1)
+            c2da_mem[index1_0 + 2 * 4] = uint8(c2da_fresh107)
+            c2da_mem[index1_0 + 2 * 4 + 1] = uint8(c2da_fresh107 >> 0x8)
+            c2da_mem[index1_0 + 2 * 4 + 2] = uint8(c2da_fresh107 >> 0x10)
+            c2da_mem[index1_0 + 2 * 4 + 3] = uint8(c2da_fresh107 >> 0x18)
+            let c2da_fresh108 : uint = uint(s2)
+            c2da_mem[index2_0 + 2 * 4] = uint8(c2da_fresh108)
+            c2da_mem[index2_0 + 2 * 4 + 1] = uint8(c2da_fresh108 >> 0x8)
+            c2da_mem[index2_0 + 2 * 4 + 2] = uint8(c2da_fresh108 >> 0x10)
+            c2da_mem[index2_0 + 2 * 4 + 3] = uint8(c2da_fresh108 >> 0x18)
         }
     }
     return
@@ -837,21 +861,23 @@ def D_PolysetDrawFinalVerts(var fv_0 : int; var numverts : int) {
     var pix_0 : int
     i_1 = 0
     while (i_1 < numverts) {
-        if (int(uint(c2da_mem[fv_0 + 0 * 4]) | uint(c2da_mem[fv_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 0 * 4 + 3]) << 0x18) < int(uint(c2da_mem[5248]) | uint(c2da_mem[5249]) << 0x8 | uint(c2da_mem[5250]) << 0x10 | uint(c2da_mem[5251]) << 0x18) && int(uint(c2da_mem[fv_0 + 1 * 4]) | uint(c2da_mem[fv_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 1 * 4 + 3]) << 0x18) < int(uint(c2da_mem[5252]) | uint(c2da_mem[5253]) << 0x8 | uint(c2da_mem[5254]) << 0x10 | uint(c2da_mem[5255]) << 0x18)) {
+        let c2da_fresh134 : int = int(uint(c2da_mem[fv_0 + 0 * 4]) | uint(c2da_mem[fv_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 0 * 4 + 3]) << 0x18)
+        if (c2da_fresh134 < int(uint(c2da_mem[5248]) | uint(c2da_mem[5249]) << 0x8 | uint(c2da_mem[5250]) << 0x10 | uint(c2da_mem[5251]) << 0x18) && int(uint(c2da_mem[fv_0 + 1 * 4]) | uint(c2da_mem[fv_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 1 * 4 + 3]) << 0x18) < int(uint(c2da_mem[5252]) | uint(c2da_mem[5253]) << 0x8 | uint(c2da_mem[5254]) << 0x10 | uint(c2da_mem[5255]) << 0x18)) {
             z_0 = int(uint(c2da_mem[fv_0 + 5 * 4]) | uint(c2da_mem[fv_0 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 5 * 4 + 3]) << 0x18) >> 16
-            zbuf_0 = zspantable[int(uint(c2da_mem[fv_0 + 1 * 4]) | uint(c2da_mem[fv_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 1 * 4 + 3]) << 0x18)] + int(uint(c2da_mem[fv_0 + 0 * 4]) | uint(c2da_mem[fv_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 0 * 4 + 3]) << 0x18) * 2
+            let c2da_fresh135 : int = int(uint(c2da_mem[fv_0 + 1 * 4]) | uint(c2da_mem[fv_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 1 * 4 + 3]) << 0x18)
+            zbuf_0 = zspantable[c2da_fresh135] + c2da_fresh134 * 2
             if (z_0 >= int(int16(uint(c2da_mem[zbuf_0]) | uint(c2da_mem[zbuf_0 + 1]) << 0x8))) {
-                let c2da_fresh104 : int16 = int16(z_0)
-                let c2da_fresh105 : uint = uint(c2da_fresh104)
-                c2da_mem[zbuf_0] = uint8(c2da_fresh105)
-                c2da_mem[zbuf_0 + 1] = uint8(c2da_fresh105 >> 0x8)
-                let c2da_fresh106 : int = skintable[int(uint(c2da_mem[fv_0 + 3 * 4]) | uint(c2da_mem[fv_0 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 3 * 4 + 3]) << 0x18) >> 16] + (int(uint(c2da_mem[fv_0 + 2 * 4]) | uint(c2da_mem[fv_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 2 * 4 + 3]) << 0x18) >> 16)
-                pix_0 = int(c2da_mem[c2da_fresh106])
-                let c2da_fresh107 : int = acolormap + (pix_0 + (int(uint(c2da_mem[fv_0 + 4 * 4]) | uint(c2da_mem[fv_0 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 4 * 4 + 3]) << 0x18) & 65280))
-                pix_0 = int(c2da_mem[c2da_fresh107])
-                let c2da_fresh108 : int = d_viewbuffer + int(d_scantable[int(uint(c2da_mem[fv_0 + 1 * 4]) | uint(c2da_mem[fv_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 1 * 4 + 3]) << 0x18)] + int(uint(c2da_mem[fv_0 + 0 * 4]) | uint(c2da_mem[fv_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 0 * 4 + 3]) << 0x18))
-                let c2da_fresh109 : uint8 = uint8(pix_0)
-                c2da_mem[c2da_fresh108] = c2da_fresh109
+                let c2da_fresh128 : int16 = int16(z_0)
+                let c2da_fresh129 : uint = uint(c2da_fresh128)
+                c2da_mem[zbuf_0] = uint8(c2da_fresh129)
+                c2da_mem[zbuf_0 + 1] = uint8(c2da_fresh129 >> 0x8)
+                let c2da_fresh130 : int = skintable[int(uint(c2da_mem[fv_0 + 3 * 4]) | uint(c2da_mem[fv_0 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 3 * 4 + 3]) << 0x18) >> 16] + (int(uint(c2da_mem[fv_0 + 2 * 4]) | uint(c2da_mem[fv_0 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 2 * 4 + 3]) << 0x18) >> 16)
+                pix_0 = int(c2da_mem[c2da_fresh130])
+                let c2da_fresh131 : int = acolormap + (pix_0 + (int(uint(c2da_mem[fv_0 + 4 * 4]) | uint(c2da_mem[fv_0 + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 4 * 4 + 3]) << 0x18) & 65280))
+                pix_0 = int(c2da_mem[c2da_fresh131])
+                let c2da_fresh132 : int = d_viewbuffer + int(d_scantable[int(uint(c2da_mem[fv_0 + 1 * 4]) | uint(c2da_mem[fv_0 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 1 * 4 + 3]) << 0x18)] + int(uint(c2da_mem[fv_0 + 0 * 4]) | uint(c2da_mem[fv_0 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[fv_0 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[fv_0 + 0 * 4 + 3]) << 0x18))
+                let c2da_fresh133 : uint8 = uint8(pix_0)
+                c2da_mem[c2da_fresh132] = c2da_fresh133
             }
         }
         i_1++
@@ -898,10 +924,10 @@ def D_PolysetFillSpans8(var pspanpackage_0 : int) {
         if (lcount_0 != 0) {
             lpdest_0 = int(uint(c2da_mem[pspanpackage_0]) | uint(c2da_mem[pspanpackage_0 + 1]) << 0x8 | uint(c2da_mem[pspanpackage_0 + 2]) << 0x10 | uint(c2da_mem[pspanpackage_0 + 3]) << 0x18)
             while (true) {
-                let c2da_fresh110 : int = lpdest_0
+                let c2da_fresh136 : int = lpdest_0
                 lpdest_0++
-                let c2da_fresh111 : uint8 = uint8(color)
-                c2da_mem[c2da_fresh110] = c2da_fresh111
+                let c2da_fresh137 : uint8 = uint8(color)
+                c2da_mem[c2da_fresh136] = c2da_fresh137
                 lcount_0--
                 if (lcount_0 == 0) {
                     break
@@ -960,36 +986,36 @@ def private D_PolysetRecursiveTriangle_c2da_frame(var lp1 : int; var lp2 : int; 
     lp3 = int(lp2)  // nolint:PERF020
     lp2 = temp
     label 2:
-    let c2da_fresh88 : int = int(uint(c2da_mem[lp1 + 0 * 4]) | uint(c2da_mem[lp1 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 0 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 0 * 4]) | uint(c2da_mem[lp2 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 0 * 4 + 3]) << 0x18) >> 1
-    let c2da_fresh89 : uint = uint(c2da_fresh88)
-    c2da_mem[c2da_fp + 0 * 4] = uint8(c2da_fresh89)
-    c2da_mem[c2da_fp + 0 * 4 + 1] = uint8(c2da_fresh89 >> 0x8)
-    c2da_mem[c2da_fp + 0 * 4 + 2] = uint8(c2da_fresh89 >> 0x10)
-    c2da_mem[c2da_fp + 0 * 4 + 3] = uint8(c2da_fresh89 >> 0x18)
-    let c2da_fresh90 : int = int(uint(c2da_mem[lp1 + 1 * 4]) | uint(c2da_mem[lp1 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 1 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 1 * 4]) | uint(c2da_mem[lp2 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 1 * 4 + 3]) << 0x18) >> 1
-    let c2da_fresh91 : uint = uint(c2da_fresh90)
-    c2da_mem[c2da_fp + 1 * 4] = uint8(c2da_fresh91)
-    c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh91 >> 0x8)
-    c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh91 >> 0x10)
-    c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh91 >> 0x18)
-    let c2da_fresh92 : int = int(uint(c2da_mem[lp1 + 2 * 4]) | uint(c2da_mem[lp1 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 2 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 2 * 4]) | uint(c2da_mem[lp2 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 2 * 4 + 3]) << 0x18) >> 1
-    let c2da_fresh93 : uint = uint(c2da_fresh92)
-    c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh93)
-    c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh93 >> 0x8)
-    c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh93 >> 0x10)
-    c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh93 >> 0x18)
-    let c2da_fresh94 : int = int(uint(c2da_mem[lp1 + 3 * 4]) | uint(c2da_mem[lp1 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 3 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 3 * 4]) | uint(c2da_mem[lp2 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 3 * 4 + 3]) << 0x18) >> 1
-    let c2da_fresh95 : uint = uint(c2da_fresh94)
-    c2da_mem[c2da_fp + 3 * 4] = uint8(c2da_fresh95)
-    c2da_mem[c2da_fp + 3 * 4 + 1] = uint8(c2da_fresh95 >> 0x8)
-    c2da_mem[c2da_fp + 3 * 4 + 2] = uint8(c2da_fresh95 >> 0x10)
-    c2da_mem[c2da_fp + 3 * 4 + 3] = uint8(c2da_fresh95 >> 0x18)
-    let c2da_fresh96 : int = int(uint(c2da_mem[lp1 + 5 * 4]) | uint(c2da_mem[lp1 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 5 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 5 * 4]) | uint(c2da_mem[lp2 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 5 * 4 + 3]) << 0x18) >> 1
-    let c2da_fresh97 : uint = uint(c2da_fresh96)
-    c2da_mem[c2da_fp + 5 * 4] = uint8(c2da_fresh97)
-    c2da_mem[c2da_fp + 5 * 4 + 1] = uint8(c2da_fresh97 >> 0x8)
-    c2da_mem[c2da_fp + 5 * 4 + 2] = uint8(c2da_fresh97 >> 0x10)
-    c2da_mem[c2da_fp + 5 * 4 + 3] = uint8(c2da_fresh97 >> 0x18)
+    let c2da_fresh112 : int = int(uint(c2da_mem[lp1 + 0 * 4]) | uint(c2da_mem[lp1 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 0 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 0 * 4]) | uint(c2da_mem[lp2 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 0 * 4 + 3]) << 0x18) >> 1
+    let c2da_fresh113 : uint = uint(c2da_fresh112)
+    c2da_mem[c2da_fp + 0 * 4] = uint8(c2da_fresh113)
+    c2da_mem[c2da_fp + 0 * 4 + 1] = uint8(c2da_fresh113 >> 0x8)
+    c2da_mem[c2da_fp + 0 * 4 + 2] = uint8(c2da_fresh113 >> 0x10)
+    c2da_mem[c2da_fp + 0 * 4 + 3] = uint8(c2da_fresh113 >> 0x18)
+    let c2da_fresh114 : int = int(uint(c2da_mem[lp1 + 1 * 4]) | uint(c2da_mem[lp1 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 1 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 1 * 4]) | uint(c2da_mem[lp2 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 1 * 4 + 3]) << 0x18) >> 1
+    let c2da_fresh115 : uint = uint(c2da_fresh114)
+    c2da_mem[c2da_fp + 1 * 4] = uint8(c2da_fresh115)
+    c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh115 >> 0x8)
+    c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh115 >> 0x10)
+    c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh115 >> 0x18)
+    let c2da_fresh116 : int = int(uint(c2da_mem[lp1 + 2 * 4]) | uint(c2da_mem[lp1 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 2 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 2 * 4]) | uint(c2da_mem[lp2 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 2 * 4 + 3]) << 0x18) >> 1
+    let c2da_fresh117 : uint = uint(c2da_fresh116)
+    c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh117)
+    c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh117 >> 0x8)
+    c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh117 >> 0x10)
+    c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh117 >> 0x18)
+    let c2da_fresh118 : int = int(uint(c2da_mem[lp1 + 3 * 4]) | uint(c2da_mem[lp1 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 3 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 3 * 4]) | uint(c2da_mem[lp2 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 3 * 4 + 3]) << 0x18) >> 1
+    let c2da_fresh119 : uint = uint(c2da_fresh118)
+    c2da_mem[c2da_fp + 3 * 4] = uint8(c2da_fresh119)
+    c2da_mem[c2da_fp + 3 * 4 + 1] = uint8(c2da_fresh119 >> 0x8)
+    c2da_mem[c2da_fp + 3 * 4 + 2] = uint8(c2da_fresh119 >> 0x10)
+    c2da_mem[c2da_fp + 3 * 4 + 3] = uint8(c2da_fresh119 >> 0x18)
+    let c2da_fresh120 : int = int(uint(c2da_mem[lp1 + 5 * 4]) | uint(c2da_mem[lp1 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 5 * 4 + 3]) << 0x18) + int(uint(c2da_mem[lp2 + 5 * 4]) | uint(c2da_mem[lp2 + 5 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 5 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 5 * 4 + 3]) << 0x18) >> 1
+    let c2da_fresh121 : uint = uint(c2da_fresh120)
+    c2da_mem[c2da_fp + 5 * 4] = uint8(c2da_fresh121)
+    c2da_mem[c2da_fp + 5 * 4 + 1] = uint8(c2da_fresh121 >> 0x8)
+    c2da_mem[c2da_fp + 5 * 4 + 2] = uint8(c2da_fresh121 >> 0x10)
+    c2da_mem[c2da_fp + 5 * 4 + 3] = uint8(c2da_fresh121 >> 0x18)
     if (int(uint(c2da_mem[lp2 + 1 * 4]) | uint(c2da_mem[lp2 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[lp2 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[lp2 + 1 * 4 + 3]) << 0x18) > int(uint(c2da_mem[lp1 + 1 * 4]) | uint(c2da_mem[lp1 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[lp1 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[lp1 + 1 * 4 + 3]) << 0x18)) {
         goto label 7
     }
@@ -1007,16 +1033,16 @@ def private D_PolysetRecursiveTriangle_c2da_frame(var lp1 : int; var lp2 : int; 
     D_PolysetRecursiveTriangle(lp3, c2da_fp, lp2)
     return
     label 5:
-    let c2da_fresh98 : int16 = int16(z)
-    let c2da_fresh99 : uint = uint(c2da_fresh98)
-    c2da_mem[zbuf] = uint8(c2da_fresh99)
-    c2da_mem[zbuf + 1] = uint8(c2da_fresh99 >> 0x8)
-    let c2da_fresh100 : int = skintable[int(uint(c2da_mem[c2da_fp + 3 * 4]) | uint(c2da_mem[c2da_fp + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3 * 4 + 3]) << 0x18) >> 16] + (int(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) >> 16)
-    let c2da_fresh101 : int = d_pcolormap + int(c2da_mem[c2da_fresh100])
-    pix = int(c2da_mem[c2da_fresh101])
-    let c2da_fresh102 : int = d_viewbuffer + int(d_scantable[int(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18)] + int(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18))
-    let c2da_fresh103 : uint8 = uint8(pix)
-    c2da_mem[c2da_fresh102] = c2da_fresh103
+    let c2da_fresh122 : int16 = int16(z)
+    let c2da_fresh123 : uint = uint(c2da_fresh122)
+    c2da_mem[zbuf] = uint8(c2da_fresh123)
+    c2da_mem[zbuf + 1] = uint8(c2da_fresh123 >> 0x8)
+    let c2da_fresh124 : int = skintable[int(uint(c2da_mem[c2da_fp + 3 * 4]) | uint(c2da_mem[c2da_fp + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3 * 4 + 3]) << 0x18) >> 16] + (int(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) >> 16)
+    let c2da_fresh125 : int = d_pcolormap + int(c2da_mem[c2da_fresh124])
+    pix = int(c2da_mem[c2da_fresh125])
+    let c2da_fresh126 : int = d_viewbuffer + int(d_scantable[int(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18)] + int(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18))
+    let c2da_fresh127 : uint8 = uint8(pix)
+    c2da_mem[c2da_fresh126] = c2da_fresh127
     goto label 3
     label 6:
     goto label 4

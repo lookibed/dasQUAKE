@@ -33,10 +33,12 @@ def D_DrawSpans8(var pspan : int) {
     tdivz8stepu = d_tdivzstepu * 8.0
     zi8stepu = d_zistepu * 8.0
     while (true) {
-        pdest = d_viewbuffer + int(screenwidth * int(uint(c2da_mem[pspan + 4]) | uint(c2da_mem[pspan + 5]) << 0x8 | uint(c2da_mem[pspan + 6]) << 0x10 | uint(c2da_mem[pspan + 7]) << 0x18)) + int(uint(c2da_mem[pspan]) | uint(c2da_mem[pspan + 1]) << 0x8 | uint(c2da_mem[pspan + 2]) << 0x10 | uint(c2da_mem[pspan + 3]) << 0x18)
+        let c2da_fresh19 : int = int(uint(c2da_mem[pspan + 4]) | uint(c2da_mem[pspan + 5]) << 0x8 | uint(c2da_mem[pspan + 6]) << 0x10 | uint(c2da_mem[pspan + 7]) << 0x18)
+        let c2da_fresh20 : int = int(uint(c2da_mem[pspan]) | uint(c2da_mem[pspan + 1]) << 0x8 | uint(c2da_mem[pspan + 2]) << 0x10 | uint(c2da_mem[pspan + 3]) << 0x18)
+        pdest = d_viewbuffer + int(screenwidth * c2da_fresh19) + c2da_fresh20
         count = int(uint(c2da_mem[pspan + 8]) | uint(c2da_mem[pspan + 9]) << 0x8 | uint(c2da_mem[pspan + 10]) << 0x10 | uint(c2da_mem[pspan + 11]) << 0x18)
-        du = float(int(uint(c2da_mem[pspan]) | uint(c2da_mem[pspan + 1]) << 0x8 | uint(c2da_mem[pspan + 2]) << 0x10 | uint(c2da_mem[pspan + 3]) << 0x18))
-        dv = float(int(uint(c2da_mem[pspan + 4]) | uint(c2da_mem[pspan + 5]) << 0x8 | uint(c2da_mem[pspan + 6]) << 0x10 | uint(c2da_mem[pspan + 7]) << 0x18))
+        du = float(c2da_fresh20)
+        dv = float(c2da_fresh19)
         sdivz = d_sdivzorigin + dv * d_sdivzstepv + du * d_sdivzstepu
         tdivz = d_tdivzorigin + dv * d_tdivzstepv + du * d_tdivzstepu
         zi = d_ziorigin + dv * d_zistepv + du * d_zistepu
@@ -138,16 +140,18 @@ def D_DrawZSpans(var pspan_0 : int) {
     var ltemp : uint
     izistep = int(d_zistepu * 32768.0 * 65536.0)
     while (true) {
-        pdest_0 = d_pzbuffer + int(d_zwidth * uint(int(uint(c2da_mem[pspan_0 + 4]) | uint(c2da_mem[pspan_0 + 5]) << 0x8 | uint(c2da_mem[pspan_0 + 6]) << 0x10 | uint(c2da_mem[pspan_0 + 7]) << 0x18))) * 2 + int(uint(c2da_mem[pspan_0]) | uint(c2da_mem[pspan_0 + 1]) << 0x8 | uint(c2da_mem[pspan_0 + 2]) << 0x10 | uint(c2da_mem[pspan_0 + 3]) << 0x18) * 2
+        let c2da_fresh28 : int = int(uint(c2da_mem[pspan_0 + 4]) | uint(c2da_mem[pspan_0 + 5]) << 0x8 | uint(c2da_mem[pspan_0 + 6]) << 0x10 | uint(c2da_mem[pspan_0 + 7]) << 0x18)
+        let c2da_fresh29 : int = int(uint(c2da_mem[pspan_0]) | uint(c2da_mem[pspan_0 + 1]) << 0x8 | uint(c2da_mem[pspan_0 + 2]) << 0x10 | uint(c2da_mem[pspan_0 + 3]) << 0x18)
+        pdest_0 = d_pzbuffer + int(d_zwidth * uint(c2da_fresh28)) * 2 + c2da_fresh29 * 2
         count_0 = int(uint(c2da_mem[pspan_0 + 8]) | uint(c2da_mem[pspan_0 + 9]) << 0x8 | uint(c2da_mem[pspan_0 + 10]) << 0x10 | uint(c2da_mem[pspan_0 + 11]) << 0x18)
-        izi = int(double(d_ziorigin + float(int(uint(c2da_mem[pspan_0 + 4]) | uint(c2da_mem[pspan_0 + 5]) << 0x8 | uint(c2da_mem[pspan_0 + 6]) << 0x10 | uint(c2da_mem[pspan_0 + 7]) << 0x18)) * d_zistepv + float(int(uint(c2da_mem[pspan_0]) | uint(c2da_mem[pspan_0 + 1]) << 0x8 | uint(c2da_mem[pspan_0 + 2]) << 0x10 | uint(c2da_mem[pspan_0 + 3]) << 0x18)) * d_zistepu) * 32768.0lf * 65536.0lf)
+        izi = int(double(d_ziorigin + float(c2da_fresh28) * d_zistepv + float(c2da_fresh29) * d_zistepu) * 32768.0lf * 65536.0lf)
         if ((int64(pdest_0) & 2l) != 0) {
-            let c2da_fresh19 : int = pdest_0
+            let c2da_fresh21 : int = pdest_0
             pdest_0 += 2
-            let c2da_fresh20 : int16 = int16(izi >> 16)
-            let c2da_fresh21 : uint = uint(c2da_fresh20)
-            c2da_mem[c2da_fresh19] = uint8(c2da_fresh21)
-            c2da_mem[c2da_fresh19 + 1] = uint8(c2da_fresh21 >> 0x8)
+            let c2da_fresh22 : int16 = int16(izi >> 16)
+            let c2da_fresh23 : uint = uint(c2da_fresh22)
+            c2da_mem[c2da_fresh21] = uint8(c2da_fresh23)
+            c2da_mem[c2da_fresh21 + 1] = uint8(c2da_fresh23 >> 0x8)
             izi += izistep
             count_0--
         }
@@ -158,12 +162,12 @@ def D_DrawZSpans(var pspan_0 : int) {
                 izi += izistep
                 ltemp |= uint(izi) & 0xffff0000u
                 izi += izistep
-                let c2da_fresh22 : int = int(ltemp)
-                let c2da_fresh23 : uint = uint(c2da_fresh22)
-                c2da_mem[pdest_0] = uint8(c2da_fresh23)
-                c2da_mem[pdest_0 + 1] = uint8(c2da_fresh23 >> 0x8)
-                c2da_mem[pdest_0 + 2] = uint8(c2da_fresh23 >> 0x10)
-                c2da_mem[pdest_0 + 3] = uint8(c2da_fresh23 >> 0x18)
+                let c2da_fresh24 : int = int(ltemp)
+                let c2da_fresh25 : uint = uint(c2da_fresh24)
+                c2da_mem[pdest_0] = uint8(c2da_fresh25)
+                c2da_mem[pdest_0 + 1] = uint8(c2da_fresh25 >> 0x8)
+                c2da_mem[pdest_0 + 2] = uint8(c2da_fresh25 >> 0x10)
+                c2da_mem[pdest_0 + 3] = uint8(c2da_fresh25 >> 0x18)
                 pdest_0 += 2 * 2
                 doublecount--
                 if (doublecount <= 0) {
@@ -172,10 +176,10 @@ def D_DrawZSpans(var pspan_0 : int) {
             }
         }
         if ((count_0 & 1) != 0) {
-            let c2da_fresh24 : int16 = int16(izi >> 16)
-            let c2da_fresh25 : uint = uint(c2da_fresh24)
-            c2da_mem[pdest_0] = uint8(c2da_fresh25)
-            c2da_mem[pdest_0 + 1] = uint8(c2da_fresh25 >> 0x8)
+            let c2da_fresh26 : int16 = int16(izi >> 16)
+            let c2da_fresh27 : uint = uint(c2da_fresh26)
+            c2da_mem[pdest_0] = uint8(c2da_fresh27)
+            c2da_mem[pdest_0 + 1] = uint8(c2da_fresh27 >> 0x8)
         }
         pspan_0 = int(uint(c2da_mem[pspan_0 + 16]) | uint(c2da_mem[pspan_0 + 17]) << 0x8 | uint(c2da_mem[pspan_0 + 18]) << 0x10 | uint(c2da_mem[pspan_0 + 19]) << 0x18)
         if (pspan_0 == 0) {
@@ -207,10 +211,12 @@ def Turbulent8(var pspan_1 : int) {
     tdivz16stepu = d_tdivzstepu * 16.0
     zi16stepu = d_zistepu * 16.0
     while (true) {
-        r_turb_pdest = d_viewbuffer + int(screenwidth * int(uint(c2da_mem[pspan_1 + 4]) | uint(c2da_mem[pspan_1 + 5]) << 0x8 | uint(c2da_mem[pspan_1 + 6]) << 0x10 | uint(c2da_mem[pspan_1 + 7]) << 0x18)) + int(uint(c2da_mem[pspan_1]) | uint(c2da_mem[pspan_1 + 1]) << 0x8 | uint(c2da_mem[pspan_1 + 2]) << 0x10 | uint(c2da_mem[pspan_1 + 3]) << 0x18)
+        let c2da_fresh30 : int = int(uint(c2da_mem[pspan_1 + 4]) | uint(c2da_mem[pspan_1 + 5]) << 0x8 | uint(c2da_mem[pspan_1 + 6]) << 0x10 | uint(c2da_mem[pspan_1 + 7]) << 0x18)
+        let c2da_fresh31 : int = int(uint(c2da_mem[pspan_1]) | uint(c2da_mem[pspan_1 + 1]) << 0x8 | uint(c2da_mem[pspan_1 + 2]) << 0x10 | uint(c2da_mem[pspan_1 + 3]) << 0x18)
+        r_turb_pdest = d_viewbuffer + int(screenwidth * c2da_fresh30) + c2da_fresh31
         count_1 = int(uint(c2da_mem[pspan_1 + 8]) | uint(c2da_mem[pspan_1 + 9]) << 0x8 | uint(c2da_mem[pspan_1 + 10]) << 0x10 | uint(c2da_mem[pspan_1 + 11]) << 0x18)
-        du_1 = float(int(uint(c2da_mem[pspan_1]) | uint(c2da_mem[pspan_1 + 1]) << 0x8 | uint(c2da_mem[pspan_1 + 2]) << 0x10 | uint(c2da_mem[pspan_1 + 3]) << 0x18))
-        dv_1 = float(int(uint(c2da_mem[pspan_1 + 4]) | uint(c2da_mem[pspan_1 + 5]) << 0x8 | uint(c2da_mem[pspan_1 + 6]) << 0x10 | uint(c2da_mem[pspan_1 + 7]) << 0x18))
+        du_1 = float(c2da_fresh31)
+        dv_1 = float(c2da_fresh30)
         sdivz_0 = d_sdivzorigin + dv_1 * d_sdivzstepv + du_1 * d_sdivzstepu
         tdivz_0 = d_tdivzorigin + dv_1 * d_tdivzstepv + du_1 * d_tdivzstepu
         zi_1 = d_ziorigin + dv_1 * d_zistepv + du_1 * d_zistepu
@@ -301,15 +307,15 @@ def D_DrawTurbulent8Span() {
     var sturb : int
     var tturb : int
     while (true) {
-        let c2da_fresh26 : int = r_turb_turb + (r_turb_t >> 16 & 128 - 1) * 4
-        sturb = r_turb_s + int(uint(c2da_mem[c2da_fresh26]) | uint(c2da_mem[c2da_fresh26 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh26 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh26 + 3]) << 0x18) >> 16 & 63
-        let c2da_fresh27 : int = r_turb_turb + (r_turb_s >> 16 & 128 - 1) * 4
-        tturb = r_turb_t + int(uint(c2da_mem[c2da_fresh27]) | uint(c2da_mem[c2da_fresh27 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh27 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh27 + 3]) << 0x18) >> 16 & 63
-        let c2da_fresh28 : int = r_turb_pdest
+        let c2da_fresh32 : int = r_turb_turb + (r_turb_t >> 16 & 128 - 1) * 4
+        sturb = r_turb_s + int(uint(c2da_mem[c2da_fresh32]) | uint(c2da_mem[c2da_fresh32 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh32 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh32 + 3]) << 0x18) >> 16 & 63
+        let c2da_fresh33 : int = r_turb_turb + (r_turb_s >> 16 & 128 - 1) * 4
+        tturb = r_turb_t + int(uint(c2da_mem[c2da_fresh33]) | uint(c2da_mem[c2da_fresh33 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh33 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh33 + 3]) << 0x18) >> 16 & 63
+        let c2da_fresh34 : int = r_turb_pdest
         r_turb_pdest++
-        let c2da_fresh29 : int = r_turb_pbase + (tturb << 6) + sturb
-        let c2da_fresh30 : uint8 = c2da_mem[c2da_fresh29]
-        c2da_mem[c2da_fresh28] = c2da_fresh30
+        let c2da_fresh35 : int = r_turb_pbase + (tturb << 6) + sturb
+        let c2da_fresh36 : uint8 = c2da_mem[c2da_fresh35]
+        c2da_mem[c2da_fresh34] = c2da_fresh36
         r_turb_s += r_turb_sstep
         r_turb_t += r_turb_tstep
         r_turb_spancount--

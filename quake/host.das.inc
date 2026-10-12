@@ -32,7 +32,7 @@ var private c2da_str_host_15 : array<int8> = [int8(79), int8(110), int8(108), in
 
 var private c2da_str_host_16 : array<int8> = [int8(103), int8(102), int8(120), int8(46), int8(119), int8(97), int8(100), int8(0)]
 
-var private c2da_str_host_17 : array<int8> = [int8(69), int8(120), int8(101), int8(58), int8(32), int8(48), int8(51), int8(58), int8(53), int8(53), int8(58), int8(48), int8(53), int8(32), int8(79), int8(99), int8(116), int8(32), int8(49), int8(50), int8(32), int8(50), int8(48), int8(50), int8(54), int8(10), int8(0)]
+var private c2da_str_host_17 : array<int8> = [int8(69), int8(120), int8(101), int8(58), int8(32), int8(48), int8(52), int8(58), int8(53), int8(48), int8(58), int8(49), int8(49), int8(32), int8(79), int8(99), int8(116), int8(32), int8(49), int8(50), int8(32), int8(50), int8(48), int8(50), int8(54), int8(10), int8(0)]
 
 var private c2da_str_host_18 : array<int8> = [int8(37), int8(52), int8(46), int8(49), int8(102), int8(32), int8(109), int8(101), int8(103), int8(97), int8(98), int8(121), int8(116), int8(101), int8(32), int8(104), int8(101), int8(97), int8(112), int8(10), int8(0)]
 

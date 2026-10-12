@@ -9,7 +9,7 @@ module when files depend on each other in a cycle. So the tree mirrors the origi
 
 > **Generated — do not edit.** Regenerate from a c2das checkout with
 > `python3 scripts/export_dasquake.py <dasQUAKE checkout>`.
-> This tree: c2das `18cb50040`, quakegeneric `13052102577c629650cf07a46151a4b6e1b19c3c`. Details are in
+> This tree: c2das `943cbb94d`, quakegeneric `13052102577c629650cf07a46151a4b6e1b19c3c`. Details are in
 > [`GENERATED.json`](GENERATED.json).
 
 ## Layout

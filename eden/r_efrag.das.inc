@@ -133,11 +133,12 @@ def R_SplitEntityOnNode(var node : int) {
     if (int(c2da_mem[splitplane + 16]) < 3) {
         let c2da_fresh16 : int = 391888 + int(c2da_mem[splitplane + 16]) * 4
         var c2da_fresh18 : int = 0
-        if (uint_bits_to_float(uint(c2da_mem[splitplane + 12]) | uint(c2da_mem[splitplane + 13]) << 0x8 | uint(c2da_mem[splitplane + 14]) << 0x10 | uint(c2da_mem[splitplane + 15]) << 0x18) <= uint_bits_to_float(uint(c2da_mem[c2da_fresh16]) | uint(c2da_mem[c2da_fresh16 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh16 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh16 + 3]) << 0x18)) {
+        let c2da_fresh20 : float = uint_bits_to_float(uint(c2da_mem[splitplane + 12]) | uint(c2da_mem[splitplane + 13]) << 0x8 | uint(c2da_mem[splitplane + 14]) << 0x10 | uint(c2da_mem[splitplane + 15]) << 0x18)
+        if (c2da_fresh20 <= uint_bits_to_float(uint(c2da_mem[c2da_fresh16]) | uint(c2da_mem[c2da_fresh16 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh16 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh16 + 3]) << 0x18)) {
             c2da_fresh18 = 1
         } else {
             let c2da_fresh17 : int = 391904 + int(c2da_mem[splitplane + 16]) * 4
-            c2da_fresh18 = uint_bits_to_float(uint(c2da_mem[splitplane + 12]) | uint(c2da_mem[splitplane + 13]) << 0x8 | uint(c2da_mem[splitplane + 14]) << 0x10 | uint(c2da_mem[splitplane + 15]) << 0x18) >= uint_bits_to_float(uint(c2da_mem[c2da_fresh17]) | uint(c2da_mem[c2da_fresh17 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh17 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh17 + 3]) << 0x18) ? 2 : 3
+            c2da_fresh18 = c2da_fresh20 >= uint_bits_to_float(uint(c2da_mem[c2da_fresh17]) | uint(c2da_mem[c2da_fresh17 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh17 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh17 + 3]) << 0x18) ? 2 : 3
         }
         c2da_fresh19 = c2da_fresh18
     } else {
@@ -176,12 +177,12 @@ def R_RemoveEfrags(var ent_0 : int) {
                 break
             }
             if (walk == ef_0) {
-                let c2da_fresh20 : int = int(uint(c2da_mem[ef_0 + 8]) | uint(c2da_mem[ef_0 + 9]) << 0x8 | uint(c2da_mem[ef_0 + 10]) << 0x10 | uint(c2da_mem[ef_0 + 11]) << 0x18)
-                let c2da_fresh21 : uint = uint(c2da_fresh20)
-                c2da_mem[prev] = uint8(c2da_fresh21)
-                c2da_mem[prev + 1] = uint8(c2da_fresh21 >> 0x8)
-                c2da_mem[prev + 2] = uint8(c2da_fresh21 >> 0x10)
-                c2da_mem[prev + 3] = uint8(c2da_fresh21 >> 0x18)
+                let c2da_fresh21 : int = int(uint(c2da_mem[ef_0 + 8]) | uint(c2da_mem[ef_0 + 9]) << 0x8 | uint(c2da_mem[ef_0 + 10]) << 0x10 | uint(c2da_mem[ef_0 + 11]) << 0x18)
+                let c2da_fresh22 : uint = uint(c2da_fresh21)
+                c2da_mem[prev] = uint8(c2da_fresh22)
+                c2da_mem[prev + 1] = uint8(c2da_fresh22 >> 0x8)
+                c2da_mem[prev + 2] = uint8(c2da_fresh22 >> 0x10)
+                c2da_mem[prev + 3] = uint8(c2da_fresh22 >> 0x18)
                 c2da_mem[prev + 4] = 0u8
                 c2da_mem[prev + 5] = 0u8
                 c2da_mem[prev + 6] = 0u8
@@ -193,31 +194,31 @@ def R_RemoveEfrags(var ent_0 : int) {
         }
         old = ef_0
         ef_0 = int(uint(c2da_mem[ef_0 + 24]) | uint(c2da_mem[ef_0 + 25]) << 0x8 | uint(c2da_mem[ef_0 + 26]) << 0x10 | uint(c2da_mem[ef_0 + 27]) << 0x18)
-        let c2da_fresh22 : int = int(uint(c2da_mem[4968]) | uint(c2da_mem[4969]) << 0x8 | uint(c2da_mem[4970]) << 0x10 | uint(c2da_mem[4971]) << 0x18)
-        let c2da_fresh23 : uint = uint(c2da_fresh22)
-        c2da_mem[old + 24] = uint8(c2da_fresh23)
-        c2da_mem[old + 25] = uint8(c2da_fresh23 >> 0x8)
-        c2da_mem[old + 26] = uint8(c2da_fresh23 >> 0x10)
-        c2da_mem[old + 27] = uint8(c2da_fresh23 >> 0x18)
+        let c2da_fresh23 : int = int(uint(c2da_mem[4968]) | uint(c2da_mem[4969]) << 0x8 | uint(c2da_mem[4970]) << 0x10 | uint(c2da_mem[4971]) << 0x18)
+        let c2da_fresh24 : uint = uint(c2da_fresh23)
+        c2da_mem[old + 24] = uint8(c2da_fresh24)
+        c2da_mem[old + 25] = uint8(c2da_fresh24 >> 0x8)
+        c2da_mem[old + 26] = uint8(c2da_fresh24 >> 0x10)
+        c2da_mem[old + 27] = uint8(c2da_fresh24 >> 0x18)
         c2da_mem[old + 28] = 0u8
         c2da_mem[old + 29] = 0u8
         c2da_mem[old + 30] = 0u8
         c2da_mem[old + 31] = 0u8
-        let c2da_fresh24 : uint = uint(old)
-        c2da_mem[4968] = uint8(c2da_fresh24)
-        c2da_mem[4969] = uint8(c2da_fresh24 >> 0x8)
-        c2da_mem[4970] = uint8(c2da_fresh24 >> 0x10)
-        c2da_mem[4971] = uint8(c2da_fresh24 >> 0x18)
+        let c2da_fresh25 : uint = uint(old)
+        c2da_mem[4968] = uint8(c2da_fresh25)
+        c2da_mem[4969] = uint8(c2da_fresh25 >> 0x8)
+        c2da_mem[4970] = uint8(c2da_fresh25 >> 0x10)
+        c2da_mem[4971] = uint8(c2da_fresh25 >> 0x18)
         c2da_mem[4972] = 0u8
         c2da_mem[4973] = 0u8
         c2da_mem[4974] = 0u8
         c2da_mem[4975] = 0u8
     }
-    let c2da_fresh25 : uint = 0u
-    c2da_mem[ent_0 + 144] = uint8(c2da_fresh25)
-    c2da_mem[ent_0 + 145] = uint8(c2da_fresh25 >> 0x8)
-    c2da_mem[ent_0 + 146] = uint8(c2da_fresh25 >> 0x10)
-    c2da_mem[ent_0 + 147] = uint8(c2da_fresh25 >> 0x18)
+    let c2da_fresh26 : uint = 0u
+    c2da_mem[ent_0 + 144] = uint8(c2da_fresh26)
+    c2da_mem[ent_0 + 145] = uint8(c2da_fresh26 >> 0x8)
+    c2da_mem[ent_0 + 146] = uint8(c2da_fresh26 >> 0x10)
+    c2da_mem[ent_0 + 147] = uint8(c2da_fresh26 >> 0x18)
     c2da_mem[ent_0 + 148] = 0u8
     c2da_mem[ent_0 + 149] = 0u8
     c2da_mem[ent_0 + 150] = 0u8
@@ -226,7 +227,7 @@ def R_RemoveEfrags(var ent_0 : int) {
 }
 [export, sideeffects]
 def R_StoreEfrags(var ppefrag : int) {
-    var c2da_fresh26 : uint
+    var c2da_fresh27 : uint
     var pent : int
     var clmodel : int
     var pefrag : int
@@ -235,20 +236,21 @@ def R_StoreEfrags(var ppefrag : int) {
         if (pefrag == 0) {
             break
         }
-        pent = int(uint(c2da_mem[pefrag + 16]) | uint(c2da_mem[pefrag + 17]) << 0x8 | uint(c2da_mem[pefrag + 18]) << 0x10 | uint(c2da_mem[pefrag + 19]) << 0x18)
+        let c2da_fresh29 : int = int(uint(c2da_mem[pefrag + 16]) | uint(c2da_mem[pefrag + 17]) << 0x8 | uint(c2da_mem[pefrag + 18]) << 0x10 | uint(c2da_mem[pefrag + 19]) << 0x18)
+        pent = c2da_fresh29
         clmodel = int(uint(c2da_mem[pent + 136]) | uint(c2da_mem[pent + 137]) << 0x8 | uint(c2da_mem[pent + 138]) << 0x10 | uint(c2da_mem[pent + 139]) << 0x18)
-        c2da_fresh26 = uint(c2da_mem[clmodel + 68]) | uint(c2da_mem[clmodel + 69]) << 0x8 | uint(c2da_mem[clmodel + 70]) << 0x10 | uint(c2da_mem[clmodel + 71]) << 0x18
-        if (c2da_fresh26 == 0x2u || c2da_fresh26 == 0x0u || c2da_fresh26 == 0x1u) {
-            pent = int(uint(c2da_mem[pefrag + 16]) | uint(c2da_mem[pefrag + 17]) << 0x8 | uint(c2da_mem[pefrag + 18]) << 0x10 | uint(c2da_mem[pefrag + 19]) << 0x18)
+        c2da_fresh27 = uint(c2da_mem[clmodel + 68]) | uint(c2da_mem[clmodel + 69]) << 0x8 | uint(c2da_mem[clmodel + 70]) << 0x10 | uint(c2da_mem[clmodel + 71]) << 0x18
+        if (c2da_fresh27 == 0x2u || c2da_fresh27 == 0x0u || c2da_fresh27 == 0x1u) {
+            pent = c2da_fresh29
             if (int(uint(c2da_mem[pent + 176]) | uint(c2da_mem[pent + 177]) << 0x8 | uint(c2da_mem[pent + 178]) << 0x10 | uint(c2da_mem[pent + 179]) << 0x18) != r_framecount && cl_numvisedicts < 256) {
                 let c2da_postinc : int = cl_numvisedicts
                 cl_numvisedicts = cl_numvisedicts + 1
                 cl_visedicts[c2da_postinc] = pent
-                let c2da_fresh27 : uint = uint(r_framecount)
-                c2da_mem[pent + 176] = uint8(c2da_fresh27)
-                c2da_mem[pent + 177] = uint8(c2da_fresh27 >> 0x8)
-                c2da_mem[pent + 178] = uint8(c2da_fresh27 >> 0x10)
-                c2da_mem[pent + 179] = uint8(c2da_fresh27 >> 0x18)
+                let c2da_fresh28 : uint = uint(r_framecount)
+                c2da_mem[pent + 176] = uint8(c2da_fresh28)
+                c2da_mem[pent + 177] = uint8(c2da_fresh28 >> 0x8)
+                c2da_mem[pent + 178] = uint8(c2da_fresh28 >> 0x10)
+                c2da_mem[pent + 179] = uint8(c2da_fresh28 >> 0x18)
             }
             ppefrag = pefrag + 8
         } else {
@@ -264,28 +266,30 @@ def R_SplitEntityOnNode2(var node_0 : int) {
     if (int(uint(c2da_mem[node_0 + 4]) | uint(c2da_mem[node_0 + 5]) << 0x8 | uint(c2da_mem[node_0 + 6]) << 0x10 | uint(c2da_mem[node_0 + 7]) << 0x18) != r_visframecount) {
         return
     }
-    if (int(uint(c2da_mem[node_0]) | uint(c2da_mem[node_0 + 1]) << 0x8 | uint(c2da_mem[node_0 + 2]) << 0x10 | uint(c2da_mem[node_0 + 3]) << 0x18) < 0) {
-        if (int(uint(c2da_mem[node_0]) | uint(c2da_mem[node_0 + 1]) << 0x8 | uint(c2da_mem[node_0 + 2]) << 0x10 | uint(c2da_mem[node_0 + 3]) << 0x18) != -2) {
+    let c2da_fresh34 : int = int(uint(c2da_mem[node_0]) | uint(c2da_mem[node_0 + 1]) << 0x8 | uint(c2da_mem[node_0 + 2]) << 0x10 | uint(c2da_mem[node_0 + 3]) << 0x18)
+    if (c2da_fresh34 < 0) {
+        if (c2da_fresh34 != -2) {
             r_pefragtopnode = int(node_0)  // nolint:PERF020
         }
         return
     }
     splitplane_0 = int(uint(c2da_mem[node_0 + 32]) | uint(c2da_mem[node_0 + 33]) << 0x8 | uint(c2da_mem[node_0 + 34]) << 0x10 | uint(c2da_mem[node_0 + 35]) << 0x18)
-    var c2da_fresh31 : int = 0
+    var c2da_fresh33 : int = 0
     if (int(c2da_mem[splitplane_0 + 16]) < 3) {
-        let c2da_fresh28 : int = 391888 + int(c2da_mem[splitplane_0 + 16]) * 4
-        var c2da_fresh30 : int = 0
-        if (uint_bits_to_float(uint(c2da_mem[splitplane_0 + 12]) | uint(c2da_mem[splitplane_0 + 13]) << 0x8 | uint(c2da_mem[splitplane_0 + 14]) << 0x10 | uint(c2da_mem[splitplane_0 + 15]) << 0x18) <= uint_bits_to_float(uint(c2da_mem[c2da_fresh28]) | uint(c2da_mem[c2da_fresh28 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh28 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh28 + 3]) << 0x18)) {
-            c2da_fresh30 = 1
+        let c2da_fresh30 : int = 391888 + int(c2da_mem[splitplane_0 + 16]) * 4
+        var c2da_fresh32 : int = 0
+        let c2da_fresh35 : float = uint_bits_to_float(uint(c2da_mem[splitplane_0 + 12]) | uint(c2da_mem[splitplane_0 + 13]) << 0x8 | uint(c2da_mem[splitplane_0 + 14]) << 0x10 | uint(c2da_mem[splitplane_0 + 15]) << 0x18)
+        if (c2da_fresh35 <= uint_bits_to_float(uint(c2da_mem[c2da_fresh30]) | uint(c2da_mem[c2da_fresh30 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh30 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh30 + 3]) << 0x18)) {
+            c2da_fresh32 = 1
         } else {
-            let c2da_fresh29 : int = 391904 + int(c2da_mem[splitplane_0 + 16]) * 4
-            c2da_fresh30 = uint_bits_to_float(uint(c2da_mem[splitplane_0 + 12]) | uint(c2da_mem[splitplane_0 + 13]) << 0x8 | uint(c2da_mem[splitplane_0 + 14]) << 0x10 | uint(c2da_mem[splitplane_0 + 15]) << 0x18) >= uint_bits_to_float(uint(c2da_mem[c2da_fresh29]) | uint(c2da_mem[c2da_fresh29 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh29 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh29 + 3]) << 0x18) ? 2 : 3
+            let c2da_fresh31 : int = 391904 + int(c2da_mem[splitplane_0 + 16]) * 4
+            c2da_fresh32 = c2da_fresh35 >= uint_bits_to_float(uint(c2da_mem[c2da_fresh31]) | uint(c2da_mem[c2da_fresh31 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh31 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh31 + 3]) << 0x18) ? 2 : 3
         }
-        c2da_fresh31 = c2da_fresh30
+        c2da_fresh33 = c2da_fresh32
     } else {
-        c2da_fresh31 = BoxOnPlaneSide(391888, 391904, splitplane_0)
+        c2da_fresh33 = BoxOnPlaneSide(391888, 391904, splitplane_0)
     }
-    sides_0 = c2da_fresh31
+    sides_0 = c2da_fresh33
     if (sides_0 == 3) {
         r_pefragtopnode = int(node_0)  // nolint:PERF020
         return

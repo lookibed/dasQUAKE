@@ -130,8 +130,9 @@ def private R_LightPoint_c2da_frame(var p : int; c2da_fp : int) : int {
     if (r == -1) {
         r = 0
     }
-    if (r < int(uint(c2da_mem[5352]) | uint(c2da_mem[5353]) << 0x8 | uint(c2da_mem[5354]) << 0x10 | uint(c2da_mem[5355]) << 0x18)) {
-        r = int(uint(c2da_mem[5352]) | uint(c2da_mem[5353]) << 0x8 | uint(c2da_mem[5354]) << 0x10 | uint(c2da_mem[5355]) << 0x18)
+    let c2da_fresh15 : int = int(uint(c2da_mem[5352]) | uint(c2da_mem[5353]) << 0x8 | uint(c2da_mem[5354]) << 0x10 | uint(c2da_mem[5355]) << 0x18)
+    if (r < c2da_fresh15) {
+        r = c2da_fresh15
     }
     return r
 }
@@ -156,31 +157,38 @@ def private RecursiveLightPoint_c2da_frame(var node_0 : int; var start : int; va
         return -1
     }
     plane = int(uint(c2da_mem[node_0 + 32]) | uint(c2da_mem[node_0 + 33]) << 0x8 | uint(c2da_mem[node_0 + 34]) << 0x10 | uint(c2da_mem[node_0 + 35]) << 0x18)
-    front = uint_bits_to_float(uint(c2da_mem[start + 0 * 4]) | uint(c2da_mem[start + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 0 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[plane + 0 * 4]) | uint(c2da_mem[plane + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[start + 1 * 4]) | uint(c2da_mem[start + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 1 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[plane + 1 * 4]) | uint(c2da_mem[plane + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 1 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[start + 2 * 4]) | uint(c2da_mem[start + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 2 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[plane + 2 * 4]) | uint(c2da_mem[plane + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 2 * 4 + 3]) << 0x18) - uint_bits_to_float(uint(c2da_mem[plane + 12]) | uint(c2da_mem[plane + 13]) << 0x8 | uint(c2da_mem[plane + 14]) << 0x10 | uint(c2da_mem[plane + 15]) << 0x18)
-    back = uint_bits_to_float(uint(c2da_mem[end + 0 * 4]) | uint(c2da_mem[end + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 0 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[plane + 0 * 4]) | uint(c2da_mem[plane + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[end + 1 * 4]) | uint(c2da_mem[end + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 1 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[plane + 1 * 4]) | uint(c2da_mem[plane + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 1 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[end + 2 * 4]) | uint(c2da_mem[end + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 2 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[plane + 2 * 4]) | uint(c2da_mem[plane + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 2 * 4 + 3]) << 0x18) - uint_bits_to_float(uint(c2da_mem[plane + 12]) | uint(c2da_mem[plane + 13]) << 0x8 | uint(c2da_mem[plane + 14]) << 0x10 | uint(c2da_mem[plane + 15]) << 0x18)
+    let c2da_fresh24 : float = uint_bits_to_float(uint(c2da_mem[plane + 0 * 4]) | uint(c2da_mem[plane + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 0 * 4 + 3]) << 0x18)
+    let c2da_fresh25 : float = uint_bits_to_float(uint(c2da_mem[plane + 1 * 4]) | uint(c2da_mem[plane + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 1 * 4 + 3]) << 0x18)
+    let c2da_fresh26 : float = uint_bits_to_float(uint(c2da_mem[plane + 2 * 4]) | uint(c2da_mem[plane + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[plane + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[plane + 2 * 4 + 3]) << 0x18)
+    let c2da_fresh27 : float = uint_bits_to_float(uint(c2da_mem[plane + 12]) | uint(c2da_mem[plane + 13]) << 0x8 | uint(c2da_mem[plane + 14]) << 0x10 | uint(c2da_mem[plane + 15]) << 0x18)
+    front = uint_bits_to_float(uint(c2da_mem[start + 0 * 4]) | uint(c2da_mem[start + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 0 * 4 + 3]) << 0x18) * c2da_fresh24 + uint_bits_to_float(uint(c2da_mem[start + 1 * 4]) | uint(c2da_mem[start + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 1 * 4 + 3]) << 0x18) * c2da_fresh25 + uint_bits_to_float(uint(c2da_mem[start + 2 * 4]) | uint(c2da_mem[start + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 2 * 4 + 3]) << 0x18) * c2da_fresh26 - c2da_fresh27
+    back = uint_bits_to_float(uint(c2da_mem[end + 0 * 4]) | uint(c2da_mem[end + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 0 * 4 + 3]) << 0x18) * c2da_fresh24 + uint_bits_to_float(uint(c2da_mem[end + 1 * 4]) | uint(c2da_mem[end + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 1 * 4 + 3]) << 0x18) * c2da_fresh25 + uint_bits_to_float(uint(c2da_mem[end + 2 * 4]) | uint(c2da_mem[end + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 2 * 4 + 3]) << 0x18) * c2da_fresh26 - c2da_fresh27
     side = front < 0.0 ? 1 : 0
     if ((back < 0.0 ? 1 : 0) == side) {
         return RecursiveLightPoint(int(uint(c2da_mem[node_0 + 40 + side * 8]) | uint(c2da_mem[node_0 + 40 + side * 8 + 1]) << 0x8 | uint(c2da_mem[node_0 + 40 + side * 8 + 2]) << 0x10 | uint(c2da_mem[node_0 + 40 + side * 8 + 3]) << 0x18), start, end)
     }
     frac = front / (front - back)
-    let c2da_fresh15 : float = uint_bits_to_float(uint(c2da_mem[start + 0 * 4]) | uint(c2da_mem[start + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 0 * 4 + 3]) << 0x18) + (uint_bits_to_float(uint(c2da_mem[end + 0 * 4]) | uint(c2da_mem[end + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 0 * 4 + 3]) << 0x18) - uint_bits_to_float(uint(c2da_mem[start + 0 * 4]) | uint(c2da_mem[start + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 0 * 4 + 3]) << 0x18)) * frac
-    let c2da_fresh16 : uint = float_bits_to_uint(c2da_fresh15)
-    c2da_mem[c2da_fp + 0 * 4] = uint8(c2da_fresh16)
-    c2da_mem[c2da_fp + 0 * 4 + 1] = uint8(c2da_fresh16 >> 0x8)
-    c2da_mem[c2da_fp + 0 * 4 + 2] = uint8(c2da_fresh16 >> 0x10)
-    c2da_mem[c2da_fp + 0 * 4 + 3] = uint8(c2da_fresh16 >> 0x18)
-    let c2da_fresh17 : float = uint_bits_to_float(uint(c2da_mem[start + 1 * 4]) | uint(c2da_mem[start + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 1 * 4 + 3]) << 0x18) + (uint_bits_to_float(uint(c2da_mem[end + 1 * 4]) | uint(c2da_mem[end + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 1 * 4 + 3]) << 0x18) - uint_bits_to_float(uint(c2da_mem[start + 1 * 4]) | uint(c2da_mem[start + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 1 * 4 + 3]) << 0x18)) * frac
-    let c2da_fresh18 : uint = float_bits_to_uint(c2da_fresh17)
-    c2da_mem[c2da_fp + 1 * 4] = uint8(c2da_fresh18)
-    c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh18 >> 0x8)
-    c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh18 >> 0x10)
-    c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh18 >> 0x18)
-    let c2da_fresh19 : float = uint_bits_to_float(uint(c2da_mem[start + 2 * 4]) | uint(c2da_mem[start + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 2 * 4 + 3]) << 0x18) + (uint_bits_to_float(uint(c2da_mem[end + 2 * 4]) | uint(c2da_mem[end + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 2 * 4 + 3]) << 0x18) - uint_bits_to_float(uint(c2da_mem[start + 2 * 4]) | uint(c2da_mem[start + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 2 * 4 + 3]) << 0x18)) * frac
-    let c2da_fresh20 : uint = float_bits_to_uint(c2da_fresh19)
-    c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh20)
-    c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh20 >> 0x8)
-    c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh20 >> 0x10)
-    c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh20 >> 0x18)
+    let c2da_fresh28 : float = uint_bits_to_float(uint(c2da_mem[start + 0 * 4]) | uint(c2da_mem[start + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 0 * 4 + 3]) << 0x18)
+    let c2da_fresh16 : float = c2da_fresh28 + (uint_bits_to_float(uint(c2da_mem[end + 0 * 4]) | uint(c2da_mem[end + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 0 * 4 + 3]) << 0x18) - c2da_fresh28) * frac
+    let c2da_fresh17 : uint = float_bits_to_uint(c2da_fresh16)
+    c2da_mem[c2da_fp + 0 * 4] = uint8(c2da_fresh17)
+    c2da_mem[c2da_fp + 0 * 4 + 1] = uint8(c2da_fresh17 >> 0x8)
+    c2da_mem[c2da_fp + 0 * 4 + 2] = uint8(c2da_fresh17 >> 0x10)
+    c2da_mem[c2da_fp + 0 * 4 + 3] = uint8(c2da_fresh17 >> 0x18)
+    let c2da_fresh29 : float = uint_bits_to_float(uint(c2da_mem[start + 1 * 4]) | uint(c2da_mem[start + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 1 * 4 + 3]) << 0x18)
+    let c2da_fresh18 : float = c2da_fresh29 + (uint_bits_to_float(uint(c2da_mem[end + 1 * 4]) | uint(c2da_mem[end + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 1 * 4 + 3]) << 0x18) - c2da_fresh29) * frac
+    let c2da_fresh19 : uint = float_bits_to_uint(c2da_fresh18)
+    c2da_mem[c2da_fp + 1 * 4] = uint8(c2da_fresh19)
+    c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh19 >> 0x8)
+    c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh19 >> 0x10)
+    c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh19 >> 0x18)
+    let c2da_fresh30 : float = uint_bits_to_float(uint(c2da_mem[start + 2 * 4]) | uint(c2da_mem[start + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[start + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[start + 2 * 4 + 3]) << 0x18)
+    let c2da_fresh20 : float = c2da_fresh30 + (uint_bits_to_float(uint(c2da_mem[end + 2 * 4]) | uint(c2da_mem[end + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[end + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[end + 2 * 4 + 3]) << 0x18) - c2da_fresh30) * frac
+    let c2da_fresh21 : uint = float_bits_to_uint(c2da_fresh20)
+    c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh21)
+    c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh21 >> 0x8)
+    c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh21 >> 0x10)
+    c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh21 >> 0x18)
     r_0 = RecursiveLightPoint(int(uint(c2da_mem[node_0 + 40 + side * 8]) | uint(c2da_mem[node_0 + 40 + side * 8 + 1]) << 0x8 | uint(c2da_mem[node_0 + 40 + side * 8 + 2]) << 0x10 | uint(c2da_mem[node_0 + 40 + side * 8 + 3]) << 0x18), start, c2da_fp)
     if (r_0 >= 0) {
         return r_0
@@ -188,8 +196,8 @@ def private RecursiveLightPoint_c2da_frame(var node_0 : int; var start : int; va
     if ((back < 0.0 ? 1 : 0) == side) {
         return -1
     }
-    let c2da_fresh21 : int = int(uint(c2da_mem[4960]) | uint(c2da_mem[4961]) << 0x8 | uint(c2da_mem[4962]) << 0x10 | uint(c2da_mem[4963]) << 0x18) + 240
-    surf_0 = int(uint(c2da_mem[c2da_fresh21]) | uint(c2da_mem[c2da_fresh21 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh21 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh21 + 3]) << 0x18) + int(uint16(uint(c2da_mem[node_0 + 56]) | uint(c2da_mem[node_0 + 57]) << 0x8)) * 104
+    let c2da_fresh22 : int = int(uint(c2da_mem[4960]) | uint(c2da_mem[4961]) << 0x8 | uint(c2da_mem[4962]) << 0x10 | uint(c2da_mem[4963]) << 0x18) + 240
+    surf_0 = int(uint(c2da_mem[c2da_fresh22]) | uint(c2da_mem[c2da_fresh22 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh22 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh22 + 3]) << 0x18) + int(uint16(uint(c2da_mem[node_0 + 56]) | uint(c2da_mem[node_0 + 57]) << 0x8)) * 104
     i_2 = 0
     while (i_2 < int(uint16(uint(c2da_mem[node_0 + 58]) | uint(c2da_mem[node_0 + 59]) << 0x8))) {
         if ((int(uint(c2da_mem[surf_0 + 24]) | uint(c2da_mem[surf_0 + 25]) << 0x8 | uint(c2da_mem[surf_0 + 26]) << 0x10 | uint(c2da_mem[surf_0 + 27]) << 0x18) & 32) != 0) {
@@ -198,8 +206,11 @@ def private RecursiveLightPoint_c2da_frame(var node_0 : int; var start : int; va
             continue
         }
         tex = int(uint(c2da_mem[surf_0 + 80]) | uint(c2da_mem[surf_0 + 81]) << 0x8 | uint(c2da_mem[surf_0 + 82]) << 0x10 | uint(c2da_mem[surf_0 + 83]) << 0x18)
-        s = int(uint_bits_to_float(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[tex + 0 * 16 + 0 * 4]) | uint(c2da_mem[tex + 0 * 16 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 0 * 16 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 0 * 16 + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[tex + 0 * 16 + 1 * 4]) | uint(c2da_mem[tex + 0 * 16 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 0 * 16 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 0 * 16 + 1 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[tex + 0 * 16 + 2 * 4]) | uint(c2da_mem[tex + 0 * 16 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 0 * 16 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 0 * 16 + 2 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[tex + 0 * 16 + 3 * 4]) | uint(c2da_mem[tex + 0 * 16 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 0 * 16 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 0 * 16 + 3 * 4 + 3]) << 0x18))
-        t = int(uint_bits_to_float(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[tex + 1 * 16 + 0 * 4]) | uint(c2da_mem[tex + 1 * 16 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 1 * 16 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 1 * 16 + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[tex + 1 * 16 + 1 * 4]) | uint(c2da_mem[tex + 1 * 16 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 1 * 16 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 1 * 16 + 1 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[tex + 1 * 16 + 2 * 4]) | uint(c2da_mem[tex + 1 * 16 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 1 * 16 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 1 * 16 + 2 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[tex + 1 * 16 + 3 * 4]) | uint(c2da_mem[tex + 1 * 16 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 1 * 16 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 1 * 16 + 3 * 4 + 3]) << 0x18))
+        let c2da_fresh31 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18)
+        let c2da_fresh32 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18)
+        let c2da_fresh33 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18)
+        s = int(c2da_fresh31 * uint_bits_to_float(uint(c2da_mem[tex + 0 * 16 + 0 * 4]) | uint(c2da_mem[tex + 0 * 16 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 0 * 16 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 0 * 16 + 0 * 4 + 3]) << 0x18) + c2da_fresh32 * uint_bits_to_float(uint(c2da_mem[tex + 0 * 16 + 1 * 4]) | uint(c2da_mem[tex + 0 * 16 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 0 * 16 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 0 * 16 + 1 * 4 + 3]) << 0x18) + c2da_fresh33 * uint_bits_to_float(uint(c2da_mem[tex + 0 * 16 + 2 * 4]) | uint(c2da_mem[tex + 0 * 16 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 0 * 16 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 0 * 16 + 2 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[tex + 0 * 16 + 3 * 4]) | uint(c2da_mem[tex + 0 * 16 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 0 * 16 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 0 * 16 + 3 * 4 + 3]) << 0x18))
+        t = int(c2da_fresh31 * uint_bits_to_float(uint(c2da_mem[tex + 1 * 16 + 0 * 4]) | uint(c2da_mem[tex + 1 * 16 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 1 * 16 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 1 * 16 + 0 * 4 + 3]) << 0x18) + c2da_fresh32 * uint_bits_to_float(uint(c2da_mem[tex + 1 * 16 + 1 * 4]) | uint(c2da_mem[tex + 1 * 16 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 1 * 16 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 1 * 16 + 1 * 4 + 3]) << 0x18) + c2da_fresh33 * uint_bits_to_float(uint(c2da_mem[tex + 1 * 16 + 2 * 4]) | uint(c2da_mem[tex + 1 * 16 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 1 * 16 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 1 * 16 + 2 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[tex + 1 * 16 + 3 * 4]) | uint(c2da_mem[tex + 1 * 16 + 3 * 4 + 1]) << 0x8 | uint(c2da_mem[tex + 1 * 16 + 3 * 4 + 2]) << 0x10 | uint(c2da_mem[tex + 1 * 16 + 3 * 4 + 3]) << 0x18))
         if (s < int(int16(uint(c2da_mem[surf_0 + 72 + 0 * 2]) | uint(c2da_mem[surf_0 + 72 + 0 * 2 + 1]) << 0x8)) || t < int(int16(uint(c2da_mem[surf_0 + 72 + 1 * 2]) | uint(c2da_mem[surf_0 + 72 + 1 * 2 + 1]) << 0x8))) {
             i_2++
             surf_0 += 104
@@ -231,6 +242,6 @@ def private RecursiveLightPoint_c2da_frame(var node_0 : int; var start : int; va
         }
         return r_0
     }
-    let c2da_fresh22 : int = node_0 + 40 + (side == 0 ? 1 : 0) * 8
-    return RecursiveLightPoint(int(uint(c2da_mem[c2da_fresh22]) | uint(c2da_mem[c2da_fresh22 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh22 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh22 + 3]) << 0x18), c2da_fp, end)
+    let c2da_fresh23 : int = node_0 + 40 + (side == 0 ? 1 : 0) * 8
+    return RecursiveLightPoint(int(uint(c2da_mem[c2da_fresh23]) | uint(c2da_mem[c2da_fresh23 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh23 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh23 + 3]) << 0x18), c2da_fp, end)
 }

@@ -295,8 +295,8 @@ def Sbar_SortFrags() {
     scoreboardlines = 0
     i_1 = 0
     while (i_1 < int(uint(c2da_mem[4948]) | uint(c2da_mem[4949]) << 0x8 | uint(c2da_mem[4950]) << 0x10 | uint(c2da_mem[4951]) << 0x18)) {
-        let c2da_fresh0 : int = int(uint(c2da_mem[5192]) | uint(c2da_mem[5193]) << 0x8 | uint(c2da_mem[5194]) << 0x10 | uint(c2da_mem[5195]) << 0x18) + i_1 * 16428 + 0
-        if (int8(c2da_mem[c2da_fresh0]) != 0) {
+        let c2da_fresh1 : int = int(uint(c2da_mem[5192]) | uint(c2da_mem[5193]) << 0x8 | uint(c2da_mem[5194]) << 0x10 | uint(c2da_mem[5195]) << 0x18) + i_1 * 16428 + 0
+        if (int8(c2da_mem[c2da_fresh1]) != 0) {
             fragsort[scoreboardlines] = i_1
             scoreboardlines++
         }
@@ -306,9 +306,10 @@ def Sbar_SortFrags() {
     while (i_1 < scoreboardlines) {
         j = 0
         while (j < scoreboardlines - 1 - i_1) {
-            let c2da_fresh1 : int = int(uint(c2da_mem[5192]) | uint(c2da_mem[5193]) << 0x8 | uint(c2da_mem[5194]) << 0x10 | uint(c2da_mem[5195]) << 0x18) + fragsort[j] * 16428 + 36
-            let c2da_fresh2 : int = int(uint(c2da_mem[5192]) | uint(c2da_mem[5193]) << 0x8 | uint(c2da_mem[5194]) << 0x10 | uint(c2da_mem[5195]) << 0x18) + fragsort[j + 1] * 16428 + 36
-            if (int(uint(c2da_mem[c2da_fresh1]) | uint(c2da_mem[c2da_fresh1 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh1 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh1 + 3]) << 0x18) < int(uint(c2da_mem[c2da_fresh2]) | uint(c2da_mem[c2da_fresh2 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh2 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh2 + 3]) << 0x18)) {
+            let c2da_fresh4 : int = int(uint(c2da_mem[5192]) | uint(c2da_mem[5193]) << 0x8 | uint(c2da_mem[5194]) << 0x10 | uint(c2da_mem[5195]) << 0x18)
+            let c2da_fresh2 : int = c2da_fresh4 + fragsort[j] * 16428 + 36
+            let c2da_fresh3 : int = c2da_fresh4 + fragsort[j + 1] * 16428 + 36
+            if (int(uint(c2da_mem[c2da_fresh2]) | uint(c2da_mem[c2da_fresh2 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh2 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh2 + 3]) << 0x18) < int(uint(c2da_mem[c2da_fresh3]) | uint(c2da_mem[c2da_fresh3 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh3 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh3 + 3]) << 0x18)) {
                 k_0 = fragsort[j]
                 fragsort[j] = int(fragsort[j + 1])  // nolint:PERF020
                 fragsort[j + 1] = k_0
@@ -341,10 +342,10 @@ def Sbar_itoa(var num_0 : int; var buf : int) : int {
     var dig : int
     str = buf
     if (num_0 < 0) {
-        let c2da_fresh3 : int = str
+        let c2da_fresh5 : int = str
         str++
-        let c2da_fresh4 : int8 = int8(45)
-        c2da_mem[c2da_fresh3] = uint8(c2da_fresh4)
+        let c2da_fresh6 : int8 = int8(45)
+        c2da_mem[c2da_fresh5] = uint8(c2da_fresh6)
         num_0 = -num_0
     }
     pow10 = 10
@@ -354,17 +355,17 @@ def Sbar_itoa(var num_0 : int; var buf : int) : int {
     while (true) {
         pow10 /= 10
         dig = num_0 / pow10
-        let c2da_fresh5 : int = str
+        let c2da_fresh7 : int = str
         str++
-        let c2da_fresh6 : int8 = int8(48 + dig)
-        c2da_mem[c2da_fresh5] = uint8(c2da_fresh6)
+        let c2da_fresh8 : int8 = int8(48 + dig)
+        c2da_mem[c2da_fresh7] = uint8(c2da_fresh8)
         num_0 -= dig * pow10
         if (pow10 == 1) {
             break
         }
     }
-    let c2da_fresh7 : int8 = int8(0)
-    c2da_mem[str] = uint8(c2da_fresh7)
+    let c2da_fresh9 : int8 = int8(0)
+    c2da_mem[str] = uint8(c2da_fresh9)
     return str - buf
 }
 [export, sideeffects]
@@ -497,8 +498,9 @@ def Sbar_UpdateScoreboard() {
         k_3 = fragsort[i_5]
         s_3 = int(uint(c2da_mem[5192]) | uint(c2da_mem[5193]) << 0x8 | uint(c2da_mem[5194]) << 0x10 | uint(c2da_mem[5195]) << 0x18) + k_3 * 16428
         c2da_lin_snprintf(460784 + i_5 * 20 + 1, 2147483647ul, 735765, [C2daVaArg(tag = 1, i64 = int64(int(uint(c2da_mem[s_3 + 36]) | uint(c2da_mem[s_3 + 37]) << 0x8 | uint(c2da_mem[s_3 + 38]) << 0x10 | uint(c2da_mem[s_3 + 39]) << 0x18)), f64 = 0.0lf, raw = 0x0), C2daVaArg(tag = 3, i64 = 0, f64 = 0.0lf, raw = uint64(s_3))])
-        top_3 = int(uint(c2da_mem[s_3 + 40]) | uint(c2da_mem[s_3 + 41]) << 0x8 | uint(c2da_mem[s_3 + 42]) << 0x10 | uint(c2da_mem[s_3 + 43]) << 0x18) & 240
-        bottom_3 = (int(uint(c2da_mem[s_3 + 40]) | uint(c2da_mem[s_3 + 41]) << 0x8 | uint(c2da_mem[s_3 + 42]) << 0x10 | uint(c2da_mem[s_3 + 43]) << 0x18) & 15) << 4
+        let c2da_fresh17 : int = int(uint(c2da_mem[s_3 + 40]) | uint(c2da_mem[s_3 + 41]) << 0x8 | uint(c2da_mem[s_3 + 42]) << 0x10 | uint(c2da_mem[s_3 + 43]) << 0x18)
+        top_3 = c2da_fresh17 & 240
+        bottom_3 = (c2da_fresh17 & 15) << 4
         scoreboardtop[i_5] = Sbar_ColorForMap(top_3)
         scoreboardbottom[i_5] = Sbar_ColorForMap(bottom_3)
         i_5++
@@ -556,8 +558,9 @@ def private Sbar_MiniDeathmatchOverlay_c2da_frame(c2da_fp : int) {
             i_0++
             continue
         }
-        top = int(uint(c2da_mem[s + 40]) | uint(c2da_mem[s + 41]) << 0x8 | uint(c2da_mem[s + 42]) << 0x10 | uint(c2da_mem[s + 43]) << 0x18) & 240
-        bottom = (int(uint(c2da_mem[s + 40]) | uint(c2da_mem[s + 41]) << 0x8 | uint(c2da_mem[s + 42]) << 0x10 | uint(c2da_mem[s + 43]) << 0x18) & 15) << 4
+        let c2da_fresh0 : int = int(uint(c2da_mem[s + 40]) | uint(c2da_mem[s + 41]) << 0x8 | uint(c2da_mem[s + 42]) << 0x10 | uint(c2da_mem[s + 43]) << 0x18)
+        top = c2da_fresh0 & 240
+        bottom = (c2da_fresh0 & 15) << 4
         top = Sbar_ColorForMap(top)
         bottom = Sbar_ColorForMap(bottom)
         Draw_Fill(x, y + 1, 40, 3, top)
@@ -612,8 +615,9 @@ def private Sbar_DrawFace_c2da_frame(c2da_fp : int) {
     var s_0 : int
     if (uint(rogue) != 0x0 && int(uint(c2da_mem[4948]) | uint(c2da_mem[4949]) << 0x8 | uint(c2da_mem[4950]) << 0x10 | uint(c2da_mem[4951]) << 0x18) != 1 && uint_bits_to_float(uint(c2da_mem[243464]) | uint(c2da_mem[243465]) << 0x8 | uint(c2da_mem[243466]) << 0x10 | uint(c2da_mem[243467]) << 0x18) > 3.0 && uint_bits_to_float(uint(c2da_mem[243464]) | uint(c2da_mem[243465]) << 0x8 | uint(c2da_mem[243466]) << 0x10 | uint(c2da_mem[243467]) << 0x18) < 7.0) {
         s_0 = int(uint(c2da_mem[5192]) | uint(c2da_mem[5193]) << 0x8 | uint(c2da_mem[5194]) << 0x10 | uint(c2da_mem[5195]) << 0x18) + (int(uint(c2da_mem[4944]) | uint(c2da_mem[4945]) << 0x8 | uint(c2da_mem[4946]) << 0x10 | uint(c2da_mem[4947]) << 0x18) - 1) * 16428
-        top_0 = int(uint(c2da_mem[s_0 + 40]) | uint(c2da_mem[s_0 + 41]) << 0x8 | uint(c2da_mem[s_0 + 42]) << 0x10 | uint(c2da_mem[s_0 + 43]) << 0x18) & 240
-        bottom_0 = (int(uint(c2da_mem[s_0 + 40]) | uint(c2da_mem[s_0 + 41]) << 0x8 | uint(c2da_mem[s_0 + 42]) << 0x10 | uint(c2da_mem[s_0 + 43]) << 0x18) & 15) << 4
+        let c2da_fresh11 : int = int(uint(c2da_mem[s_0 + 40]) | uint(c2da_mem[s_0 + 41]) << 0x8 | uint(c2da_mem[s_0 + 42]) << 0x10 | uint(c2da_mem[s_0 + 43]) << 0x18)
+        top_0 = c2da_fresh11 & 240
+        bottom_0 = (c2da_fresh11 & 15) << 4
         top_0 = Sbar_ColorForMap(top_0)
         bottom_0 = Sbar_ColorForMap(bottom_0)
         if (int(uint(c2da_mem[4952]) | uint(c2da_mem[4953]) << 0x8 | uint(c2da_mem[4954]) << 0x10 | uint(c2da_mem[4955]) << 0x18) == 1) {
@@ -659,10 +663,11 @@ def private Sbar_DrawFace_c2da_frame(c2da_fp : int) {
         Sbar_DrawPic(112, 0, sb_face_invuln)
         return
     }
-    if (int(uint(c2da_mem[236 + 0 * 4]) | uint(c2da_mem[236 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[236 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[236 + 0 * 4 + 3]) << 0x18) >= 100) {
+    let c2da_fresh10 : int = int(uint(c2da_mem[236 + 0 * 4]) | uint(c2da_mem[236 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[236 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[236 + 0 * 4 + 3]) << 0x18)
+    if (c2da_fresh10 >= 100) {
         f_0 = 4
     } else {
-        f_0 = int(uint(c2da_mem[236 + 0 * 4]) | uint(c2da_mem[236 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[236 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[236 + 0 * 4 + 3]) << 0x18) / 20
+        f_0 = c2da_fresh10 / 20
     }
     if (uint64_bits_to_double(uint64(uint(c2da_mem[784]) | uint(c2da_mem[785]) << 0x8 | uint(c2da_mem[786]) << 0x10 | uint(c2da_mem[787]) << 0x18) | uint64(uint(c2da_mem[788]) | uint(c2da_mem[789]) << 0x8 | uint(c2da_mem[790]) << 0x10 | uint(c2da_mem[791]) << 0x18) << 0x20) <= double(uint_bits_to_float(uint(c2da_mem[496]) | uint(c2da_mem[497]) << 0x8 | uint(c2da_mem[498]) << 0x10 | uint(c2da_mem[499]) << 0x18))) {
         anim = 1
@@ -698,8 +703,9 @@ def private Sbar_DeathmatchOverlay_c2da_frame(c2da_fp : int) {
         if (int8(c2da_mem[s_1 + 0]) == 0) {
             continue
         }
-        top_1 = int(uint(c2da_mem[s_1 + 40]) | uint(c2da_mem[s_1 + 41]) << 0x8 | uint(c2da_mem[s_1 + 42]) << 0x10 | uint(c2da_mem[s_1 + 43]) << 0x18) & 240
-        bottom_1 = (int(uint(c2da_mem[s_1 + 40]) | uint(c2da_mem[s_1 + 41]) << 0x8 | uint(c2da_mem[s_1 + 42]) << 0x10 | uint(c2da_mem[s_1 + 43]) << 0x18) & 15) << 4
+        let c2da_fresh12 : int = int(uint(c2da_mem[s_1 + 40]) | uint(c2da_mem[s_1 + 41]) << 0x8 | uint(c2da_mem[s_1 + 42]) << 0x10 | uint(c2da_mem[s_1 + 43]) << 0x18)
+        top_1 = c2da_fresh12 & 240
+        bottom_1 = (c2da_fresh12 & 15) << 4
         top_1 = Sbar_ColorForMap(top_1)
         bottom_1 = Sbar_ColorForMap(bottom_1)
         Draw_Fill(x_4, y_4, 40, 4, top_1)
@@ -762,8 +768,9 @@ def private Sbar_DrawFrags_c2da_frame(c2da_fp : int) {
         if (int8(c2da_mem[s_2 + 0]) == 0) {
             continue
         }
-        top_2 = int(uint(c2da_mem[s_2 + 40]) | uint(c2da_mem[s_2 + 41]) << 0x8 | uint(c2da_mem[s_2 + 42]) << 0x10 | uint(c2da_mem[s_2 + 43]) << 0x18) & 240
-        bottom_2 = (int(uint(c2da_mem[s_2 + 40]) | uint(c2da_mem[s_2 + 41]) << 0x8 | uint(c2da_mem[s_2 + 42]) << 0x10 | uint(c2da_mem[s_2 + 43]) << 0x18) & 15) << 4
+        let c2da_fresh13 : int = int(uint(c2da_mem[s_2 + 40]) | uint(c2da_mem[s_2 + 41]) << 0x8 | uint(c2da_mem[s_2 + 42]) << 0x10 | uint(c2da_mem[s_2 + 43]) << 0x18)
+        top_2 = c2da_fresh13 & 240
+        bottom_2 = (c2da_fresh13 & 15) << 4
         top_2 = Sbar_ColorForMap(top_2)
         bottom_2 = Sbar_ColorForMap(bottom_2)
         Draw_Fill(xofs_0 + x_6 * 8 + 10, y_6, 28, 4, top_2)
@@ -821,9 +828,10 @@ def private Sbar_DrawInventory_c2da_frame(c2da_fp : int) {
         grenadeflashing = 0
         i_4 = 0
         while (i_4 < 4) {
-            if ((int(uint(c2da_mem[364]) | uint(c2da_mem[365]) << 0x8 | uint(c2da_mem[366]) << 0x10 | uint(c2da_mem[367]) << 0x18) & 1 << hipweapons[i_4]) != 0) {
-                let c2da_fresh8 : int = 368 + hipweapons[i_4] * 4
-                time = uint_bits_to_float(uint(c2da_mem[c2da_fresh8]) | uint(c2da_mem[c2da_fresh8 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh8 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh8 + 3]) << 0x18)
+            let c2da_fresh15 : int = int(uint(c2da_mem[364]) | uint(c2da_mem[365]) << 0x8 | uint(c2da_mem[366]) << 0x10 | uint(c2da_mem[367]) << 0x18)
+            if ((c2da_fresh15 & 1 << hipweapons[i_4]) != 0) {
+                let c2da_fresh14 : int = 368 + hipweapons[i_4] * 4
+                time = uint_bits_to_float(uint(c2da_mem[c2da_fresh14]) | uint(c2da_mem[c2da_fresh14 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh14 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh14 + 3]) << 0x18)
                 flashon = int((uint64_bits_to_double(uint64(uint(c2da_mem[784]) | uint(c2da_mem[785]) << 0x8 | uint(c2da_mem[786]) << 0x10 | uint(c2da_mem[787]) << 0x18) | uint64(uint(c2da_mem[788]) | uint(c2da_mem[789]) << 0x8 | uint(c2da_mem[790]) << 0x10 | uint(c2da_mem[791]) << 0x18) << 0x20) - double(time)) * 10.0lf)
                 if (flashon >= 10) {
                     if (int(uint(c2da_mem[236 + 10 * 4]) | uint(c2da_mem[236 + 10 * 4 + 1]) << 0x8 | uint(c2da_mem[236 + 10 * 4 + 2]) << 0x10 | uint(c2da_mem[236 + 10 * 4 + 3]) << 0x18) == 1 << hipweapons[i_4]) {
@@ -862,7 +870,8 @@ def private Sbar_DrawInventory_c2da_frame(c2da_fp : int) {
         }
     }
     if (uint(rogue) != 0u) {
-        if (int(uint(c2da_mem[236 + 10 * 4]) | uint(c2da_mem[236 + 10 * 4 + 1]) << 0x8 | uint(c2da_mem[236 + 10 * 4 + 2]) << 0x10 | uint(c2da_mem[236 + 10 * 4 + 3]) << 0x18) >= 4096) {
+        let c2da_fresh16 : int = int(uint(c2da_mem[236 + 10 * 4]) | uint(c2da_mem[236 + 10 * 4 + 1]) << 0x8 | uint(c2da_mem[236 + 10 * 4 + 2]) << 0x10 | uint(c2da_mem[236 + 10 * 4 + 3]) << 0x18)
+        if (c2da_fresh16 >= 4096) {
             i_4 = 0
             while (i_4 < 5) {
                 if (int(uint(c2da_mem[236 + 10 * 4]) | uint(c2da_mem[236 + 10 * 4 + 1]) << 0x8 | uint(c2da_mem[236 + 10 * 4 + 2]) << 0x10 | uint(c2da_mem[236 + 10 * 4 + 3]) << 0x18) == 4096 << i_4) {

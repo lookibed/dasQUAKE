@@ -259,8 +259,9 @@ def private IN_MouseMove_c2da_frame(var cmd_2 : int; c2da_fp : int) {
     QG_GetMouseMove(c2da_fp, c2da_fp + 16)
     mouse_x = float(int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18))
     mouse_y = float(int(uint(c2da_mem[c2da_fp + 16]) | uint(c2da_mem[c2da_fp + 17]) << 0x8 | uint(c2da_mem[c2da_fp + 18]) << 0x10 | uint(c2da_mem[c2da_fp + 19]) << 0x18))
-    mouse_x = mouse_x * uint_bits_to_float(uint(c2da_mem[9832]) | uint(c2da_mem[9833]) << 0x8 | uint(c2da_mem[9834]) << 0x10 | uint(c2da_mem[9835]) << 0x18)
-    mouse_y = mouse_y * uint_bits_to_float(uint(c2da_mem[9832]) | uint(c2da_mem[9833]) << 0x8 | uint(c2da_mem[9834]) << 0x10 | uint(c2da_mem[9835]) << 0x18)
+    let c2da_fresh37 : float = uint_bits_to_float(uint(c2da_mem[9832]) | uint(c2da_mem[9833]) << 0x8 | uint(c2da_mem[9834]) << 0x10 | uint(c2da_mem[9835]) << 0x18)
+    mouse_x *= c2da_fresh37
+    mouse_y *= c2da_fresh37
     if ((int(uint(c2da_mem[7976]) | uint(c2da_mem[7977]) << 0x8 | uint(c2da_mem[7978]) << 0x10 | uint(c2da_mem[7979]) << 0x18) & 1) != 0 || uint_bits_to_float(uint(c2da_mem[9784]) | uint(c2da_mem[9785]) << 0x8 | uint(c2da_mem[9786]) << 0x10 | uint(c2da_mem[9787]) << 0x18) != 0.0 && (int(uint(c2da_mem[7848]) | uint(c2da_mem[7849]) << 0x8 | uint(c2da_mem[7850]) << 0x10 | uint(c2da_mem[7851]) << 0x18) & 1) != 0) {
         let c2da_fresh23 : float = uint_bits_to_float(uint(c2da_mem[cmd_2 + 16]) | uint(c2da_mem[cmd_2 + 17]) << 0x8 | uint(c2da_mem[cmd_2 + 18]) << 0x10 | uint(c2da_mem[cmd_2 + 19]) << 0x18) + float(uint_bits_to_float(uint(c2da_mem[10024]) | uint(c2da_mem[10025]) << 0x8 | uint(c2da_mem[10026]) << 0x10 | uint(c2da_mem[10027]) << 0x18) * mouse_x)
         let c2da_fresh24 : uint = float_bits_to_uint(c2da_fresh23)
@@ -286,7 +287,7 @@ def private IN_MouseMove_c2da_frame(var cmd_2 : int; c2da_fp : int) {
         c2da_mem[652 + 0 * 4 + 1] = uint8(c2da_fresh28 >> 0x8)
         c2da_mem[652 + 0 * 4 + 2] = uint8(c2da_fresh28 >> 0x10)
         c2da_mem[652 + 0 * 4 + 3] = uint8(c2da_fresh28 >> 0x18)
-        if (uint_bits_to_float(uint(c2da_mem[652 + 0 * 4]) | uint(c2da_mem[652 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[652 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[652 + 0 * 4 + 3]) << 0x18) > 80.0) {
+        if (c2da_fresh27 > 80.0) {
             let c2da_fresh29 : float = 80.0
             let c2da_fresh30 : uint = float_bits_to_uint(c2da_fresh29)
             c2da_mem[652 + 0 * 4] = uint8(c2da_fresh30)

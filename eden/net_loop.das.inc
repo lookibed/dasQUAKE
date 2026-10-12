@@ -187,11 +187,13 @@ def Loop_GetMessage(var sock : int) : int {
     c2da_mem[sock + 8281] = uint8(c2da_fresh32 >> 0x8)
     c2da_mem[sock + 8282] = uint8(c2da_fresh32 >> 0x10)
     c2da_mem[sock + 8283] = uint8(c2da_fresh32 >> 0x18)
-    if (int(uint(c2da_mem[sock + 8280]) | uint(c2da_mem[sock + 8281]) << 0x8 | uint(c2da_mem[sock + 8282]) << 0x10 | uint(c2da_mem[sock + 8283]) << 0x18) != 0) {
+    let c2da_fresh36 : int = int(uint(c2da_mem[sock + 8280]) | uint(c2da_mem[sock + 8281]) << 0x8 | uint(c2da_mem[sock + 8282]) << 0x10 | uint(c2da_mem[sock + 8283]) << 0x18)
+    if (c2da_fresh36 != 0) {
         Q_memcpy(sock + 8284, sock + 8284 + length_0, int(uint(c2da_mem[sock + 8280]) | uint(c2da_mem[sock + 8281]) << 0x8 | uint(c2da_mem[sock + 8282]) << 0x10 | uint(c2da_mem[sock + 8283]) << 0x18))
     }
-    if (int(uint(c2da_mem[sock + 56]) | uint(c2da_mem[sock + 57]) << 0x8 | uint(c2da_mem[sock + 58]) << 0x10 | uint(c2da_mem[sock + 59]) << 0x18) != 0 && ret == 1) {
-        let c2da_fresh33 : int = int(uint(c2da_mem[sock + 56]) | uint(c2da_mem[sock + 57]) << 0x8 | uint(c2da_mem[sock + 58]) << 0x10 | uint(c2da_mem[sock + 59]) << 0x18) + 36
+    let c2da_fresh37 : int = int(uint(c2da_mem[sock + 56]) | uint(c2da_mem[sock + 57]) << 0x8 | uint(c2da_mem[sock + 58]) << 0x10 | uint(c2da_mem[sock + 59]) << 0x18)
+    if (c2da_fresh37 != 0 && ret == 1) {
+        let c2da_fresh33 : int = c2da_fresh37 + 36
         let c2da_fresh34 : uint = 1u
         let c2da_fresh35 : uint = c2da_fresh34
         c2da_mem[c2da_fresh33] = uint8(c2da_fresh35)
@@ -217,33 +219,33 @@ def Loop_SendMessage(var sock_0 : int; var data : int) : int {
         Sys_Error(726994, [])
     }
     buffer = int(uint(c2da_mem[sock_0 + 56]) | uint(c2da_mem[sock_0 + 57]) << 0x8 | uint(c2da_mem[sock_0 + 58]) << 0x10 | uint(c2da_mem[sock_0 + 59]) << 0x18) + 8284 + int(uint(c2da_mem[bufferLength]) | uint(c2da_mem[bufferLength + 1]) << 0x8 | uint(c2da_mem[bufferLength + 2]) << 0x10 | uint(c2da_mem[bufferLength + 3]) << 0x18)
-    let c2da_fresh36 : int = buffer
-    buffer++
-    let c2da_fresh37 : uint8 = 1u8
-    c2da_mem[c2da_fresh36] = c2da_fresh37
     let c2da_fresh38 : int = buffer
     buffer++
-    let c2da_fresh39 : uint8 = uint8(int(uint(c2da_mem[data + 20]) | uint(c2da_mem[data + 21]) << 0x8 | uint(c2da_mem[data + 22]) << 0x10 | uint(c2da_mem[data + 23]) << 0x18) & 255)
+    let c2da_fresh39 : uint8 = 1u8
     c2da_mem[c2da_fresh38] = c2da_fresh39
     let c2da_fresh40 : int = buffer
     buffer++
-    let c2da_fresh41 : uint8 = uint8(int(uint(c2da_mem[data + 20]) | uint(c2da_mem[data + 21]) << 0x8 | uint(c2da_mem[data + 22]) << 0x10 | uint(c2da_mem[data + 23]) << 0x18) >> 8)
+    let c2da_fresh41 : uint8 = uint8(int(uint(c2da_mem[data + 20]) | uint(c2da_mem[data + 21]) << 0x8 | uint(c2da_mem[data + 22]) << 0x10 | uint(c2da_mem[data + 23]) << 0x18) & 255)
     c2da_mem[c2da_fresh40] = c2da_fresh41
+    let c2da_fresh42 : int = buffer
+    buffer++
+    let c2da_fresh43 : uint8 = uint8(int(uint(c2da_mem[data + 20]) | uint(c2da_mem[data + 21]) << 0x8 | uint(c2da_mem[data + 22]) << 0x10 | uint(c2da_mem[data + 23]) << 0x18) >> 8)
+    c2da_mem[c2da_fresh42] = c2da_fresh43
     buffer++
     Q_memcpy(buffer, int(uint(c2da_mem[data + 8]) | uint(c2da_mem[data + 9]) << 0x8 | uint(c2da_mem[data + 10]) << 0x10 | uint(c2da_mem[data + 11]) << 0x18), int(uint(c2da_mem[data + 20]) | uint(c2da_mem[data + 21]) << 0x8 | uint(c2da_mem[data + 22]) << 0x10 | uint(c2da_mem[data + 23]) << 0x18))
-    let c2da_fresh42 : int = int(uint(c2da_mem[bufferLength]) | uint(c2da_mem[bufferLength + 1]) << 0x8 | uint(c2da_mem[bufferLength + 2]) << 0x10 | uint(c2da_mem[bufferLength + 3]) << 0x18) + int(uint(c2da_mem[data + 20]) | uint(c2da_mem[data + 21]) << 0x8 | uint(c2da_mem[data + 22]) << 0x10 | uint(c2da_mem[data + 23]) << 0x18) + 4
-    let c2da_fresh43 : int = int(uint64(c2da_fresh42) + (4ul - 1ul) & ~(4ul - 1ul))
-    let c2da_fresh44 : uint = uint(c2da_fresh43)
-    c2da_mem[bufferLength] = uint8(c2da_fresh44)
-    c2da_mem[bufferLength + 1] = uint8(c2da_fresh44 >> 0x8)
-    c2da_mem[bufferLength + 2] = uint8(c2da_fresh44 >> 0x10)
-    c2da_mem[bufferLength + 3] = uint8(c2da_fresh44 >> 0x18)
-    let c2da_fresh45 : uint = 0u
-    let c2da_fresh46 : uint = c2da_fresh45
-    c2da_mem[sock_0 + 36] = uint8(c2da_fresh46)
-    c2da_mem[sock_0 + 37] = uint8(c2da_fresh46 >> 0x8)
-    c2da_mem[sock_0 + 38] = uint8(c2da_fresh46 >> 0x10)
-    c2da_mem[sock_0 + 39] = uint8(c2da_fresh46 >> 0x18)
+    let c2da_fresh44 : int = int(uint(c2da_mem[bufferLength]) | uint(c2da_mem[bufferLength + 1]) << 0x8 | uint(c2da_mem[bufferLength + 2]) << 0x10 | uint(c2da_mem[bufferLength + 3]) << 0x18) + int(uint(c2da_mem[data + 20]) | uint(c2da_mem[data + 21]) << 0x8 | uint(c2da_mem[data + 22]) << 0x10 | uint(c2da_mem[data + 23]) << 0x18) + 4
+    let c2da_fresh45 : int = int(uint64(c2da_fresh44) + (4ul - 1ul) & ~(4ul - 1ul))
+    let c2da_fresh46 : uint = uint(c2da_fresh45)
+    c2da_mem[bufferLength] = uint8(c2da_fresh46)
+    c2da_mem[bufferLength + 1] = uint8(c2da_fresh46 >> 0x8)
+    c2da_mem[bufferLength + 2] = uint8(c2da_fresh46 >> 0x10)
+    c2da_mem[bufferLength + 3] = uint8(c2da_fresh46 >> 0x18)
+    let c2da_fresh47 : uint = 0u
+    let c2da_fresh48 : uint = c2da_fresh47
+    c2da_mem[sock_0 + 36] = uint8(c2da_fresh48)
+    c2da_mem[sock_0 + 37] = uint8(c2da_fresh48 >> 0x8)
+    c2da_mem[sock_0 + 38] = uint8(c2da_fresh48 >> 0x10)
+    c2da_mem[sock_0 + 39] = uint8(c2da_fresh48 >> 0x18)
     return 1
 }
 [export, sideeffects]
@@ -258,27 +260,27 @@ def Loop_SendUnreliableMessage(var sock_1 : int; var data_0 : int) : int {
         return 0
     }
     buffer_0 = int(uint(c2da_mem[sock_1 + 56]) | uint(c2da_mem[sock_1 + 57]) << 0x8 | uint(c2da_mem[sock_1 + 58]) << 0x10 | uint(c2da_mem[sock_1 + 59]) << 0x18) + 8284 + int(uint(c2da_mem[bufferLength_0]) | uint(c2da_mem[bufferLength_0 + 1]) << 0x8 | uint(c2da_mem[bufferLength_0 + 2]) << 0x10 | uint(c2da_mem[bufferLength_0 + 3]) << 0x18)
-    let c2da_fresh47 : int = buffer_0
-    buffer_0++
-    let c2da_fresh48 : uint8 = 2u8
-    c2da_mem[c2da_fresh47] = c2da_fresh48
     let c2da_fresh49 : int = buffer_0
     buffer_0++
-    let c2da_fresh50 : uint8 = uint8(int(uint(c2da_mem[data_0 + 20]) | uint(c2da_mem[data_0 + 21]) << 0x8 | uint(c2da_mem[data_0 + 22]) << 0x10 | uint(c2da_mem[data_0 + 23]) << 0x18) & 255)
+    let c2da_fresh50 : uint8 = 2u8
     c2da_mem[c2da_fresh49] = c2da_fresh50
     let c2da_fresh51 : int = buffer_0
     buffer_0++
-    let c2da_fresh52 : uint8 = uint8(int(uint(c2da_mem[data_0 + 20]) | uint(c2da_mem[data_0 + 21]) << 0x8 | uint(c2da_mem[data_0 + 22]) << 0x10 | uint(c2da_mem[data_0 + 23]) << 0x18) >> 8)
+    let c2da_fresh52 : uint8 = uint8(int(uint(c2da_mem[data_0 + 20]) | uint(c2da_mem[data_0 + 21]) << 0x8 | uint(c2da_mem[data_0 + 22]) << 0x10 | uint(c2da_mem[data_0 + 23]) << 0x18) & 255)
     c2da_mem[c2da_fresh51] = c2da_fresh52
+    let c2da_fresh53 : int = buffer_0
+    buffer_0++
+    let c2da_fresh54 : uint8 = uint8(int(uint(c2da_mem[data_0 + 20]) | uint(c2da_mem[data_0 + 21]) << 0x8 | uint(c2da_mem[data_0 + 22]) << 0x10 | uint(c2da_mem[data_0 + 23]) << 0x18) >> 8)
+    c2da_mem[c2da_fresh53] = c2da_fresh54
     buffer_0++
     Q_memcpy(buffer_0, int(uint(c2da_mem[data_0 + 8]) | uint(c2da_mem[data_0 + 9]) << 0x8 | uint(c2da_mem[data_0 + 10]) << 0x10 | uint(c2da_mem[data_0 + 11]) << 0x18), int(uint(c2da_mem[data_0 + 20]) | uint(c2da_mem[data_0 + 21]) << 0x8 | uint(c2da_mem[data_0 + 22]) << 0x10 | uint(c2da_mem[data_0 + 23]) << 0x18))
-    let c2da_fresh53 : int = int(uint(c2da_mem[bufferLength_0]) | uint(c2da_mem[bufferLength_0 + 1]) << 0x8 | uint(c2da_mem[bufferLength_0 + 2]) << 0x10 | uint(c2da_mem[bufferLength_0 + 3]) << 0x18) + int(uint(c2da_mem[data_0 + 20]) | uint(c2da_mem[data_0 + 21]) << 0x8 | uint(c2da_mem[data_0 + 22]) << 0x10 | uint(c2da_mem[data_0 + 23]) << 0x18) + 4
-    let c2da_fresh54 : int = int(uint64(c2da_fresh53) + (4ul - 1ul) & ~(4ul - 1ul))
-    let c2da_fresh55 : uint = uint(c2da_fresh54)
-    c2da_mem[bufferLength_0] = uint8(c2da_fresh55)
-    c2da_mem[bufferLength_0 + 1] = uint8(c2da_fresh55 >> 0x8)
-    c2da_mem[bufferLength_0 + 2] = uint8(c2da_fresh55 >> 0x10)
-    c2da_mem[bufferLength_0 + 3] = uint8(c2da_fresh55 >> 0x18)
+    let c2da_fresh55 : int = int(uint(c2da_mem[bufferLength_0]) | uint(c2da_mem[bufferLength_0 + 1]) << 0x8 | uint(c2da_mem[bufferLength_0 + 2]) << 0x10 | uint(c2da_mem[bufferLength_0 + 3]) << 0x18) + int(uint(c2da_mem[data_0 + 20]) | uint(c2da_mem[data_0 + 21]) << 0x8 | uint(c2da_mem[data_0 + 22]) << 0x10 | uint(c2da_mem[data_0 + 23]) << 0x18) + 4
+    let c2da_fresh56 : int = int(uint64(c2da_fresh55) + (4ul - 1ul) & ~(4ul - 1ul))
+    let c2da_fresh57 : uint = uint(c2da_fresh56)
+    c2da_mem[bufferLength_0] = uint8(c2da_fresh57)
+    c2da_mem[bufferLength_0 + 1] = uint8(c2da_fresh57 >> 0x8)
+    c2da_mem[bufferLength_0 + 2] = uint8(c2da_fresh57 >> 0x10)
+    c2da_mem[bufferLength_0 + 3] = uint8(c2da_fresh57 >> 0x18)
     return 1
 }
 [export, sideeffects]
@@ -294,36 +296,37 @@ def Loop_CanSendUnreliableMessage(var sock_3 : int) : uint {
 }
 [export, sideeffects]
 def Loop_Close(var sock_4 : int) {
-    if (int(uint(c2da_mem[sock_4 + 56]) | uint(c2da_mem[sock_4 + 57]) << 0x8 | uint(c2da_mem[sock_4 + 58]) << 0x10 | uint(c2da_mem[sock_4 + 59]) << 0x18) != 0) {
-        let c2da_fresh56 : int = int(uint(c2da_mem[sock_4 + 56]) | uint(c2da_mem[sock_4 + 57]) << 0x8 | uint(c2da_mem[sock_4 + 58]) << 0x10 | uint(c2da_mem[sock_4 + 59]) << 0x18) + 56
-        let c2da_fresh57 : uint = 0u
-        c2da_mem[c2da_fresh56] = uint8(c2da_fresh57)
-        c2da_mem[c2da_fresh56 + 1] = uint8(c2da_fresh57 >> 0x8)
-        c2da_mem[c2da_fresh56 + 2] = uint8(c2da_fresh57 >> 0x10)
-        c2da_mem[c2da_fresh56 + 3] = uint8(c2da_fresh57 >> 0x18)
-        c2da_mem[c2da_fresh56 + 4] = 0u8
-        c2da_mem[c2da_fresh56 + 5] = 0u8
-        c2da_mem[c2da_fresh56 + 6] = 0u8
-        c2da_mem[c2da_fresh56 + 7] = 0u8
+    let c2da_fresh66 : int = int(uint(c2da_mem[sock_4 + 56]) | uint(c2da_mem[sock_4 + 57]) << 0x8 | uint(c2da_mem[sock_4 + 58]) << 0x10 | uint(c2da_mem[sock_4 + 59]) << 0x18)
+    if (c2da_fresh66 != 0) {
+        let c2da_fresh58 : int = c2da_fresh66 + 56
+        let c2da_fresh59 : uint = 0u
+        c2da_mem[c2da_fresh58] = uint8(c2da_fresh59)
+        c2da_mem[c2da_fresh58 + 1] = uint8(c2da_fresh59 >> 0x8)
+        c2da_mem[c2da_fresh58 + 2] = uint8(c2da_fresh59 >> 0x10)
+        c2da_mem[c2da_fresh58 + 3] = uint8(c2da_fresh59 >> 0x18)
+        c2da_mem[c2da_fresh58 + 4] = 0u8
+        c2da_mem[c2da_fresh58 + 5] = 0u8
+        c2da_mem[c2da_fresh58 + 6] = 0u8
+        c2da_mem[c2da_fresh58 + 7] = 0u8
     }
-    let c2da_fresh58 : int = 0
-    let c2da_fresh59 : uint = uint(c2da_fresh58)
-    c2da_mem[sock_4 + 8280] = uint8(c2da_fresh59)
-    c2da_mem[sock_4 + 8281] = uint8(c2da_fresh59 >> 0x8)
-    c2da_mem[sock_4 + 8282] = uint8(c2da_fresh59 >> 0x10)
-    c2da_mem[sock_4 + 8283] = uint8(c2da_fresh59 >> 0x18)
     let c2da_fresh60 : int = 0
     let c2da_fresh61 : uint = uint(c2da_fresh60)
-    c2da_mem[sock_4 + 76] = uint8(c2da_fresh61)
-    c2da_mem[sock_4 + 77] = uint8(c2da_fresh61 >> 0x8)
-    c2da_mem[sock_4 + 78] = uint8(c2da_fresh61 >> 0x10)
-    c2da_mem[sock_4 + 79] = uint8(c2da_fresh61 >> 0x18)
-    let c2da_fresh62 : uint = 1u
-    let c2da_fresh63 : uint = c2da_fresh62
-    c2da_mem[sock_4 + 36] = uint8(c2da_fresh63)
-    c2da_mem[sock_4 + 37] = uint8(c2da_fresh63 >> 0x8)
-    c2da_mem[sock_4 + 38] = uint8(c2da_fresh63 >> 0x10)
-    c2da_mem[sock_4 + 39] = uint8(c2da_fresh63 >> 0x18)
+    c2da_mem[sock_4 + 8280] = uint8(c2da_fresh61)
+    c2da_mem[sock_4 + 8281] = uint8(c2da_fresh61 >> 0x8)
+    c2da_mem[sock_4 + 8282] = uint8(c2da_fresh61 >> 0x10)
+    c2da_mem[sock_4 + 8283] = uint8(c2da_fresh61 >> 0x18)
+    let c2da_fresh62 : int = 0
+    let c2da_fresh63 : uint = uint(c2da_fresh62)
+    c2da_mem[sock_4 + 76] = uint8(c2da_fresh63)
+    c2da_mem[sock_4 + 77] = uint8(c2da_fresh63 >> 0x8)
+    c2da_mem[sock_4 + 78] = uint8(c2da_fresh63 >> 0x10)
+    c2da_mem[sock_4 + 79] = uint8(c2da_fresh63 >> 0x18)
+    let c2da_fresh64 : uint = 1u
+    let c2da_fresh65 : uint = c2da_fresh64
+    c2da_mem[sock_4 + 36] = uint8(c2da_fresh65)
+    c2da_mem[sock_4 + 37] = uint8(c2da_fresh65 >> 0x8)
+    c2da_mem[sock_4 + 38] = uint8(c2da_fresh65 >> 0x10)
+    c2da_mem[sock_4 + 39] = uint8(c2da_fresh65 >> 0x18)
     if (sock_4 == loop_client) {
         loop_client = 0
     } else {

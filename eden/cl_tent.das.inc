@@ -185,12 +185,12 @@ def CL_NewTempEntity() : int {
     num_temp_entities++
     cl_visedicts[int(cl_numvisedicts)] = ent_1
     cl_numvisedicts = cl_numvisedicts + 1
-    let c2da_fresh143 : int = vid.colormap
-    let c2da_fresh144 : uint = uint(c2da_fresh143)
-    c2da_mem[ent_1 + 160] = uint8(c2da_fresh144)
-    c2da_mem[ent_1 + 161] = uint8(c2da_fresh144 >> 0x8)
-    c2da_mem[ent_1 + 162] = uint8(c2da_fresh144 >> 0x10)
-    c2da_mem[ent_1 + 163] = uint8(c2da_fresh144 >> 0x18)
+    let c2da_fresh144 : int = vid.colormap
+    let c2da_fresh145 : uint = uint(c2da_fresh144)
+    c2da_mem[ent_1 + 160] = uint8(c2da_fresh145)
+    c2da_mem[ent_1 + 161] = uint8(c2da_fresh145 >> 0x8)
+    c2da_mem[ent_1 + 162] = uint8(c2da_fresh145 >> 0x10)
+    c2da_mem[ent_1 + 163] = uint8(c2da_fresh145 >> 0x18)
     c2da_mem[ent_1 + 164] = 0u8
     c2da_mem[ent_1 + 165] = 0u8
     c2da_mem[ent_1 + 166] = 0u8
@@ -572,8 +572,9 @@ def private CL_UpdateTEnts_c2da_frame(c2da_fp : int) {
             b_0 += 48
             continue
         }
-        if (int(uint(c2da_mem[b_0]) | uint(c2da_mem[b_0 + 1]) << 0x8 | uint(c2da_mem[b_0 + 2]) << 0x10 | uint(c2da_mem[b_0 + 3]) << 0x18) == int(uint(c2da_mem[4944]) | uint(c2da_mem[4945]) << 0x8 | uint(c2da_mem[4946]) << 0x10 | uint(c2da_mem[4947]) << 0x18)) {
-            let c2da_fresh116 : int = 10048 + int(uint(c2da_mem[4944]) | uint(c2da_mem[4945]) << 0x8 | uint(c2da_mem[4946]) << 0x10 | uint(c2da_mem[4947]) << 0x18) * 200 + 88 + 0 * 4
+        let c2da_fresh143 : int = int(uint(c2da_mem[4944]) | uint(c2da_mem[4945]) << 0x8 | uint(c2da_mem[4946]) << 0x10 | uint(c2da_mem[4947]) << 0x18)
+        if (int(uint(c2da_mem[b_0]) | uint(c2da_mem[b_0 + 1]) << 0x8 | uint(c2da_mem[b_0 + 2]) << 0x10 | uint(c2da_mem[b_0 + 3]) << 0x18) == c2da_fresh143) {
+            let c2da_fresh116 : int = 10048 + c2da_fresh143 * 200 + 88 + 0 * 4
             let c2da_fresh117 : float = uint_bits_to_float(uint(c2da_mem[c2da_fresh116]) | uint(c2da_mem[c2da_fresh116 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh116 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh116 + 3]) << 0x18)
             let c2da_fresh118 : uint = float_bits_to_uint(c2da_fresh117)
             c2da_mem[b_0 + 20 + 0 * 4] = uint8(c2da_fresh118)
@@ -613,9 +614,9 @@ def private CL_UpdateTEnts_c2da_frame(c2da_fp : int) {
         c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh130 >> 0x8)
         c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh130 >> 0x10)
         c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh130 >> 0x18)
-        if (uint_bits_to_float(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18) == 0.0 && uint_bits_to_float(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18) == 0.0) {
+        if (c2da_fresh127 == 0.0 && c2da_fresh125 == 0.0) {
             yaw = 0.0
-            if (uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) > 0.0) {
+            if (c2da_fresh129 > 0.0) {
                 pitch = 90.0
             } else {
                 pitch = 270.0

@@ -45,37 +45,38 @@ def D_DrawSolidSurface(var surf : int; var color : int) {
     span = int(uint(c2da_mem[surf + 16]) | uint(c2da_mem[surf + 17]) << 0x8 | uint(c2da_mem[surf + 18]) << 0x10 | uint(c2da_mem[surf + 19]) << 0x18)
     while (span != 0) {
         pdest = d_viewbuffer + int(screenwidth * int(uint(c2da_mem[span + 4]) | uint(c2da_mem[span + 5]) << 0x8 | uint(c2da_mem[span + 6]) << 0x10 | uint(c2da_mem[span + 7]) << 0x18))
-        u = int(uint(c2da_mem[span]) | uint(c2da_mem[span + 1]) << 0x8 | uint(c2da_mem[span + 2]) << 0x10 | uint(c2da_mem[span + 3]) << 0x18)
-        u2 = int(uint(c2da_mem[span]) | uint(c2da_mem[span + 1]) << 0x8 | uint(c2da_mem[span + 2]) << 0x10 | uint(c2da_mem[span + 3]) << 0x18) + int(uint(c2da_mem[span + 8]) | uint(c2da_mem[span + 9]) << 0x8 | uint(c2da_mem[span + 10]) << 0x10 | uint(c2da_mem[span + 11]) << 0x18) - 1
-        let c2da_fresh78 : uint8 = uint8(pix)
-        c2da_mem[pdest + u] = c2da_fresh78
+        let c2da_fresh88 : int = int(uint(c2da_mem[span]) | uint(c2da_mem[span + 1]) << 0x8 | uint(c2da_mem[span + 2]) << 0x10 | uint(c2da_mem[span + 3]) << 0x18)
+        u = c2da_fresh88
+        u2 = c2da_fresh88 + int(uint(c2da_mem[span + 8]) | uint(c2da_mem[span + 9]) << 0x8 | uint(c2da_mem[span + 10]) << 0x10 | uint(c2da_mem[span + 11]) << 0x18) - 1
+        let c2da_fresh83 : uint8 = uint8(pix)
+        c2da_mem[pdest + u] = c2da_fresh83
         if (u2 - u < 8) {
             u++
             while (u <= u2) {
-                let c2da_fresh79 : uint8 = uint8(pix)
-                c2da_mem[pdest + u] = c2da_fresh79
+                let c2da_fresh84 : uint8 = uint8(pix)
+                c2da_mem[pdest + u] = c2da_fresh84
                 u++
             }
         } else {
             u++
             while ((u & 3) != 0) {
-                let c2da_fresh80 : uint8 = uint8(pix)
-                c2da_mem[pdest + u] = c2da_fresh80
+                let c2da_fresh85 : uint8 = uint8(pix)
+                c2da_mem[pdest + u] = c2da_fresh85
                 u++
             }
             u2 -= 4
             while (u <= u2) {
-                let c2da_fresh81 : uint = uint(pix)
-                c2da_mem[pdest + u] = uint8(c2da_fresh81)
-                c2da_mem[pdest + u + 1] = uint8(c2da_fresh81 >> 0x8)
-                c2da_mem[pdest + u + 2] = uint8(c2da_fresh81 >> 0x10)
-                c2da_mem[pdest + u + 3] = uint8(c2da_fresh81 >> 0x18)
+                let c2da_fresh86 : uint = uint(pix)
+                c2da_mem[pdest + u] = uint8(c2da_fresh86)
+                c2da_mem[pdest + u + 1] = uint8(c2da_fresh86 >> 0x8)
+                c2da_mem[pdest + u + 2] = uint8(c2da_fresh86 >> 0x10)
+                c2da_mem[pdest + u + 3] = uint8(c2da_fresh86 >> 0x18)
                 u += 4
             }
             u2 += 4
             while (u <= u2) {
-                let c2da_fresh82 : uint8 = uint8(pix)
-                c2da_mem[pdest + u] = c2da_fresh82
+                let c2da_fresh87 : uint8 = uint8(pix)
+                c2da_mem[pdest + u] = c2da_fresh87
                 u++
             }
         }
@@ -140,8 +141,9 @@ def private D_DrawSurfaces_c2da_frame(c2da_fp : int) {
             } elif ((int(uint(c2da_mem[s + 36]) | uint(c2da_mem[s + 37]) << 0x8 | uint(c2da_mem[s + 38]) << 0x10 | uint(c2da_mem[s + 39]) << 0x18) & 16) != 0) {
                 pface = int(uint(c2da_mem[s + 40]) | uint(c2da_mem[s + 41]) << 0x8 | uint(c2da_mem[s + 42]) << 0x10 | uint(c2da_mem[s + 43]) << 0x18)
                 miplevel = 0
-                let c2da_fresh0 : int = int(uint(c2da_mem[pface + 80]) | uint(c2da_mem[pface + 81]) << 0x8 | uint(c2da_mem[pface + 82]) << 0x10 | uint(c2da_mem[pface + 83]) << 0x18) + 40
-                let c2da_fresh1 : int = int(uint(c2da_mem[pface + 80]) | uint(c2da_mem[pface + 81]) << 0x8 | uint(c2da_mem[pface + 82]) << 0x10 | uint(c2da_mem[pface + 83]) << 0x18) + 40
+                let c2da_fresh76 : int = int(uint(c2da_mem[pface + 80]) | uint(c2da_mem[pface + 81]) << 0x8 | uint(c2da_mem[pface + 82]) << 0x10 | uint(c2da_mem[pface + 83]) << 0x18)
+                let c2da_fresh0 : int = c2da_fresh76 + 40
+                let c2da_fresh1 : int = c2da_fresh76 + 40
                 let c2da_fresh2 : int = int(uint(c2da_mem[c2da_fresh1]) | uint(c2da_mem[c2da_fresh1 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh1 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh1 + 3]) << 0x18) + 56 + 0 * 4
                 cacheblock = int(uint(c2da_mem[c2da_fresh0]) | uint(c2da_mem[c2da_fresh0 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh0 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh0 + 3]) << 0x18) + int(uint(c2da_mem[c2da_fresh2]) | uint(c2da_mem[c2da_fresh2 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh2 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh2 + 3]) << 0x18)
                 cachewidth = 64
@@ -417,10 +419,14 @@ def private D_CalcGradients_c2da_frame(var pface_0 : int; c2da_fp : int) {
     d_tdivzorigin = uint_bits_to_float(uint(c2da_mem[c2da_fp + 16 + 2 * 4]) | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 3]) << 0x18) * mipscale - xcenter * d_tdivzstepu - ycenter * d_tdivzstepv
     VectorScale(204256, mipscale, c2da_fp + 32)
     t = 65536.0 * mipscale
-    let c2da_fresh76 : int = int(uint(c2da_mem[pface_0 + 80]) | uint(c2da_mem[pface_0 + 81]) << 0x8 | uint(c2da_mem[pface_0 + 82]) << 0x10 | uint(c2da_mem[pface_0 + 83]) << 0x18) + 0 * 16 + 3 * 4
-    sadjust = int(float(int(double((uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 0 * 4]) | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 1 * 4]) | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 2 * 4]) | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18)) * 65536.0) + 0.5lf) - (int(int16(uint(c2da_mem[pface_0 + 72 + 0 * 2]) | uint(c2da_mem[pface_0 + 72 + 0 * 2 + 1]) << 0x8)) << 16 >> miplevel)) + uint_bits_to_float(uint(c2da_mem[c2da_fresh76]) | uint(c2da_mem[c2da_fresh76 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh76 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh76 + 3]) << 0x18) * t)
-    let c2da_fresh77 : int = int(uint(c2da_mem[pface_0 + 80]) | uint(c2da_mem[pface_0 + 81]) << 0x8 | uint(c2da_mem[pface_0 + 82]) << 0x10 | uint(c2da_mem[pface_0 + 83]) << 0x18) + 1 * 16 + 3 * 4
-    tadjust = int(float(int(double((uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 0 * 4]) | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fp + 16 + 0 * 4]) | uint(c2da_mem[c2da_fp + 16 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 16 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 16 + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 1 * 4]) | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fp + 16 + 1 * 4]) | uint(c2da_mem[c2da_fp + 16 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 16 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 16 + 1 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 2 * 4]) | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fp + 16 + 2 * 4]) | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 3]) << 0x18)) * 65536.0) + 0.5lf) - (int(int16(uint(c2da_mem[pface_0 + 72 + 1 * 2]) | uint(c2da_mem[pface_0 + 72 + 1 * 2 + 1]) << 0x8)) << 16 >> miplevel)) + uint_bits_to_float(uint(c2da_mem[c2da_fresh77]) | uint(c2da_mem[c2da_fresh77 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh77 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh77 + 3]) << 0x18) * t)
+    let c2da_fresh79 : int = int(uint(c2da_mem[pface_0 + 80]) | uint(c2da_mem[pface_0 + 81]) << 0x8 | uint(c2da_mem[pface_0 + 82]) << 0x10 | uint(c2da_mem[pface_0 + 83]) << 0x18)
+    let c2da_fresh77 : int = c2da_fresh79 + 0 * 16 + 3 * 4
+    let c2da_fresh80 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 0 * 4]) | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 0 * 4 + 3]) << 0x18)
+    let c2da_fresh81 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 1 * 4]) | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 1 * 4 + 3]) << 0x18)
+    let c2da_fresh82 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 32 + 2 * 4]) | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 32 + 2 * 4 + 3]) << 0x18)
+    sadjust = int(float(int(double((c2da_fresh80 * uint_bits_to_float(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18) + c2da_fresh81 * uint_bits_to_float(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18) + c2da_fresh82 * uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18)) * 65536.0) + 0.5lf) - (int(int16(uint(c2da_mem[pface_0 + 72 + 0 * 2]) | uint(c2da_mem[pface_0 + 72 + 0 * 2 + 1]) << 0x8)) << 16 >> miplevel)) + uint_bits_to_float(uint(c2da_mem[c2da_fresh77]) | uint(c2da_mem[c2da_fresh77 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh77 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh77 + 3]) << 0x18) * t)
+    let c2da_fresh78 : int = c2da_fresh79 + 1 * 16 + 3 * 4
+    tadjust = int(float(int(double((c2da_fresh80 * uint_bits_to_float(uint(c2da_mem[c2da_fp + 16 + 0 * 4]) | uint(c2da_mem[c2da_fp + 16 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 16 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 16 + 0 * 4 + 3]) << 0x18) + c2da_fresh81 * uint_bits_to_float(uint(c2da_mem[c2da_fp + 16 + 1 * 4]) | uint(c2da_mem[c2da_fp + 16 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 16 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 16 + 1 * 4 + 3]) << 0x18) + c2da_fresh82 * uint_bits_to_float(uint(c2da_mem[c2da_fp + 16 + 2 * 4]) | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 16 + 2 * 4 + 3]) << 0x18)) * 65536.0) + 0.5lf) - (int(int16(uint(c2da_mem[pface_0 + 72 + 1 * 2]) | uint(c2da_mem[pface_0 + 72 + 1 * 2 + 1]) << 0x8)) << 16 >> miplevel)) + uint_bits_to_float(uint(c2da_mem[c2da_fresh78]) | uint(c2da_mem[c2da_fresh78 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh78 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh78 + 3]) << 0x18) * t)
     bbextents = (int(int16(uint(c2da_mem[pface_0 + 76 + 0 * 2]) | uint(c2da_mem[pface_0 + 76 + 0 * 2 + 1]) << 0x8)) << 16 >> miplevel) - 1
     bbextentt = (int(int16(uint(c2da_mem[pface_0 + 76 + 1 * 2]) | uint(c2da_mem[pface_0 + 76 + 1 * 2 + 1]) << 0x8)) << 16 >> miplevel) - 1
     return

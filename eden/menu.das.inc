@@ -79,9 +79,10 @@ def M_Menu_Setup_f() {
     m_entersound = 1u
     Q_strcpy(246160, int(uint(c2da_mem[9144]) | uint(c2da_mem[9145]) << 0x8 | uint(c2da_mem[9146]) << 0x10 | uint(c2da_mem[9147]) << 0x18))
     Q_strcpy(246176, int(uint(c2da_mem[386472]) | uint(c2da_mem[386473]) << 0x8 | uint(c2da_mem[386474]) << 0x10 | uint(c2da_mem[386475]) << 0x18))
-    setup_oldtop = int(uint_bits_to_float(uint(c2da_mem[9208]) | uint(c2da_mem[9209]) << 0x8 | uint(c2da_mem[9210]) << 0x10 | uint(c2da_mem[9211]) << 0x18)) >> 4
+    let c2da_fresh0 : float = uint_bits_to_float(uint(c2da_mem[9208]) | uint(c2da_mem[9209]) << 0x8 | uint(c2da_mem[9210]) << 0x10 | uint(c2da_mem[9211]) << 0x18)
+    setup_oldtop = int(c2da_fresh0) >> 4
     setup_top = int(setup_oldtop)  // nolint:PERF020
-    setup_oldbottom = int(uint_bits_to_float(uint(c2da_mem[9208]) | uint(c2da_mem[9209]) << 0x8 | uint(c2da_mem[9210]) << 0x10 | uint(c2da_mem[9211]) << 0x18)) & 15
+    setup_oldbottom = int(c2da_fresh0) & 15
     setup_bottom = int(setup_oldbottom)  // nolint:PERF020
     return
 }
@@ -144,12 +145,12 @@ def M_Menu_SinglePlayer_f() {
 def M_Menu_Main_f() {
     if (uint(key_dest) != 3u) {
         m_save_demonum = int(uint(c2da_mem[7636]) | uint(c2da_mem[7637]) << 0x8 | uint(c2da_mem[7638]) << 0x10 | uint(c2da_mem[7639]) << 0x18)
-        let c2da_fresh1 : int = -1
-        let c2da_fresh2 : uint = uint(c2da_fresh1)
-        c2da_mem[7636] = uint8(c2da_fresh2)
-        c2da_mem[7637] = uint8(c2da_fresh2 >> 0x8)
-        c2da_mem[7638] = uint8(c2da_fresh2 >> 0x10)
-        c2da_mem[7639] = uint8(c2da_fresh2 >> 0x18)
+        let c2da_fresh2 : int = -1
+        let c2da_fresh3 : uint = uint(c2da_fresh2)
+        c2da_mem[7636] = uint8(c2da_fresh3)
+        c2da_mem[7637] = uint8(c2da_fresh3 >> 0x8)
+        c2da_mem[7638] = uint8(c2da_fresh3 >> 0x10)
+        c2da_mem[7639] = uint8(c2da_fresh3 >> 0x18)
     }
     key_dest = 3u
     m_state = 1u
@@ -179,9 +180,9 @@ def M_ToggleMenu_f() {
 }
 [export, sideeffects]
 def M_Keydown(var key : int) {
-    let c2da_fresh3 : uint = m_state
-    if (c2da_fresh3 <= 0x12u) {
-        goto int(c2da_fresh3)
+    let c2da_fresh4 : uint = m_state
+    if (c2da_fresh4 <= 0x12u) {
+        goto int(c2da_fresh4)
     }
     return
     label 0:
@@ -309,8 +310,8 @@ def M_Menu_LanConfig_f() {
     lanConfig_port = DEFAULTnet_hostport
     c2da_lin_snprintf(247440, 2147483647ul, 719711, [C2daVaArg(tag = 1, i64 = int64(lanConfig_port), f64 = 0.0lf, raw = 0x0)])
     m_return_onerror = 0u
-    let c2da_fresh4 : int8 = int8(0)
-    c2da_mem[247600 + 0] = uint8(c2da_fresh4)
+    let c2da_fresh5 : int8 = int8(0)
+    c2da_mem[247600 + 0] = uint8(c2da_fresh5)
     return
 }
 var lanConfig_port : int = default<int>
@@ -635,36 +636,36 @@ def M_LanConfig_Key(var key_2 : int) {
     } elif (key_2 == 127) {
         if (lanConfig_cursor == 0) {
             if (c2da_lin_strlen(247440) != 0x0) {
-                let c2da_fresh8 : int = 247440 + int(c2da_lin_strlen(247440) - 1ul)
-                let c2da_fresh9 : int8 = int8(0)
-                c2da_mem[c2da_fresh8] = uint8(c2da_fresh9)
+                let c2da_fresh9 : int = 247440 + int(c2da_lin_strlen(247440) - 1ul)
+                let c2da_fresh10 : int8 = int8(0)
+                c2da_mem[c2da_fresh9] = uint8(c2da_fresh10)
             }
         }
         if (lanConfig_cursor == 2) {
             if (c2da_lin_strlen(247472) != 0x0) {
-                let c2da_fresh10 : int = 247472 + int(c2da_lin_strlen(247472) - 1ul)
-                let c2da_fresh11 : int8 = int8(0)
-                c2da_mem[c2da_fresh10] = uint8(c2da_fresh11)
+                let c2da_fresh11 : int = 247472 + int(c2da_lin_strlen(247472) - 1ul)
+                let c2da_fresh12 : int8 = int8(0)
+                c2da_mem[c2da_fresh11] = uint8(c2da_fresh12)
             }
         }
     } elif (!(key_2 < 32 || key_2 > 127)) {
         if (lanConfig_cursor == 2) {
             l = int(c2da_lin_strlen(247472))
             if (l < 21) {
-                let c2da_fresh12 : int8 = int8(0)
-                c2da_mem[247472 + (l + 1)] = uint8(c2da_fresh12)
-                let c2da_fresh13 : int8 = int8(key_2)
-                c2da_mem[247472 + l] = uint8(c2da_fresh13)
+                let c2da_fresh13 : int8 = int8(0)
+                c2da_mem[247472 + (l + 1)] = uint8(c2da_fresh13)
+                let c2da_fresh14 : int8 = int8(key_2)
+                c2da_mem[247472 + l] = uint8(c2da_fresh14)
             }
         }
         if (!(key_2 < 48 || key_2 > 57)) {
             if (lanConfig_cursor == 0) {
                 l = int(c2da_lin_strlen(247440))
                 if (l < 5) {
-                    let c2da_fresh14 : int8 = int8(0)
-                    c2da_mem[247440 + (l + 1)] = uint8(c2da_fresh14)
-                    let c2da_fresh15 : int8 = int8(key_2)
-                    c2da_mem[247440 + l] = uint8(c2da_fresh15)
+                    let c2da_fresh15 : int8 = int8(0)
+                    c2da_mem[247440 + (l + 1)] = uint8(c2da_fresh15)
+                    let c2da_fresh16 : int8 = int8(key_2)
+                    c2da_mem[247440 + l] = uint8(c2da_fresh16)
                 }
             }
         }
@@ -729,22 +730,22 @@ def M_ModemConfig_Key(var key_3 : int) {
     } elif (key_3 == 130 || key_3 == 131) {
         if (modemConfig_cursor == 0) {
             if (int(int8(c2da_mem[247584])) == 80) {
-                let c2da_fresh16 : int8 = int8(84)
-                c2da_mem[247584] = uint8(c2da_fresh16)
-            } else {
-                let c2da_fresh17 : int8 = int8(80)
+                let c2da_fresh17 : int8 = int8(84)
                 c2da_mem[247584] = uint8(c2da_fresh17)
+            } else {
+                let c2da_fresh18 : int8 = int8(80)
+                c2da_mem[247584] = uint8(c2da_fresh18)
             }
             S_LocalSound(719667)
         }
     } elif (key_3 == 13) {
         if (modemConfig_cursor == 0) {
             if (int(int8(c2da_mem[247584])) == 80) {
-                let c2da_fresh18 : int8 = int8(84)
-                c2da_mem[247584] = uint8(c2da_fresh18)
-            } else {
-                let c2da_fresh19 : int8 = int8(80)
+                let c2da_fresh19 : int8 = int8(84)
                 c2da_mem[247584] = uint8(c2da_fresh19)
+            } else {
+                let c2da_fresh20 : int8 = int8(80)
+                c2da_mem[247584] = uint8(c2da_fresh20)
             }
             m_entersound = 1u
         }
@@ -756,51 +757,51 @@ def M_ModemConfig_Key(var key_3 : int) {
     } elif (key_3 == 127) {
         if (modemConfig_cursor == 1) {
             if (c2da_lin_strlen(247504) != 0x0) {
-                let c2da_fresh20 : int = 247504 + int(c2da_lin_strlen(247504) - 1ul)
-                let c2da_fresh21 : int8 = int8(0)
-                c2da_mem[c2da_fresh20] = uint8(c2da_fresh21)
+                let c2da_fresh21 : int = 247504 + int(c2da_lin_strlen(247504) - 1ul)
+                let c2da_fresh22 : int8 = int8(0)
+                c2da_mem[c2da_fresh21] = uint8(c2da_fresh22)
             }
         }
         if (modemConfig_cursor == 2) {
             if (c2da_lin_strlen(247520) != 0x0) {
-                let c2da_fresh22 : int = 247520 + int(c2da_lin_strlen(247520) - 1ul)
-                let c2da_fresh23 : int8 = int8(0)
-                c2da_mem[c2da_fresh22] = uint8(c2da_fresh23)
+                let c2da_fresh23 : int = 247520 + int(c2da_lin_strlen(247520) - 1ul)
+                let c2da_fresh24 : int8 = int8(0)
+                c2da_mem[c2da_fresh23] = uint8(c2da_fresh24)
             }
         }
         if (modemConfig_cursor == 3) {
             if (c2da_lin_strlen(247552) != 0x0) {
-                let c2da_fresh24 : int = 247552 + int(c2da_lin_strlen(247552) - 1ul)
-                let c2da_fresh25 : int8 = int8(0)
-                c2da_mem[c2da_fresh24] = uint8(c2da_fresh25)
+                let c2da_fresh25 : int = 247552 + int(c2da_lin_strlen(247552) - 1ul)
+                let c2da_fresh26 : int8 = int8(0)
+                c2da_mem[c2da_fresh25] = uint8(c2da_fresh26)
             }
         }
     } elif (!(key_3 < 32 || key_3 > 127)) {
         if (modemConfig_cursor == 1) {
             l_0 = int(c2da_lin_strlen(247504))
             if (l_0 < 15) {
-                let c2da_fresh26 : int8 = int8(0)
-                c2da_mem[247504 + (l_0 + 1)] = uint8(c2da_fresh26)
-                let c2da_fresh27 : int8 = int8(key_3)
-                c2da_mem[247504 + l_0] = uint8(c2da_fresh27)
+                let c2da_fresh27 : int8 = int8(0)
+                c2da_mem[247504 + (l_0 + 1)] = uint8(c2da_fresh27)
+                let c2da_fresh28 : int8 = int8(key_3)
+                c2da_mem[247504 + l_0] = uint8(c2da_fresh28)
             }
         }
         if (modemConfig_cursor == 2) {
             l_0 = int(c2da_lin_strlen(247520))
             if (l_0 < 29) {
-                let c2da_fresh28 : int8 = int8(0)
-                c2da_mem[247520 + (l_0 + 1)] = uint8(c2da_fresh28)
-                let c2da_fresh29 : int8 = int8(key_3)
-                c2da_mem[247520 + l_0] = uint8(c2da_fresh29)
+                let c2da_fresh29 : int8 = int8(0)
+                c2da_mem[247520 + (l_0 + 1)] = uint8(c2da_fresh29)
+                let c2da_fresh30 : int8 = int8(key_3)
+                c2da_mem[247520 + l_0] = uint8(c2da_fresh30)
             }
         }
         if (modemConfig_cursor == 3) {
             l_0 = int(c2da_lin_strlen(247552))
             if (l_0 < 15) {
-                let c2da_fresh30 : int8 = int8(0)
-                c2da_mem[247552 + (l_0 + 1)] = uint8(c2da_fresh30)
-                let c2da_fresh31 : int8 = int8(key_3)
-                c2da_mem[247552 + l_0] = uint8(c2da_fresh31)
+                let c2da_fresh31 : int8 = int8(0)
+                c2da_mem[247552 + (l_0 + 1)] = uint8(c2da_fresh31)
+                let c2da_fresh32 : int8 = int8(key_3)
+                c2da_mem[247552 + l_0] = uint8(c2da_fresh32)
             }
         }
     }
@@ -875,10 +876,10 @@ def M_SerialConfig_Key(var key_4 : int) {
     label 11:
     goto label 0
     label 12:
-    let c2da_fresh52 : int8 = int8(0)
-    c2da_mem[247568 + (l_1 + 1)] = uint8(c2da_fresh52)
-    let c2da_fresh53 : int8 = int8(key_4)
-    c2da_mem[247568 + l_1] = uint8(c2da_fresh53)
+    let c2da_fresh53 : int8 = int8(0)
+    c2da_mem[247568 + (l_1 + 1)] = uint8(c2da_fresh53)
+    let c2da_fresh54 : int8 = int8(key_4)
+    c2da_mem[247568 + l_1] = uint8(c2da_fresh54)
     goto label 11
     label 13:
     goto label 1
@@ -936,13 +937,13 @@ def M_SerialConfig_Key(var key_4 : int) {
     serialConfig_baud = 5
     goto label 26
     label 28:
-    let c2da_fresh34 : int = int(uint(c2da_mem[247456]) | uint(c2da_mem[247457]) << 0x8 | uint(c2da_mem[247458]) << 0x10 | uint(c2da_mem[247459]) << 0x18)
-    let c2da_fresh35 : int = c2da_fresh34 - 1
-    let c2da_fresh36 : uint = uint(c2da_fresh35)
-    c2da_mem[247456] = uint8(c2da_fresh36)
-    c2da_mem[247457] = uint8(c2da_fresh36 >> 0x8)
-    c2da_mem[247458] = uint8(c2da_fresh36 >> 0x10)
-    c2da_mem[247459] = uint8(c2da_fresh36 >> 0x18)
+    let c2da_fresh35 : int = int(uint(c2da_mem[247456]) | uint(c2da_mem[247457]) << 0x8 | uint(c2da_mem[247458]) << 0x10 | uint(c2da_mem[247459]) << 0x18)
+    let c2da_fresh36 : int = c2da_fresh35 - 1
+    let c2da_fresh37 : uint = uint(c2da_fresh36)
+    c2da_mem[247456] = uint8(c2da_fresh37)
+    c2da_mem[247457] = uint8(c2da_fresh37 >> 0x8)
+    c2da_mem[247458] = uint8(c2da_fresh37 >> 0x10)
+    c2da_mem[247459] = uint8(c2da_fresh37 >> 0x18)
     if (int(uint(c2da_mem[247456]) | uint(c2da_mem[247457]) << 0x8 | uint(c2da_mem[247458]) << 0x10 | uint(c2da_mem[247459]) << 0x18) == 6) {
         goto label 32
     }
@@ -953,20 +954,20 @@ def M_SerialConfig_Key(var key_4 : int) {
     label 30:
     goto label 23
     label 31:
-    let c2da_fresh39 : int = 7
-    let c2da_fresh40 : uint = uint(c2da_fresh39)
-    c2da_mem[247456] = uint8(c2da_fresh40)
-    c2da_mem[247457] = uint8(c2da_fresh40 >> 0x8)
-    c2da_mem[247458] = uint8(c2da_fresh40 >> 0x10)
-    c2da_mem[247459] = uint8(c2da_fresh40 >> 0x18)
+    let c2da_fresh40 : int = 7
+    let c2da_fresh41 : uint = uint(c2da_fresh40)
+    c2da_mem[247456] = uint8(c2da_fresh41)
+    c2da_mem[247457] = uint8(c2da_fresh41 >> 0x8)
+    c2da_mem[247458] = uint8(c2da_fresh41 >> 0x10)
+    c2da_mem[247459] = uint8(c2da_fresh41 >> 0x18)
     goto label 30
     label 32:
-    let c2da_fresh37 : int = 5
-    let c2da_fresh38 : uint = uint(c2da_fresh37)
-    c2da_mem[247456] = uint8(c2da_fresh38)
-    c2da_mem[247457] = uint8(c2da_fresh38 >> 0x8)
-    c2da_mem[247458] = uint8(c2da_fresh38 >> 0x10)
-    c2da_mem[247459] = uint8(c2da_fresh38 >> 0x18)
+    let c2da_fresh38 : int = 5
+    let c2da_fresh39 : uint = uint(c2da_fresh38)
+    c2da_mem[247456] = uint8(c2da_fresh39)
+    c2da_mem[247457] = uint8(c2da_fresh39 >> 0x8)
+    c2da_mem[247458] = uint8(c2da_fresh39 >> 0x10)
+    c2da_mem[247459] = uint8(c2da_fresh39 >> 0x18)
     goto label 29
     label 33:
     serialConfig_comport--
@@ -974,12 +975,12 @@ def M_SerialConfig_Key(var key_4 : int) {
         goto label 35
     }
     label 34:
-    let c2da_fresh32 : int = ISA_IRQs[serialConfig_comport - 1]
-    let c2da_fresh33 : uint = uint(c2da_fresh32)
-    c2da_mem[247456] = uint8(c2da_fresh33)
-    c2da_mem[247457] = uint8(c2da_fresh33 >> 0x8)
-    c2da_mem[247458] = uint8(c2da_fresh33 >> 0x10)
-    c2da_mem[247459] = uint8(c2da_fresh33 >> 0x18)
+    let c2da_fresh33 : int = ISA_IRQs[serialConfig_comport - 1]
+    let c2da_fresh34 : uint = uint(c2da_fresh33)
+    c2da_mem[247456] = uint8(c2da_fresh34)
+    c2da_mem[247457] = uint8(c2da_fresh34 >> 0x8)
+    c2da_mem[247458] = uint8(c2da_fresh34 >> 0x10)
+    c2da_mem[247459] = uint8(c2da_fresh34 >> 0x18)
     goto label 22
     label 35:
     serialConfig_comport = 4
@@ -1016,13 +1017,13 @@ def M_SerialConfig_Key(var key_4 : int) {
     serialConfig_baud = 0
     goto label 43
     label 45:
-    let c2da_fresh43 : int = int(uint(c2da_mem[247456]) | uint(c2da_mem[247457]) << 0x8 | uint(c2da_mem[247458]) << 0x10 | uint(c2da_mem[247459]) << 0x18)
-    let c2da_fresh44 : int = c2da_fresh43 + 1
-    let c2da_fresh45 : uint = uint(c2da_fresh44)
-    c2da_mem[247456] = uint8(c2da_fresh45)
-    c2da_mem[247457] = uint8(c2da_fresh45 >> 0x8)
-    c2da_mem[247458] = uint8(c2da_fresh45 >> 0x10)
-    c2da_mem[247459] = uint8(c2da_fresh45 >> 0x18)
+    let c2da_fresh44 : int = int(uint(c2da_mem[247456]) | uint(c2da_mem[247457]) << 0x8 | uint(c2da_mem[247458]) << 0x10 | uint(c2da_mem[247459]) << 0x18)
+    let c2da_fresh45 : int = c2da_fresh44 + 1
+    let c2da_fresh46 : uint = uint(c2da_fresh45)
+    c2da_mem[247456] = uint8(c2da_fresh46)
+    c2da_mem[247457] = uint8(c2da_fresh46 >> 0x8)
+    c2da_mem[247458] = uint8(c2da_fresh46 >> 0x10)
+    c2da_mem[247459] = uint8(c2da_fresh46 >> 0x18)
     if (int(uint(c2da_mem[247456]) | uint(c2da_mem[247457]) << 0x8 | uint(c2da_mem[247458]) << 0x10 | uint(c2da_mem[247459]) << 0x18) == 6) {
         goto label 49
     }
@@ -1033,20 +1034,20 @@ def M_SerialConfig_Key(var key_4 : int) {
     label 47:
     goto label 40
     label 48:
-    let c2da_fresh48 : int = 2
-    let c2da_fresh49 : uint = uint(c2da_fresh48)
-    c2da_mem[247456] = uint8(c2da_fresh49)
-    c2da_mem[247457] = uint8(c2da_fresh49 >> 0x8)
-    c2da_mem[247458] = uint8(c2da_fresh49 >> 0x10)
-    c2da_mem[247459] = uint8(c2da_fresh49 >> 0x18)
+    let c2da_fresh49 : int = 2
+    let c2da_fresh50 : uint = uint(c2da_fresh49)
+    c2da_mem[247456] = uint8(c2da_fresh50)
+    c2da_mem[247457] = uint8(c2da_fresh50 >> 0x8)
+    c2da_mem[247458] = uint8(c2da_fresh50 >> 0x10)
+    c2da_mem[247459] = uint8(c2da_fresh50 >> 0x18)
     goto label 47
     label 49:
-    let c2da_fresh46 : int = 7
-    let c2da_fresh47 : uint = uint(c2da_fresh46)
-    c2da_mem[247456] = uint8(c2da_fresh47)
-    c2da_mem[247457] = uint8(c2da_fresh47 >> 0x8)
-    c2da_mem[247458] = uint8(c2da_fresh47 >> 0x10)
-    c2da_mem[247459] = uint8(c2da_fresh47 >> 0x18)
+    let c2da_fresh47 : int = 7
+    let c2da_fresh48 : uint = uint(c2da_fresh47)
+    c2da_mem[247456] = uint8(c2da_fresh48)
+    c2da_mem[247457] = uint8(c2da_fresh48 >> 0x8)
+    c2da_mem[247458] = uint8(c2da_fresh48 >> 0x10)
+    c2da_mem[247459] = uint8(c2da_fresh48 >> 0x18)
     goto label 46
     label 50:
     serialConfig_comport++
@@ -1054,12 +1055,12 @@ def M_SerialConfig_Key(var key_4 : int) {
         goto label 52
     }
     label 51:
-    let c2da_fresh41 : int = ISA_IRQs[serialConfig_comport - 1]
-    let c2da_fresh42 : uint = uint(c2da_fresh41)
-    c2da_mem[247456] = uint8(c2da_fresh42)
-    c2da_mem[247457] = uint8(c2da_fresh42 >> 0x8)
-    c2da_mem[247458] = uint8(c2da_fresh42 >> 0x10)
-    c2da_mem[247459] = uint8(c2da_fresh42 >> 0x18)
+    let c2da_fresh42 : int = ISA_IRQs[serialConfig_comport - 1]
+    let c2da_fresh43 : uint = uint(c2da_fresh42)
+    c2da_mem[247456] = uint8(c2da_fresh43)
+    c2da_mem[247457] = uint8(c2da_fresh43 >> 0x8)
+    c2da_mem[247458] = uint8(c2da_fresh43 >> 0x10)
+    c2da_mem[247459] = uint8(c2da_fresh43 >> 0x18)
     goto label 39
     label 52:
     serialConfig_comport = 1
@@ -1120,9 +1121,9 @@ def M_SerialConfig_Key(var key_4 : int) {
     label 64:
     goto label 62
     label 65:
-    let c2da_fresh50 : int = 247568 + int(c2da_lin_strlen(247568) - 1ul)
-    let c2da_fresh51 : int8 = int8(0)
-    c2da_mem[c2da_fresh50] = uint8(c2da_fresh51)
+    let c2da_fresh51 : int = 247568 + int(c2da_lin_strlen(247568) - 1ul)
+    let c2da_fresh52 : int8 = int8(0)
+    c2da_mem[c2da_fresh51] = uint8(c2da_fresh52)
     goto label 64
     panic("unreachable: fell out of a translated control-flow graph")
 }
@@ -1209,17 +1210,17 @@ def M_FindKeysForCommand(var command_0 : int; var twokeys : int) {
     var count_0 : int
     var l_3 : int
     var b_0 : int
-    let c2da_fresh54 : int = -1
-    let c2da_fresh55 : uint = uint(c2da_fresh54)
-    c2da_mem[twokeys + 1 * 4] = uint8(c2da_fresh55)
-    c2da_mem[twokeys + 1 * 4 + 1] = uint8(c2da_fresh55 >> 0x8)
-    c2da_mem[twokeys + 1 * 4 + 2] = uint8(c2da_fresh55 >> 0x10)
-    c2da_mem[twokeys + 1 * 4 + 3] = uint8(c2da_fresh55 >> 0x18)
-    let c2da_fresh56 : uint = uint(c2da_fresh54)
-    c2da_mem[twokeys + 0 * 4] = uint8(c2da_fresh56)
-    c2da_mem[twokeys + 0 * 4 + 1] = uint8(c2da_fresh56 >> 0x8)
-    c2da_mem[twokeys + 0 * 4 + 2] = uint8(c2da_fresh56 >> 0x10)
-    c2da_mem[twokeys + 0 * 4 + 3] = uint8(c2da_fresh56 >> 0x18)
+    let c2da_fresh55 : int = -1
+    let c2da_fresh56 : uint = uint(c2da_fresh55)
+    c2da_mem[twokeys + 1 * 4] = uint8(c2da_fresh56)
+    c2da_mem[twokeys + 1 * 4 + 1] = uint8(c2da_fresh56 >> 0x8)
+    c2da_mem[twokeys + 1 * 4 + 2] = uint8(c2da_fresh56 >> 0x10)
+    c2da_mem[twokeys + 1 * 4 + 3] = uint8(c2da_fresh56 >> 0x18)
+    let c2da_fresh57 : uint = uint(c2da_fresh55)
+    c2da_mem[twokeys + 0 * 4] = uint8(c2da_fresh57)
+    c2da_mem[twokeys + 0 * 4 + 1] = uint8(c2da_fresh57 >> 0x8)
+    c2da_mem[twokeys + 0 * 4 + 2] = uint8(c2da_fresh57 >> 0x10)
+    c2da_mem[twokeys + 0 * 4 + 3] = uint8(c2da_fresh57 >> 0x18)
     l_3 = int(c2da_lin_strlen(command_0))
     count_0 = 0
     for (j_1 in range(0, 256)) {
@@ -1228,11 +1229,11 @@ def M_FindKeysForCommand(var command_0 : int; var twokeys : int) {
             continue
         }
         if (c2da_lin_strncmp(b_0, command_0, uint64(l_3)) == 0) {
-            let c2da_fresh57 : uint = uint(j_1)
-            c2da_mem[twokeys + count_0 * 4] = uint8(c2da_fresh57)
-            c2da_mem[twokeys + count_0 * 4 + 1] = uint8(c2da_fresh57 >> 0x8)
-            c2da_mem[twokeys + count_0 * 4 + 2] = uint8(c2da_fresh57 >> 0x10)
-            c2da_mem[twokeys + count_0 * 4 + 3] = uint8(c2da_fresh57 >> 0x18)
+            let c2da_fresh58 : uint = uint(j_1)
+            c2da_mem[twokeys + count_0 * 4] = uint8(c2da_fresh58)
+            c2da_mem[twokeys + count_0 * 4 + 1] = uint8(c2da_fresh58 >> 0x8)
+            c2da_mem[twokeys + count_0 * 4 + 2] = uint8(c2da_fresh58 >> 0x10)
+            c2da_mem[twokeys + count_0 * 4 + 3] = uint8(c2da_fresh58 >> 0x18)
             count_0++
             if (count_0 == 2) {
                 break
@@ -1296,77 +1297,77 @@ def M_AdjustSliders(var dir_0 : int) {
     }
     return
     label 0:
-    let c2da_fresh58 : float = uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18) + float(dir_0 * 10)
-    let c2da_fresh59 : uint = float_bits_to_uint(c2da_fresh58)
-    c2da_mem[461176] = uint8(c2da_fresh59)
-    c2da_mem[461177] = uint8(c2da_fresh59 >> 0x8)
-    c2da_mem[461178] = uint8(c2da_fresh59 >> 0x10)
-    c2da_mem[461179] = uint8(c2da_fresh59 >> 0x18)
-    if (uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18) < 30.0) {
-        let c2da_fresh60 : float = 30.0
-        let c2da_fresh61 : uint = float_bits_to_uint(c2da_fresh60)
-        c2da_mem[461176] = uint8(c2da_fresh61)
-        c2da_mem[461177] = uint8(c2da_fresh61 >> 0x8)
-        c2da_mem[461178] = uint8(c2da_fresh61 >> 0x10)
-        c2da_mem[461179] = uint8(c2da_fresh61 >> 0x18)
+    let c2da_fresh59 : float = uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18) + float(dir_0 * 10)
+    let c2da_fresh60 : uint = float_bits_to_uint(c2da_fresh59)
+    c2da_mem[461176] = uint8(c2da_fresh60)
+    c2da_mem[461177] = uint8(c2da_fresh60 >> 0x8)
+    c2da_mem[461178] = uint8(c2da_fresh60 >> 0x10)
+    c2da_mem[461179] = uint8(c2da_fresh60 >> 0x18)
+    if (c2da_fresh59 < 30.0) {
+        let c2da_fresh61 : float = 30.0
+        let c2da_fresh62 : uint = float_bits_to_uint(c2da_fresh61)
+        c2da_mem[461176] = uint8(c2da_fresh62)
+        c2da_mem[461177] = uint8(c2da_fresh62 >> 0x8)
+        c2da_mem[461178] = uint8(c2da_fresh62 >> 0x10)
+        c2da_mem[461179] = uint8(c2da_fresh62 >> 0x18)
     }
     if (uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18) > 120.0) {
-        let c2da_fresh62 : float = 120.0
-        let c2da_fresh63 : uint = float_bits_to_uint(c2da_fresh62)
-        c2da_mem[461176] = uint8(c2da_fresh63)
-        c2da_mem[461177] = uint8(c2da_fresh63 >> 0x8)
-        c2da_mem[461178] = uint8(c2da_fresh63 >> 0x10)
-        c2da_mem[461179] = uint8(c2da_fresh63 >> 0x18)
+        let c2da_fresh63 : float = 120.0
+        let c2da_fresh64 : uint = float_bits_to_uint(c2da_fresh63)
+        c2da_mem[461176] = uint8(c2da_fresh64)
+        c2da_mem[461177] = uint8(c2da_fresh64 >> 0x8)
+        c2da_mem[461178] = uint8(c2da_fresh64 >> 0x10)
+        c2da_mem[461179] = uint8(c2da_fresh64 >> 0x18)
     }
     Cvar_SetValue(722016, uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18))
     return
     label 1:
-    let c2da_fresh64 : float = float(double(uint_bits_to_float(uint(c2da_mem[697064]) | uint(c2da_mem[697065]) << 0x8 | uint(c2da_mem[697066]) << 0x10 | uint(c2da_mem[697067]) << 0x18)) - double(dir_0) * 0.05lf)
-    let c2da_fresh65 : uint = float_bits_to_uint(c2da_fresh64)
-    c2da_mem[697064] = uint8(c2da_fresh65)
-    c2da_mem[697065] = uint8(c2da_fresh65 >> 0x8)
-    c2da_mem[697066] = uint8(c2da_fresh65 >> 0x10)
-    c2da_mem[697067] = uint8(c2da_fresh65 >> 0x18)
-    if (double(uint_bits_to_float(uint(c2da_mem[697064]) | uint(c2da_mem[697065]) << 0x8 | uint(c2da_mem[697066]) << 0x10 | uint(c2da_mem[697067]) << 0x18)) < 0.5lf) {
-        let c2da_fresh66 : float = 0.5
-        let c2da_fresh67 : uint = float_bits_to_uint(c2da_fresh66)
-        c2da_mem[697064] = uint8(c2da_fresh67)
-        c2da_mem[697065] = uint8(c2da_fresh67 >> 0x8)
-        c2da_mem[697066] = uint8(c2da_fresh67 >> 0x10)
-        c2da_mem[697067] = uint8(c2da_fresh67 >> 0x18)
+    let c2da_fresh65 : float = float(double(uint_bits_to_float(uint(c2da_mem[697064]) | uint(c2da_mem[697065]) << 0x8 | uint(c2da_mem[697066]) << 0x10 | uint(c2da_mem[697067]) << 0x18)) - double(dir_0) * 0.05lf)
+    let c2da_fresh66 : uint = float_bits_to_uint(c2da_fresh65)
+    c2da_mem[697064] = uint8(c2da_fresh66)
+    c2da_mem[697065] = uint8(c2da_fresh66 >> 0x8)
+    c2da_mem[697066] = uint8(c2da_fresh66 >> 0x10)
+    c2da_mem[697067] = uint8(c2da_fresh66 >> 0x18)
+    if (double(c2da_fresh65) < 0.5lf) {
+        let c2da_fresh67 : float = 0.5
+        let c2da_fresh68 : uint = float_bits_to_uint(c2da_fresh67)
+        c2da_mem[697064] = uint8(c2da_fresh68)
+        c2da_mem[697065] = uint8(c2da_fresh68 >> 0x8)
+        c2da_mem[697066] = uint8(c2da_fresh68 >> 0x10)
+        c2da_mem[697067] = uint8(c2da_fresh68 >> 0x18)
     }
     if (uint_bits_to_float(uint(c2da_mem[697064]) | uint(c2da_mem[697065]) << 0x8 | uint(c2da_mem[697066]) << 0x10 | uint(c2da_mem[697067]) << 0x18) > 1.0) {
-        let c2da_fresh68 : float = 1.0
-        let c2da_fresh69 : uint = float_bits_to_uint(c2da_fresh68)
-        c2da_mem[697064] = uint8(c2da_fresh69)
-        c2da_mem[697065] = uint8(c2da_fresh69 >> 0x8)
-        c2da_mem[697066] = uint8(c2da_fresh69 >> 0x10)
-        c2da_mem[697067] = uint8(c2da_fresh69 >> 0x18)
+        let c2da_fresh69 : float = 1.0
+        let c2da_fresh70 : uint = float_bits_to_uint(c2da_fresh69)
+        c2da_mem[697064] = uint8(c2da_fresh70)
+        c2da_mem[697065] = uint8(c2da_fresh70 >> 0x8)
+        c2da_mem[697066] = uint8(c2da_fresh70 >> 0x10)
+        c2da_mem[697067] = uint8(c2da_fresh70 >> 0x18)
     }
     Cvar_SetValue(722025, uint_bits_to_float(uint(c2da_mem[697064]) | uint(c2da_mem[697065]) << 0x8 | uint(c2da_mem[697066]) << 0x10 | uint(c2da_mem[697067]) << 0x18))
     return
     label 2:
-    let c2da_fresh70 : float = float(double(uint_bits_to_float(uint(c2da_mem[9832]) | uint(c2da_mem[9833]) << 0x8 | uint(c2da_mem[9834]) << 0x10 | uint(c2da_mem[9835]) << 0x18)) + double(dir_0) * 0.5lf)
-    let c2da_fresh71 : uint = float_bits_to_uint(c2da_fresh70)
-    c2da_mem[9832] = uint8(c2da_fresh71)
-    c2da_mem[9833] = uint8(c2da_fresh71 >> 0x8)
-    c2da_mem[9834] = uint8(c2da_fresh71 >> 0x10)
-    c2da_mem[9835] = uint8(c2da_fresh71 >> 0x18)
-    if (uint_bits_to_float(uint(c2da_mem[9832]) | uint(c2da_mem[9833]) << 0x8 | uint(c2da_mem[9834]) << 0x10 | uint(c2da_mem[9835]) << 0x18) < 1.0) {
-        let c2da_fresh72 : float = 1.0
-        let c2da_fresh73 : uint = float_bits_to_uint(c2da_fresh72)
-        c2da_mem[9832] = uint8(c2da_fresh73)
-        c2da_mem[9833] = uint8(c2da_fresh73 >> 0x8)
-        c2da_mem[9834] = uint8(c2da_fresh73 >> 0x10)
-        c2da_mem[9835] = uint8(c2da_fresh73 >> 0x18)
+    let c2da_fresh71 : float = float(double(uint_bits_to_float(uint(c2da_mem[9832]) | uint(c2da_mem[9833]) << 0x8 | uint(c2da_mem[9834]) << 0x10 | uint(c2da_mem[9835]) << 0x18)) + double(dir_0) * 0.5lf)
+    let c2da_fresh72 : uint = float_bits_to_uint(c2da_fresh71)
+    c2da_mem[9832] = uint8(c2da_fresh72)
+    c2da_mem[9833] = uint8(c2da_fresh72 >> 0x8)
+    c2da_mem[9834] = uint8(c2da_fresh72 >> 0x10)
+    c2da_mem[9835] = uint8(c2da_fresh72 >> 0x18)
+    if (c2da_fresh71 < 1.0) {
+        let c2da_fresh73 : float = 1.0
+        let c2da_fresh74 : uint = float_bits_to_uint(c2da_fresh73)
+        c2da_mem[9832] = uint8(c2da_fresh74)
+        c2da_mem[9833] = uint8(c2da_fresh74 >> 0x8)
+        c2da_mem[9834] = uint8(c2da_fresh74 >> 0x10)
+        c2da_mem[9835] = uint8(c2da_fresh74 >> 0x18)
     }
     if (uint_bits_to_float(uint(c2da_mem[9832]) | uint(c2da_mem[9833]) << 0x8 | uint(c2da_mem[9834]) << 0x10 | uint(c2da_mem[9835]) << 0x18) > 11.0) {
-        let c2da_fresh74 : float = 11.0
-        let c2da_fresh75 : uint = float_bits_to_uint(c2da_fresh74)
-        c2da_mem[9832] = uint8(c2da_fresh75)
-        c2da_mem[9833] = uint8(c2da_fresh75 >> 0x8)
-        c2da_mem[9834] = uint8(c2da_fresh75 >> 0x10)
-        c2da_mem[9835] = uint8(c2da_fresh75 >> 0x18)
+        let c2da_fresh75 : float = 11.0
+        let c2da_fresh76 : uint = float_bits_to_uint(c2da_fresh75)
+        c2da_mem[9832] = uint8(c2da_fresh76)
+        c2da_mem[9833] = uint8(c2da_fresh76 >> 0x8)
+        c2da_mem[9834] = uint8(c2da_fresh76 >> 0x10)
+        c2da_mem[9835] = uint8(c2da_fresh76 >> 0x18)
     }
     Cvar_SetValue(722031, uint_bits_to_float(uint(c2da_mem[9832]) | uint(c2da_mem[9833]) << 0x8 | uint(c2da_mem[9834]) << 0x10 | uint(c2da_mem[9835]) << 0x18))
     return
@@ -1480,10 +1481,10 @@ def M_Setup_Key(var k_3 : int) {
     label 12:
     goto label 1
     label 13:
-    let c2da_fresh82 : int8 = int8(0)
-    c2da_mem[246160 + (l_4 + 1)] = uint8(c2da_fresh82)
-    let c2da_fresh83 : int8 = int8(k_3)
-    c2da_mem[246160 + l_4] = uint8(c2da_fresh83)
+    let c2da_fresh83 : int8 = int8(0)
+    c2da_mem[246160 + (l_4 + 1)] = uint8(c2da_fresh83)
+    let c2da_fresh84 : int8 = int8(k_3)
+    c2da_mem[246160 + l_4] = uint8(c2da_fresh84)
     goto label 12
     label 14:
     l_4 = int(c2da_lin_strlen(246176))
@@ -1493,10 +1494,10 @@ def M_Setup_Key(var k_3 : int) {
     label 15:
     goto label 0
     label 16:
-    let c2da_fresh80 : int8 = int8(0)
-    c2da_mem[246176 + (l_4 + 1)] = uint8(c2da_fresh80)
-    let c2da_fresh81 : int8 = int8(k_3)
-    c2da_mem[246176 + l_4] = uint8(c2da_fresh81)
+    let c2da_fresh81 : int8 = int8(0)
+    c2da_mem[246176 + (l_4 + 1)] = uint8(c2da_fresh81)
+    let c2da_fresh82 : int8 = int8(k_3)
+    c2da_mem[246176 + l_4] = uint8(c2da_fresh82)
     goto label 15
     label 17:
     goto label 2
@@ -1622,9 +1623,9 @@ def M_Setup_Key(var k_3 : int) {
     label 51:
     goto label 49
     label 52:
-    let c2da_fresh78 : int = 246160 + int(c2da_lin_strlen(246160) - 1ul)
-    let c2da_fresh79 : int8 = int8(0)
-    c2da_mem[c2da_fresh78] = uint8(c2da_fresh79)
+    let c2da_fresh79 : int = 246160 + int(c2da_lin_strlen(246160) - 1ul)
+    let c2da_fresh80 : int8 = int8(0)
+    c2da_mem[c2da_fresh79] = uint8(c2da_fresh80)
     goto label 51
     label 53:
     if (c2da_lin_strlen(246176) != 0x0) {
@@ -1633,9 +1634,9 @@ def M_Setup_Key(var k_3 : int) {
     label 54:
     goto label 48
     label 55:
-    let c2da_fresh76 : int = 246176 + int(c2da_lin_strlen(246176) - 1ul)
-    let c2da_fresh77 : int8 = int8(0)
-    c2da_mem[c2da_fresh76] = uint8(c2da_fresh77)
+    let c2da_fresh77 : int = 246176 + int(c2da_lin_strlen(246176) - 1ul)
+    let c2da_fresh78 : int8 = int8(0)
+    c2da_mem[c2da_fresh77] = uint8(c2da_fresh78)
     goto label 54
     panic("unreachable: fell out of a translated control-flow graph")
 }
@@ -1796,11 +1797,11 @@ def M_Main_Key(var key_10 : int) {
     if (key_10 == 27) {
         key_dest = 0u
         m_state = 0u
-        let c2da_fresh84 : uint = uint(m_save_demonum)
-        c2da_mem[7636] = uint8(c2da_fresh84)
-        c2da_mem[7637] = uint8(c2da_fresh84 >> 0x8)
-        c2da_mem[7638] = uint8(c2da_fresh84 >> 0x10)
-        c2da_mem[7639] = uint8(c2da_fresh84 >> 0x18)
+        let c2da_fresh85 : uint = uint(m_save_demonum)
+        c2da_mem[7636] = uint8(c2da_fresh85)
+        c2da_mem[7637] = uint8(c2da_fresh85 >> 0x8)
+        c2da_mem[7638] = uint8(c2da_fresh85 >> 0x10)
+        c2da_mem[7639] = uint8(c2da_fresh85 >> 0x18)
         if (int(uint(c2da_mem[7636]) | uint(c2da_mem[7637]) << 0x8 | uint(c2da_mem[7638]) << 0x10 | uint(c2da_mem[7639]) << 0x18) != -1 && (uint(c2da_mem[7772]) | uint(c2da_mem[7773]) << 0x8 | uint(c2da_mem[7774]) << 0x10 | uint(c2da_mem[7775]) << 0x18) == 0u && (uint(c2da_mem[5520]) | uint(c2da_mem[5521]) << 0x8 | uint(c2da_mem[5522]) << 0x10 | uint(c2da_mem[5523]) << 0x18) != 2u) {
             CL_NextDemo()
         }
@@ -1836,7 +1837,7 @@ var m_main_cursor : int = default<int>
 
 [export, sideeffects]
 def M_Draw() {
-    var c2da_fresh85 : uint
+    var c2da_fresh86 : uint
     if (m_state == 0u || uint(key_dest) != 3u) {
         return
     }
@@ -1852,9 +1853,9 @@ def M_Draw() {
     } else {
         m_recursiveDraw = 0u
     }
-    c2da_fresh85 = m_state
-    if (c2da_fresh85 <= 0x12u) {
-        goto int(c2da_fresh85) + 1
+    c2da_fresh86 = m_state
+    if (c2da_fresh86 <= 0x12u) {
+        goto int(c2da_fresh86) + 1
     }
     goto label 0
     label 1:
@@ -1991,8 +1992,8 @@ def M_Menu_ServerList_f() {
     m_entersound = 1u
     slist_cursor = 0
     m_return_onerror = 0u
-    let c2da_fresh86 : int8 = int8(0)
-    c2da_mem[247600 + 0] = uint8(c2da_fresh86)
+    let c2da_fresh87 : int8 = int8(0)
+    c2da_mem[247600 + 0] = uint8(c2da_fresh87)
     slist_sorted = 0u
     return
 }
@@ -2055,8 +2056,8 @@ def M_DrawTransPic(var x_2 : int; var y_1 : int; var pic_0 : int) {
 }
 [export, sideeffects]
 def M_GameOptions_Draw() {
-    var c2da_fresh87 : int
     var c2da_fresh88 : int
+    var c2da_fresh89 : int
     var p_2 : int
     var x_3 : int
     var msg : int
@@ -2076,28 +2077,28 @@ def M_GameOptions_Draw() {
     }
     M_Print(0, 72, 722579)
     if (uint(rogue) != 0u) {
-        c2da_fresh87 = int(uint_bits_to_float(uint(c2da_mem[243464]) | uint(c2da_mem[243465]) << 0x8 | uint(c2da_mem[243466]) << 0x10 | uint(c2da_mem[243467]) << 0x18))
-        if (c2da_fresh87 == 1) {
+        c2da_fresh88 = int(uint_bits_to_float(uint(c2da_mem[243464]) | uint(c2da_mem[243465]) << 0x8 | uint(c2da_mem[243466]) << 0x10 | uint(c2da_mem[243467]) << 0x18))
+        if (c2da_fresh88 == 1) {
             msg = 722596
-        } elif (c2da_fresh87 == 2) {
+        } elif (c2da_fresh88 == 2) {
             msg = 722613
-        } elif (c2da_fresh87 == 3) {
+        } elif (c2da_fresh88 == 3) {
             msg = 722627
-        } elif (c2da_fresh87 == 4) {
+        } elif (c2da_fresh88 == 4) {
             msg = 722631
-        } elif (c2da_fresh87 == 5) {
+        } elif (c2da_fresh88 == 5) {
             msg = 722648
-        } elif (c2da_fresh87 == 6) {
+        } elif (c2da_fresh88 == 6) {
             msg = 722661
         } else {
             msg = 722676
         }
         M_Print(160, 72, msg)
     } else {
-        c2da_fresh88 = int(uint_bits_to_float(uint(c2da_mem[243464]) | uint(c2da_mem[243465]) << 0x8 | uint(c2da_mem[243466]) << 0x10 | uint(c2da_mem[243467]) << 0x18))
-        if (c2da_fresh88 == 1) {
+        c2da_fresh89 = int(uint_bits_to_float(uint(c2da_mem[243464]) | uint(c2da_mem[243465]) << 0x8 | uint(c2da_mem[243466]) << 0x10 | uint(c2da_mem[243467]) << 0x18))
+        if (c2da_fresh89 == 1) {
             msg_0 = 722596
-        } elif (c2da_fresh88 == 2) {
+        } elif (c2da_fresh89 == 2) {
             msg_0 = 722613
         } else {
             msg_0 = 722676
@@ -2516,8 +2517,8 @@ def M_BuildTranslationTable(var top : int; var bottom : int) {
     var source : int
     j_3 = 0
     while (j_3 < 256) {
-        let c2da_fresh89 : uint8 = uint8(j_3)
-        c2da_mem[247888 + j_3] = c2da_fresh89
+        let c2da_fresh92 : uint8 = uint8(j_3)
+        c2da_mem[247888 + j_3] = c2da_fresh92
         j_3++
     }
     dest = 247632
@@ -2528,8 +2529,8 @@ def M_BuildTranslationTable(var top : int; var bottom : int) {
     } else {
         j_3 = 0
         while (j_3 < 16) {
-            let c2da_fresh90 : uint8 = c2da_mem[source + (top + 15 - j_3)]
-            c2da_mem[dest + (16 + j_3)] = c2da_fresh90
+            let c2da_fresh93 : uint8 = c2da_mem[source + (top + 15 - j_3)]
+            c2da_mem[dest + (16 + j_3)] = c2da_fresh93
             j_3++
         }
     }
@@ -2538,8 +2539,8 @@ def M_BuildTranslationTable(var top : int; var bottom : int) {
     } else {
         j_3 = 0
         for (c2da_j_3 in range(j_3, 16)) {
-            let c2da_fresh91 : uint8 = c2da_mem[source + (bottom + 15 - c2da_j_3)]
-            c2da_mem[dest + (96 + c2da_j_3)] = c2da_fresh91
+            let c2da_fresh94 : uint8 = c2da_mem[source + (bottom + 15 - c2da_j_3)]
+            c2da_mem[dest + (96 + c2da_j_3)] = c2da_fresh94
         }
     }
     return
@@ -2622,8 +2623,8 @@ def private M_ScanSaves_c2da_frame(c2da_fp : int) {
         c2da_lin_strncpy(246192 + i * 40, c2da_fp, 40ul - 1ul)
         for (j in range(0, 39)) {
             if (int(int8(c2da_mem[246192 + i * 40 + j])) == 95) {
-                let c2da_fresh0 : int8 = int8(32)
-                c2da_mem[246192 + i * 40 + j] = uint8(c2da_fresh0)
+                let c2da_fresh1 : int8 = int8(32)
+                c2da_mem[246192 + i * 40 + j] = uint8(c2da_fresh1)
             }
         }
         loadable[i] = 1
@@ -2652,12 +2653,12 @@ def private M_Menu_SerialConfig_f_c2da_frame(c2da_fp : int) {
     }
     if (n == 4) {
         n = 0
-        let c2da_fresh5 : int = 4
-        let c2da_fresh6 : uint = uint(c2da_fresh5)
-        c2da_mem[247456] = uint8(c2da_fresh6)
-        c2da_mem[247457] = uint8(c2da_fresh6 >> 0x8)
-        c2da_mem[247458] = uint8(c2da_fresh6 >> 0x10)
-        c2da_mem[247459] = uint8(c2da_fresh6 >> 0x18)
+        let c2da_fresh6 : int = 4
+        let c2da_fresh7 : uint = uint(c2da_fresh6)
+        c2da_mem[247456] = uint8(c2da_fresh7)
+        c2da_mem[247457] = uint8(c2da_fresh7 >> 0x8)
+        c2da_mem[247458] = uint8(c2da_fresh7 >> 0x10)
+        c2da_mem[247459] = uint8(c2da_fresh7 >> 0x18)
     }
     serialConfig_comport = n + 1
     n = 0
@@ -2672,8 +2673,8 @@ def private M_Menu_SerialConfig_f_c2da_frame(c2da_fp : int) {
     }
     serialConfig_baud = n
     m_return_onerror = 0u
-    let c2da_fresh7 : int8 = int8(0)
-    c2da_mem[247600 + 0] = uint8(c2da_fresh7)
+    let c2da_fresh8 : int8 = int8(0)
+    c2da_mem[247600 + 0] = uint8(c2da_fresh8)
     return
 }
 [sideeffects]
@@ -2778,13 +2779,15 @@ def private M_Keys_Draw_c2da_frame(c2da_fp : int) {
         M_Print(16, y_2, bindnames[i_1][1])
         l_5 = int(c2da_lin_strlen(bindnames[i_1][0]))
         M_FindKeysForCommand(bindnames[i_1][0], c2da_fp)
-        if (int(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18) == -1) {
+        let c2da_fresh90 : int = int(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18)
+        if (c2da_fresh90 == -1) {
             M_Print(140, y_2, 724013)
         } else {
             name = Key_KeynumToString(int(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18))
             M_Print(140, y_2, name)
             x_4 = int(c2da_lin_strlen(name) * 8ul)
-            if (int(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18) != -1) {
+            let c2da_fresh91 : int = int(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18)
+            if (c2da_fresh91 != -1) {
                 M_Print(140 + x_4 + 8, y_2, 724017)
                 M_Print(140 + x_4 + 32, y_2, Key_KeynumToString(int(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18)))
             }

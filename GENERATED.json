@@ -1,11 +1,11 @@
 {
   "generator": "c2das scripts/export_dasquake.py",
   "c2das_repository": "https://github.com/lookibed/c2das",
-  "c2das_commit": "18cb5004016e6dd20ecc1790fb683438991b91ea",
+  "c2das_commit": "943cbb94dc3c8ad40663eae73b1567cc511a5bc6",
   "c2das_dirty": false,
   "quakegeneric_repository": "https://github.com/erysdren/quakegeneric",
   "quakegeneric_commit": "13052102577c629650cf07a46151a4b6e1b19c3c",
-  "generated_at": "2026-10-12T03:55:34+03:00",
+  "generated_at": "2026-10-12T04:50:38+03:00",
   "translations": {
     "quake": {
       "case": "quakegeneric-demo1-std",

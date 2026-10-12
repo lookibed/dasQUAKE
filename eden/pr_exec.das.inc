@@ -15,7 +15,8 @@ def PR_ExecuteProgram(var fnum : int) {
     var ptr : int
     var c2da_fresh59 : int
     if (fnum == 0 || fnum >= int(uint(c2da_mem[progs + 36]) | uint(c2da_mem[progs + 37]) << 0x8 | uint(c2da_mem[progs + 38]) << 0x10 | uint(c2da_mem[progs + 39]) << 0x18)) {
-        if (int(uint(c2da_mem[pr_global_struct + 112]) | uint(c2da_mem[pr_global_struct + 113]) << 0x8 | uint(c2da_mem[pr_global_struct + 114]) << 0x10 | uint(c2da_mem[pr_global_struct + 115]) << 0x18) != 0) {
+        let c2da_fresh127 : int = int(uint(c2da_mem[pr_global_struct + 112]) | uint(c2da_mem[pr_global_struct + 113]) << 0x8 | uint(c2da_mem[pr_global_struct + 114]) << 0x10 | uint(c2da_mem[pr_global_struct + 115]) << 0x18)
+        if (c2da_fresh127 != 0) {
             ED_Print(int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) + int(uint(c2da_mem[pr_global_struct + 112]) | uint(c2da_mem[pr_global_struct + 113]) << 0x8 | uint(c2da_mem[pr_global_struct + 114]) << 0x10 | uint(c2da_mem[pr_global_struct + 115]) << 0x18))
         }
         Host_Error(730976, [])
@@ -253,8 +254,9 @@ def PR_ExecuteProgram(var fnum : int) {
         continue
         label 49:
         c2da_fresh59 = 1
-        if (!(int(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18) == 0)) {
-            let c2da_fresh58 : int = pr_strings + int(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18)
+        let c2da_fresh128 : int = int(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18)
+        if (!(c2da_fresh128 == 0)) {
+            let c2da_fresh58 : int = pr_strings + c2da_fresh128
             if (!(int8(c2da_mem[c2da_fresh58]) == 0)) {
                 c2da_fresh59 = 0
             }
@@ -275,7 +277,8 @@ def PR_ExecuteProgram(var fnum : int) {
         c2da_mem[c + 3] = uint8(c2da_fresh63 >> 0x18)
         continue
         label 50:
-        let c2da_fresh64 : float = float(int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) + int(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18) == int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) ? 1 : 0)
+        let c2da_fresh129 : int = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18)
+        let c2da_fresh64 : float = float(c2da_fresh129 + int(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18) == c2da_fresh129 ? 1 : 0)
         let c2da_fresh65 : uint = float_bits_to_uint(c2da_fresh64)
         c2da_mem[c] = uint8(c2da_fresh65)
         c2da_mem[c + 1] = uint8(c2da_fresh65 >> 0x8)
@@ -429,8 +432,9 @@ def PR_ExecuteProgram(var fnum : int) {
         c2da_mem[ptr + 2 * 4 + 3] = uint8(c2da_fresh101 >> 0x18)
         continue
         label 33:
-        ed = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) + int(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18)
-        if (ed == int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) && (uint(c2da_mem[232704]) | uint(c2da_mem[232705]) << 0x8 | uint(c2da_mem[232706]) << 0x10 | uint(c2da_mem[232707]) << 0x18) == 1u) {
+        let c2da_fresh130 : int = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18)
+        ed = c2da_fresh130 + int(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18)
+        if (ed == c2da_fresh130 && (uint(c2da_mem[232704]) | uint(c2da_mem[232705]) << 0x8 | uint(c2da_mem[232706]) << 0x10 | uint(c2da_mem[232707]) << 0x18) == 1u) {
             PR_RunError(731028, [])
         }
         let c2da_fresh102 : int = ed + 108 + int(uint(c2da_mem[b]) | uint(c2da_mem[b + 1]) << 0x8 | uint(c2da_mem[b + 2]) << 0x10 | uint(c2da_mem[b + 3]) << 0x18) * 4 - int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18)
@@ -553,8 +557,9 @@ def PR_ExecuteProgram(var fnum : int) {
         c2da_mem[ed + 293] = uint8(c2da_fresh122 >> 0x8)
         c2da_mem[ed + 294] = uint8(c2da_fresh122 >> 0x10)
         c2da_mem[ed + 295] = uint8(c2da_fresh122 >> 0x18)
-        if (uint_bits_to_float(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18) != uint_bits_to_float(uint(c2da_mem[ed + 228]) | uint(c2da_mem[ed + 229]) << 0x8 | uint(c2da_mem[ed + 230]) << 0x10 | uint(c2da_mem[ed + 231]) << 0x18)) {
-            let c2da_fresh123 : float = uint_bits_to_float(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18)
+        let c2da_fresh131 : float = uint_bits_to_float(uint(c2da_mem[a]) | uint(c2da_mem[a + 1]) << 0x8 | uint(c2da_mem[a + 2]) << 0x10 | uint(c2da_mem[a + 3]) << 0x18)
+        if (c2da_fresh131 != uint_bits_to_float(uint(c2da_mem[ed + 228]) | uint(c2da_mem[ed + 229]) << 0x8 | uint(c2da_mem[ed + 230]) << 0x10 | uint(c2da_mem[ed + 231]) << 0x18)) {
+            let c2da_fresh123 : float = c2da_fresh131
             let c2da_fresh124 : uint = float_bits_to_uint(c2da_fresh123)
             c2da_mem[ed + 228] = uint8(c2da_fresh124)
             c2da_mem[ed + 229] = uint8(c2da_fresh124 >> 0x8)
@@ -652,13 +657,13 @@ def PR_LeaveFunction() : int {
         PR_RunError(731608, [])
     }
     for (i_2 in range(0, c_0)) {
-        let c2da_fresh127 : int = pr_globals + (int(uint(c2da_mem[pr_xfunction + 4]) | uint(c2da_mem[pr_xfunction + 5]) << 0x8 | uint(c2da_mem[pr_xfunction + 6]) << 0x10 | uint(c2da_mem[pr_xfunction + 7]) << 0x18) + i_2) * 4
-        let c2da_fresh128 : int = localstack[localstack_used + i_2]
-        let c2da_fresh129 : uint = uint(c2da_fresh128)
-        c2da_mem[c2da_fresh127] = uint8(c2da_fresh129)
-        c2da_mem[c2da_fresh127 + 1] = uint8(c2da_fresh129 >> 0x8)
-        c2da_mem[c2da_fresh127 + 2] = uint8(c2da_fresh129 >> 0x10)
-        c2da_mem[c2da_fresh127 + 3] = uint8(c2da_fresh129 >> 0x18)
+        let c2da_fresh132 : int = pr_globals + (int(uint(c2da_mem[pr_xfunction + 4]) | uint(c2da_mem[pr_xfunction + 5]) << 0x8 | uint(c2da_mem[pr_xfunction + 6]) << 0x10 | uint(c2da_mem[pr_xfunction + 7]) << 0x18) + i_2) * 4
+        let c2da_fresh133 : int = localstack[localstack_used + i_2]
+        let c2da_fresh134 : uint = uint(c2da_fresh133)
+        c2da_mem[c2da_fresh132] = uint8(c2da_fresh134)
+        c2da_mem[c2da_fresh132 + 1] = uint8(c2da_fresh134 >> 0x8)
+        c2da_mem[c2da_fresh132 + 2] = uint8(c2da_fresh134 >> 0x10)
+        c2da_mem[c2da_fresh132 + 3] = uint8(c2da_fresh134 >> 0x18)
     }
     pr_depth--
     pr_xfunction = int(pr_stack[pr_depth].f)  // nolint:PERF020
@@ -686,8 +691,8 @@ def PR_EnterFunction(var f_1 : int) : int {
     }
     i_3 = 0
     while (i_3 < c_1) {
-        let c2da_fresh130 : int = pr_globals + (int(uint(c2da_mem[f_1 + 4]) | uint(c2da_mem[f_1 + 5]) << 0x8 | uint(c2da_mem[f_1 + 6]) << 0x10 | uint(c2da_mem[f_1 + 7]) << 0x18) + i_3) * 4
-        localstack[localstack_used + i_3] = int(uint(c2da_mem[c2da_fresh130]) | uint(c2da_mem[c2da_fresh130 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh130 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh130 + 3]) << 0x18)
+        let c2da_fresh135 : int = pr_globals + (int(uint(c2da_mem[f_1 + 4]) | uint(c2da_mem[f_1 + 5]) << 0x8 | uint(c2da_mem[f_1 + 6]) << 0x10 | uint(c2da_mem[f_1 + 7]) << 0x18) + i_3) * 4
+        localstack[localstack_used + i_3] = int(uint(c2da_mem[c2da_fresh135]) | uint(c2da_mem[c2da_fresh135 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh135 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh135 + 3]) << 0x18)
         i_3++
     }
     localstack_used += c_1
@@ -696,12 +701,12 @@ def PR_EnterFunction(var f_1 : int) : int {
     while (i_3 < int(uint(c2da_mem[f_1 + 24]) | uint(c2da_mem[f_1 + 25]) << 0x8 | uint(c2da_mem[f_1 + 26]) << 0x10 | uint(c2da_mem[f_1 + 27]) << 0x18)) {
         j = 0
         while (j < int(c2da_mem[f_1 + 28 + i_3])) {
-            let c2da_fresh131 : int = int(uint(c2da_mem[pr_globals + (4 + i_3 * 3 + j) * 4]) | uint(c2da_mem[pr_globals + (4 + i_3 * 3 + j) * 4 + 1]) << 0x8 | uint(c2da_mem[pr_globals + (4 + i_3 * 3 + j) * 4 + 2]) << 0x10 | uint(c2da_mem[pr_globals + (4 + i_3 * 3 + j) * 4 + 3]) << 0x18)
-            let c2da_fresh132 : uint = uint(c2da_fresh131)
-            c2da_mem[pr_globals + o * 4] = uint8(c2da_fresh132)
-            c2da_mem[pr_globals + o * 4 + 1] = uint8(c2da_fresh132 >> 0x8)
-            c2da_mem[pr_globals + o * 4 + 2] = uint8(c2da_fresh132 >> 0x10)
-            c2da_mem[pr_globals + o * 4 + 3] = uint8(c2da_fresh132 >> 0x18)
+            let c2da_fresh136 : int = int(uint(c2da_mem[pr_globals + (4 + i_3 * 3 + j) * 4]) | uint(c2da_mem[pr_globals + (4 + i_3 * 3 + j) * 4 + 1]) << 0x8 | uint(c2da_mem[pr_globals + (4 + i_3 * 3 + j) * 4 + 2]) << 0x10 | uint(c2da_mem[pr_globals + (4 + i_3 * 3 + j) * 4 + 3]) << 0x18)
+            let c2da_fresh137 : uint = uint(c2da_fresh136)
+            c2da_mem[pr_globals + o * 4] = uint8(c2da_fresh137)
+            c2da_mem[pr_globals + o * 4 + 1] = uint8(c2da_fresh137 >> 0x8)
+            c2da_mem[pr_globals + o * 4 + 2] = uint8(c2da_fresh137 >> 0x10)
+            c2da_mem[pr_globals + o * 4 + 3] = uint8(c2da_fresh137 >> 0x18)
             o++
             j++
         }
@@ -728,8 +733,9 @@ def PR_Profile_f() {
         i_4 = 0
         while (i_4 < int(uint(c2da_mem[progs + 36]) | uint(c2da_mem[progs + 37]) << 0x8 | uint(c2da_mem[progs + 38]) << 0x10 | uint(c2da_mem[progs + 39]) << 0x18)) {
             f_2 = pr_functions + i_4 * 36
-            if (int(uint(c2da_mem[f_2 + 12]) | uint(c2da_mem[f_2 + 13]) << 0x8 | uint(c2da_mem[f_2 + 14]) << 0x10 | uint(c2da_mem[f_2 + 15]) << 0x18) > max) {
-                max = int(uint(c2da_mem[f_2 + 12]) | uint(c2da_mem[f_2 + 13]) << 0x8 | uint(c2da_mem[f_2 + 14]) << 0x10 | uint(c2da_mem[f_2 + 15]) << 0x18)
+            let c2da_fresh140 : int = int(uint(c2da_mem[f_2 + 12]) | uint(c2da_mem[f_2 + 13]) << 0x8 | uint(c2da_mem[f_2 + 14]) << 0x10 | uint(c2da_mem[f_2 + 15]) << 0x18)
+            if (c2da_fresh140 > max) {
+                max = c2da_fresh140
                 best = f_2
             }
             i_4++
@@ -739,12 +745,12 @@ def PR_Profile_f() {
                 Con_Printf(731708, [C2daVaArg(tag = 1, i64 = int64(int(uint(c2da_mem[best + 12]) | uint(c2da_mem[best + 13]) << 0x8 | uint(c2da_mem[best + 14]) << 0x10 | uint(c2da_mem[best + 15]) << 0x18)), f64 = 0.0lf, raw = 0x0), C2daVaArg(tag = 3, i64 = 0, f64 = 0.0lf, raw = uint64(pr_strings + int(uint(c2da_mem[best + 16]) | uint(c2da_mem[best + 17]) << 0x8 | uint(c2da_mem[best + 18]) << 0x10 | uint(c2da_mem[best + 19]) << 0x18)))])
             }
             num++
-            let c2da_fresh133 : int = 0
-            let c2da_fresh134 : uint = uint(c2da_fresh133)
-            c2da_mem[best + 12] = uint8(c2da_fresh134)
-            c2da_mem[best + 13] = uint8(c2da_fresh134 >> 0x8)
-            c2da_mem[best + 14] = uint8(c2da_fresh134 >> 0x10)
-            c2da_mem[best + 15] = uint8(c2da_fresh134 >> 0x18)
+            let c2da_fresh138 : int = 0
+            let c2da_fresh139 : uint = uint(c2da_fresh138)
+            c2da_mem[best + 12] = uint8(c2da_fresh139)
+            c2da_mem[best + 13] = uint8(c2da_fresh139 >> 0x8)
+            c2da_mem[best + 14] = uint8(c2da_fresh139 >> 0x10)
+            c2da_mem[best + 15] = uint8(c2da_fresh139 >> 0x18)
         }
         if (best == 0) {
             break

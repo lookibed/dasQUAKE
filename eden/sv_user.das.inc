@@ -86,12 +86,12 @@ def SV_AirAccelerate(var wishveloc : int) {
         accelspeed = addspeed
     }
     for (i_1 in range(0, 3)) {
-        let c2da_fresh41 : float = uint_bits_to_float(uint(c2da_mem[velocity + i_1 * 4]) | uint(c2da_mem[velocity + i_1 * 4 + 1]) << 0x8 | uint(c2da_mem[velocity + i_1 * 4 + 2]) << 0x10 | uint(c2da_mem[velocity + i_1 * 4 + 3]) << 0x18) + float(accelspeed * uint_bits_to_float(uint(c2da_mem[wishveloc + i_1 * 4]) | uint(c2da_mem[wishveloc + i_1 * 4 + 1]) << 0x8 | uint(c2da_mem[wishveloc + i_1 * 4 + 2]) << 0x10 | uint(c2da_mem[wishveloc + i_1 * 4 + 3]) << 0x18))
-        let c2da_fresh42 : uint = float_bits_to_uint(c2da_fresh41)
-        c2da_mem[velocity + i_1 * 4] = uint8(c2da_fresh42)
-        c2da_mem[velocity + i_1 * 4 + 1] = uint8(c2da_fresh42 >> 0x8)
-        c2da_mem[velocity + i_1 * 4 + 2] = uint8(c2da_fresh42 >> 0x10)
-        c2da_mem[velocity + i_1 * 4 + 3] = uint8(c2da_fresh42 >> 0x18)
+        let c2da_fresh42 : float = uint_bits_to_float(uint(c2da_mem[velocity + i_1 * 4]) | uint(c2da_mem[velocity + i_1 * 4 + 1]) << 0x8 | uint(c2da_mem[velocity + i_1 * 4 + 2]) << 0x10 | uint(c2da_mem[velocity + i_1 * 4 + 3]) << 0x18) + float(accelspeed * uint_bits_to_float(uint(c2da_mem[wishveloc + i_1 * 4]) | uint(c2da_mem[wishveloc + i_1 * 4 + 1]) << 0x8 | uint(c2da_mem[wishveloc + i_1 * 4 + 2]) << 0x10 | uint(c2da_mem[wishveloc + i_1 * 4 + 3]) << 0x18))
+        let c2da_fresh43 : uint = float_bits_to_uint(c2da_fresh42)
+        c2da_mem[velocity + i_1 * 4] = uint8(c2da_fresh43)
+        c2da_mem[velocity + i_1 * 4 + 1] = uint8(c2da_fresh43 >> 0x8)
+        c2da_mem[velocity + i_1 * 4 + 2] = uint8(c2da_fresh43 >> 0x10)
+        c2da_mem[velocity + i_1 * 4 + 3] = uint8(c2da_fresh43 >> 0x18)
     }
     return
 }
@@ -112,12 +112,12 @@ def SV_Accelerate() {
         accelspeed_0 = addspeed_0
     }
     for (i_2 in range(0, 3)) {
-        let c2da_fresh43 : float = uint_bits_to_float(uint(c2da_mem[velocity + i_2 * 4]) | uint(c2da_mem[velocity + i_2 * 4 + 1]) << 0x8 | uint(c2da_mem[velocity + i_2 * 4 + 2]) << 0x10 | uint(c2da_mem[velocity + i_2 * 4 + 3]) << 0x18) + float(accelspeed_0 * uint_bits_to_float(uint(c2da_mem[465328 + i_2 * 4]) | uint(c2da_mem[465328 + i_2 * 4 + 1]) << 0x8 | uint(c2da_mem[465328 + i_2 * 4 + 2]) << 0x10 | uint(c2da_mem[465328 + i_2 * 4 + 3]) << 0x18))
-        let c2da_fresh44 : uint = float_bits_to_uint(c2da_fresh43)
-        c2da_mem[velocity + i_2 * 4] = uint8(c2da_fresh44)
-        c2da_mem[velocity + i_2 * 4 + 1] = uint8(c2da_fresh44 >> 0x8)
-        c2da_mem[velocity + i_2 * 4 + 2] = uint8(c2da_fresh44 >> 0x10)
-        c2da_mem[velocity + i_2 * 4 + 3] = uint8(c2da_fresh44 >> 0x18)
+        let c2da_fresh44 : float = uint_bits_to_float(uint(c2da_mem[velocity + i_2 * 4]) | uint(c2da_mem[velocity + i_2 * 4 + 1]) << 0x8 | uint(c2da_mem[velocity + i_2 * 4 + 2]) << 0x10 | uint(c2da_mem[velocity + i_2 * 4 + 3]) << 0x18) + float(accelspeed_0 * uint_bits_to_float(uint(c2da_mem[465328 + i_2 * 4]) | uint(c2da_mem[465328 + i_2 * 4 + 1]) << 0x8 | uint(c2da_mem[465328 + i_2 * 4 + 2]) << 0x10 | uint(c2da_mem[465328 + i_2 * 4 + 3]) << 0x18))
+        let c2da_fresh45 : uint = float_bits_to_uint(c2da_fresh44)
+        c2da_mem[velocity + i_2 * 4] = uint8(c2da_fresh45)
+        c2da_mem[velocity + i_2 * 4 + 1] = uint8(c2da_fresh45 >> 0x8)
+        c2da_mem[velocity + i_2 * 4 + 2] = uint8(c2da_fresh45 >> 0x10)
+        c2da_mem[velocity + i_2 * 4 + 3] = uint8(c2da_fresh45 >> 0x18)
     }
     return
 }
@@ -142,31 +142,31 @@ def SV_WaterMove() {
 [export, sideeffects]
 def SV_WaterJump() {
     if (uint64_bits_to_double(uint64(uint(c2da_mem[225872]) | uint(c2da_mem[225873]) << 0x8 | uint(c2da_mem[225874]) << 0x10 | uint(c2da_mem[225875]) << 0x18) | uint64(uint(c2da_mem[225876]) | uint(c2da_mem[225877]) << 0x8 | uint(c2da_mem[225878]) << 0x10 | uint(c2da_mem[225879]) << 0x18) << 0x20) > double(uint_bits_to_float(uint(c2da_mem[sv_player + 428]) | uint(c2da_mem[sv_player + 429]) << 0x8 | uint(c2da_mem[sv_player + 430]) << 0x10 | uint(c2da_mem[sv_player + 431]) << 0x18)) || uint_bits_to_float(uint(c2da_mem[sv_player + 440]) | uint(c2da_mem[sv_player + 441]) << 0x8 | uint(c2da_mem[sv_player + 442]) << 0x10 | uint(c2da_mem[sv_player + 443]) << 0x18) == 0.0) {
-        let c2da_fresh69 : float = float(int(uint_bits_to_float(uint(c2da_mem[sv_player + 412]) | uint(c2da_mem[sv_player + 413]) << 0x8 | uint(c2da_mem[sv_player + 414]) << 0x10 | uint(c2da_mem[sv_player + 415]) << 0x18)) & ~2048)
-        let c2da_fresh70 : uint = float_bits_to_uint(c2da_fresh69)
-        c2da_mem[sv_player + 412] = uint8(c2da_fresh70)
-        c2da_mem[sv_player + 413] = uint8(c2da_fresh70 >> 0x8)
-        c2da_mem[sv_player + 414] = uint8(c2da_fresh70 >> 0x10)
-        c2da_mem[sv_player + 415] = uint8(c2da_fresh70 >> 0x18)
-        let c2da_fresh71 : float = 0.0
-        let c2da_fresh72 : uint = float_bits_to_uint(c2da_fresh71)
-        c2da_mem[sv_player + 428] = uint8(c2da_fresh72)
-        c2da_mem[sv_player + 429] = uint8(c2da_fresh72 >> 0x8)
-        c2da_mem[sv_player + 430] = uint8(c2da_fresh72 >> 0x10)
-        c2da_mem[sv_player + 431] = uint8(c2da_fresh72 >> 0x18)
+        let c2da_fresh72 : float = float(int(uint_bits_to_float(uint(c2da_mem[sv_player + 412]) | uint(c2da_mem[sv_player + 413]) << 0x8 | uint(c2da_mem[sv_player + 414]) << 0x10 | uint(c2da_mem[sv_player + 415]) << 0x18)) & ~2048)
+        let c2da_fresh73 : uint = float_bits_to_uint(c2da_fresh72)
+        c2da_mem[sv_player + 412] = uint8(c2da_fresh73)
+        c2da_mem[sv_player + 413] = uint8(c2da_fresh73 >> 0x8)
+        c2da_mem[sv_player + 414] = uint8(c2da_fresh73 >> 0x10)
+        c2da_mem[sv_player + 415] = uint8(c2da_fresh73 >> 0x18)
+        let c2da_fresh74 : float = 0.0
+        let c2da_fresh75 : uint = float_bits_to_uint(c2da_fresh74)
+        c2da_mem[sv_player + 428] = uint8(c2da_fresh75)
+        c2da_mem[sv_player + 429] = uint8(c2da_fresh75 >> 0x8)
+        c2da_mem[sv_player + 430] = uint8(c2da_fresh75 >> 0x10)
+        c2da_mem[sv_player + 431] = uint8(c2da_fresh75 >> 0x18)
     }
-    let c2da_fresh73 : float = uint_bits_to_float(uint(c2da_mem[sv_player + 492 + 0 * 4]) | uint(c2da_mem[sv_player + 492 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[sv_player + 492 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[sv_player + 492 + 0 * 4 + 3]) << 0x18)
-    let c2da_fresh74 : uint = float_bits_to_uint(c2da_fresh73)
-    c2da_mem[sv_player + 172 + 0 * 4] = uint8(c2da_fresh74)
-    c2da_mem[sv_player + 172 + 0 * 4 + 1] = uint8(c2da_fresh74 >> 0x8)
-    c2da_mem[sv_player + 172 + 0 * 4 + 2] = uint8(c2da_fresh74 >> 0x10)
-    c2da_mem[sv_player + 172 + 0 * 4 + 3] = uint8(c2da_fresh74 >> 0x18)
-    let c2da_fresh75 : float = uint_bits_to_float(uint(c2da_mem[sv_player + 492 + 1 * 4]) | uint(c2da_mem[sv_player + 492 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[sv_player + 492 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[sv_player + 492 + 1 * 4 + 3]) << 0x18)
-    let c2da_fresh76 : uint = float_bits_to_uint(c2da_fresh75)
-    c2da_mem[sv_player + 172 + 1 * 4] = uint8(c2da_fresh76)
-    c2da_mem[sv_player + 172 + 1 * 4 + 1] = uint8(c2da_fresh76 >> 0x8)
-    c2da_mem[sv_player + 172 + 1 * 4 + 2] = uint8(c2da_fresh76 >> 0x10)
-    c2da_mem[sv_player + 172 + 1 * 4 + 3] = uint8(c2da_fresh76 >> 0x18)
+    let c2da_fresh76 : float = uint_bits_to_float(uint(c2da_mem[sv_player + 492 + 0 * 4]) | uint(c2da_mem[sv_player + 492 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[sv_player + 492 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[sv_player + 492 + 0 * 4 + 3]) << 0x18)
+    let c2da_fresh77 : uint = float_bits_to_uint(c2da_fresh76)
+    c2da_mem[sv_player + 172 + 0 * 4] = uint8(c2da_fresh77)
+    c2da_mem[sv_player + 172 + 0 * 4 + 1] = uint8(c2da_fresh77 >> 0x8)
+    c2da_mem[sv_player + 172 + 0 * 4 + 2] = uint8(c2da_fresh77 >> 0x10)
+    c2da_mem[sv_player + 172 + 0 * 4 + 3] = uint8(c2da_fresh77 >> 0x18)
+    let c2da_fresh78 : float = uint_bits_to_float(uint(c2da_mem[sv_player + 492 + 1 * 4]) | uint(c2da_mem[sv_player + 492 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[sv_player + 492 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[sv_player + 492 + 1 * 4 + 3]) << 0x18)
+    let c2da_fresh79 : uint = float_bits_to_uint(c2da_fresh78)
+    c2da_mem[sv_player + 172 + 1 * 4] = uint8(c2da_fresh79)
+    c2da_mem[sv_player + 172 + 1 * 4 + 1] = uint8(c2da_fresh79 >> 0x8)
+    c2da_mem[sv_player + 172 + 1 * 4 + 2] = uint8(c2da_fresh79 >> 0x10)
+    c2da_mem[sv_player + 172 + 1 * 4 + 3] = uint8(c2da_fresh79 >> 0x18)
     return
 }
 var angles : int = default<int>
@@ -432,87 +432,87 @@ def SV_ReadClientMove(var move : int) {
     var i_5 : int
     var angle : vec3_t
     var bits : int
-    let c2da_fresh77 : int = host_client + 8148 + int(uint(c2da_mem[host_client + 8212]) | uint(c2da_mem[host_client + 8213]) << 0x8 | uint(c2da_mem[host_client + 8214]) << 0x10 | uint(c2da_mem[host_client + 8215]) << 0x18) % 16 * 4
-    let c2da_fresh78 : float = float(uint64_bits_to_double(uint64(uint(c2da_mem[225872]) | uint(c2da_mem[225873]) << 0x8 | uint(c2da_mem[225874]) << 0x10 | uint(c2da_mem[225875]) << 0x18) | uint64(uint(c2da_mem[225876]) | uint(c2da_mem[225877]) << 0x8 | uint(c2da_mem[225878]) << 0x10 | uint(c2da_mem[225879]) << 0x18) << 0x20) - double(MSG_ReadFloat()))
-    let c2da_fresh79 : uint = float_bits_to_uint(c2da_fresh78)
-    c2da_mem[c2da_fresh77] = uint8(c2da_fresh79)
-    c2da_mem[c2da_fresh77 + 1] = uint8(c2da_fresh79 >> 0x8)
-    c2da_mem[c2da_fresh77 + 2] = uint8(c2da_fresh79 >> 0x10)
-    c2da_mem[c2da_fresh77 + 3] = uint8(c2da_fresh79 >> 0x18)
-    let c2da_fresh80 : int = int(uint(c2da_mem[host_client + 8212]) | uint(c2da_mem[host_client + 8213]) << 0x8 | uint(c2da_mem[host_client + 8214]) << 0x10 | uint(c2da_mem[host_client + 8215]) << 0x18)
-    let c2da_fresh81 : int = c2da_fresh80 + 1
-    let c2da_fresh82 : uint = uint(c2da_fresh81)
-    c2da_mem[host_client + 8212] = uint8(c2da_fresh82)
-    c2da_mem[host_client + 8213] = uint8(c2da_fresh82 >> 0x8)
-    c2da_mem[host_client + 8214] = uint8(c2da_fresh82 >> 0x10)
-    c2da_mem[host_client + 8215] = uint8(c2da_fresh82 >> 0x18)
+    let c2da_fresh80 : int = host_client + 8148 + int(uint(c2da_mem[host_client + 8212]) | uint(c2da_mem[host_client + 8213]) << 0x8 | uint(c2da_mem[host_client + 8214]) << 0x10 | uint(c2da_mem[host_client + 8215]) << 0x18) % 16 * 4
+    let c2da_fresh81 : float = float(uint64_bits_to_double(uint64(uint(c2da_mem[225872]) | uint(c2da_mem[225873]) << 0x8 | uint(c2da_mem[225874]) << 0x10 | uint(c2da_mem[225875]) << 0x18) | uint64(uint(c2da_mem[225876]) | uint(c2da_mem[225877]) << 0x8 | uint(c2da_mem[225878]) << 0x10 | uint(c2da_mem[225879]) << 0x18) << 0x20) - double(MSG_ReadFloat()))
+    let c2da_fresh82 : uint = float_bits_to_uint(c2da_fresh81)
+    c2da_mem[c2da_fresh80] = uint8(c2da_fresh82)
+    c2da_mem[c2da_fresh80 + 1] = uint8(c2da_fresh82 >> 0x8)
+    c2da_mem[c2da_fresh80 + 2] = uint8(c2da_fresh82 >> 0x10)
+    c2da_mem[c2da_fresh80 + 3] = uint8(c2da_fresh82 >> 0x18)
+    let c2da_fresh83 : int = int(uint(c2da_mem[host_client + 8212]) | uint(c2da_mem[host_client + 8213]) << 0x8 | uint(c2da_mem[host_client + 8214]) << 0x10 | uint(c2da_mem[host_client + 8215]) << 0x18)
+    let c2da_fresh84 : int = c2da_fresh83 + 1
+    let c2da_fresh85 : uint = uint(c2da_fresh84)
+    c2da_mem[host_client + 8212] = uint8(c2da_fresh85)
+    c2da_mem[host_client + 8213] = uint8(c2da_fresh85 >> 0x8)
+    c2da_mem[host_client + 8214] = uint8(c2da_fresh85 >> 0x10)
+    c2da_mem[host_client + 8215] = uint8(c2da_fresh85 >> 0x18)
     i_5 = 0
     for (c2da_i_5 in range(i_5, 3)) {
         angle[c2da_i_5] = MSG_ReadAngle()
     }
-    let c2da_fresh83 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 388 + 0 * 4
-    let c2da_fresh84 : float = angle[0]
-    let c2da_fresh85 : uint = float_bits_to_uint(c2da_fresh84)
-    c2da_mem[c2da_fresh83] = uint8(c2da_fresh85)
-    c2da_mem[c2da_fresh83 + 1] = uint8(c2da_fresh85 >> 0x8)
-    c2da_mem[c2da_fresh83 + 2] = uint8(c2da_fresh85 >> 0x10)
-    c2da_mem[c2da_fresh83 + 3] = uint8(c2da_fresh85 >> 0x18)
-    let c2da_fresh86 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 388 + 1 * 4
-    let c2da_fresh87 : float = angle[1]
+    let c2da_fresh86 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 388 + 0 * 4
+    let c2da_fresh87 : float = angle[0]
     let c2da_fresh88 : uint = float_bits_to_uint(c2da_fresh87)
     c2da_mem[c2da_fresh86] = uint8(c2da_fresh88)
     c2da_mem[c2da_fresh86 + 1] = uint8(c2da_fresh88 >> 0x8)
     c2da_mem[c2da_fresh86 + 2] = uint8(c2da_fresh88 >> 0x10)
     c2da_mem[c2da_fresh86 + 3] = uint8(c2da_fresh88 >> 0x18)
-    let c2da_fresh89 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 388 + 2 * 4
-    let c2da_fresh90 : float = angle[2]
+    let c2da_fresh89 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 388 + 1 * 4
+    let c2da_fresh90 : float = angle[1]
     let c2da_fresh91 : uint = float_bits_to_uint(c2da_fresh90)
     c2da_mem[c2da_fresh89] = uint8(c2da_fresh91)
     c2da_mem[c2da_fresh89 + 1] = uint8(c2da_fresh91 >> 0x8)
     c2da_mem[c2da_fresh89 + 2] = uint8(c2da_fresh91 >> 0x10)
     c2da_mem[c2da_fresh89 + 3] = uint8(c2da_fresh91 >> 0x18)
-    let c2da_fresh92 : float = float(MSG_ReadShort())
-    let c2da_fresh93 : uint = float_bits_to_uint(c2da_fresh92)
-    c2da_mem[move + 12] = uint8(c2da_fresh93)
-    c2da_mem[move + 13] = uint8(c2da_fresh93 >> 0x8)
-    c2da_mem[move + 14] = uint8(c2da_fresh93 >> 0x10)
-    c2da_mem[move + 15] = uint8(c2da_fresh93 >> 0x18)
-    let c2da_fresh94 : float = float(MSG_ReadShort())
-    let c2da_fresh95 : uint = float_bits_to_uint(c2da_fresh94)
-    c2da_mem[move + 16] = uint8(c2da_fresh95)
-    c2da_mem[move + 17] = uint8(c2da_fresh95 >> 0x8)
-    c2da_mem[move + 18] = uint8(c2da_fresh95 >> 0x10)
-    c2da_mem[move + 19] = uint8(c2da_fresh95 >> 0x18)
-    let c2da_fresh96 : float = float(MSG_ReadShort())
-    let c2da_fresh97 : uint = float_bits_to_uint(c2da_fresh96)
-    c2da_mem[move + 20] = uint8(c2da_fresh97)
-    c2da_mem[move + 21] = uint8(c2da_fresh97 >> 0x8)
-    c2da_mem[move + 22] = uint8(c2da_fresh97 >> 0x10)
-    c2da_mem[move + 23] = uint8(c2da_fresh97 >> 0x18)
-    bits = MSG_ReadByte()
-    let c2da_fresh98 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 368
-    let c2da_fresh99 : float = float(bits & 1)
+    let c2da_fresh92 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 388 + 2 * 4
+    let c2da_fresh93 : float = angle[2]
+    let c2da_fresh94 : uint = float_bits_to_uint(c2da_fresh93)
+    c2da_mem[c2da_fresh92] = uint8(c2da_fresh94)
+    c2da_mem[c2da_fresh92 + 1] = uint8(c2da_fresh94 >> 0x8)
+    c2da_mem[c2da_fresh92 + 2] = uint8(c2da_fresh94 >> 0x10)
+    c2da_mem[c2da_fresh92 + 3] = uint8(c2da_fresh94 >> 0x18)
+    let c2da_fresh95 : float = float(MSG_ReadShort())
+    let c2da_fresh96 : uint = float_bits_to_uint(c2da_fresh95)
+    c2da_mem[move + 12] = uint8(c2da_fresh96)
+    c2da_mem[move + 13] = uint8(c2da_fresh96 >> 0x8)
+    c2da_mem[move + 14] = uint8(c2da_fresh96 >> 0x10)
+    c2da_mem[move + 15] = uint8(c2da_fresh96 >> 0x18)
+    let c2da_fresh97 : float = float(MSG_ReadShort())
+    let c2da_fresh98 : uint = float_bits_to_uint(c2da_fresh97)
+    c2da_mem[move + 16] = uint8(c2da_fresh98)
+    c2da_mem[move + 17] = uint8(c2da_fresh98 >> 0x8)
+    c2da_mem[move + 18] = uint8(c2da_fresh98 >> 0x10)
+    c2da_mem[move + 19] = uint8(c2da_fresh98 >> 0x18)
+    let c2da_fresh99 : float = float(MSG_ReadShort())
     let c2da_fresh100 : uint = float_bits_to_uint(c2da_fresh99)
-    c2da_mem[c2da_fresh98] = uint8(c2da_fresh100)
-    c2da_mem[c2da_fresh98 + 1] = uint8(c2da_fresh100 >> 0x8)
-    c2da_mem[c2da_fresh98 + 2] = uint8(c2da_fresh100 >> 0x10)
-    c2da_mem[c2da_fresh98 + 3] = uint8(c2da_fresh100 >> 0x18)
-    let c2da_fresh101 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 376
-    let c2da_fresh102 : float = float((bits & 2) >> 1)
+    c2da_mem[move + 20] = uint8(c2da_fresh100)
+    c2da_mem[move + 21] = uint8(c2da_fresh100 >> 0x8)
+    c2da_mem[move + 22] = uint8(c2da_fresh100 >> 0x10)
+    c2da_mem[move + 23] = uint8(c2da_fresh100 >> 0x18)
+    bits = MSG_ReadByte()
+    let c2da_fresh101 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 368
+    let c2da_fresh102 : float = float(bits & 1)
     let c2da_fresh103 : uint = float_bits_to_uint(c2da_fresh102)
     c2da_mem[c2da_fresh101] = uint8(c2da_fresh103)
     c2da_mem[c2da_fresh101 + 1] = uint8(c2da_fresh103 >> 0x8)
     c2da_mem[c2da_fresh101 + 2] = uint8(c2da_fresh103 >> 0x10)
     c2da_mem[c2da_fresh101 + 3] = uint8(c2da_fresh103 >> 0x18)
+    let c2da_fresh104 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 376
+    let c2da_fresh105 : float = float((bits & 2) >> 1)
+    let c2da_fresh106 : uint = float_bits_to_uint(c2da_fresh105)
+    c2da_mem[c2da_fresh104] = uint8(c2da_fresh106)
+    c2da_mem[c2da_fresh104 + 1] = uint8(c2da_fresh106 >> 0x8)
+    c2da_mem[c2da_fresh104 + 2] = uint8(c2da_fresh106 >> 0x10)
+    c2da_mem[c2da_fresh104 + 3] = uint8(c2da_fresh106 >> 0x18)
     i_5 = MSG_ReadByte()
     if (i_5 != 0) {
-        let c2da_fresh104 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 380
-        let c2da_fresh105 : float = float(i_5)
-        let c2da_fresh106 : uint = float_bits_to_uint(c2da_fresh105)
-        c2da_mem[c2da_fresh104] = uint8(c2da_fresh106)
-        c2da_mem[c2da_fresh104 + 1] = uint8(c2da_fresh106 >> 0x8)
-        c2da_mem[c2da_fresh104 + 2] = uint8(c2da_fresh106 >> 0x10)
-        c2da_mem[c2da_fresh104 + 3] = uint8(c2da_fresh106 >> 0x18)
+        let c2da_fresh107 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) + 380
+        let c2da_fresh108 : float = float(i_5)
+        let c2da_fresh109 : uint = float_bits_to_uint(c2da_fresh108)
+        c2da_mem[c2da_fresh107] = uint8(c2da_fresh109)
+        c2da_mem[c2da_fresh107 + 1] = uint8(c2da_fresh109 >> 0x8)
+        c2da_mem[c2da_fresh107 + 2] = uint8(c2da_fresh109 >> 0x10)
+        c2da_mem[c2da_fresh107 + 3] = uint8(c2da_fresh109 >> 0x18)
     }
     return
 }
@@ -553,19 +553,19 @@ def private SV_SetIdealPitch_c2da_frame(c2da_fp : int) {
         c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh5 >> 0x8)
         c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh5 >> 0x10)
         c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh5 >> 0x18)
-        let c2da_fresh6 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 0 * 4]) | uint(c2da_mem[c2da_fp + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 0 * 4 + 3]) << 0x18)
+        let c2da_fresh6 : float = c2da_fresh0
         let c2da_fresh7 : uint = float_bits_to_uint(c2da_fresh6)
         c2da_mem[c2da_fp + 16 + 0 * 4] = uint8(c2da_fresh7)
         c2da_mem[c2da_fp + 16 + 0 * 4 + 1] = uint8(c2da_fresh7 >> 0x8)
         c2da_mem[c2da_fp + 16 + 0 * 4 + 2] = uint8(c2da_fresh7 >> 0x10)
         c2da_mem[c2da_fp + 16 + 0 * 4 + 3] = uint8(c2da_fresh7 >> 0x18)
-        let c2da_fresh8 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 1 * 4]) | uint(c2da_mem[c2da_fp + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 1 * 4 + 3]) << 0x18)
+        let c2da_fresh8 : float = c2da_fresh2
         let c2da_fresh9 : uint = float_bits_to_uint(c2da_fresh8)
         c2da_mem[c2da_fp + 16 + 1 * 4] = uint8(c2da_fresh9)
         c2da_mem[c2da_fp + 16 + 1 * 4 + 1] = uint8(c2da_fresh9 >> 0x8)
         c2da_mem[c2da_fp + 16 + 1 * 4 + 2] = uint8(c2da_fresh9 >> 0x10)
         c2da_mem[c2da_fp + 16 + 1 * 4 + 3] = uint8(c2da_fresh9 >> 0x18)
-        let c2da_fresh10 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) - 160.0
+        let c2da_fresh10 : float = c2da_fresh4 - 160.0
         let c2da_fresh11 : uint = float_bits_to_uint(c2da_fresh10)
         c2da_mem[c2da_fp + 16 + 2 * 4] = uint8(c2da_fresh11)
         c2da_mem[c2da_fp + 16 + 2 * 4 + 1] = uint8(c2da_fresh11 >> 0x8)
@@ -666,7 +666,8 @@ def private SV_AirMove_c2da_frame(c2da_fp : int) {
     c2da_mem[465328 + 2 * 4 + 2] = uint8(c2da_fresh34 >> 0x10)
     c2da_mem[465328 + 2 * 4 + 3] = uint8(c2da_fresh34 >> 0x18)
     wishspeed = VectorNormalize(465328)
-    if (wishspeed > uint_bits_to_float(uint(c2da_mem[462808]) | uint(c2da_mem[462809]) << 0x8 | uint(c2da_mem[462810]) << 0x10 | uint(c2da_mem[462811]) << 0x18)) {
+    let c2da_fresh41 : float = uint_bits_to_float(uint(c2da_mem[462808]) | uint(c2da_mem[462809]) << 0x8 | uint(c2da_mem[462810]) << 0x10 | uint(c2da_mem[462811]) << 0x18)
+    if (wishspeed > c2da_fresh41) {
         VectorScale(c2da_fp, uint_bits_to_float(uint(c2da_mem[462808]) | uint(c2da_mem[462809]) << 0x8 | uint(c2da_mem[462810]) << 0x10 | uint(c2da_mem[462811]) << 0x18) / wishspeed, c2da_fp)
         wishspeed = uint_bits_to_float(uint(c2da_mem[462808]) | uint(c2da_mem[462809]) << 0x8 | uint(c2da_mem[462810]) << 0x10 | uint(c2da_mem[462811]) << 0x18)
     }
@@ -709,69 +710,70 @@ def private SV_UserFriction_c2da_frame(c2da_fp : int) {
     if (speed == 0.0) {
         return
     }
-    let c2da_fresh45 : float = uint_bits_to_float(uint(c2da_mem[origin + 0 * 4]) | uint(c2da_mem[origin + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[origin + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[origin + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[vel + 0 * 4]) | uint(c2da_mem[vel + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 0 * 4 + 3]) << 0x18) / speed * 16.0
-    let c2da_fresh46 : uint = float_bits_to_uint(c2da_fresh45)
-    c2da_mem[c2da_fp + 16 + 0 * 4] = uint8(c2da_fresh46)
-    c2da_mem[c2da_fp + 16 + 0 * 4 + 1] = uint8(c2da_fresh46 >> 0x8)
-    c2da_mem[c2da_fp + 16 + 0 * 4 + 2] = uint8(c2da_fresh46 >> 0x10)
-    c2da_mem[c2da_fp + 16 + 0 * 4 + 3] = uint8(c2da_fresh46 >> 0x18)
-    let c2da_fresh47 : uint = float_bits_to_uint(c2da_fresh45)
-    c2da_mem[c2da_fp + 0 * 4] = uint8(c2da_fresh47)
-    c2da_mem[c2da_fp + 0 * 4 + 1] = uint8(c2da_fresh47 >> 0x8)
-    c2da_mem[c2da_fp + 0 * 4 + 2] = uint8(c2da_fresh47 >> 0x10)
-    c2da_mem[c2da_fp + 0 * 4 + 3] = uint8(c2da_fresh47 >> 0x18)
-    let c2da_fresh48 : float = uint_bits_to_float(uint(c2da_mem[origin + 1 * 4]) | uint(c2da_mem[origin + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[origin + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[origin + 1 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[vel + 1 * 4]) | uint(c2da_mem[vel + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 1 * 4 + 3]) << 0x18) / speed * 16.0
-    let c2da_fresh49 : uint = float_bits_to_uint(c2da_fresh48)
-    c2da_mem[c2da_fp + 16 + 1 * 4] = uint8(c2da_fresh49)
-    c2da_mem[c2da_fp + 16 + 1 * 4 + 1] = uint8(c2da_fresh49 >> 0x8)
-    c2da_mem[c2da_fp + 16 + 1 * 4 + 2] = uint8(c2da_fresh49 >> 0x10)
-    c2da_mem[c2da_fp + 16 + 1 * 4 + 3] = uint8(c2da_fresh49 >> 0x18)
-    let c2da_fresh50 : uint = float_bits_to_uint(c2da_fresh48)
-    c2da_mem[c2da_fp + 1 * 4] = uint8(c2da_fresh50)
-    c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh50 >> 0x8)
-    c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh50 >> 0x10)
-    c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh50 >> 0x18)
-    let c2da_fresh51 : float = uint_bits_to_float(uint(c2da_mem[origin + 2 * 4]) | uint(c2da_mem[origin + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[origin + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[origin + 2 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[sv_player + 240 + 2 * 4]) | uint(c2da_mem[sv_player + 240 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[sv_player + 240 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[sv_player + 240 + 2 * 4 + 3]) << 0x18)
-    let c2da_fresh52 : uint = float_bits_to_uint(c2da_fresh51)
-    c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh52)
-    c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh52 >> 0x8)
-    c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh52 >> 0x10)
-    c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh52 >> 0x18)
-    let c2da_fresh53 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) - 34.0
-    let c2da_fresh54 : uint = float_bits_to_uint(c2da_fresh53)
-    c2da_mem[c2da_fp + 16 + 2 * 4] = uint8(c2da_fresh54)
-    c2da_mem[c2da_fp + 16 + 2 * 4 + 1] = uint8(c2da_fresh54 >> 0x8)
-    c2da_mem[c2da_fp + 16 + 2 * 4 + 2] = uint8(c2da_fresh54 >> 0x10)
-    c2da_mem[c2da_fp + 16 + 2 * 4 + 3] = uint8(c2da_fresh54 >> 0x18)
+    let c2da_fresh46 : float = uint_bits_to_float(uint(c2da_mem[origin + 0 * 4]) | uint(c2da_mem[origin + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[origin + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[origin + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[vel + 0 * 4]) | uint(c2da_mem[vel + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 0 * 4 + 3]) << 0x18) / speed * 16.0
+    let c2da_fresh47 : uint = float_bits_to_uint(c2da_fresh46)
+    c2da_mem[c2da_fp + 16 + 0 * 4] = uint8(c2da_fresh47)
+    c2da_mem[c2da_fp + 16 + 0 * 4 + 1] = uint8(c2da_fresh47 >> 0x8)
+    c2da_mem[c2da_fp + 16 + 0 * 4 + 2] = uint8(c2da_fresh47 >> 0x10)
+    c2da_mem[c2da_fp + 16 + 0 * 4 + 3] = uint8(c2da_fresh47 >> 0x18)
+    let c2da_fresh48 : uint = float_bits_to_uint(c2da_fresh46)
+    c2da_mem[c2da_fp + 0 * 4] = uint8(c2da_fresh48)
+    c2da_mem[c2da_fp + 0 * 4 + 1] = uint8(c2da_fresh48 >> 0x8)
+    c2da_mem[c2da_fp + 0 * 4 + 2] = uint8(c2da_fresh48 >> 0x10)
+    c2da_mem[c2da_fp + 0 * 4 + 3] = uint8(c2da_fresh48 >> 0x18)
+    let c2da_fresh49 : float = uint_bits_to_float(uint(c2da_mem[origin + 1 * 4]) | uint(c2da_mem[origin + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[origin + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[origin + 1 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[vel + 1 * 4]) | uint(c2da_mem[vel + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 1 * 4 + 3]) << 0x18) / speed * 16.0
+    let c2da_fresh50 : uint = float_bits_to_uint(c2da_fresh49)
+    c2da_mem[c2da_fp + 16 + 1 * 4] = uint8(c2da_fresh50)
+    c2da_mem[c2da_fp + 16 + 1 * 4 + 1] = uint8(c2da_fresh50 >> 0x8)
+    c2da_mem[c2da_fp + 16 + 1 * 4 + 2] = uint8(c2da_fresh50 >> 0x10)
+    c2da_mem[c2da_fp + 16 + 1 * 4 + 3] = uint8(c2da_fresh50 >> 0x18)
+    let c2da_fresh51 : uint = float_bits_to_uint(c2da_fresh49)
+    c2da_mem[c2da_fp + 1 * 4] = uint8(c2da_fresh51)
+    c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh51 >> 0x8)
+    c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh51 >> 0x10)
+    c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh51 >> 0x18)
+    let c2da_fresh52 : float = uint_bits_to_float(uint(c2da_mem[origin + 2 * 4]) | uint(c2da_mem[origin + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[origin + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[origin + 2 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[sv_player + 240 + 2 * 4]) | uint(c2da_mem[sv_player + 240 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[sv_player + 240 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[sv_player + 240 + 2 * 4 + 3]) << 0x18)
+    let c2da_fresh53 : uint = float_bits_to_uint(c2da_fresh52)
+    c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh53)
+    c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh53 >> 0x8)
+    c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh53 >> 0x10)
+    c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh53 >> 0x18)
+    let c2da_fresh54 : float = c2da_fresh52 - 34.0
+    let c2da_fresh55 : uint = float_bits_to_uint(c2da_fresh54)
+    c2da_mem[c2da_fp + 16 + 2 * 4] = uint8(c2da_fresh55)
+    c2da_mem[c2da_fp + 16 + 2 * 4 + 1] = uint8(c2da_fresh55 >> 0x8)
+    c2da_mem[c2da_fp + 16 + 2 * 4 + 2] = uint8(c2da_fresh55 >> 0x10)
+    c2da_mem[c2da_fp + 16 + 2 * 4 + 3] = uint8(c2da_fresh55 >> 0x18)
     trace = SV_Move(c2da_fp, 194432, 194432, c2da_fp + 16, 1, sv_player)
     if (double(trace.fraction) == 1.0lf) {
         friction = uint_bits_to_float(uint(c2da_mem[462664]) | uint(c2da_mem[462665]) << 0x8 | uint(c2da_mem[462666]) << 0x10 | uint(c2da_mem[462667]) << 0x18) * uint_bits_to_float(uint(c2da_mem[462712]) | uint(c2da_mem[462713]) << 0x8 | uint(c2da_mem[462714]) << 0x10 | uint(c2da_mem[462715]) << 0x18)
     } else {
         friction = uint_bits_to_float(uint(c2da_mem[462664]) | uint(c2da_mem[462665]) << 0x8 | uint(c2da_mem[462666]) << 0x10 | uint(c2da_mem[462667]) << 0x18)
     }
-    newspeed = float(double(speed) - host_frametime * double(speed < uint_bits_to_float(uint(c2da_mem[462760]) | uint(c2da_mem[462761]) << 0x8 | uint(c2da_mem[462762]) << 0x10 | uint(c2da_mem[462763]) << 0x18) ? uint_bits_to_float(uint(c2da_mem[462760]) | uint(c2da_mem[462761]) << 0x8 | uint(c2da_mem[462762]) << 0x10 | uint(c2da_mem[462763]) << 0x18) : speed) * double(friction))
+    let c2da_fresh62 : float = uint_bits_to_float(uint(c2da_mem[462760]) | uint(c2da_mem[462761]) << 0x8 | uint(c2da_mem[462762]) << 0x10 | uint(c2da_mem[462763]) << 0x18)
+    newspeed = float(double(speed) - host_frametime * double(speed < c2da_fresh62 ? c2da_fresh62 : speed) * double(friction))
     if (newspeed < 0.0) {
         newspeed = 0.0
     }
     newspeed /= speed
-    let c2da_fresh55 : float = uint_bits_to_float(uint(c2da_mem[vel + 0 * 4]) | uint(c2da_mem[vel + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 0 * 4 + 3]) << 0x18) * newspeed
-    let c2da_fresh56 : uint = float_bits_to_uint(c2da_fresh55)
-    c2da_mem[vel + 0 * 4] = uint8(c2da_fresh56)
-    c2da_mem[vel + 0 * 4 + 1] = uint8(c2da_fresh56 >> 0x8)
-    c2da_mem[vel + 0 * 4 + 2] = uint8(c2da_fresh56 >> 0x10)
-    c2da_mem[vel + 0 * 4 + 3] = uint8(c2da_fresh56 >> 0x18)
-    let c2da_fresh57 : float = uint_bits_to_float(uint(c2da_mem[vel + 1 * 4]) | uint(c2da_mem[vel + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 1 * 4 + 3]) << 0x18) * newspeed
-    let c2da_fresh58 : uint = float_bits_to_uint(c2da_fresh57)
-    c2da_mem[vel + 1 * 4] = uint8(c2da_fresh58)
-    c2da_mem[vel + 1 * 4 + 1] = uint8(c2da_fresh58 >> 0x8)
-    c2da_mem[vel + 1 * 4 + 2] = uint8(c2da_fresh58 >> 0x10)
-    c2da_mem[vel + 1 * 4 + 3] = uint8(c2da_fresh58 >> 0x18)
-    let c2da_fresh59 : float = uint_bits_to_float(uint(c2da_mem[vel + 2 * 4]) | uint(c2da_mem[vel + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 2 * 4 + 3]) << 0x18) * newspeed
-    let c2da_fresh60 : uint = float_bits_to_uint(c2da_fresh59)
-    c2da_mem[vel + 2 * 4] = uint8(c2da_fresh60)
-    c2da_mem[vel + 2 * 4 + 1] = uint8(c2da_fresh60 >> 0x8)
-    c2da_mem[vel + 2 * 4 + 2] = uint8(c2da_fresh60 >> 0x10)
-    c2da_mem[vel + 2 * 4 + 3] = uint8(c2da_fresh60 >> 0x18)
+    let c2da_fresh56 : float = uint_bits_to_float(uint(c2da_mem[vel + 0 * 4]) | uint(c2da_mem[vel + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 0 * 4 + 3]) << 0x18) * newspeed
+    let c2da_fresh57 : uint = float_bits_to_uint(c2da_fresh56)
+    c2da_mem[vel + 0 * 4] = uint8(c2da_fresh57)
+    c2da_mem[vel + 0 * 4 + 1] = uint8(c2da_fresh57 >> 0x8)
+    c2da_mem[vel + 0 * 4 + 2] = uint8(c2da_fresh57 >> 0x10)
+    c2da_mem[vel + 0 * 4 + 3] = uint8(c2da_fresh57 >> 0x18)
+    let c2da_fresh58 : float = uint_bits_to_float(uint(c2da_mem[vel + 1 * 4]) | uint(c2da_mem[vel + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 1 * 4 + 3]) << 0x18) * newspeed
+    let c2da_fresh59 : uint = float_bits_to_uint(c2da_fresh58)
+    c2da_mem[vel + 1 * 4] = uint8(c2da_fresh59)
+    c2da_mem[vel + 1 * 4 + 1] = uint8(c2da_fresh59 >> 0x8)
+    c2da_mem[vel + 1 * 4 + 2] = uint8(c2da_fresh59 >> 0x10)
+    c2da_mem[vel + 1 * 4 + 3] = uint8(c2da_fresh59 >> 0x18)
+    let c2da_fresh60 : float = uint_bits_to_float(uint(c2da_mem[vel + 2 * 4]) | uint(c2da_mem[vel + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[vel + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[vel + 2 * 4 + 3]) << 0x18) * newspeed
+    let c2da_fresh61 : uint = float_bits_to_uint(c2da_fresh60)
+    c2da_mem[vel + 2 * 4] = uint8(c2da_fresh61)
+    c2da_mem[vel + 2 * 4 + 1] = uint8(c2da_fresh61 >> 0x8)
+    c2da_mem[vel + 2 * 4 + 2] = uint8(c2da_fresh61 >> 0x10)
+    c2da_mem[vel + 2 * 4 + 3] = uint8(c2da_fresh61 >> 0x18)
     return
 }
 [sideeffects]
@@ -785,31 +787,32 @@ def private SV_WaterMove_c2da_frame(c2da_fp : int) {
     AngleVectors(sv_player + 388, 736912, 736928, 736944)
     i_3 = 0
     while (i_3 < 3) {
-        let c2da_fresh61 : float = uint_bits_to_float(uint(c2da_mem[736912 + i_3 * 4]) | uint(c2da_mem[736912 + i_3 * 4 + 1]) << 0x8 | uint(c2da_mem[736912 + i_3 * 4 + 2]) << 0x10 | uint(c2da_mem[736912 + i_3 * 4 + 3]) << 0x18) * cmd.forwardmove + uint_bits_to_float(uint(c2da_mem[736928 + i_3 * 4]) | uint(c2da_mem[736928 + i_3 * 4 + 1]) << 0x8 | uint(c2da_mem[736928 + i_3 * 4 + 2]) << 0x10 | uint(c2da_mem[736928 + i_3 * 4 + 3]) << 0x18) * cmd.sidemove
-        let c2da_fresh62 : uint = float_bits_to_uint(c2da_fresh61)
-        c2da_mem[c2da_fp + i_3 * 4] = uint8(c2da_fresh62)
-        c2da_mem[c2da_fp + i_3 * 4 + 1] = uint8(c2da_fresh62 >> 0x8)
-        c2da_mem[c2da_fp + i_3 * 4 + 2] = uint8(c2da_fresh62 >> 0x10)
-        c2da_mem[c2da_fp + i_3 * 4 + 3] = uint8(c2da_fresh62 >> 0x18)
+        let c2da_fresh63 : float = uint_bits_to_float(uint(c2da_mem[736912 + i_3 * 4]) | uint(c2da_mem[736912 + i_3 * 4 + 1]) << 0x8 | uint(c2da_mem[736912 + i_3 * 4 + 2]) << 0x10 | uint(c2da_mem[736912 + i_3 * 4 + 3]) << 0x18) * cmd.forwardmove + uint_bits_to_float(uint(c2da_mem[736928 + i_3 * 4]) | uint(c2da_mem[736928 + i_3 * 4 + 1]) << 0x8 | uint(c2da_mem[736928 + i_3 * 4 + 2]) << 0x10 | uint(c2da_mem[736928 + i_3 * 4 + 3]) << 0x18) * cmd.sidemove
+        let c2da_fresh64 : uint = float_bits_to_uint(c2da_fresh63)
+        c2da_mem[c2da_fp + i_3 * 4] = uint8(c2da_fresh64)
+        c2da_mem[c2da_fp + i_3 * 4 + 1] = uint8(c2da_fresh64 >> 0x8)
+        c2da_mem[c2da_fp + i_3 * 4 + 2] = uint8(c2da_fresh64 >> 0x10)
+        c2da_mem[c2da_fp + i_3 * 4 + 3] = uint8(c2da_fresh64 >> 0x18)
         i_3++
     }
     if (cmd.forwardmove == 0.0 && cmd.sidemove == 0.0 && cmd.upmove == 0.0) {
-        let c2da_fresh63 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) - 60.0
-        let c2da_fresh64 : uint = float_bits_to_uint(c2da_fresh63)
-        c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh64)
-        c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh64 >> 0x8)
-        c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh64 >> 0x10)
-        c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh64 >> 0x18)
-    } else {
-        let c2da_fresh65 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) + cmd.upmove
+        let c2da_fresh65 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) - 60.0
         let c2da_fresh66 : uint = float_bits_to_uint(c2da_fresh65)
         c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh66)
         c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh66 >> 0x8)
         c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh66 >> 0x10)
         c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh66 >> 0x18)
+    } else {
+        let c2da_fresh67 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) + cmd.upmove
+        let c2da_fresh68 : uint = float_bits_to_uint(c2da_fresh67)
+        c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh68)
+        c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh68 >> 0x8)
+        c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh68 >> 0x10)
+        c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh68 >> 0x18)
     }
     wishspeed_0 = Length(c2da_fp)
-    if (wishspeed_0 > uint_bits_to_float(uint(c2da_mem[462808]) | uint(c2da_mem[462809]) << 0x8 | uint(c2da_mem[462810]) << 0x10 | uint(c2da_mem[462811]) << 0x18)) {
+    let c2da_fresh71 : float = uint_bits_to_float(uint(c2da_mem[462808]) | uint(c2da_mem[462809]) << 0x8 | uint(c2da_mem[462810]) << 0x10 | uint(c2da_mem[462811]) << 0x18)
+    if (wishspeed_0 > c2da_fresh71) {
         VectorScale(c2da_fp, uint_bits_to_float(uint(c2da_mem[462808]) | uint(c2da_mem[462809]) << 0x8 | uint(c2da_mem[462810]) << 0x10 | uint(c2da_mem[462811]) << 0x18) / wishspeed_0, c2da_fp)
         wishspeed_0 = uint_bits_to_float(uint(c2da_mem[462808]) | uint(c2da_mem[462809]) << 0x8 | uint(c2da_mem[462810]) << 0x10 | uint(c2da_mem[462811]) << 0x18)
     }
@@ -838,12 +841,12 @@ def private SV_WaterMove_c2da_frame(c2da_fp : int) {
     }
     i_3 = 0
     for (c2da_i_3 in range(i_3, 3)) {
-        let c2da_fresh67 : float = uint_bits_to_float(uint(c2da_mem[velocity + c2da_i_3 * 4]) | uint(c2da_mem[velocity + c2da_i_3 * 4 + 1]) << 0x8 | uint(c2da_mem[velocity + c2da_i_3 * 4 + 2]) << 0x10 | uint(c2da_mem[velocity + c2da_i_3 * 4 + 3]) << 0x18) + float(accelspeed_1 * uint_bits_to_float(uint(c2da_mem[c2da_fp + c2da_i_3 * 4]) | uint(c2da_mem[c2da_fp + c2da_i_3 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + c2da_i_3 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + c2da_i_3 * 4 + 3]) << 0x18))
-        let c2da_fresh68 : uint = float_bits_to_uint(c2da_fresh67)
-        c2da_mem[velocity + c2da_i_3 * 4] = uint8(c2da_fresh68)
-        c2da_mem[velocity + c2da_i_3 * 4 + 1] = uint8(c2da_fresh68 >> 0x8)
-        c2da_mem[velocity + c2da_i_3 * 4 + 2] = uint8(c2da_fresh68 >> 0x10)
-        c2da_mem[velocity + c2da_i_3 * 4 + 3] = uint8(c2da_fresh68 >> 0x18)
+        let c2da_fresh69 : float = uint_bits_to_float(uint(c2da_mem[velocity + c2da_i_3 * 4]) | uint(c2da_mem[velocity + c2da_i_3 * 4 + 1]) << 0x8 | uint(c2da_mem[velocity + c2da_i_3 * 4 + 2]) << 0x10 | uint(c2da_mem[velocity + c2da_i_3 * 4 + 3]) << 0x18) + float(accelspeed_1 * uint_bits_to_float(uint(c2da_mem[c2da_fp + c2da_i_3 * 4]) | uint(c2da_mem[c2da_fp + c2da_i_3 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + c2da_i_3 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + c2da_i_3 * 4 + 3]) << 0x18))
+        let c2da_fresh70 : uint = float_bits_to_uint(c2da_fresh69)
+        c2da_mem[velocity + c2da_i_3 * 4] = uint8(c2da_fresh70)
+        c2da_mem[velocity + c2da_i_3 * 4 + 1] = uint8(c2da_fresh70 >> 0x8)
+        c2da_mem[velocity + c2da_i_3 * 4 + 2] = uint8(c2da_fresh70 >> 0x10)
+        c2da_mem[velocity + c2da_i_3 * 4 + 3] = uint8(c2da_fresh70 >> 0x18)
     }
     return
 }

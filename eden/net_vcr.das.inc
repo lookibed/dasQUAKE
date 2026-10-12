@@ -38,7 +38,8 @@ def VCR_ReadNext() {
         c2da_mem[728027] = uint8(c2da_fresh1 >> 0x18)
         Sys_Error(728054, [])
     }
-    if (int(uint(c2da_mem[728024]) | uint(c2da_mem[728025]) << 0x8 | uint(c2da_mem[728026]) << 0x10 | uint(c2da_mem[728027]) << 0x18) < 1 || int(uint(c2da_mem[728024]) | uint(c2da_mem[728025]) << 0x8 | uint(c2da_mem[728026]) << 0x10 | uint(c2da_mem[728027]) << 0x18) > 4) {
+    let c2da_fresh2 : int = int(uint(c2da_mem[728024]) | uint(c2da_mem[728025]) << 0x8 | uint(c2da_mem[728026]) << 0x10 | uint(c2da_mem[728027]) << 0x18)
+    if (c2da_fresh2 < 1 || c2da_fresh2 > 4) {
         Sys_Error(728078, [])
     }
     return
@@ -68,16 +69,16 @@ def VCR_CheckNewConnections() : int {
         return 0
     }
     sock_3 = NET_NewQSocket()
-    let c2da_fresh2 : int64 = int64(uint64(uint(c2da_mem[728032]) | uint(c2da_mem[728033]) << 0x8 | uint(c2da_mem[728034]) << 0x10 | uint(c2da_mem[728035]) << 0x18) | uint64(uint(c2da_mem[728036]) | uint(c2da_mem[728037]) << 0x8 | uint(c2da_mem[728038]) << 0x10 | uint(c2da_mem[728039]) << 0x18) << 0x20)
-    let c2da_fresh3 : uint64 = uint64(c2da_fresh2)
-    c2da_mem[sock_3 + 56] = uint8(c2da_fresh3)
-    c2da_mem[sock_3 + 57] = uint8(c2da_fresh3 >> 0x8)
-    c2da_mem[sock_3 + 58] = uint8(c2da_fresh3 >> 0x10)
-    c2da_mem[sock_3 + 59] = uint8(c2da_fresh3 >> 0x18)
-    c2da_mem[sock_3 + 60] = uint8(c2da_fresh3 >> 0x20)
-    c2da_mem[sock_3 + 61] = uint8(c2da_fresh3 >> 0x28)
-    c2da_mem[sock_3 + 62] = uint8(c2da_fresh3 >> 0x30)
-    c2da_mem[sock_3 + 63] = uint8(c2da_fresh3 >> 0x38)
+    let c2da_fresh4 : int64 = int64(uint64(uint(c2da_mem[728032]) | uint(c2da_mem[728033]) << 0x8 | uint(c2da_mem[728034]) << 0x10 | uint(c2da_mem[728035]) << 0x18) | uint64(uint(c2da_mem[728036]) | uint(c2da_mem[728037]) << 0x8 | uint(c2da_mem[728038]) << 0x10 | uint(c2da_mem[728039]) << 0x18) << 0x20)
+    let c2da_fresh5 : uint64 = uint64(c2da_fresh4)
+    c2da_mem[sock_3 + 56] = uint8(c2da_fresh5)
+    c2da_mem[sock_3 + 57] = uint8(c2da_fresh5 >> 0x8)
+    c2da_mem[sock_3 + 58] = uint8(c2da_fresh5 >> 0x10)
+    c2da_mem[sock_3 + 59] = uint8(c2da_fresh5 >> 0x18)
+    c2da_mem[sock_3 + 60] = uint8(c2da_fresh5 >> 0x20)
+    c2da_mem[sock_3 + 61] = uint8(c2da_fresh5 >> 0x28)
+    c2da_mem[sock_3 + 62] = uint8(c2da_fresh5 >> 0x30)
+    c2da_mem[sock_3 + 63] = uint8(c2da_fresh5 >> 0x38)
     Sys_FileRead(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), sock_3 + 16492, 64)
     VCR_ReadNext()
     return sock_3
@@ -118,7 +119,8 @@ def private VCR_GetMessage_c2da_frame(var sock_2 : int; c2da_fp : int) : int {
         Sys_Error(728040, [])
     }
     Sys_FileRead(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), c2da_fp, 4)
-    if (int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) != 1) {
+    let c2da_fresh3 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
+    if (c2da_fresh3 != 1) {
         VCR_ReadNext()
         return int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
     }

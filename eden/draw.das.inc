@@ -152,7 +152,8 @@ def Draw_TransPic(var x_1 : int; var y_1 : int; var pic_0 : int) {
     }
     source_2 = pic_0 + 8
     dest_2 = vid.buffer + int(uint(y_1) * vid.rowbytes) + x_1
-    if ((int(uint(c2da_mem[pic_0]) | uint(c2da_mem[pic_0 + 1]) << 0x8 | uint(c2da_mem[pic_0 + 2]) << 0x10 | uint(c2da_mem[pic_0 + 3]) << 0x18) & 7) != 0) {
+    let c2da_fresh16 : int = int(uint(c2da_mem[pic_0]) | uint(c2da_mem[pic_0 + 1]) << 0x8 | uint(c2da_mem[pic_0 + 2]) << 0x10 | uint(c2da_mem[pic_0 + 3]) << 0x18)
+    if ((c2da_fresh16 & 7) != 0) {
         v_0 = 0
         while (v_0 < int(uint(c2da_mem[pic_0 + 4]) | uint(c2da_mem[pic_0 + 5]) << 0x8 | uint(c2da_mem[pic_0 + 6]) << 0x10 | uint(c2da_mem[pic_0 + 7]) << 0x18)) {
             u_0 = 0
@@ -226,15 +227,16 @@ def Draw_TransPicTranslate(var x_2 : int; var y_2 : int; var pic_1 : int; var tr
     }
     source_3 = pic_1 + 8
     dest_3 = vid.buffer + int(uint(y_2) * vid.rowbytes) + x_2
-    if ((int(uint(c2da_mem[pic_1]) | uint(c2da_mem[pic_1 + 1]) << 0x8 | uint(c2da_mem[pic_1 + 2]) << 0x10 | uint(c2da_mem[pic_1 + 3]) << 0x18) & 7) != 0) {
+    let c2da_fresh26 : int = int(uint(c2da_mem[pic_1]) | uint(c2da_mem[pic_1 + 1]) << 0x8 | uint(c2da_mem[pic_1 + 2]) << 0x10 | uint(c2da_mem[pic_1 + 3]) << 0x18)
+    if ((c2da_fresh26 & 7) != 0) {
         v_1 = 0
         while (v_1 < int(uint(c2da_mem[pic_1 + 4]) | uint(c2da_mem[pic_1 + 5]) << 0x8 | uint(c2da_mem[pic_1 + 6]) << 0x10 | uint(c2da_mem[pic_1 + 7]) << 0x18)) {
             u_1 = 0
             while (u_1 < int(uint(c2da_mem[pic_1]) | uint(c2da_mem[pic_1 + 1]) << 0x8 | uint(c2da_mem[pic_1 + 2]) << 0x10 | uint(c2da_mem[pic_1 + 3]) << 0x18)) {
                 tbyte_0 = uint8(c2da_mem[source_3 + u_1])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh16 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + u_1] = c2da_fresh16
+                    let c2da_fresh17 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + u_1] = c2da_fresh17
                 }
                 u_1++
             }
@@ -249,43 +251,43 @@ def Draw_TransPicTranslate(var x_2 : int; var y_2 : int; var pic_1 : int; var tr
             while (u_1 < int(uint(c2da_mem[pic_1]) | uint(c2da_mem[pic_1 + 1]) << 0x8 | uint(c2da_mem[pic_1 + 2]) << 0x10 | uint(c2da_mem[pic_1 + 3]) << 0x18)) {
                 tbyte_0 = uint8(c2da_mem[source_3 + u_1])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh17 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + u_1] = c2da_fresh17
+                    let c2da_fresh18 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + u_1] = c2da_fresh18
                 }
                 tbyte_0 = uint8(c2da_mem[source_3 + (u_1 + 1)])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh18 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + (u_1 + 1)] = c2da_fresh18
+                    let c2da_fresh19 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + (u_1 + 1)] = c2da_fresh19
                 }
                 tbyte_0 = uint8(c2da_mem[source_3 + (u_1 + 2)])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh19 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + (u_1 + 2)] = c2da_fresh19
+                    let c2da_fresh20 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + (u_1 + 2)] = c2da_fresh20
                 }
                 tbyte_0 = uint8(c2da_mem[source_3 + (u_1 + 3)])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh20 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + (u_1 + 3)] = c2da_fresh20
+                    let c2da_fresh21 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + (u_1 + 3)] = c2da_fresh21
                 }
                 tbyte_0 = uint8(c2da_mem[source_3 + (u_1 + 4)])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh21 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + (u_1 + 4)] = c2da_fresh21
+                    let c2da_fresh22 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + (u_1 + 4)] = c2da_fresh22
                 }
                 tbyte_0 = uint8(c2da_mem[source_3 + (u_1 + 5)])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh22 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + (u_1 + 5)] = c2da_fresh22
+                    let c2da_fresh23 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + (u_1 + 5)] = c2da_fresh23
                 }
                 tbyte_0 = uint8(c2da_mem[source_3 + (u_1 + 6)])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh23 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + (u_1 + 6)] = c2da_fresh23
+                    let c2da_fresh24 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + (u_1 + 6)] = c2da_fresh24
                 }
                 tbyte_0 = uint8(c2da_mem[source_3 + (u_1 + 7)])
                 if (int(tbyte_0) != 255) {
-                    let c2da_fresh24 : uint8 = c2da_mem[translation + int(tbyte_0)]
-                    c2da_mem[dest_3 + (u_1 + 7)] = c2da_fresh24
+                    let c2da_fresh25 : uint8 = c2da_mem[translation + int(tbyte_0)]
+                    c2da_mem[dest_3 + (u_1 + 7)] = c2da_fresh25
                 }
                 u_1 += 8
             }
@@ -316,8 +318,8 @@ def Draw_CharToConback(var num_1 : int; var dest_5 : int) {
         }
         for (x_4 in range(0, 8)) {
             if (c2da_mem[source_4 + x_4] != 0x0) {
-                let c2da_fresh33 : uint8 = uint8(96 + int(c2da_mem[source_4 + x_4]))
-                c2da_mem[dest_5 + x_4] = c2da_fresh33
+                let c2da_fresh35 : uint8 = uint8(96 + int(c2da_mem[source_4 + x_4]))
+                c2da_mem[dest_5 + x_4] = c2da_fresh35
             }
         }
         source_4 += 128
@@ -384,8 +386,9 @@ def R_DrawRect(var prect : int; var rowbytes : int; var psrc_0 : int; var transp
     var srcdelta : int
     var destdelta : int
     var pdest : int = vid.buffer + int(uint(int(uint(c2da_mem[prect + 4]) | uint(c2da_mem[prect + 5]) << 0x8 | uint(c2da_mem[prect + 6]) << 0x10 | uint(c2da_mem[prect + 7]) << 0x18)) * vid.rowbytes) + int(uint(c2da_mem[prect]) | uint(c2da_mem[prect + 1]) << 0x8 | uint(c2da_mem[prect + 2]) << 0x10 | uint(c2da_mem[prect + 3]) << 0x18)
-    srcdelta = rowbytes - int(uint(c2da_mem[prect + 8]) | uint(c2da_mem[prect + 9]) << 0x8 | uint(c2da_mem[prect + 10]) << 0x10 | uint(c2da_mem[prect + 11]) << 0x18)
-    destdelta = int(vid.rowbytes - uint(int(uint(c2da_mem[prect + 8]) | uint(c2da_mem[prect + 9]) << 0x8 | uint(c2da_mem[prect + 10]) << 0x10 | uint(c2da_mem[prect + 11]) << 0x18)))
+    let c2da_fresh56 : int = int(uint(c2da_mem[prect + 8]) | uint(c2da_mem[prect + 9]) << 0x8 | uint(c2da_mem[prect + 10]) << 0x10 | uint(c2da_mem[prect + 11]) << 0x18)
+    srcdelta = rowbytes - c2da_fresh56
+    destdelta = int(vid.rowbytes - uint(c2da_fresh56))
     if (transparent != 0) {
         i_1 = 0
         while (i_1 < int(uint(c2da_mem[prect + 12]) | uint(c2da_mem[prect + 13]) << 0x8 | uint(c2da_mem[prect + 14]) << 0x10 | uint(c2da_mem[prect + 15]) << 0x18)) {
@@ -424,8 +427,8 @@ def Draw_Fill(var x_6 : int; var y_5 : int; var w_0 : int; var h_0 : int; var c 
     v_3 = 0
     while (v_3 < h_0) {
         for (u_2 in range(0, w_0)) {
-            let c2da_fresh52 : uint8 = uint8(c)
-            c2da_mem[dest_6 + u_2] = c2da_fresh52
+            let c2da_fresh57 : uint8 = uint8(c)
+            c2da_mem[dest_6 + u_2] = c2da_fresh57
         }
         v_3++
         dest_6 += int(vid.rowbytes)
@@ -446,8 +449,8 @@ def Draw_FadeScreen() {
         x_7 = 0
         while (uint(x_7) < vid.width) {
             if ((x_7 & 3) != t_0) {
-                let c2da_fresh53 : uint8 = 0u8
-                c2da_mem[pbuf + x_7] = c2da_fresh53
+                let c2da_fresh58 : uint8 = 0u8
+                c2da_mem[pbuf + x_7] = c2da_fresh58
             }
             x_7++
         }
@@ -497,21 +500,21 @@ def private Draw_ConsoleBackground_c2da_frame(var lines : int; c2da_fp : int) {
             fstep = int(uint(320 * 65536) / vid.conwidth)
             x_3 = 0
             while (uint(x_3) < vid.conwidth) {
-                let c2da_fresh25 : int = src + (f >> 16)
-                let c2da_fresh26 : uint8 = c2da_mem[c2da_fresh25]
-                c2da_mem[dest_4 + x_3] = c2da_fresh26
-                f += fstep
                 let c2da_fresh27 : int = src + (f >> 16)
                 let c2da_fresh28 : uint8 = c2da_mem[c2da_fresh27]
-                c2da_mem[dest_4 + (x_3 + 1)] = c2da_fresh28
+                c2da_mem[dest_4 + x_3] = c2da_fresh28
                 f += fstep
                 let c2da_fresh29 : int = src + (f >> 16)
                 let c2da_fresh30 : uint8 = c2da_mem[c2da_fresh29]
-                c2da_mem[dest_4 + (x_3 + 2)] = c2da_fresh30
+                c2da_mem[dest_4 + (x_3 + 1)] = c2da_fresh30
                 f += fstep
                 let c2da_fresh31 : int = src + (f >> 16)
                 let c2da_fresh32 : uint8 = c2da_mem[c2da_fresh31]
-                c2da_mem[dest_4 + (x_3 + 3)] = c2da_fresh32
+                c2da_mem[dest_4 + (x_3 + 2)] = c2da_fresh32
+                f += fstep
+                let c2da_fresh33 : int = src + (f >> 16)
+                let c2da_fresh34 : uint8 = c2da_mem[c2da_fresh33]
+                c2da_mem[dest_4 + (x_3 + 3)] = c2da_fresh34
                 f += fstep
                 x_3 += 4
             }
@@ -532,86 +535,88 @@ def private Draw_TileClear_c2da_frame(var x_5 : int; var y_4 : int; var w : int;
     r_rectdesc.rect.y = int(y_4)  // nolint:PERF020
     r_rectdesc.rect.width = int(w)  // nolint:PERF020
     r_rectdesc.rect.height = int(h)  // nolint:PERF020
-    let c2da_fresh34 : int = r_rectdesc.rect.y
-    let c2da_fresh35 : uint = uint(c2da_fresh34)
-    c2da_mem[c2da_fp + 4] = uint8(c2da_fresh35)
-    c2da_mem[c2da_fp + 5] = uint8(c2da_fresh35 >> 0x8)
-    c2da_mem[c2da_fp + 6] = uint8(c2da_fresh35 >> 0x10)
-    c2da_mem[c2da_fp + 7] = uint8(c2da_fresh35 >> 0x18)
+    let c2da_fresh36 : int = r_rectdesc.rect.y
+    let c2da_fresh37 : uint = uint(c2da_fresh36)
+    c2da_mem[c2da_fp + 4] = uint8(c2da_fresh37)
+    c2da_mem[c2da_fp + 5] = uint8(c2da_fresh37 >> 0x8)
+    c2da_mem[c2da_fp + 6] = uint8(c2da_fresh37 >> 0x10)
+    c2da_mem[c2da_fp + 7] = uint8(c2da_fresh37 >> 0x18)
     height = r_rectdesc.rect.height
     tileoffsety = int(uint(c2da_mem[c2da_fp + 4]) | uint(c2da_mem[c2da_fp + 5]) << 0x8 | uint(c2da_mem[c2da_fp + 6]) << 0x10 | uint(c2da_mem[c2da_fp + 7]) << 0x18) % r_rectdesc.height
     while (height > 0) {
-        let c2da_fresh36 : int = r_rectdesc.rect.x
-        let c2da_fresh37 : uint = uint(c2da_fresh36)
-        c2da_mem[c2da_fp] = uint8(c2da_fresh37)
-        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh37 >> 0x8)
-        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh37 >> 0x10)
-        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh37 >> 0x18)
+        let c2da_fresh38 : int = r_rectdesc.rect.x
+        let c2da_fresh39 : uint = uint(c2da_fresh38)
+        c2da_mem[c2da_fp] = uint8(c2da_fresh39)
+        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh39 >> 0x8)
+        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh39 >> 0x10)
+        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh39 >> 0x18)
         width = r_rectdesc.rect.width
         if (tileoffsety != 0) {
-            let c2da_fresh38 : int = r_rectdesc.height - tileoffsety
-            let c2da_fresh39 : uint = uint(c2da_fresh38)
-            c2da_mem[c2da_fp + 12] = uint8(c2da_fresh39)
-            c2da_mem[c2da_fp + 13] = uint8(c2da_fresh39 >> 0x8)
-            c2da_mem[c2da_fp + 14] = uint8(c2da_fresh39 >> 0x10)
-            c2da_mem[c2da_fp + 15] = uint8(c2da_fresh39 >> 0x18)
-        } else {
-            let c2da_fresh40 : int = r_rectdesc.height
+            let c2da_fresh40 : int = r_rectdesc.height - tileoffsety
             let c2da_fresh41 : uint = uint(c2da_fresh40)
             c2da_mem[c2da_fp + 12] = uint8(c2da_fresh41)
             c2da_mem[c2da_fp + 13] = uint8(c2da_fresh41 >> 0x8)
             c2da_mem[c2da_fp + 14] = uint8(c2da_fresh41 >> 0x10)
             c2da_mem[c2da_fp + 15] = uint8(c2da_fresh41 >> 0x18)
+        } else {
+            let c2da_fresh42 : int = r_rectdesc.height
+            let c2da_fresh43 : uint = uint(c2da_fresh42)
+            c2da_mem[c2da_fp + 12] = uint8(c2da_fresh43)
+            c2da_mem[c2da_fp + 13] = uint8(c2da_fresh43 >> 0x8)
+            c2da_mem[c2da_fp + 14] = uint8(c2da_fresh43 >> 0x10)
+            c2da_mem[c2da_fp + 15] = uint8(c2da_fresh43 >> 0x18)
         }
         if (int(uint(c2da_mem[c2da_fp + 12]) | uint(c2da_mem[c2da_fp + 13]) << 0x8 | uint(c2da_mem[c2da_fp + 14]) << 0x10 | uint(c2da_mem[c2da_fp + 15]) << 0x18) > height) {
-            let c2da_fresh42 : uint = uint(height)
-            c2da_mem[c2da_fp + 12] = uint8(c2da_fresh42)
-            c2da_mem[c2da_fp + 13] = uint8(c2da_fresh42 >> 0x8)
-            c2da_mem[c2da_fp + 14] = uint8(c2da_fresh42 >> 0x10)
-            c2da_mem[c2da_fp + 15] = uint8(c2da_fresh42 >> 0x18)
+            let c2da_fresh44 : uint = uint(height)
+            c2da_mem[c2da_fp + 12] = uint8(c2da_fresh44)
+            c2da_mem[c2da_fp + 13] = uint8(c2da_fresh44 >> 0x8)
+            c2da_mem[c2da_fp + 14] = uint8(c2da_fresh44 >> 0x10)
+            c2da_mem[c2da_fp + 15] = uint8(c2da_fresh44 >> 0x18)
         }
         tileoffsetx = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) % r_rectdesc.width
         while (width > 0) {
             if (tileoffsetx != 0) {
-                let c2da_fresh43 : int = r_rectdesc.width - tileoffsetx
-                let c2da_fresh44 : uint = uint(c2da_fresh43)
-                c2da_mem[c2da_fp + 8] = uint8(c2da_fresh44)
-                c2da_mem[c2da_fp + 9] = uint8(c2da_fresh44 >> 0x8)
-                c2da_mem[c2da_fp + 10] = uint8(c2da_fresh44 >> 0x10)
-                c2da_mem[c2da_fp + 11] = uint8(c2da_fresh44 >> 0x18)
-            } else {
-                let c2da_fresh45 : int = r_rectdesc.width
+                let c2da_fresh45 : int = r_rectdesc.width - tileoffsetx
                 let c2da_fresh46 : uint = uint(c2da_fresh45)
                 c2da_mem[c2da_fp + 8] = uint8(c2da_fresh46)
                 c2da_mem[c2da_fp + 9] = uint8(c2da_fresh46 >> 0x8)
                 c2da_mem[c2da_fp + 10] = uint8(c2da_fresh46 >> 0x10)
                 c2da_mem[c2da_fp + 11] = uint8(c2da_fresh46 >> 0x18)
+            } else {
+                let c2da_fresh47 : int = r_rectdesc.width
+                let c2da_fresh48 : uint = uint(c2da_fresh47)
+                c2da_mem[c2da_fp + 8] = uint8(c2da_fresh48)
+                c2da_mem[c2da_fp + 9] = uint8(c2da_fresh48 >> 0x8)
+                c2da_mem[c2da_fp + 10] = uint8(c2da_fresh48 >> 0x10)
+                c2da_mem[c2da_fp + 11] = uint8(c2da_fresh48 >> 0x18)
             }
             if (int(uint(c2da_mem[c2da_fp + 8]) | uint(c2da_mem[c2da_fp + 9]) << 0x8 | uint(c2da_mem[c2da_fp + 10]) << 0x10 | uint(c2da_mem[c2da_fp + 11]) << 0x18) > width) {
-                let c2da_fresh47 : uint = uint(width)
-                c2da_mem[c2da_fp + 8] = uint8(c2da_fresh47)
-                c2da_mem[c2da_fp + 9] = uint8(c2da_fresh47 >> 0x8)
-                c2da_mem[c2da_fp + 10] = uint8(c2da_fresh47 >> 0x10)
-                c2da_mem[c2da_fp + 11] = uint8(c2da_fresh47 >> 0x18)
+                let c2da_fresh49 : uint = uint(width)
+                c2da_mem[c2da_fp + 8] = uint8(c2da_fresh49)
+                c2da_mem[c2da_fp + 9] = uint8(c2da_fresh49 >> 0x8)
+                c2da_mem[c2da_fp + 10] = uint8(c2da_fresh49 >> 0x10)
+                c2da_mem[c2da_fp + 11] = uint8(c2da_fresh49 >> 0x18)
             }
             psrc = r_rectdesc.ptexbytes + tileoffsety * r_rectdesc.rowbytes + tileoffsetx
             R_DrawRect(c2da_fp, r_rectdesc.rowbytes, psrc, 0)
-            let c2da_fresh48 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) + int(uint(c2da_mem[c2da_fp + 8]) | uint(c2da_mem[c2da_fp + 9]) << 0x8 | uint(c2da_mem[c2da_fp + 10]) << 0x10 | uint(c2da_mem[c2da_fp + 11]) << 0x18)
-            let c2da_fresh49 : uint = uint(c2da_fresh48)
-            c2da_mem[c2da_fp] = uint8(c2da_fresh49)
-            c2da_mem[c2da_fp + 1] = uint8(c2da_fresh49 >> 0x8)
-            c2da_mem[c2da_fp + 2] = uint8(c2da_fresh49 >> 0x10)
-            c2da_mem[c2da_fp + 3] = uint8(c2da_fresh49 >> 0x18)
-            width -= int(uint(c2da_mem[c2da_fp + 8]) | uint(c2da_mem[c2da_fp + 9]) << 0x8 | uint(c2da_mem[c2da_fp + 10]) << 0x10 | uint(c2da_mem[c2da_fp + 11]) << 0x18)
+            let c2da_fresh55 : int = int(uint(c2da_mem[c2da_fp + 8]) | uint(c2da_mem[c2da_fp + 9]) << 0x8 | uint(c2da_mem[c2da_fp + 10]) << 0x10 | uint(c2da_mem[c2da_fp + 11]) << 0x18)
+            let c2da_fresh50 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) + c2da_fresh55
+            let c2da_fresh51 : uint = uint(c2da_fresh50)
+            c2da_mem[c2da_fp] = uint8(c2da_fresh51)
+            c2da_mem[c2da_fp + 1] = uint8(c2da_fresh51 >> 0x8)
+            c2da_mem[c2da_fp + 2] = uint8(c2da_fresh51 >> 0x10)
+            c2da_mem[c2da_fp + 3] = uint8(c2da_fresh51 >> 0x18)
+            width -= c2da_fresh55
             tileoffsetx = 0
         }
-        let c2da_fresh50 : int = int(uint(c2da_mem[c2da_fp + 4]) | uint(c2da_mem[c2da_fp + 5]) << 0x8 | uint(c2da_mem[c2da_fp + 6]) << 0x10 | uint(c2da_mem[c2da_fp + 7]) << 0x18) + int(uint(c2da_mem[c2da_fp + 12]) | uint(c2da_mem[c2da_fp + 13]) << 0x8 | uint(c2da_mem[c2da_fp + 14]) << 0x10 | uint(c2da_mem[c2da_fp + 15]) << 0x18)
-        let c2da_fresh51 : uint = uint(c2da_fresh50)
-        c2da_mem[c2da_fp + 4] = uint8(c2da_fresh51)
-        c2da_mem[c2da_fp + 5] = uint8(c2da_fresh51 >> 0x8)
-        c2da_mem[c2da_fp + 6] = uint8(c2da_fresh51 >> 0x10)
-        c2da_mem[c2da_fp + 7] = uint8(c2da_fresh51 >> 0x18)
-        height -= int(uint(c2da_mem[c2da_fp + 12]) | uint(c2da_mem[c2da_fp + 13]) << 0x8 | uint(c2da_mem[c2da_fp + 14]) << 0x10 | uint(c2da_mem[c2da_fp + 15]) << 0x18)
+        let c2da_fresh54 : int = int(uint(c2da_mem[c2da_fp + 12]) | uint(c2da_mem[c2da_fp + 13]) << 0x8 | uint(c2da_mem[c2da_fp + 14]) << 0x10 | uint(c2da_mem[c2da_fp + 15]) << 0x18)
+        let c2da_fresh52 : int = int(uint(c2da_mem[c2da_fp + 4]) | uint(c2da_mem[c2da_fp + 5]) << 0x8 | uint(c2da_mem[c2da_fp + 6]) << 0x10 | uint(c2da_mem[c2da_fp + 7]) << 0x18) + c2da_fresh54
+        let c2da_fresh53 : uint = uint(c2da_fresh52)
+        c2da_mem[c2da_fp + 4] = uint8(c2da_fresh53)
+        c2da_mem[c2da_fp + 5] = uint8(c2da_fresh53 >> 0x8)
+        c2da_mem[c2da_fp + 6] = uint8(c2da_fresh53 >> 0x10)
+        c2da_mem[c2da_fp + 7] = uint8(c2da_fresh53 >> 0x18)
+        height -= c2da_fresh54
         tileoffsety = 0
     }
     return

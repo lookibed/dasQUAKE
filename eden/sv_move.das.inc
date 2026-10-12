@@ -21,16 +21,17 @@ def SV_MoveToGoal() {
     var ent_1 : int
     var goal : int
     var dist : float
-    ent_1 = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) + int(uint(c2da_mem[pr_global_struct + 112]) | uint(c2da_mem[pr_global_struct + 113]) << 0x8 | uint(c2da_mem[pr_global_struct + 114]) << 0x10 | uint(c2da_mem[pr_global_struct + 115]) << 0x18)
-    goal = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) + int(uint(c2da_mem[ent_1 + 460]) | uint(c2da_mem[ent_1 + 461]) << 0x8 | uint(c2da_mem[ent_1 + 462]) << 0x10 | uint(c2da_mem[ent_1 + 463]) << 0x18)
+    let c2da_fresh130 : int = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18)
+    ent_1 = c2da_fresh130 + int(uint(c2da_mem[pr_global_struct + 112]) | uint(c2da_mem[pr_global_struct + 113]) << 0x8 | uint(c2da_mem[pr_global_struct + 114]) << 0x10 | uint(c2da_mem[pr_global_struct + 115]) << 0x18)
+    goal = c2da_fresh130 + int(uint(c2da_mem[ent_1 + 460]) | uint(c2da_mem[ent_1 + 461]) << 0x8 | uint(c2da_mem[ent_1 + 462]) << 0x10 | uint(c2da_mem[ent_1 + 463]) << 0x18)
     dist = uint_bits_to_float(uint(c2da_mem[pr_globals + 4 * 4]) | uint(c2da_mem[pr_globals + 4 * 4 + 1]) << 0x8 | uint(c2da_mem[pr_globals + 4 * 4 + 2]) << 0x10 | uint(c2da_mem[pr_globals + 4 * 4 + 3]) << 0x18)
     if ((int(uint_bits_to_float(uint(c2da_mem[ent_1 + 412]) | uint(c2da_mem[ent_1 + 413]) << 0x8 | uint(c2da_mem[ent_1 + 414]) << 0x10 | uint(c2da_mem[ent_1 + 415]) << 0x18)) & (512 | 1 | 2)) == 0) {
-        let c2da_fresh123 : float = 0.0
-        let c2da_fresh124 : uint = float_bits_to_uint(c2da_fresh123)
-        c2da_mem[pr_globals + 1 * 4] = uint8(c2da_fresh124)
-        c2da_mem[pr_globals + 1 * 4 + 1] = uint8(c2da_fresh124 >> 0x8)
-        c2da_mem[pr_globals + 1 * 4 + 2] = uint8(c2da_fresh124 >> 0x10)
-        c2da_mem[pr_globals + 1 * 4 + 3] = uint8(c2da_fresh124 >> 0x18)
+        let c2da_fresh128 : float = 0.0
+        let c2da_fresh129 : uint = float_bits_to_uint(c2da_fresh128)
+        c2da_mem[pr_globals + 1 * 4] = uint8(c2da_fresh129)
+        c2da_mem[pr_globals + 1 * 4 + 1] = uint8(c2da_fresh129 >> 0x8)
+        c2da_mem[pr_globals + 1 * 4 + 2] = uint8(c2da_fresh129 >> 0x10)
+        c2da_mem[pr_globals + 1 * 4 + 3] = uint8(c2da_fresh129 >> 0x18)
         return
     }
     if (int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) + int(uint(c2da_mem[ent_1 + 408]) | uint(c2da_mem[ent_1 + 409]) << 0x8 | uint(c2da_mem[ent_1 + 410]) << 0x10 | uint(c2da_mem[ent_1 + 411]) << 0x18) != int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) && SV_CloseEnough(ent_1, goal, dist) != 0x0) {
@@ -111,11 +112,11 @@ def SV_NewChaseDir(var actor : int; var enemy_0 : int; var dist_0 : float) {
     if (turnaround != -1.0 && SV_StepDirection(actor, turnaround, dist_0) != 0x0) {
         return
     }
-    let c2da_fresh125 : uint = float_bits_to_uint(olddir)
-    c2da_mem[actor + 448] = uint8(c2da_fresh125)
-    c2da_mem[actor + 449] = uint8(c2da_fresh125 >> 0x8)
-    c2da_mem[actor + 450] = uint8(c2da_fresh125 >> 0x10)
-    c2da_mem[actor + 451] = uint8(c2da_fresh125 >> 0x18)
+    let c2da_fresh131 : uint = float_bits_to_uint(olddir)
+    c2da_mem[actor + 448] = uint8(c2da_fresh131)
+    c2da_mem[actor + 449] = uint8(c2da_fresh131 >> 0x8)
+    c2da_mem[actor + 450] = uint8(c2da_fresh131 >> 0x10)
+    c2da_mem[actor + 451] = uint8(c2da_fresh131 >> 0x18)
     if (SV_CheckBottom(actor) == 0u) {
         SV_FixCheckBottom(actor)
     }
@@ -123,12 +124,12 @@ def SV_NewChaseDir(var actor : int; var enemy_0 : int; var dist_0 : float) {
 }
 [export, sideeffects]
 def SV_FixCheckBottom(var ent_2 : int) {
-    let c2da_fresh126 : float = float(int(uint_bits_to_float(uint(c2da_mem[ent_2 + 412]) | uint(c2da_mem[ent_2 + 413]) << 0x8 | uint(c2da_mem[ent_2 + 414]) << 0x10 | uint(c2da_mem[ent_2 + 415]) << 0x18)) | 1024)
-    let c2da_fresh127 : uint = float_bits_to_uint(c2da_fresh126)
-    c2da_mem[ent_2 + 412] = uint8(c2da_fresh127)
-    c2da_mem[ent_2 + 413] = uint8(c2da_fresh127 >> 0x8)
-    c2da_mem[ent_2 + 414] = uint8(c2da_fresh127 >> 0x10)
-    c2da_mem[ent_2 + 415] = uint8(c2da_fresh127 >> 0x18)
+    let c2da_fresh132 : float = float(int(uint_bits_to_float(uint(c2da_mem[ent_2 + 412]) | uint(c2da_mem[ent_2 + 413]) << 0x8 | uint(c2da_mem[ent_2 + 414]) << 0x10 | uint(c2da_mem[ent_2 + 415]) << 0x18)) | 1024)
+    let c2da_fresh133 : uint = float_bits_to_uint(c2da_fresh132)
+    c2da_mem[ent_2 + 412] = uint8(c2da_fresh133)
+    c2da_mem[ent_2 + 413] = uint8(c2da_fresh133 >> 0x8)
+    c2da_mem[ent_2 + 414] = uint8(c2da_fresh133 >> 0x10)
+    c2da_mem[ent_2 + 415] = uint8(c2da_fresh133 >> 0x18)
     return
 }
 [export, sideeffects]
@@ -234,7 +235,7 @@ def private SV_CheckBottom_c2da_frame(var ent : int; c2da_fp : int) : uint {
     c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh13 >> 0x8)
     c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh13 >> 0x10)
     c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh13 >> 0x18)
-    let c2da_fresh14 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) - float(2 * 18)
+    let c2da_fresh14 : float = c2da_fresh6 - float(2 * 18)
     let c2da_fresh15 : uint = float_bits_to_uint(c2da_fresh14)
     c2da_mem[c2da_fp + 16 + 2 * 4] = uint8(c2da_fresh15)
     c2da_mem[c2da_fp + 16 + 2 * 4 + 1] = uint8(c2da_fresh15 >> 0x8)
@@ -328,7 +329,8 @@ def private SV_movestep_c2da_frame(var ent_0 : int; var move : int; var relink :
     c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh27 >> 0x8)
     c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh27 >> 0x10)
     c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh27 >> 0x18)
-    if ((int(uint_bits_to_float(uint(c2da_mem[ent_0 + 412]) | uint(c2da_mem[ent_0 + 413]) << 0x8 | uint(c2da_mem[ent_0 + 414]) << 0x10 | uint(c2da_mem[ent_0 + 415]) << 0x18)) & (2 | 1)) != 0) {
+    let c2da_fresh123 : float = uint_bits_to_float(uint(c2da_mem[ent_0 + 412]) | uint(c2da_mem[ent_0 + 413]) << 0x8 | uint(c2da_mem[ent_0 + 414]) << 0x10 | uint(c2da_mem[ent_0 + 415]) << 0x18)
+    if ((int(c2da_fresh123) & (2 | 1)) != 0) {
         for (i in range(0, 2)) {
             let c2da_fresh28 : float = uint_bits_to_float(uint(c2da_mem[ent_0 + 148 + 0 * 4]) | uint(c2da_mem[ent_0 + 148 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[ent_0 + 148 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[ent_0 + 148 + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[move + 0 * 4]) | uint(c2da_mem[move + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[move + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[move + 0 * 4 + 3]) << 0x18)
             let c2da_fresh29 : uint = float_bits_to_uint(c2da_fresh28)
@@ -348,12 +350,14 @@ def private SV_movestep_c2da_frame(var ent_0 : int; var move : int; var relink :
             c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh33 >> 0x8)
             c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh33 >> 0x10)
             c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh33 >> 0x18)
-            enemy = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) + int(uint(c2da_mem[ent_0 + 408]) | uint(c2da_mem[ent_0 + 409]) << 0x8 | uint(c2da_mem[ent_0 + 410]) << 0x10 | uint(c2da_mem[ent_0 + 411]) << 0x18)
-            if (i == 0 && enemy != int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18)) {
-                let c2da_fresh34 : int = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18) + int(uint(c2da_mem[ent_0 + 408]) | uint(c2da_mem[ent_0 + 409]) << 0x8 | uint(c2da_mem[ent_0 + 410]) << 0x10 | uint(c2da_mem[ent_0 + 411]) << 0x18) + 148 + 2 * 4
+            let c2da_fresh125 : int = int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18)
+            let c2da_fresh126 : int = int(uint(c2da_mem[ent_0 + 408]) | uint(c2da_mem[ent_0 + 409]) << 0x8 | uint(c2da_mem[ent_0 + 410]) << 0x10 | uint(c2da_mem[ent_0 + 411]) << 0x18)
+            enemy = c2da_fresh125 + c2da_fresh126
+            if (i == 0 && enemy != c2da_fresh125) {
+                let c2da_fresh34 : int = c2da_fresh125 + c2da_fresh126 + 148 + 2 * 4
                 dz = uint_bits_to_float(uint(c2da_mem[ent_0 + 148 + 2 * 4]) | uint(c2da_mem[ent_0 + 148 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[ent_0 + 148 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[ent_0 + 148 + 2 * 4 + 3]) << 0x18) - uint_bits_to_float(uint(c2da_mem[c2da_fresh34]) | uint(c2da_mem[c2da_fresh34 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh34 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh34 + 3]) << 0x18)
                 if (dz > 40.0) {
-                    let c2da_fresh35 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18) - 8.0
+                    let c2da_fresh35 : float = c2da_fresh32 - 8.0
                     let c2da_fresh36 : uint = float_bits_to_uint(c2da_fresh35)
                     c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh36)
                     c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh36 >> 0x8)
@@ -490,13 +494,13 @@ def private SV_movestep_c2da_frame(var ent_0 : int; var move : int; var relink :
     c2da_mem[c2da_fp + 80 + 1 * 4 + 1] = uint8(c2da_fresh64 >> 0x8)
     c2da_mem[c2da_fp + 80 + 1 * 4 + 2] = uint8(c2da_fresh64 >> 0x10)
     c2da_mem[c2da_fp + 80 + 1 * 4 + 3] = uint8(c2da_fresh64 >> 0x18)
-    let c2da_fresh65 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 2 * 4]) | uint(c2da_mem[c2da_fp + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 2 * 4 + 3]) << 0x18)
+    let c2da_fresh65 : float = c2da_fresh59
     let c2da_fresh66 : uint = float_bits_to_uint(c2da_fresh65)
     c2da_mem[c2da_fp + 80 + 2 * 4] = uint8(c2da_fresh66)
     c2da_mem[c2da_fp + 80 + 2 * 4 + 1] = uint8(c2da_fresh66 >> 0x8)
     c2da_mem[c2da_fp + 80 + 2 * 4 + 2] = uint8(c2da_fresh66 >> 0x10)
     c2da_mem[c2da_fp + 80 + 2 * 4 + 3] = uint8(c2da_fresh66 >> 0x18)
-    let c2da_fresh67 : float = uint_bits_to_float(uint(c2da_mem[c2da_fp + 80 + 2 * 4]) | uint(c2da_mem[c2da_fp + 80 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 80 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 80 + 2 * 4 + 3]) << 0x18) - float(18 * 2)
+    let c2da_fresh67 : float = c2da_fresh65 - float(18 * 2)
     let c2da_fresh68 : uint = float_bits_to_uint(c2da_fresh67)
     c2da_mem[c2da_fp + 80 + 2 * 4] = uint8(c2da_fresh68)
     c2da_mem[c2da_fp + 80 + 2 * 4 + 1] = uint8(c2da_fresh68 >> 0x8)
@@ -657,7 +661,8 @@ def private SV_movestep_c2da_frame(var ent_0 : int; var move : int; var relink :
         }
     }
     if (uint_bits_to_float(uint(c2da_mem[c2da_fp + 32]) | uint(c2da_mem[c2da_fp + 33]) << 0x8 | uint(c2da_mem[c2da_fp + 34]) << 0x10 | uint(c2da_mem[c2da_fp + 35]) << 0x18) == 1.0) {
-        if ((int(uint_bits_to_float(uint(c2da_mem[ent_0 + 412]) | uint(c2da_mem[ent_0 + 413]) << 0x8 | uint(c2da_mem[ent_0 + 414]) << 0x10 | uint(c2da_mem[ent_0 + 415]) << 0x18)) & 1024) != 0) {
+        let c2da_fresh127 : float = uint_bits_to_float(uint(c2da_mem[ent_0 + 412]) | uint(c2da_mem[ent_0 + 413]) << 0x8 | uint(c2da_mem[ent_0 + 414]) << 0x10 | uint(c2da_mem[ent_0 + 415]) << 0x18)
+        if ((int(c2da_fresh127) & 1024) != 0) {
             let c2da_fresh99 : float = uint_bits_to_float(uint(c2da_mem[ent_0 + 148 + 0 * 4]) | uint(c2da_mem[ent_0 + 148 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[ent_0 + 148 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[ent_0 + 148 + 0 * 4 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[move + 0 * 4]) | uint(c2da_mem[move + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[move + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[move + 0 * 4 + 3]) << 0x18)
             let c2da_fresh100 : uint = float_bits_to_uint(c2da_fresh99)
             c2da_mem[ent_0 + 148 + 0 * 4] = uint8(c2da_fresh100)
@@ -734,8 +739,9 @@ def private SV_movestep_c2da_frame(var ent_0 : int; var move : int; var relink :
         c2da_mem[ent_0 + 148 + 2 * 4 + 3] = uint8(c2da_fresh118 >> 0x18)
         return 0u
     }
-    if ((int(uint_bits_to_float(uint(c2da_mem[ent_0 + 412]) | uint(c2da_mem[ent_0 + 413]) << 0x8 | uint(c2da_mem[ent_0 + 414]) << 0x10 | uint(c2da_mem[ent_0 + 415]) << 0x18)) & 1024) != 0) {
-        let c2da_fresh119 : float = float(int(uint_bits_to_float(uint(c2da_mem[ent_0 + 412]) | uint(c2da_mem[ent_0 + 413]) << 0x8 | uint(c2da_mem[ent_0 + 414]) << 0x10 | uint(c2da_mem[ent_0 + 415]) << 0x18)) & ~1024)
+    let c2da_fresh124 : float = uint_bits_to_float(uint(c2da_mem[ent_0 + 412]) | uint(c2da_mem[ent_0 + 413]) << 0x8 | uint(c2da_mem[ent_0 + 414]) << 0x10 | uint(c2da_mem[ent_0 + 415]) << 0x18)
+    if ((int(c2da_fresh124) & 1024) != 0) {
+        let c2da_fresh119 : float = float(int(c2da_fresh124) & ~1024)
         let c2da_fresh120 : uint = float_bits_to_uint(c2da_fresh119)
         c2da_mem[ent_0 + 412] = uint8(c2da_fresh120)
         c2da_mem[ent_0 + 413] = uint8(c2da_fresh120 >> 0x8)
@@ -757,55 +763,55 @@ def private SV_movestep_c2da_frame(var ent_0 : int; var move : int; var relink :
 def private SV_StepDirection_c2da_frame(var ent_3 : int; var yaw : float; var dist_1 : float; c2da_fp : int) : uint {
     var oldorigin : vec3_t
     var delta : float
-    let c2da_fresh128 : uint = float_bits_to_uint(yaw)
-    c2da_mem[ent_3 + 448] = uint8(c2da_fresh128)
-    c2da_mem[ent_3 + 449] = uint8(c2da_fresh128 >> 0x8)
-    c2da_mem[ent_3 + 450] = uint8(c2da_fresh128 >> 0x10)
-    c2da_mem[ent_3 + 451] = uint8(c2da_fresh128 >> 0x18)
+    let c2da_fresh134 : uint = float_bits_to_uint(yaw)
+    c2da_mem[ent_3 + 448] = uint8(c2da_fresh134)
+    c2da_mem[ent_3 + 449] = uint8(c2da_fresh134 >> 0x8)
+    c2da_mem[ent_3 + 450] = uint8(c2da_fresh134 >> 0x10)
+    c2da_mem[ent_3 + 451] = uint8(c2da_fresh134 >> 0x18)
     PF_changeyaw()
     yaw = float(double(yaw) * 3.141592653589793lf * 2.0lf / 360.0lf)
-    let c2da_fresh129 : float = float(cos(double(yaw)) * double(dist_1))
-    let c2da_fresh130 : uint = float_bits_to_uint(c2da_fresh129)
-    c2da_mem[c2da_fp + 0 * 4] = uint8(c2da_fresh130)
-    c2da_mem[c2da_fp + 0 * 4 + 1] = uint8(c2da_fresh130 >> 0x8)
-    c2da_mem[c2da_fp + 0 * 4 + 2] = uint8(c2da_fresh130 >> 0x10)
-    c2da_mem[c2da_fp + 0 * 4 + 3] = uint8(c2da_fresh130 >> 0x18)
-    let c2da_fresh131 : float = float(sin(double(yaw)) * double(dist_1))
-    let c2da_fresh132 : uint = float_bits_to_uint(c2da_fresh131)
-    c2da_mem[c2da_fp + 1 * 4] = uint8(c2da_fresh132)
-    c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh132 >> 0x8)
-    c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh132 >> 0x10)
-    c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh132 >> 0x18)
-    let c2da_fresh133 : float = 0.0
-    let c2da_fresh134 : uint = float_bits_to_uint(c2da_fresh133)
-    c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh134)
-    c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh134 >> 0x8)
-    c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh134 >> 0x10)
-    c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh134 >> 0x18)
+    let c2da_fresh135 : float = float(cos(double(yaw)) * double(dist_1))
+    let c2da_fresh136 : uint = float_bits_to_uint(c2da_fresh135)
+    c2da_mem[c2da_fp + 0 * 4] = uint8(c2da_fresh136)
+    c2da_mem[c2da_fp + 0 * 4 + 1] = uint8(c2da_fresh136 >> 0x8)
+    c2da_mem[c2da_fp + 0 * 4 + 2] = uint8(c2da_fresh136 >> 0x10)
+    c2da_mem[c2da_fp + 0 * 4 + 3] = uint8(c2da_fresh136 >> 0x18)
+    let c2da_fresh137 : float = float(sin(double(yaw)) * double(dist_1))
+    let c2da_fresh138 : uint = float_bits_to_uint(c2da_fresh137)
+    c2da_mem[c2da_fp + 1 * 4] = uint8(c2da_fresh138)
+    c2da_mem[c2da_fp + 1 * 4 + 1] = uint8(c2da_fresh138 >> 0x8)
+    c2da_mem[c2da_fp + 1 * 4 + 2] = uint8(c2da_fresh138 >> 0x10)
+    c2da_mem[c2da_fp + 1 * 4 + 3] = uint8(c2da_fresh138 >> 0x18)
+    let c2da_fresh139 : float = 0.0
+    let c2da_fresh140 : uint = float_bits_to_uint(c2da_fresh139)
+    c2da_mem[c2da_fp + 2 * 4] = uint8(c2da_fresh140)
+    c2da_mem[c2da_fp + 2 * 4 + 1] = uint8(c2da_fresh140 >> 0x8)
+    c2da_mem[c2da_fp + 2 * 4 + 2] = uint8(c2da_fresh140 >> 0x10)
+    c2da_mem[c2da_fp + 2 * 4 + 3] = uint8(c2da_fresh140 >> 0x18)
     oldorigin[0] = uint_bits_to_float(uint(c2da_mem[ent_3 + 148 + 0 * 4]) | uint(c2da_mem[ent_3 + 148 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[ent_3 + 148 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[ent_3 + 148 + 0 * 4 + 3]) << 0x18)
     oldorigin[1] = uint_bits_to_float(uint(c2da_mem[ent_3 + 148 + 1 * 4]) | uint(c2da_mem[ent_3 + 148 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[ent_3 + 148 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[ent_3 + 148 + 1 * 4 + 3]) << 0x18)
     oldorigin[2] = uint_bits_to_float(uint(c2da_mem[ent_3 + 148 + 2 * 4]) | uint(c2da_mem[ent_3 + 148 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[ent_3 + 148 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[ent_3 + 148 + 2 * 4 + 3]) << 0x18)
     if (SV_movestep(ent_3, c2da_fp, 0u) != 0u) {
         delta = uint_bits_to_float(uint(c2da_mem[ent_3 + 184 + 1 * 4]) | uint(c2da_mem[ent_3 + 184 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[ent_3 + 184 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[ent_3 + 184 + 1 * 4 + 3]) << 0x18) - uint_bits_to_float(uint(c2da_mem[ent_3 + 448]) | uint(c2da_mem[ent_3 + 449]) << 0x8 | uint(c2da_mem[ent_3 + 450]) << 0x10 | uint(c2da_mem[ent_3 + 451]) << 0x18)
         if (delta > 45.0 && delta < 315.0) {
-            let c2da_fresh135 : float = oldorigin[0]
-            let c2da_fresh136 : uint = float_bits_to_uint(c2da_fresh135)
-            c2da_mem[ent_3 + 148 + 0 * 4] = uint8(c2da_fresh136)
-            c2da_mem[ent_3 + 148 + 0 * 4 + 1] = uint8(c2da_fresh136 >> 0x8)
-            c2da_mem[ent_3 + 148 + 0 * 4 + 2] = uint8(c2da_fresh136 >> 0x10)
-            c2da_mem[ent_3 + 148 + 0 * 4 + 3] = uint8(c2da_fresh136 >> 0x18)
-            let c2da_fresh137 : float = oldorigin[1]
-            let c2da_fresh138 : uint = float_bits_to_uint(c2da_fresh137)
-            c2da_mem[ent_3 + 148 + 1 * 4] = uint8(c2da_fresh138)
-            c2da_mem[ent_3 + 148 + 1 * 4 + 1] = uint8(c2da_fresh138 >> 0x8)
-            c2da_mem[ent_3 + 148 + 1 * 4 + 2] = uint8(c2da_fresh138 >> 0x10)
-            c2da_mem[ent_3 + 148 + 1 * 4 + 3] = uint8(c2da_fresh138 >> 0x18)
-            let c2da_fresh139 : float = oldorigin[2]
-            let c2da_fresh140 : uint = float_bits_to_uint(c2da_fresh139)
-            c2da_mem[ent_3 + 148 + 2 * 4] = uint8(c2da_fresh140)
-            c2da_mem[ent_3 + 148 + 2 * 4 + 1] = uint8(c2da_fresh140 >> 0x8)
-            c2da_mem[ent_3 + 148 + 2 * 4 + 2] = uint8(c2da_fresh140 >> 0x10)
-            c2da_mem[ent_3 + 148 + 2 * 4 + 3] = uint8(c2da_fresh140 >> 0x18)
+            let c2da_fresh141 : float = oldorigin[0]
+            let c2da_fresh142 : uint = float_bits_to_uint(c2da_fresh141)
+            c2da_mem[ent_3 + 148 + 0 * 4] = uint8(c2da_fresh142)
+            c2da_mem[ent_3 + 148 + 0 * 4 + 1] = uint8(c2da_fresh142 >> 0x8)
+            c2da_mem[ent_3 + 148 + 0 * 4 + 2] = uint8(c2da_fresh142 >> 0x10)
+            c2da_mem[ent_3 + 148 + 0 * 4 + 3] = uint8(c2da_fresh142 >> 0x18)
+            let c2da_fresh143 : float = oldorigin[1]
+            let c2da_fresh144 : uint = float_bits_to_uint(c2da_fresh143)
+            c2da_mem[ent_3 + 148 + 1 * 4] = uint8(c2da_fresh144)
+            c2da_mem[ent_3 + 148 + 1 * 4 + 1] = uint8(c2da_fresh144 >> 0x8)
+            c2da_mem[ent_3 + 148 + 1 * 4 + 2] = uint8(c2da_fresh144 >> 0x10)
+            c2da_mem[ent_3 + 148 + 1 * 4 + 3] = uint8(c2da_fresh144 >> 0x18)
+            let c2da_fresh145 : float = oldorigin[2]
+            let c2da_fresh146 : uint = float_bits_to_uint(c2da_fresh145)
+            c2da_mem[ent_3 + 148 + 2 * 4] = uint8(c2da_fresh146)
+            c2da_mem[ent_3 + 148 + 2 * 4 + 1] = uint8(c2da_fresh146 >> 0x8)
+            c2da_mem[ent_3 + 148 + 2 * 4 + 2] = uint8(c2da_fresh146 >> 0x10)
+            c2da_mem[ent_3 + 148 + 2 * 4 + 3] = uint8(c2da_fresh146 >> 0x18)
         }
         SV_LinkEdict(ent_3, 1u)
         return 1u

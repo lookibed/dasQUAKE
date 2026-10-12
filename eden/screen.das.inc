@@ -458,12 +458,12 @@ def SCR_BringDownConsole() {
         SCR_UpdateScreen()
         i_1++
     }
-    let c2da_fresh75 : int = 0
-    let c2da_fresh76 : uint = uint(c2da_fresh75)
-    c2da_mem[500 + 0 * 16 + 12] = uint8(c2da_fresh76)
-    c2da_mem[500 + 0 * 16 + 13] = uint8(c2da_fresh76 >> 0x8)
-    c2da_mem[500 + 0 * 16 + 14] = uint8(c2da_fresh76 >> 0x10)
-    c2da_mem[500 + 0 * 16 + 15] = uint8(c2da_fresh76 >> 0x18)
+    let c2da_fresh79 : int = 0
+    let c2da_fresh80 : uint = uint(c2da_fresh79)
+    c2da_mem[500 + 0 * 16 + 12] = uint8(c2da_fresh80)
+    c2da_mem[500 + 0 * 16 + 13] = uint8(c2da_fresh80 >> 0x8)
+    c2da_mem[500 + 0 * 16 + 14] = uint8(c2da_fresh80 >> 0x10)
+    c2da_mem[500 + 0 * 16 + 15] = uint8(c2da_fresh80 >> 0x18)
     VID_SetPalette(host_basepal)
     return
 }
@@ -585,20 +585,24 @@ def private SCR_UpdateScreen_c2da_frame(c2da_fp : int) {
     if (scr_initialized == 0u || uint(con_initialized) == 0u) {
         return
     }
-    if (uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18) != SCR_UpdateScreen__oldscr_viewsize) {
-        SCR_UpdateScreen__oldscr_viewsize = uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18)
+    let c2da_fresh63 : float = uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18)
+    if (c2da_fresh63 != SCR_UpdateScreen__oldscr_viewsize) {
+        SCR_UpdateScreen__oldscr_viewsize = c2da_fresh63
         vid.recalc_refdef = 1
     }
-    if (oldfov != uint_bits_to_float(uint(c2da_mem[461128]) | uint(c2da_mem[461129]) << 0x8 | uint(c2da_mem[461130]) << 0x10 | uint(c2da_mem[461131]) << 0x18)) {
-        oldfov = uint_bits_to_float(uint(c2da_mem[461128]) | uint(c2da_mem[461129]) << 0x8 | uint(c2da_mem[461130]) << 0x10 | uint(c2da_mem[461131]) << 0x18)
+    let c2da_fresh64 : float = uint_bits_to_float(uint(c2da_mem[461128]) | uint(c2da_mem[461129]) << 0x8 | uint(c2da_mem[461130]) << 0x10 | uint(c2da_mem[461131]) << 0x18)
+    if (oldfov != c2da_fresh64) {
+        oldfov = c2da_fresh64
         vid.recalc_refdef = 1
     }
-    if (SCR_UpdateScreen__oldlcd_x != uint_bits_to_float(uint(c2da_mem[695816]) | uint(c2da_mem[695817]) << 0x8 | uint(c2da_mem[695818]) << 0x10 | uint(c2da_mem[695819]) << 0x18)) {
-        SCR_UpdateScreen__oldlcd_x = uint_bits_to_float(uint(c2da_mem[695816]) | uint(c2da_mem[695817]) << 0x8 | uint(c2da_mem[695818]) << 0x10 | uint(c2da_mem[695819]) << 0x18)
+    let c2da_fresh65 : float = uint_bits_to_float(uint(c2da_mem[695816]) | uint(c2da_mem[695817]) << 0x8 | uint(c2da_mem[695818]) << 0x10 | uint(c2da_mem[695819]) << 0x18)
+    if (SCR_UpdateScreen__oldlcd_x != c2da_fresh65) {
+        SCR_UpdateScreen__oldlcd_x = c2da_fresh65
         vid.recalc_refdef = 1
     }
-    if (oldscreensize != uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18)) {
-        oldscreensize = uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18)
+    let c2da_fresh66 : float = uint_bits_to_float(uint(c2da_mem[461176]) | uint(c2da_mem[461177]) << 0x8 | uint(c2da_mem[461178]) << 0x10 | uint(c2da_mem[461179]) << 0x18)
+    if (oldscreensize != c2da_fresh66) {
+        oldscreensize = c2da_fresh66
         vid.recalc_refdef = 1
     }
     if (vid.recalc_refdef != 0) {
@@ -774,18 +778,18 @@ def private SCR_CalcRefdef_c2da_frame(c2da_fp : int) {
     if (uint_bits_to_float(uint(c2da_mem[461128]) | uint(c2da_mem[461129]) << 0x8 | uint(c2da_mem[461130]) << 0x10 | uint(c2da_mem[461131]) << 0x18) > 170.0) {
         Cvar_Set(735776, 736087)
     }
-    let c2da_fresh63 : float = uint_bits_to_float(uint(c2da_mem[461128]) | uint(c2da_mem[461129]) << 0x8 | uint(c2da_mem[461130]) << 0x10 | uint(c2da_mem[461131]) << 0x18)
-    let c2da_fresh64 : uint = float_bits_to_uint(c2da_fresh63)
-    c2da_mem[5344] = uint8(c2da_fresh64)
-    c2da_mem[5345] = uint8(c2da_fresh64 >> 0x8)
-    c2da_mem[5346] = uint8(c2da_fresh64 >> 0x10)
-    c2da_mem[5347] = uint8(c2da_fresh64 >> 0x18)
-    let c2da_fresh65 : float = CalcFov(uint_bits_to_float(uint(c2da_mem[5344]) | uint(c2da_mem[5345]) << 0x8 | uint(c2da_mem[5346]) << 0x10 | uint(c2da_mem[5347]) << 0x18), float(int(uint(c2da_mem[5208]) | uint(c2da_mem[5209]) << 0x8 | uint(c2da_mem[5210]) << 0x10 | uint(c2da_mem[5211]) << 0x18)), float(int(uint(c2da_mem[5212]) | uint(c2da_mem[5213]) << 0x8 | uint(c2da_mem[5214]) << 0x10 | uint(c2da_mem[5215]) << 0x18)))
-    let c2da_fresh66 : uint = float_bits_to_uint(c2da_fresh65)
-    c2da_mem[5348] = uint8(c2da_fresh66)
-    c2da_mem[5349] = uint8(c2da_fresh66 >> 0x8)
-    c2da_mem[5350] = uint8(c2da_fresh66 >> 0x10)
-    c2da_mem[5351] = uint8(c2da_fresh66 >> 0x18)
+    let c2da_fresh67 : float = uint_bits_to_float(uint(c2da_mem[461128]) | uint(c2da_mem[461129]) << 0x8 | uint(c2da_mem[461130]) << 0x10 | uint(c2da_mem[461131]) << 0x18)
+    let c2da_fresh68 : uint = float_bits_to_uint(c2da_fresh67)
+    c2da_mem[5344] = uint8(c2da_fresh68)
+    c2da_mem[5345] = uint8(c2da_fresh68 >> 0x8)
+    c2da_mem[5346] = uint8(c2da_fresh68 >> 0x10)
+    c2da_mem[5347] = uint8(c2da_fresh68 >> 0x18)
+    let c2da_fresh69 : float = CalcFov(uint_bits_to_float(uint(c2da_mem[5344]) | uint(c2da_mem[5345]) << 0x8 | uint(c2da_mem[5346]) << 0x10 | uint(c2da_mem[5347]) << 0x18), float(int(uint(c2da_mem[5208]) | uint(c2da_mem[5209]) << 0x8 | uint(c2da_mem[5210]) << 0x10 | uint(c2da_mem[5211]) << 0x18)), float(int(uint(c2da_mem[5212]) | uint(c2da_mem[5213]) << 0x8 | uint(c2da_mem[5214]) << 0x10 | uint(c2da_mem[5215]) << 0x18)))
+    let c2da_fresh70 : uint = float_bits_to_uint(c2da_fresh69)
+    c2da_mem[5348] = uint8(c2da_fresh70)
+    c2da_mem[5349] = uint8(c2da_fresh70 >> 0x8)
+    c2da_mem[5350] = uint8(c2da_fresh70 >> 0x10)
+    c2da_mem[5351] = uint8(c2da_fresh70 >> 0x18)
     if (int(uint(c2da_mem[756]) | uint(c2da_mem[757]) << 0x8 | uint(c2da_mem[758]) << 0x10 | uint(c2da_mem[759]) << 0x18) != 0) {
         size = 120.0
     } else {
@@ -798,30 +802,30 @@ def private SCR_CalcRefdef_c2da_frame(c2da_fp : int) {
     } else {
         sb_lines = 24 + 16 + 8
     }
-    let c2da_fresh67 : int = 0
-    let c2da_fresh68 : uint = uint(c2da_fresh67)
-    c2da_mem[c2da_fp] = uint8(c2da_fresh68)
-    c2da_mem[c2da_fp + 1] = uint8(c2da_fresh68 >> 0x8)
-    c2da_mem[c2da_fp + 2] = uint8(c2da_fresh68 >> 0x10)
-    c2da_mem[c2da_fp + 3] = uint8(c2da_fresh68 >> 0x18)
-    let c2da_fresh69 : int = 0
-    let c2da_fresh70 : uint = uint(c2da_fresh69)
-    c2da_mem[c2da_fp + 4] = uint8(c2da_fresh70)
-    c2da_mem[c2da_fp + 5] = uint8(c2da_fresh70 >> 0x8)
-    c2da_mem[c2da_fp + 6] = uint8(c2da_fresh70 >> 0x10)
-    c2da_mem[c2da_fp + 7] = uint8(c2da_fresh70 >> 0x18)
-    let c2da_fresh71 : int = int(vid.width)
+    let c2da_fresh71 : int = 0
     let c2da_fresh72 : uint = uint(c2da_fresh71)
-    c2da_mem[c2da_fp + 8] = uint8(c2da_fresh72)
-    c2da_mem[c2da_fp + 9] = uint8(c2da_fresh72 >> 0x8)
-    c2da_mem[c2da_fp + 10] = uint8(c2da_fresh72 >> 0x10)
-    c2da_mem[c2da_fp + 11] = uint8(c2da_fresh72 >> 0x18)
-    let c2da_fresh73 : int = int(vid.height)
+    c2da_mem[c2da_fp] = uint8(c2da_fresh72)
+    c2da_mem[c2da_fp + 1] = uint8(c2da_fresh72 >> 0x8)
+    c2da_mem[c2da_fp + 2] = uint8(c2da_fresh72 >> 0x10)
+    c2da_mem[c2da_fp + 3] = uint8(c2da_fresh72 >> 0x18)
+    let c2da_fresh73 : int = 0
     let c2da_fresh74 : uint = uint(c2da_fresh73)
-    c2da_mem[c2da_fp + 12] = uint8(c2da_fresh74)
-    c2da_mem[c2da_fp + 13] = uint8(c2da_fresh74 >> 0x8)
-    c2da_mem[c2da_fp + 14] = uint8(c2da_fresh74 >> 0x10)
-    c2da_mem[c2da_fp + 15] = uint8(c2da_fresh74 >> 0x18)
+    c2da_mem[c2da_fp + 4] = uint8(c2da_fresh74)
+    c2da_mem[c2da_fp + 5] = uint8(c2da_fresh74 >> 0x8)
+    c2da_mem[c2da_fp + 6] = uint8(c2da_fresh74 >> 0x10)
+    c2da_mem[c2da_fp + 7] = uint8(c2da_fresh74 >> 0x18)
+    let c2da_fresh75 : int = int(vid.width)
+    let c2da_fresh76 : uint = uint(c2da_fresh75)
+    c2da_mem[c2da_fp + 8] = uint8(c2da_fresh76)
+    c2da_mem[c2da_fp + 9] = uint8(c2da_fresh76 >> 0x8)
+    c2da_mem[c2da_fp + 10] = uint8(c2da_fresh76 >> 0x10)
+    c2da_mem[c2da_fp + 11] = uint8(c2da_fresh76 >> 0x18)
+    let c2da_fresh77 : int = int(vid.height)
+    let c2da_fresh78 : uint = uint(c2da_fresh77)
+    c2da_mem[c2da_fp + 12] = uint8(c2da_fresh78)
+    c2da_mem[c2da_fp + 13] = uint8(c2da_fresh78 >> 0x8)
+    c2da_mem[c2da_fp + 14] = uint8(c2da_fresh78 >> 0x10)
+    c2da_mem[c2da_fp + 15] = uint8(c2da_fresh78 >> 0x18)
     R_SetVrect(c2da_fp, 462512, sb_lines)
     if (scr_con_current > float(vid.height)) {
         scr_con_current = float(vid.height)

@@ -369,10 +369,11 @@ def R_AddDynamicLights() {
             continue
         }
         rad = uint_bits_to_float(uint(c2da_mem[8112 + lnum * 32 + 12]) | uint(c2da_mem[8112 + lnum * 32 + 13]) << 0x8 | uint(c2da_mem[8112 + lnum * 32 + 14]) << 0x10 | uint(c2da_mem[8112 + lnum * 32 + 15]) << 0x18)
-        let c2da_fresh22 : int = int(uint(c2da_mem[surf_0 + 16]) | uint(c2da_mem[surf_0 + 17]) << 0x8 | uint(c2da_mem[surf_0 + 18]) << 0x10 | uint(c2da_mem[surf_0 + 19]) << 0x18) + 0 * 4
-        let c2da_fresh23 : int = int(uint(c2da_mem[surf_0 + 16]) | uint(c2da_mem[surf_0 + 17]) << 0x8 | uint(c2da_mem[surf_0 + 18]) << 0x10 | uint(c2da_mem[surf_0 + 19]) << 0x18) + 1 * 4
-        let c2da_fresh24 : int = int(uint(c2da_mem[surf_0 + 16]) | uint(c2da_mem[surf_0 + 17]) << 0x8 | uint(c2da_mem[surf_0 + 18]) << 0x10 | uint(c2da_mem[surf_0 + 19]) << 0x18) + 2 * 4
-        let c2da_fresh25 : int = int(uint(c2da_mem[surf_0 + 16]) | uint(c2da_mem[surf_0 + 17]) << 0x8 | uint(c2da_mem[surf_0 + 18]) << 0x10 | uint(c2da_mem[surf_0 + 19]) << 0x18) + 12
+        let c2da_fresh29 : int = int(uint(c2da_mem[surf_0 + 16]) | uint(c2da_mem[surf_0 + 17]) << 0x8 | uint(c2da_mem[surf_0 + 18]) << 0x10 | uint(c2da_mem[surf_0 + 19]) << 0x18)
+        let c2da_fresh22 : int = c2da_fresh29 + 0 * 4
+        let c2da_fresh23 : int = c2da_fresh29 + 1 * 4
+        let c2da_fresh24 : int = c2da_fresh29 + 2 * 4
+        let c2da_fresh25 : int = c2da_fresh29 + 12
         dist = uint_bits_to_float(uint(c2da_mem[8112 + lnum * 32 + 0 * 4]) | uint(c2da_mem[8112 + lnum * 32 + 0 * 4 + 1]) << 0x8 | uint(c2da_mem[8112 + lnum * 32 + 0 * 4 + 2]) << 0x10 | uint(c2da_mem[8112 + lnum * 32 + 0 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fresh22]) | uint(c2da_mem[c2da_fresh22 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh22 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh22 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[8112 + lnum * 32 + 1 * 4]) | uint(c2da_mem[8112 + lnum * 32 + 1 * 4 + 1]) << 0x8 | uint(c2da_mem[8112 + lnum * 32 + 1 * 4 + 2]) << 0x10 | uint(c2da_mem[8112 + lnum * 32 + 1 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fresh23]) | uint(c2da_mem[c2da_fresh23 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh23 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh23 + 3]) << 0x18) + uint_bits_to_float(uint(c2da_mem[8112 + lnum * 32 + 2 * 4]) | uint(c2da_mem[8112 + lnum * 32 + 2 * 4 + 1]) << 0x8 | uint(c2da_mem[8112 + lnum * 32 + 2 * 4 + 2]) << 0x10 | uint(c2da_mem[8112 + lnum * 32 + 2 * 4 + 3]) << 0x18) * uint_bits_to_float(uint(c2da_mem[c2da_fresh24]) | uint(c2da_mem[c2da_fresh24 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh24 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh24 + 3]) << 0x18) - uint_bits_to_float(uint(c2da_mem[c2da_fresh25]) | uint(c2da_mem[c2da_fresh25 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh25 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh25 + 3]) << 0x18)
         rad = float(double(rad) - c2da_std_fabs(double(dist)))
         minlight = uint_bits_to_float(uint(c2da_mem[8112 + lnum * 32 + 24]) | uint(c2da_mem[8112 + lnum * 32 + 25]) << 0x8 | uint(c2da_mem[8112 + lnum * 32 + 26]) << 0x10 | uint(c2da_mem[8112 + lnum * 32 + 27]) << 0x18)
@@ -419,10 +420,11 @@ def R_AddDynamicLights() {
 [export, sideeffects]
 def R_GenTile(var psurf : int; var pdest : int) {
     if ((int(uint(c2da_mem[psurf + 24]) | uint(c2da_mem[psurf + 25]) << 0x8 | uint(c2da_mem[psurf + 26]) << 0x10 | uint(c2da_mem[psurf + 27]) << 0x18) & 16) != 0) {
-        let c2da_fresh29 : int = int(uint(c2da_mem[psurf + 80]) | uint(c2da_mem[psurf + 81]) << 0x8 | uint(c2da_mem[psurf + 82]) << 0x10 | uint(c2da_mem[psurf + 83]) << 0x18) + 40
-        let c2da_fresh30 : int = int(uint(c2da_mem[psurf + 80]) | uint(c2da_mem[psurf + 81]) << 0x8 | uint(c2da_mem[psurf + 82]) << 0x10 | uint(c2da_mem[psurf + 83]) << 0x18) + 40
-        let c2da_fresh31 : int = int(uint(c2da_mem[c2da_fresh30]) | uint(c2da_mem[c2da_fresh30 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh30 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh30 + 3]) << 0x18) + 56 + 0 * 4
-        R_GenTurbTile(int(uint(c2da_mem[c2da_fresh29]) | uint(c2da_mem[c2da_fresh29 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh29 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh29 + 3]) << 0x18) + int(uint(c2da_mem[c2da_fresh31]) | uint(c2da_mem[c2da_fresh31 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh31 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh31 + 3]) << 0x18), pdest)
+        let c2da_fresh33 : int = int(uint(c2da_mem[psurf + 80]) | uint(c2da_mem[psurf + 81]) << 0x8 | uint(c2da_mem[psurf + 82]) << 0x10 | uint(c2da_mem[psurf + 83]) << 0x18)
+        let c2da_fresh30 : int = c2da_fresh33 + 40
+        let c2da_fresh31 : int = c2da_fresh33 + 40
+        let c2da_fresh32 : int = int(uint(c2da_mem[c2da_fresh31]) | uint(c2da_mem[c2da_fresh31 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh31 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh31 + 3]) << 0x18) + 56 + 0 * 4
+        R_GenTurbTile(int(uint(c2da_mem[c2da_fresh30]) | uint(c2da_mem[c2da_fresh30 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh30 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh30 + 3]) << 0x18) + int(uint(c2da_mem[c2da_fresh32]) | uint(c2da_mem[c2da_fresh32 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh32 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh32 + 3]) << 0x18), pdest)
     } elif ((int(uint(c2da_mem[psurf + 24]) | uint(c2da_mem[psurf + 25]) << 0x8 | uint(c2da_mem[psurf + 26]) << 0x10 | uint(c2da_mem[psurf + 27]) << 0x18) & 4) != 0) {
         R_GenSkyTile(pdest)
     } else {
@@ -440,15 +442,15 @@ def R_GenTurbTile(var pbasetex : int; var pdest_0 : int) {
     pd = pdest_0
     for (i_5 in range(0, 128)) {
         for (j in range(0, 128)) {
-            let c2da_fresh32 : int = turb + (i_5 & 128 - 1) * 4
-            s_0 = (j << 16) + int(uint(c2da_mem[c2da_fresh32]) | uint(c2da_mem[c2da_fresh32 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh32 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh32 + 3]) << 0x18) >> 16 & 63
-            let c2da_fresh33 : int = turb + (j & 128 - 1) * 4
-            t_1 = (i_5 << 16) + int(uint(c2da_mem[c2da_fresh33]) | uint(c2da_mem[c2da_fresh33 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh33 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh33 + 3]) << 0x18) >> 16 & 63
-            let c2da_fresh34 : int = pd
+            let c2da_fresh34 : int = turb + (i_5 & 128 - 1) * 4
+            s_0 = (j << 16) + int(uint(c2da_mem[c2da_fresh34]) | uint(c2da_mem[c2da_fresh34 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh34 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh34 + 3]) << 0x18) >> 16 & 63
+            let c2da_fresh35 : int = turb + (j & 128 - 1) * 4
+            t_1 = (i_5 << 16) + int(uint(c2da_mem[c2da_fresh35]) | uint(c2da_mem[c2da_fresh35 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh35 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh35 + 3]) << 0x18) >> 16 & 63
+            let c2da_fresh36 : int = pd
             pd++
-            let c2da_fresh35 : int = pbasetex + (t_1 << 6) + s_0
-            let c2da_fresh36 : uint8 = c2da_mem[c2da_fresh35]
-            c2da_mem[c2da_fresh34] = c2da_fresh36
+            let c2da_fresh37 : int = pbasetex + (t_1 << 6) + s_0
+            let c2da_fresh38 : uint8 = c2da_mem[c2da_fresh37]
+            c2da_mem[c2da_fresh36] = c2da_fresh38
         }
     }
     return
@@ -458,8 +460,9 @@ def R_TextureAnimation(var base : int) : int {
     var reletive : int
     var count : int
     if (int(uint(c2da_mem[currententity + 152]) | uint(c2da_mem[currententity + 153]) << 0x8 | uint(c2da_mem[currententity + 154]) << 0x10 | uint(c2da_mem[currententity + 155]) << 0x18) != 0) {
-        if (int(uint(c2da_mem[base + 48]) | uint(c2da_mem[base + 49]) << 0x8 | uint(c2da_mem[base + 50]) << 0x10 | uint(c2da_mem[base + 51]) << 0x18) != 0) {
-            base = int(uint(c2da_mem[base + 48]) | uint(c2da_mem[base + 49]) << 0x8 | uint(c2da_mem[base + 50]) << 0x10 | uint(c2da_mem[base + 51]) << 0x18)
+        let c2da_fresh39 : int = int(uint(c2da_mem[base + 48]) | uint(c2da_mem[base + 49]) << 0x8 | uint(c2da_mem[base + 50]) << 0x10 | uint(c2da_mem[base + 51]) << 0x18)
+        if (c2da_fresh39 != 0) {
+            base = c2da_fresh39
         }
     }
     if (int(uint(c2da_mem[base + 24]) | uint(c2da_mem[base + 25]) << 0x8 | uint(c2da_mem[base + 26]) << 0x10 | uint(c2da_mem[base + 27]) << 0x18) == 0) {

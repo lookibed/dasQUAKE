@@ -26,9 +26,10 @@ def SV_DropClient(var crash : uint) {
             MSG_WriteByte(host_client + 80, 2)
             NET_SendMessage(int(uint(c2da_mem[host_client + 32]) | uint(c2da_mem[host_client + 33]) << 0x8 | uint(c2da_mem[host_client + 34]) << 0x10 | uint(c2da_mem[host_client + 35]) << 0x18), host_client + 80)
         }
-        if (int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) != 0 && (uint(c2da_mem[host_client + 4]) | uint(c2da_mem[host_client + 5]) << 0x8 | uint(c2da_mem[host_client + 6]) << 0x10 | uint(c2da_mem[host_client + 7]) << 0x18) != 0x0) {
+        let c2da_fresh9 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18)
+        if (c2da_fresh9 != 0 && (uint(c2da_mem[host_client + 4]) | uint(c2da_mem[host_client + 5]) << 0x8 | uint(c2da_mem[host_client + 6]) << 0x10 | uint(c2da_mem[host_client + 7]) << 0x18) != 0x0) {
             saveSelf = int(uint(c2da_mem[pr_global_struct + 112]) | uint(c2da_mem[pr_global_struct + 113]) << 0x8 | uint(c2da_mem[pr_global_struct + 114]) << 0x10 | uint(c2da_mem[pr_global_struct + 115]) << 0x18)
-            let c2da_fresh0 : int = int(uint(c2da_mem[host_client + 8104]) | uint(c2da_mem[host_client + 8105]) << 0x8 | uint(c2da_mem[host_client + 8106]) << 0x10 | uint(c2da_mem[host_client + 8107]) << 0x18) - int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18)
+            let c2da_fresh0 : int = c2da_fresh9 - int(uint(c2da_mem[232696]) | uint(c2da_mem[232697]) << 0x8 | uint(c2da_mem[232698]) << 0x10 | uint(c2da_mem[232699]) << 0x18)
             let c2da_fresh1 : uint = uint(c2da_fresh0)
             c2da_mem[pr_global_struct + 112] = uint8(c2da_fresh1)
             c2da_mem[pr_global_struct + 113] = uint8(c2da_fresh1 >> 0x8)
@@ -124,12 +125,12 @@ def Host_ClearMemory() {
     if (host_hunklevel != 0) {
         Hunk_FreeToLowMark(host_hunklevel)
     }
-    let c2da_fresh12 : int = 0
-    let c2da_fresh13 : uint = uint(c2da_fresh12)
-    c2da_mem[7804] = uint8(c2da_fresh13)
-    c2da_mem[7805] = uint8(c2da_fresh13 >> 0x8)
-    c2da_mem[7806] = uint8(c2da_fresh13 >> 0x10)
-    c2da_mem[7807] = uint8(c2da_fresh13 >> 0x18)
+    let c2da_fresh13 : int = 0
+    let c2da_fresh14 : uint = uint(c2da_fresh13)
+    c2da_mem[7804] = uint8(c2da_fresh14)
+    c2da_mem[7805] = uint8(c2da_fresh14 >> 0x8)
+    c2da_mem[7806] = uint8(c2da_fresh14 >> 0x10)
+    c2da_mem[7807] = uint8(c2da_fresh14 >> 0x18)
     c2da_lin_memset(225856, 0, 17168ul)
     c2da_lin_memset(208, 0, 4992ul)
     return
@@ -138,12 +139,12 @@ var host_hunklevel : int = default<int>
 
 [export, sideeffects]
 def Host_ServerFrame() {
-    let c2da_fresh14 : float = float(host_frametime)
-    let c2da_fresh15 : uint = float_bits_to_uint(c2da_fresh14)
-    c2da_mem[pr_global_struct + 128] = uint8(c2da_fresh15)
-    c2da_mem[pr_global_struct + 129] = uint8(c2da_fresh15 >> 0x8)
-    c2da_mem[pr_global_struct + 130] = uint8(c2da_fresh15 >> 0x10)
-    c2da_mem[pr_global_struct + 131] = uint8(c2da_fresh15 >> 0x18)
+    let c2da_fresh15 : float = float(host_frametime)
+    let c2da_fresh16 : uint = float_bits_to_uint(c2da_fresh15)
+    c2da_mem[pr_global_struct + 128] = uint8(c2da_fresh16)
+    c2da_mem[pr_global_struct + 129] = uint8(c2da_fresh16 >> 0x8)
+    c2da_mem[pr_global_struct + 130] = uint8(c2da_fresh16 >> 0x10)
+    c2da_mem[pr_global_struct + 131] = uint8(c2da_fresh16 >> 0x18)
     SV_ClearDatagram()
     SV_CheckForNewClients()
     SV_RunClients()
@@ -161,29 +162,29 @@ def Host_Init(var parms : int) {
         minimum_memory = 5570560 + 1048576
     }
     if (COM_CheckParm(717648) != 0) {
-        let c2da_fresh16 : uint = uint(minimum_memory)
-        c2da_mem[parms + 40] = uint8(c2da_fresh16)
-        c2da_mem[parms + 41] = uint8(c2da_fresh16 >> 0x8)
-        c2da_mem[parms + 42] = uint8(c2da_fresh16 >> 0x10)
-        c2da_mem[parms + 43] = uint8(c2da_fresh16 >> 0x18)
+        let c2da_fresh17 : uint = uint(minimum_memory)
+        c2da_mem[parms + 40] = uint8(c2da_fresh17)
+        c2da_mem[parms + 41] = uint8(c2da_fresh17 >> 0x8)
+        c2da_mem[parms + 42] = uint8(c2da_fresh17 >> 0x10)
+        c2da_mem[parms + 43] = uint8(c2da_fresh17 >> 0x18)
     }
-    var c2da_fresh17 : quakeparms_t
-    c2da_fresh17.basedir = int(uint(c2da_mem[parms]) | uint(c2da_mem[parms + 1]) << 0x8 | uint(c2da_mem[parms + 2]) << 0x10 | uint(c2da_mem[parms + 3]) << 0x18)
-    c2da_fresh17.cachedir = int(uint(c2da_mem[parms + 8]) | uint(c2da_mem[parms + 9]) << 0x8 | uint(c2da_mem[parms + 10]) << 0x10 | uint(c2da_mem[parms + 11]) << 0x18)
-    c2da_fresh17.argc = int(uint(c2da_mem[parms + 16]) | uint(c2da_mem[parms + 17]) << 0x8 | uint(c2da_mem[parms + 18]) << 0x10 | uint(c2da_mem[parms + 19]) << 0x18)
-    c2da_fresh17.argv = int(uint(c2da_mem[parms + 24]) | uint(c2da_mem[parms + 25]) << 0x8 | uint(c2da_mem[parms + 26]) << 0x10 | uint(c2da_mem[parms + 27]) << 0x18)
-    c2da_fresh17.membase = int(uint(c2da_mem[parms + 32]) | uint(c2da_mem[parms + 33]) << 0x8 | uint(c2da_mem[parms + 34]) << 0x10 | uint(c2da_mem[parms + 35]) << 0x18)
-    c2da_fresh17.memsize = int(uint(c2da_mem[parms + 40]) | uint(c2da_mem[parms + 41]) << 0x8 | uint(c2da_mem[parms + 42]) << 0x10 | uint(c2da_mem[parms + 43]) << 0x18)
-    host_parms = c2da_fresh17
+    var c2da_fresh18 : quakeparms_t
+    c2da_fresh18.basedir = int(uint(c2da_mem[parms]) | uint(c2da_mem[parms + 1]) << 0x8 | uint(c2da_mem[parms + 2]) << 0x10 | uint(c2da_mem[parms + 3]) << 0x18)
+    c2da_fresh18.cachedir = int(uint(c2da_mem[parms + 8]) | uint(c2da_mem[parms + 9]) << 0x8 | uint(c2da_mem[parms + 10]) << 0x10 | uint(c2da_mem[parms + 11]) << 0x18)
+    c2da_fresh18.argc = int(uint(c2da_mem[parms + 16]) | uint(c2da_mem[parms + 17]) << 0x8 | uint(c2da_mem[parms + 18]) << 0x10 | uint(c2da_mem[parms + 19]) << 0x18)
+    c2da_fresh18.argv = int(uint(c2da_mem[parms + 24]) | uint(c2da_mem[parms + 25]) << 0x8 | uint(c2da_mem[parms + 26]) << 0x10 | uint(c2da_mem[parms + 27]) << 0x18)
+    c2da_fresh18.membase = int(uint(c2da_mem[parms + 32]) | uint(c2da_mem[parms + 33]) << 0x8 | uint(c2da_mem[parms + 34]) << 0x10 | uint(c2da_mem[parms + 35]) << 0x18)
+    c2da_fresh18.memsize = int(uint(c2da_mem[parms + 40]) | uint(c2da_mem[parms + 41]) << 0x8 | uint(c2da_mem[parms + 42]) << 0x10 | uint(c2da_mem[parms + 43]) << 0x18)
+    host_parms = c2da_fresh18
     if (int(uint(c2da_mem[parms + 40]) | uint(c2da_mem[parms + 41]) << 0x8 | uint(c2da_mem[parms + 42]) << 0x10 | uint(c2da_mem[parms + 43]) << 0x18) < minimum_memory) {
         Sys_Error(717659, [C2daVaArg(tag = 2, i64 = 0, f64 = double(float(int(uint(c2da_mem[parms + 40]) | uint(c2da_mem[parms + 41]) << 0x8 | uint(c2da_mem[parms + 42]) << 0x10 | uint(c2da_mem[parms + 43]) << 0x18)) / 1048576.0), raw = 0x0)])
     }
-    let c2da_fresh18 : int = int(uint(c2da_mem[parms + 16]) | uint(c2da_mem[parms + 17]) << 0x8 | uint(c2da_mem[parms + 18]) << 0x10 | uint(c2da_mem[parms + 19]) << 0x18)
-    let c2da_fresh19 : uint = uint(c2da_fresh18)
-    c2da_mem[243888] = uint8(c2da_fresh19)
-    c2da_mem[243889] = uint8(c2da_fresh19 >> 0x8)
-    c2da_mem[243890] = uint8(c2da_fresh19 >> 0x10)
-    c2da_mem[243891] = uint8(c2da_fresh19 >> 0x18)
+    let c2da_fresh19 : int = int(uint(c2da_mem[parms + 16]) | uint(c2da_mem[parms + 17]) << 0x8 | uint(c2da_mem[parms + 18]) << 0x10 | uint(c2da_mem[parms + 19]) << 0x18)
+    let c2da_fresh20 : uint = uint(c2da_fresh19)
+    c2da_mem[243888] = uint8(c2da_fresh20)
+    c2da_mem[243889] = uint8(c2da_fresh20 >> 0x8)
+    c2da_mem[243890] = uint8(c2da_fresh20 >> 0x10)
+    c2da_mem[243891] = uint8(c2da_fresh20 >> 0x18)
     com_argv = int(uint(c2da_mem[parms + 24]) | uint(c2da_mem[parms + 25]) << 0x8 | uint(c2da_mem[parms + 26]) << 0x10 | uint(c2da_mem[parms + 27]) << 0x18)
     Memory_Init(int(uint(c2da_mem[parms + 32]) | uint(c2da_mem[parms + 33]) << 0x8 | uint(c2da_mem[parms + 34]) << 0x10 | uint(c2da_mem[parms + 35]) << 0x18), int(uint(c2da_mem[parms + 40]) | uint(c2da_mem[parms + 41]) << 0x8 | uint(c2da_mem[parms + 42]) << 0x10 | uint(c2da_mem[parms + 43]) << 0x18))
     Cbuf_Init()
@@ -258,24 +259,24 @@ def Host_FindMaxClients() {
     svs.maxclients = 1
     i_1 = COM_CheckParm(717933)
     if (i_1 != 0) {
-        let c2da_fresh20 : uint = 0u
-        let c2da_fresh21 : uint = c2da_fresh20
-        c2da_mem[5520] = uint8(c2da_fresh21)
-        c2da_mem[5521] = uint8(c2da_fresh21 >> 0x8)
-        c2da_mem[5522] = uint8(c2da_fresh21 >> 0x10)
-        c2da_mem[5523] = uint8(c2da_fresh21 >> 0x18)
+        let c2da_fresh21 : uint = 0u
+        let c2da_fresh22 : uint = c2da_fresh21
+        c2da_mem[5520] = uint8(c2da_fresh22)
+        c2da_mem[5521] = uint8(c2da_fresh22 >> 0x8)
+        c2da_mem[5522] = uint8(c2da_fresh22 >> 0x10)
+        c2da_mem[5523] = uint8(c2da_fresh22 >> 0x18)
         if (i_1 != int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18) - 1) {
             svs.maxclients = Q_atoi(int(uint(c2da_mem[com_argv + (i_1 + 1) * 8]) | uint(c2da_mem[com_argv + (i_1 + 1) * 8 + 1]) << 0x8 | uint(c2da_mem[com_argv + (i_1 + 1) * 8 + 2]) << 0x10 | uint(c2da_mem[com_argv + (i_1 + 1) * 8 + 3]) << 0x18))
         } else {
             svs.maxclients = 8
         }
     } else {
-        let c2da_fresh22 : uint = 1u
-        let c2da_fresh23 : uint = c2da_fresh22
-        c2da_mem[5520] = uint8(c2da_fresh23)
-        c2da_mem[5521] = uint8(c2da_fresh23 >> 0x8)
-        c2da_mem[5522] = uint8(c2da_fresh23 >> 0x10)
-        c2da_mem[5523] = uint8(c2da_fresh23 >> 0x18)
+        let c2da_fresh23 : uint = 1u
+        let c2da_fresh24 : uint = c2da_fresh23
+        c2da_mem[5520] = uint8(c2da_fresh24)
+        c2da_mem[5521] = uint8(c2da_fresh24 >> 0x8)
+        c2da_mem[5522] = uint8(c2da_fresh24 >> 0x10)
+        c2da_mem[5523] = uint8(c2da_fresh24 >> 0x18)
     }
     i_1 = COM_CheckParm(717944)
     if (i_1 != 0) {
@@ -389,8 +390,8 @@ def Host_Frame(var time : float) {
     c = 0
     i_3 = 0
     while (i_3 < svs.maxclients) {
-        let c2da_fresh69 : int = svs.clients + i_3 * 8288
-        if ((uint(c2da_mem[c2da_fresh69]) | uint(c2da_mem[c2da_fresh69 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh69 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh69 + 3]) << 0x18) != 0u) {
+        let c2da_fresh71 : int = svs.clients + i_3 * 8288
+        if ((uint(c2da_mem[c2da_fresh71]) | uint(c2da_mem[c2da_fresh71 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh71 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh71 + 3]) << 0x18) != 0u) {
             c++
         }
         i_3++
@@ -474,8 +475,9 @@ def Host_FilterTime(var time_1 : float) : uint {
     }
     host_frametime = realtime - oldrealtime
     oldrealtime = double(realtime)  // nolint:PERF020
-    if (uint_bits_to_float(uint(c2da_mem[243176]) | uint(c2da_mem[243177]) << 0x8 | uint(c2da_mem[243178]) << 0x10 | uint(c2da_mem[243179]) << 0x18) > 0.0) {
-        host_frametime = double(uint_bits_to_float(uint(c2da_mem[243176]) | uint(c2da_mem[243177]) << 0x8 | uint(c2da_mem[243178]) << 0x10 | uint(c2da_mem[243179]) << 0x18))
+    let c2da_fresh72 : float = uint_bits_to_float(uint(c2da_mem[243176]) | uint(c2da_mem[243177]) << 0x8 | uint(c2da_mem[243178]) << 0x10 | uint(c2da_mem[243179]) << 0x18)
+    if (c2da_fresh72 > 0.0) {
+        host_frametime = double(c2da_fresh72)
     } else {
         if (host_frametime > 0.1lf) {
             host_frametime = 0.1lf
@@ -513,15 +515,15 @@ def private SV_BroadcastPrintf_c2da_frame(var fmt_1 : int; c2da_va_args : array<
     argptr_0.index = -1
     i_0 = 0
     while (i_0 < svs.maxclients) {
-        let c2da_fresh9 : int = svs.clients + i_0 * 8288
-        var c2da_fresh11 : int = 0
-        if ((uint(c2da_mem[c2da_fresh9]) | uint(c2da_mem[c2da_fresh9 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh9 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh9 + 3]) << 0x18) != 0x0) {
-            let c2da_fresh10 : int = svs.clients + i_0 * 8288 + 4
-            if ((uint(c2da_mem[c2da_fresh10]) | uint(c2da_mem[c2da_fresh10 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh10 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh10 + 3]) << 0x18) != 0x0) {
-                c2da_fresh11 = 1
+        let c2da_fresh10 : int = svs.clients + i_0 * 8288
+        var c2da_fresh12 : int = 0
+        if ((uint(c2da_mem[c2da_fresh10]) | uint(c2da_mem[c2da_fresh10 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh10 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh10 + 3]) << 0x18) != 0x0) {
+            let c2da_fresh11 : int = svs.clients + i_0 * 8288 + 4
+            if ((uint(c2da_mem[c2da_fresh11]) | uint(c2da_mem[c2da_fresh11 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh11 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh11 + 3]) << 0x18) != 0x0) {
+                c2da_fresh12 = 1
             }
         }
-        if (c2da_fresh11 != 0) {
+        if (c2da_fresh12 != 0) {
             MSG_WriteByte(svs.clients + i_0 * 8288 + 80, 8)
             MSG_WriteString(svs.clients + i_0 * 8288 + 80, c2da_fp)
         }
@@ -547,63 +549,63 @@ def private Host_InitVCR_c2da_frame(var parms_0 : int; c2da_fp : int) {
         }
         Sys_FileRead(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), 243888, 4)
         com_argv = c2da_lin_malloc(uint64(int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18)) * 8ul)
-        let c2da_fresh24 : int = int(uint(c2da_mem[parms_0 + 24]) | uint(c2da_mem[parms_0 + 25]) << 0x8 | uint(c2da_mem[parms_0 + 26]) << 0x10 | uint(c2da_mem[parms_0 + 27]) << 0x18) + 0 * 8
-        let c2da_fresh25 : int = int(uint(c2da_mem[c2da_fresh24]) | uint(c2da_mem[c2da_fresh24 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh24 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh24 + 3]) << 0x18)
-        let c2da_fresh26 : uint = uint(c2da_fresh25)
-        c2da_mem[com_argv + 0 * 8] = uint8(c2da_fresh26)
-        c2da_mem[com_argv + 0 * 8 + 1] = uint8(c2da_fresh26 >> 0x8)
-        c2da_mem[com_argv + 0 * 8 + 2] = uint8(c2da_fresh26 >> 0x10)
-        c2da_mem[com_argv + 0 * 8 + 3] = uint8(c2da_fresh26 >> 0x18)
+        let c2da_fresh25 : int = int(uint(c2da_mem[parms_0 + 24]) | uint(c2da_mem[parms_0 + 25]) << 0x8 | uint(c2da_mem[parms_0 + 26]) << 0x10 | uint(c2da_mem[parms_0 + 27]) << 0x18) + 0 * 8
+        let c2da_fresh26 : int = int(uint(c2da_mem[c2da_fresh25]) | uint(c2da_mem[c2da_fresh25 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh25 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh25 + 3]) << 0x18)
+        let c2da_fresh27 : uint = uint(c2da_fresh26)
+        c2da_mem[com_argv + 0 * 8] = uint8(c2da_fresh27)
+        c2da_mem[com_argv + 0 * 8 + 1] = uint8(c2da_fresh27 >> 0x8)
+        c2da_mem[com_argv + 0 * 8 + 2] = uint8(c2da_fresh27 >> 0x10)
+        c2da_mem[com_argv + 0 * 8 + 3] = uint8(c2da_fresh27 >> 0x18)
         c2da_mem[com_argv + 0 * 8 + 4] = 0u8
         c2da_mem[com_argv + 0 * 8 + 5] = 0u8
         c2da_mem[com_argv + 0 * 8 + 6] = 0u8
         c2da_mem[com_argv + 0 * 8 + 7] = 0u8
-        let c2da_fresh27 : int = 0
-        let c2da_fresh28 : uint = uint(c2da_fresh27)
-        c2da_mem[c2da_fp] = uint8(c2da_fresh28)
-        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh28 >> 0x8)
-        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh28 >> 0x10)
-        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh28 >> 0x18)
+        let c2da_fresh28 : int = 0
+        let c2da_fresh29 : uint = uint(c2da_fresh28)
+        c2da_mem[c2da_fp] = uint8(c2da_fresh29)
+        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh29 >> 0x8)
+        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh29 >> 0x10)
+        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh29 >> 0x18)
         while (int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) < int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18)) {
             Sys_FileRead(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), c2da_fp + 16, 4)
             p = c2da_lin_malloc(uint64(int(uint(c2da_mem[c2da_fp + 16]) | uint(c2da_mem[c2da_fp + 17]) << 0x8 | uint(c2da_mem[c2da_fp + 18]) << 0x10 | uint(c2da_mem[c2da_fp + 19]) << 0x18)))
             Sys_FileRead(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), p, int(uint(c2da_mem[c2da_fp + 16]) | uint(c2da_mem[c2da_fp + 17]) << 0x8 | uint(c2da_mem[c2da_fp + 18]) << 0x10 | uint(c2da_mem[c2da_fp + 19]) << 0x18))
-            let c2da_fresh29 : int = com_argv + (int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) + 1) * 8
-            let c2da_fresh30 : uint = uint(p)
-            c2da_mem[c2da_fresh29] = uint8(c2da_fresh30)
-            c2da_mem[c2da_fresh29 + 1] = uint8(c2da_fresh30 >> 0x8)
-            c2da_mem[c2da_fresh29 + 2] = uint8(c2da_fresh30 >> 0x10)
-            c2da_mem[c2da_fresh29 + 3] = uint8(c2da_fresh30 >> 0x18)
-            c2da_mem[c2da_fresh29 + 4] = 0u8
-            c2da_mem[c2da_fresh29 + 5] = 0u8
-            c2da_mem[c2da_fresh29 + 6] = 0u8
-            c2da_mem[c2da_fresh29 + 7] = 0u8
-            let c2da_fresh31 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
-            let c2da_fresh32 : int = c2da_fresh31 + 1
-            let c2da_fresh33 : uint = uint(c2da_fresh32)
-            c2da_mem[c2da_fp] = uint8(c2da_fresh33)
-            c2da_mem[c2da_fp + 1] = uint8(c2da_fresh33 >> 0x8)
-            c2da_mem[c2da_fp + 2] = uint8(c2da_fresh33 >> 0x10)
-            c2da_mem[c2da_fp + 3] = uint8(c2da_fresh33 >> 0x18)
+            let c2da_fresh30 : int = com_argv + (int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) + 1) * 8
+            let c2da_fresh31 : uint = uint(p)
+            c2da_mem[c2da_fresh30] = uint8(c2da_fresh31)
+            c2da_mem[c2da_fresh30 + 1] = uint8(c2da_fresh31 >> 0x8)
+            c2da_mem[c2da_fresh30 + 2] = uint8(c2da_fresh31 >> 0x10)
+            c2da_mem[c2da_fresh30 + 3] = uint8(c2da_fresh31 >> 0x18)
+            c2da_mem[c2da_fresh30 + 4] = 0u8
+            c2da_mem[c2da_fresh30 + 5] = 0u8
+            c2da_mem[c2da_fresh30 + 6] = 0u8
+            c2da_mem[c2da_fresh30 + 7] = 0u8
+            let c2da_fresh32 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
+            let c2da_fresh33 : int = c2da_fresh32 + 1
+            let c2da_fresh34 : uint = uint(c2da_fresh33)
+            c2da_mem[c2da_fp] = uint8(c2da_fresh34)
+            c2da_mem[c2da_fp + 1] = uint8(c2da_fresh34 >> 0x8)
+            c2da_mem[c2da_fp + 2] = uint8(c2da_fresh34 >> 0x10)
+            c2da_mem[c2da_fp + 3] = uint8(c2da_fresh34 >> 0x18)
         }
-        let c2da_fresh34 : int = int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18)
-        let c2da_fresh35 : int = c2da_fresh34 + 1
-        let c2da_fresh36 : uint = uint(c2da_fresh35)
-        c2da_mem[243888] = uint8(c2da_fresh36)
-        c2da_mem[243889] = uint8(c2da_fresh36 >> 0x8)
-        c2da_mem[243890] = uint8(c2da_fresh36 >> 0x10)
-        c2da_mem[243891] = uint8(c2da_fresh36 >> 0x18)
-        let c2da_fresh37 : int = int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18)
-        let c2da_fresh38 : uint = uint(c2da_fresh37)
-        c2da_mem[parms_0 + 16] = uint8(c2da_fresh38)
-        c2da_mem[parms_0 + 17] = uint8(c2da_fresh38 >> 0x8)
-        c2da_mem[parms_0 + 18] = uint8(c2da_fresh38 >> 0x10)
-        c2da_mem[parms_0 + 19] = uint8(c2da_fresh38 >> 0x18)
-        let c2da_fresh39 : uint = uint(com_argv)
-        c2da_mem[parms_0 + 24] = uint8(c2da_fresh39)
-        c2da_mem[parms_0 + 25] = uint8(c2da_fresh39 >> 0x8)
-        c2da_mem[parms_0 + 26] = uint8(c2da_fresh39 >> 0x10)
-        c2da_mem[parms_0 + 27] = uint8(c2da_fresh39 >> 0x18)
+        let c2da_fresh35 : int = int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18)
+        let c2da_fresh36 : int = c2da_fresh35 + 1
+        let c2da_fresh37 : uint = uint(c2da_fresh36)
+        c2da_mem[243888] = uint8(c2da_fresh37)
+        c2da_mem[243889] = uint8(c2da_fresh37 >> 0x8)
+        c2da_mem[243890] = uint8(c2da_fresh37 >> 0x10)
+        c2da_mem[243891] = uint8(c2da_fresh37 >> 0x18)
+        let c2da_fresh38 : int = int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18)
+        let c2da_fresh39 : uint = uint(c2da_fresh38)
+        c2da_mem[parms_0 + 16] = uint8(c2da_fresh39)
+        c2da_mem[parms_0 + 17] = uint8(c2da_fresh39 >> 0x8)
+        c2da_mem[parms_0 + 18] = uint8(c2da_fresh39 >> 0x10)
+        c2da_mem[parms_0 + 19] = uint8(c2da_fresh39 >> 0x18)
+        let c2da_fresh40 : uint = uint(com_argv)
+        c2da_mem[parms_0 + 24] = uint8(c2da_fresh40)
+        c2da_mem[parms_0 + 25] = uint8(c2da_fresh40 >> 0x8)
+        c2da_mem[parms_0 + 26] = uint8(c2da_fresh40 >> 0x10)
+        c2da_mem[parms_0 + 27] = uint8(c2da_fresh40 >> 0x18)
         c2da_mem[parms_0 + 28] = 0u8
         c2da_mem[parms_0 + 29] = 0u8
         c2da_mem[parms_0 + 30] = 0u8
@@ -611,68 +613,69 @@ def private Host_InitVCR_c2da_frame(var parms_0 : int; c2da_fp : int) {
     }
     n = COM_CheckParm(718131)
     if (n != 0) {
-        let c2da_fresh40 : int = Sys_FileOpenWrite(718065)
-        let c2da_fresh41 : uint = uint(c2da_fresh40)
-        c2da_mem[243872] = uint8(c2da_fresh41)
-        c2da_mem[243873] = uint8(c2da_fresh41 >> 0x8)
-        c2da_mem[243874] = uint8(c2da_fresh41 >> 0x10)
-        c2da_mem[243875] = uint8(c2da_fresh41 >> 0x18)
-        let c2da_fresh42 : int = 1447252529
-        let c2da_fresh43 : uint = uint(c2da_fresh42)
-        c2da_mem[c2da_fp] = uint8(c2da_fresh43)
-        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh43 >> 0x8)
-        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh43 >> 0x10)
-        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh43 >> 0x18)
+        let c2da_fresh41 : int = Sys_FileOpenWrite(718065)
+        let c2da_fresh42 : uint = uint(c2da_fresh41)
+        c2da_mem[243872] = uint8(c2da_fresh42)
+        c2da_mem[243873] = uint8(c2da_fresh42 >> 0x8)
+        c2da_mem[243874] = uint8(c2da_fresh42 >> 0x10)
+        c2da_mem[243875] = uint8(c2da_fresh42 >> 0x18)
+        let c2da_fresh43 : int = 1447252529
+        let c2da_fresh44 : uint = uint(c2da_fresh43)
+        c2da_mem[c2da_fp] = uint8(c2da_fresh44)
+        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh44 >> 0x8)
+        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh44 >> 0x10)
+        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh44 >> 0x18)
         Sys_FileWrite(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), c2da_fp, 4)
-        let c2da_fresh44 : int = int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18) - 1
-        let c2da_fresh45 : uint = uint(c2da_fresh44)
-        c2da_mem[c2da_fp] = uint8(c2da_fresh45)
-        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh45 >> 0x8)
-        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh45 >> 0x10)
-        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh45 >> 0x18)
+        let c2da_fresh45 : int = int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18) - 1
+        let c2da_fresh46 : uint = uint(c2da_fresh45)
+        c2da_mem[c2da_fp] = uint8(c2da_fresh46)
+        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh46 >> 0x8)
+        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh46 >> 0x10)
+        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh46 >> 0x18)
         Sys_FileWrite(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), c2da_fp, 4)
-        let c2da_fresh46 : int = 1
-        let c2da_fresh47 : uint = uint(c2da_fresh46)
-        c2da_mem[c2da_fp] = uint8(c2da_fresh47)
-        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh47 >> 0x8)
-        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh47 >> 0x10)
-        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh47 >> 0x18)
+        let c2da_fresh47 : int = 1
+        let c2da_fresh48 : uint = uint(c2da_fresh47)
+        c2da_mem[c2da_fp] = uint8(c2da_fresh48)
+        c2da_mem[c2da_fp + 1] = uint8(c2da_fresh48 >> 0x8)
+        c2da_mem[c2da_fp + 2] = uint8(c2da_fresh48 >> 0x10)
+        c2da_mem[c2da_fp + 3] = uint8(c2da_fresh48 >> 0x18)
         while (int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) < int(uint(c2da_mem[243888]) | uint(c2da_mem[243889]) << 0x8 | uint(c2da_mem[243890]) << 0x10 | uint(c2da_mem[243891]) << 0x18)) {
-            if (int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) == n) {
-                let c2da_fresh48 : int = 10
-                let c2da_fresh49 : uint = uint(c2da_fresh48)
-                c2da_mem[c2da_fp + 16] = uint8(c2da_fresh49)
-                c2da_mem[c2da_fp + 17] = uint8(c2da_fresh49 >> 0x8)
-                c2da_mem[c2da_fp + 18] = uint8(c2da_fresh49 >> 0x10)
-                c2da_mem[c2da_fp + 19] = uint8(c2da_fresh49 >> 0x18)
+            let c2da_fresh61 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
+            if (c2da_fresh61 == n) {
+                let c2da_fresh49 : int = 10
+                let c2da_fresh50 : uint = uint(c2da_fresh49)
+                c2da_mem[c2da_fp + 16] = uint8(c2da_fresh50)
+                c2da_mem[c2da_fp + 17] = uint8(c2da_fresh50 >> 0x8)
+                c2da_mem[c2da_fp + 18] = uint8(c2da_fresh50 >> 0x10)
+                c2da_mem[c2da_fp + 19] = uint8(c2da_fresh50 >> 0x18)
                 Sys_FileWrite(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), c2da_fp + 16, 4)
                 Sys_FileWrite(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), 718011, int(uint(c2da_mem[c2da_fp + 16]) | uint(c2da_mem[c2da_fp + 17]) << 0x8 | uint(c2da_mem[c2da_fp + 18]) << 0x10 | uint(c2da_mem[c2da_fp + 19]) << 0x18))
-                let c2da_fresh50 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
-                let c2da_fresh51 : int = c2da_fresh50 + 1
-                let c2da_fresh52 : uint = uint(c2da_fresh51)
-                c2da_mem[c2da_fp] = uint8(c2da_fresh52)
-                c2da_mem[c2da_fp + 1] = uint8(c2da_fresh52 >> 0x8)
-                c2da_mem[c2da_fp + 2] = uint8(c2da_fresh52 >> 0x10)
-                c2da_mem[c2da_fp + 3] = uint8(c2da_fresh52 >> 0x18)
+                let c2da_fresh51 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
+                let c2da_fresh52 : int = c2da_fresh51 + 1
+                let c2da_fresh53 : uint = uint(c2da_fresh52)
+                c2da_mem[c2da_fp] = uint8(c2da_fresh53)
+                c2da_mem[c2da_fp + 1] = uint8(c2da_fresh53 >> 0x8)
+                c2da_mem[c2da_fp + 2] = uint8(c2da_fresh53 >> 0x10)
+                c2da_mem[c2da_fp + 3] = uint8(c2da_fresh53 >> 0x18)
                 continue
             }
-            let c2da_fresh53 : int = com_argv + int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) * 8
-            let c2da_fresh54 : int = Q_strlen(int(uint(c2da_mem[c2da_fresh53]) | uint(c2da_mem[c2da_fresh53 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh53 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh53 + 3]) << 0x18)) + 1
-            let c2da_fresh55 : uint = uint(c2da_fresh54)
-            c2da_mem[c2da_fp + 16] = uint8(c2da_fresh55)
-            c2da_mem[c2da_fp + 17] = uint8(c2da_fresh55 >> 0x8)
-            c2da_mem[c2da_fp + 18] = uint8(c2da_fresh55 >> 0x10)
-            c2da_mem[c2da_fp + 19] = uint8(c2da_fresh55 >> 0x18)
+            let c2da_fresh54 : int = com_argv + int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) * 8
+            let c2da_fresh55 : int = Q_strlen(int(uint(c2da_mem[c2da_fresh54]) | uint(c2da_mem[c2da_fresh54 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh54 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh54 + 3]) << 0x18)) + 1
+            let c2da_fresh56 : uint = uint(c2da_fresh55)
+            c2da_mem[c2da_fp + 16] = uint8(c2da_fresh56)
+            c2da_mem[c2da_fp + 17] = uint8(c2da_fresh56 >> 0x8)
+            c2da_mem[c2da_fp + 18] = uint8(c2da_fresh56 >> 0x10)
+            c2da_mem[c2da_fp + 19] = uint8(c2da_fresh56 >> 0x18)
             Sys_FileWrite(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), c2da_fp + 16, 4)
-            let c2da_fresh56 : int = com_argv + int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) * 8
-            Sys_FileWrite(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), int(uint(c2da_mem[c2da_fresh56]) | uint(c2da_mem[c2da_fresh56 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh56 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh56 + 3]) << 0x18), int(uint(c2da_mem[c2da_fp + 16]) | uint(c2da_mem[c2da_fp + 17]) << 0x8 | uint(c2da_mem[c2da_fp + 18]) << 0x10 | uint(c2da_mem[c2da_fp + 19]) << 0x18))
-            let c2da_fresh57 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
-            let c2da_fresh58 : int = c2da_fresh57 + 1
-            let c2da_fresh59 : uint = uint(c2da_fresh58)
-            c2da_mem[c2da_fp] = uint8(c2da_fresh59)
-            c2da_mem[c2da_fp + 1] = uint8(c2da_fresh59 >> 0x8)
-            c2da_mem[c2da_fp + 2] = uint8(c2da_fresh59 >> 0x10)
-            c2da_mem[c2da_fp + 3] = uint8(c2da_fresh59 >> 0x18)
+            let c2da_fresh57 : int = com_argv + int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18) * 8
+            Sys_FileWrite(int(uint(c2da_mem[243872]) | uint(c2da_mem[243873]) << 0x8 | uint(c2da_mem[243874]) << 0x10 | uint(c2da_mem[243875]) << 0x18), int(uint(c2da_mem[c2da_fresh57]) | uint(c2da_mem[c2da_fresh57 + 1]) << 0x8 | uint(c2da_mem[c2da_fresh57 + 2]) << 0x10 | uint(c2da_mem[c2da_fresh57 + 3]) << 0x18), int(uint(c2da_mem[c2da_fp + 16]) | uint(c2da_mem[c2da_fp + 17]) << 0x8 | uint(c2da_mem[c2da_fp + 18]) << 0x10 | uint(c2da_mem[c2da_fp + 19]) << 0x18))
+            let c2da_fresh58 : int = int(uint(c2da_mem[c2da_fp]) | uint(c2da_mem[c2da_fp + 1]) << 0x8 | uint(c2da_mem[c2da_fp + 2]) << 0x10 | uint(c2da_mem[c2da_fp + 3]) << 0x18)
+            let c2da_fresh59 : int = c2da_fresh58 + 1
+            let c2da_fresh60 : uint = uint(c2da_fresh59)
+            c2da_mem[c2da_fp] = uint8(c2da_fresh60)
+            c2da_mem[c2da_fp + 1] = uint8(c2da_fresh60 >> 0x8)
+            c2da_mem[c2da_fp + 2] = uint8(c2da_fresh60 >> 0x10)
+            c2da_mem[c2da_fp + 3] = uint8(c2da_fresh60 >> 0x18)
         }
     }
     return
@@ -696,12 +699,12 @@ def private Host_Error_c2da_frame(var error : int; c2da_va_args : array<C2daVaAr
         Sys_Error(718235, [C2daVaArg(tag = 3, i64 = 0, f64 = 0.0lf, raw = uint64(c2da_fp))])
     }
     CL_Disconnect()
-    let c2da_fresh60 : int = -1
-    let c2da_fresh61 : uint = uint(c2da_fresh60)
-    c2da_mem[7636] = uint8(c2da_fresh61)
-    c2da_mem[7637] = uint8(c2da_fresh61 >> 0x8)
-    c2da_mem[7638] = uint8(c2da_fresh61 >> 0x10)
-    c2da_mem[7639] = uint8(c2da_fresh61 >> 0x18)
+    let c2da_fresh62 : int = -1
+    let c2da_fresh63 : uint = uint(c2da_fresh62)
+    c2da_mem[7636] = uint8(c2da_fresh63)
+    c2da_mem[7637] = uint8(c2da_fresh63 >> 0x8)
+    c2da_mem[7638] = uint8(c2da_fresh63 >> 0x10)
+    c2da_mem[7639] = uint8(c2da_fresh63 >> 0x18)
     Host_Error__inerror = 0u
     c2da_std_longjmp("host_abortserver", 1)
     return
@@ -714,12 +717,12 @@ def private Host_ShutdownServer_c2da_frame(var crash_0 : uint; c2da_fp : int) {
     if ((uint(c2da_mem[225856]) | uint(c2da_mem[225857]) << 0x8 | uint(c2da_mem[225858]) << 0x10 | uint(c2da_mem[225859]) << 0x18) == 0u) {
         return
     }
-    let c2da_fresh62 : uint = 0u
-    let c2da_fresh63 : uint = c2da_fresh62
-    c2da_mem[225856] = uint8(c2da_fresh63)
-    c2da_mem[225857] = uint8(c2da_fresh63 >> 0x8)
-    c2da_mem[225858] = uint8(c2da_fresh63 >> 0x10)
-    c2da_mem[225859] = uint8(c2da_fresh63 >> 0x18)
+    let c2da_fresh64 : uint = 0u
+    let c2da_fresh65 : uint = c2da_fresh64
+    c2da_mem[225856] = uint8(c2da_fresh65)
+    c2da_mem[225857] = uint8(c2da_fresh65 >> 0x8)
+    c2da_mem[225858] = uint8(c2da_fresh65 >> 0x10)
+    c2da_mem[225859] = uint8(c2da_fresh65 >> 0x18)
     if ((uint(c2da_mem[5520]) | uint(c2da_mem[5521]) << 0x8 | uint(c2da_mem[5522]) << 0x10 | uint(c2da_mem[5523]) << 0x18) == 2u) {
         CL_Disconnect()
     }
@@ -748,27 +751,27 @@ def private Host_ShutdownServer_c2da_frame(var crash_0 : uint; c2da_fp : int) {
             break
         }
     }
-    let c2da_fresh64 : uint = uint(c2da_fp)
-    c2da_mem[c2da_fp + 24] = uint8(c2da_fresh64)
-    c2da_mem[c2da_fp + 25] = uint8(c2da_fresh64 >> 0x8)
-    c2da_mem[c2da_fp + 26] = uint8(c2da_fresh64 >> 0x10)
-    c2da_mem[c2da_fp + 27] = uint8(c2da_fresh64 >> 0x18)
+    let c2da_fresh66 : uint = uint(c2da_fp)
+    c2da_mem[c2da_fp + 24] = uint8(c2da_fresh66)
+    c2da_mem[c2da_fp + 25] = uint8(c2da_fresh66 >> 0x8)
+    c2da_mem[c2da_fp + 26] = uint8(c2da_fresh66 >> 0x10)
+    c2da_mem[c2da_fp + 27] = uint8(c2da_fresh66 >> 0x18)
     c2da_mem[c2da_fp + 28] = 0u8
     c2da_mem[c2da_fp + 29] = 0u8
     c2da_mem[c2da_fp + 30] = 0u8
     c2da_mem[c2da_fp + 31] = 0u8
-    let c2da_fresh65 : int = 4
-    let c2da_fresh66 : uint = uint(c2da_fresh65)
-    c2da_mem[c2da_fp + 32] = uint8(c2da_fresh66)
-    c2da_mem[c2da_fp + 33] = uint8(c2da_fresh66 >> 0x8)
-    c2da_mem[c2da_fp + 34] = uint8(c2da_fresh66 >> 0x10)
-    c2da_mem[c2da_fp + 35] = uint8(c2da_fresh66 >> 0x18)
-    let c2da_fresh67 : int = 0
+    let c2da_fresh67 : int = 4
     let c2da_fresh68 : uint = uint(c2da_fresh67)
-    c2da_mem[c2da_fp + 36] = uint8(c2da_fresh68)
-    c2da_mem[c2da_fp + 37] = uint8(c2da_fresh68 >> 0x8)
-    c2da_mem[c2da_fp + 38] = uint8(c2da_fresh68 >> 0x10)
-    c2da_mem[c2da_fp + 39] = uint8(c2da_fresh68 >> 0x18)
+    c2da_mem[c2da_fp + 32] = uint8(c2da_fresh68)
+    c2da_mem[c2da_fp + 33] = uint8(c2da_fresh68 >> 0x8)
+    c2da_mem[c2da_fp + 34] = uint8(c2da_fresh68 >> 0x10)
+    c2da_mem[c2da_fp + 35] = uint8(c2da_fresh68 >> 0x18)
+    let c2da_fresh69 : int = 0
+    let c2da_fresh70 : uint = uint(c2da_fresh69)
+    c2da_mem[c2da_fp + 36] = uint8(c2da_fresh70)
+    c2da_mem[c2da_fp + 37] = uint8(c2da_fresh70 >> 0x8)
+    c2da_mem[c2da_fp + 38] = uint8(c2da_fresh70 >> 0x10)
+    c2da_mem[c2da_fp + 39] = uint8(c2da_fresh70 >> 0x18)
     MSG_WriteByte(c2da_fp + 16, 2)
     count = NET_SendToAll(c2da_fp + 16, 5)
     if (count != 0) {
@@ -821,7 +824,7 @@ def private Host_ClientCommands_c2da_frame(var fmt_2 : int; c2da_va_args : array
 
 // This unit's static data, at heap offset 717456.
 let private c2da_lin_static_host_seg = fixed_array<int>(717456, 943)
-let private c2da_lin_static_host = fixed_array<uint64>(0x6172665f74736f68ul, 0x300065746172656dul, 0x70735f74736f6800ul, 0x7379730073646565ul, 0x657461726369745ful, 0x65730035302e3000ul, 0x666f727072657672ul, 0x6761726600656c69ul, 0x69740074696d696cul, 0x74696d696c656dul, 0x79616c706d616574ul, 0x76656c656d617300ul, 0x6978656f6e006c65ul, 0x6c6c696b730074ul, 0x6f6c657665640031ul, 0x7461656400726570ul, 0x6300686374616d68ul, 0x7375617000706f6ful, 0x6d657400656c6261ul, 0x6e65696c43003170ul, 0x6d65722073252074ul, 0x4300000a6465766ful, 0x20676e697261656cul, 0xa79726f6d656dul, 0x6f6d656d6e696d2dul, 0x20796c6e4f007972ul, 0x656d2066312e3425ul, 0x656d20666f207367ul, 0x6176612079726f6dul, 0x202c656c62616c69ul, 0x78652074276e6163ul, 0x6167206574756365ul, 0x772e78666700656dul, 0x203a657845006461ul, 0x39313a35353a3330ul, 0x2032312074634f20ul, 0x3425000a36323032ul, 0x6167656d2066312eul, 0x6165682065747962ul, 0x702f786667000a70ul, 0x6c2e657474656c61ul, 0x646c756f4300706dul, 0x64616f6c2074276eul, 0x6c61702f78666720ul, 0x706d6c2e65747465ul, 0x6c6f632f78666700ul, 0x6d6c2e70616d726ful, 0x6e646c756f430070ul, 0x2064616f6c207427ul, 0x6f6c6f632f786667ul, 0x706d6c2e70616d72ul, 0x7571206365786500ul, 0xa63722e656b61ul, 0x55485f54534f482dul, 0x2d4c4556454c4b4eul, 0x3d3d3d3d3d3d3d00ul, 0x4920656b6175513dul, 0x7a696c616974696eul, 0x3d3d3d3d3d3d6465ul, 0x65642d000a3d3d3dul, 0x64657461636964ul, 0x6e657473696c2dul, 0x656e6f20796c6e4ful, 0x6465642d20666f20ul, 0x6f20646574616369ul, 0x657473696c2d2072ul, 0x6562206e6163206eul, 0x6966696365707320ul, 0x6e65696c63006465ul, 0x79616c702d007374ul, 0x206f4e006b636162ul, 0x617020726568746ful, 0x73726574656d6172ul, 0x6465776f6c6c6120ul, 0x702d206874697720ul, 0xa6b63616279616cul, 0x762e656b61757100ul, 0x6279616c70007263ul, 0x656c6966206b6361ul, 0x756f6620746f6e20ul, 0x61766e49000a646eul, 0x6e6769732064696cul, 0x6e69206572757461ul, 0x6c69662072637620ul, 0x6f6365722d000a65ul, 0x7275636572006472ul, 0x7568732065766973ul, 0x25000a6e776f6474ul, 0x6769666e6f632f73ul, 0x430077006766632eul, 0x2074276e646c756ful, 0x6f63206574697277ul, 0x6766632e6769666eul, 0x5f74736f48000a2eul, 0x72203a726f727245ul, 0x6576697372756365ul, 0x7265746e6520796cul, 0x5f74736f48006465ul, 0x25203a726f727245ul, 0x5f74736f48000a73ul, 0x6e776f6474756853ul, 0x203a726576726553ul, 0x646e65535f54454eul, 0x6166206c6c416f54ul, 0x726f662064656c69ul, 0x65696c6320752520ul, 0x736f48000a73746eul, 0x6d6147646e455f74ul, 0x73000a7325203a65ul, 0x6f72707265767265ul, 0x3225203a656c6966ul, 0x746e65696c632069ul, 0x736d206932252073ul, 0x20693325000a6365ul, 0x2069332520746f74ul, 0x2520726576726573ul, 0x2520786667206933ul, 0xa646e73206933ul)
+let private c2da_lin_static_host = fixed_array<uint64>(0x6172665f74736f68ul, 0x300065746172656dul, 0x70735f74736f6800ul, 0x7379730073646565ul, 0x657461726369745ful, 0x65730035302e3000ul, 0x666f727072657672ul, 0x6761726600656c69ul, 0x69740074696d696cul, 0x74696d696c656dul, 0x79616c706d616574ul, 0x76656c656d617300ul, 0x6978656f6e006c65ul, 0x6c6c696b730074ul, 0x6f6c657665640031ul, 0x7461656400726570ul, 0x6300686374616d68ul, 0x7375617000706f6ful, 0x6d657400656c6261ul, 0x6e65696c43003170ul, 0x6d65722073252074ul, 0x4300000a6465766ful, 0x20676e697261656cul, 0xa79726f6d656dul, 0x6f6d656d6e696d2dul, 0x20796c6e4f007972ul, 0x656d2066312e3425ul, 0x656d20666f207367ul, 0x6176612079726f6dul, 0x202c656c62616c69ul, 0x78652074276e6163ul, 0x6167206574756365ul, 0x772e78666700656dul, 0x203a657845006461ul, 0x37323a30353a3430ul, 0x2032312074634f20ul, 0x3425000a36323032ul, 0x6167656d2066312eul, 0x6165682065747962ul, 0x702f786667000a70ul, 0x6c2e657474656c61ul, 0x646c756f4300706dul, 0x64616f6c2074276eul, 0x6c61702f78666720ul, 0x706d6c2e65747465ul, 0x6c6f632f78666700ul, 0x6d6c2e70616d726ful, 0x6e646c756f430070ul, 0x2064616f6c207427ul, 0x6f6c6f632f786667ul, 0x706d6c2e70616d72ul, 0x7571206365786500ul, 0xa63722e656b61ul, 0x55485f54534f482dul, 0x2d4c4556454c4b4eul, 0x3d3d3d3d3d3d3d00ul, 0x4920656b6175513dul, 0x7a696c616974696eul, 0x3d3d3d3d3d3d6465ul, 0x65642d000a3d3d3dul, 0x64657461636964ul, 0x6e657473696c2dul, 0x656e6f20796c6e4ful, 0x6465642d20666f20ul, 0x6f20646574616369ul, 0x657473696c2d2072ul, 0x6562206e6163206eul, 0x6966696365707320ul, 0x6e65696c63006465ul, 0x79616c702d007374ul, 0x206f4e006b636162ul, 0x617020726568746ful, 0x73726574656d6172ul, 0x6465776f6c6c6120ul, 0x702d206874697720ul, 0xa6b63616279616cul, 0x762e656b61757100ul, 0x6279616c70007263ul, 0x656c6966206b6361ul, 0x756f6620746f6e20ul, 0x61766e49000a646eul, 0x6e6769732064696cul, 0x6e69206572757461ul, 0x6c69662072637620ul, 0x6f6365722d000a65ul, 0x7275636572006472ul, 0x7568732065766973ul, 0x25000a6e776f6474ul, 0x6769666e6f632f73ul, 0x430077006766632eul, 0x2074276e646c756ful, 0x6f63206574697277ul, 0x6766632e6769666eul, 0x5f74736f48000a2eul, 0x72203a726f727245ul, 0x6576697372756365ul, 0x7265746e6520796cul, 0x5f74736f48006465ul, 0x25203a726f727245ul, 0x5f74736f48000a73ul, 0x6e776f6474756853ul, 0x203a726576726553ul, 0x646e65535f54454eul, 0x6166206c6c416f54ul, 0x726f662064656c69ul, 0x65696c6320752520ul, 0x736f48000a73746eul, 0x6d6147646e455f74ul, 0x73000a7325203a65ul, 0x6f72707265767265ul, 0x3225203a656c6966ul, 0x746e65696c632069ul, 0x736d206932252073ul, 0x20693325000a6365ul, 0x2069332520746f74ul, 0x2520726576726573ul, 0x2520786667206933ul, 0xa646e73206933ul)
 
 [init]
 def private c2da_lin_init_static_host() {
